@@ -1,7 +1,7 @@
 // lib/features/fiscal_periods/controller/fiscal_year_controller_test.dart
 
 import 'package:accounting_app/features/fiscal_periods/controller/fiscal_year_controller.dart';
-import 'package:accounting_app/features/fiscal_periods/fiscal_year.dart';
+import 'package:accounting_app/features/fiscal_periods/domain/fiscal_year.dart';
 import 'package:accounting_app/features/fiscal_periods/repository/fiscal_year_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
