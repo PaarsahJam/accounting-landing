@@ -1,7 +1,6 @@
 // lib/features/fiscal_periods/presentation/year_end_closing_page.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class YearEndClosingPage extends StatelessWidget {
   @override

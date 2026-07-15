@@ -1,7 +1,8 @@
 // lib/features/fiscal_periods/repository/fiscal_year_repository_test.dart
 
+import 'package:accounting_app/features/fiscal_periods/fiscal_year.dart';
+import 'package:accounting_app/features/fiscal_periods/repository/fiscal_year_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
-import '../fiscal_year_repository.dart';
 
 void main() {
   group('FiscalYearRepository', () {

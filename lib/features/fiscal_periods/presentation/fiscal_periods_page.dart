@@ -1,5 +1,6 @@
 // lib/features/fiscal_periods/presentation/fiscal_periods_page.dart
 
+import 'package:accounting_app/features/fiscal_periods/domain/fiscal_period.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../controller/fiscal_period_controller.dart';

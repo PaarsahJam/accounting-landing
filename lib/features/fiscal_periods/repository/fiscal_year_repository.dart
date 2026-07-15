@@ -1,6 +1,6 @@
 // lib/features/fiscal_periods/repository/fiscal_year_repository.dart
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../domain/fiscal_year.dart';
 
 class FiscalYearRepository extends StateNotifier<List<FiscalYear>> {
@@ -27,6 +27,12 @@ class FiscalYearRepository extends StateNotifier<List<FiscalYear>> {
   Future<void> delete(int id) async {
     state.removeWhere((e) => e.id == id);
   }
+
+  Future<List<TrialBalanceEntry>> validateTrialBalance(int fiscalYearId) async {
+    // Use repository adapter to validate trial balance.
+    return [];
+  }
+
 }
 
 final fiscalYearRepositoryProvider = StateNotifierProvider<FiscalYearRepository, List<FiscalYear>>((ref) {

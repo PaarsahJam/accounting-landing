@@ -1,5 +1,6 @@
 // lib/features/fiscal_periods/presentation/closing_preview_dialog.dart
 
+import 'package:accounting_app/features/fiscal_periods/domain/closing_entry.dart';
 import 'package:flutter/material.dart';
 
 class ClosingPreviewDialog extends StatelessWidget {

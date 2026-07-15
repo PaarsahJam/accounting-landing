@@ -1,6 +1,7 @@
 // lib/features/fiscal_periods/controller/fiscal_period_controller.dart
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:accounting_app/features/fiscal_periods/domain/fiscal_period.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../repository/fiscal_period_repository.dart';
 
 class FiscalPeriodController extends StateNotifier<List<FiscalPeriod>> {
