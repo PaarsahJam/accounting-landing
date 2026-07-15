@@ -1,0 +1,164 @@
+# Flutter/Dart Project
+
+### Ignore files and directories for Flutter projects
+
+# Ignore build output
+/build/
+/build_runner/#
+/build_web_compilers/#
+/dart_tool/
+
+# Ignore generated files
+.dart_tool/
+*.packages
+*.pubspec.cache
+pubspec.lock
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+/.idea/
+
+# Ignore Android Studio specific files
+.classpath
+.project
+.settings/
+
+# Ignore Xcode specific files
+xcuserdata/
+.xcscmblueprint
+.xcodeproj/
+DartCode/
+
+# Ignore IntelliJ IDEA specific files
+*.iml
+*.ipr
+*.iws
+
+# Ignore Flutter/Dart analysis results
+analysis_options.yaml
+flutter_tool_state
+packages/flutter/lib/src/foundation/_localizations_utils.g.dart
+packages/flutter/lib/src/services/keyboard_service.g.dart
+packages/flutter/lib/src/rendering/shapes/circle_border.g.dart
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+.mypy_cache/
+
+# IntelliJ / Android Studio
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub/
+.pub-cache/
+build/
+
+# Generated files
+generated_plugin_registrant.dart
+
+# Flutter SDK
+flutter_export_environment.sh
+
+# Coverage
+coverage/
+lcov.info
+
+# Dart
+doc/api/
+
+# Android
+**/android/**/gradle-wrapper.jar
+**/android/.gradle/
+**/android/captures/
+**/android/local.properties
+**/android/key.properties
+
+# Android signing keys
+*.jks
+*.keystore
+*.pem
+
+# iOS
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Pods/
+**/ios/.symlinks/
+
+# CocoaPods
+Podfile.lock
+
+# macOS
+**/macos/Flutter/ephemeral/
+**/macos/Pods/
+
+# Linux
+**/linux/flutter/ephemeral/
+
+# Windows
+**/windows/flutter/ephemeral/
+
+# Fuchsia
+.fuchsia/
+
+# Firebase
+firebase-debug.log
+firebase-debug.*.log
+
+# Crashlytics
+crashlytics-build.properties
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# API Keys / Secrets
+google-services.json
+GoogleService-Info.plist
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# Archive files
+*.zip
+*.tar
+*.gz
+
+# IDE caches
+.cache/
+
+# Generated localization
+lib/generated/

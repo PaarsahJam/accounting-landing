@@ -1,0 +1,1261 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Persian (`fa`).
+class AppLocalizationsFa extends AppLocalizations {
+  AppLocalizationsFa([String locale = 'fa']) : super(locale);
+
+  @override
+  String get appTitle => 'حسابداری';
+
+  @override
+  String get login => 'ورود';
+
+  @override
+  String get signup => 'ثبت نام';
+
+  @override
+  String get email => 'ایمیل';
+
+  @override
+  String get password => 'رمز عبور';
+
+  @override
+  String get requiredField => 'این فیلد الزامی است';
+
+  @override
+  String get signupTodoMessage => 'ثبت‌نام در حال حاضر در دسترس نیست.';
+
+  @override
+  String pageNotFound(Object path) {
+    return 'صفحه‌ای با این مسیر یافت نشد: $path';
+  }
+
+  @override
+  String get dashboard => 'داشبورد';
+
+  @override
+  String get invoicePageTitle => 'فاکتورها';
+
+  @override
+  String get invoiceAddTitle => 'افزودن فاکتور';
+
+  @override
+  String get invoiceEditTitle => 'ویرایش فاکتور';
+
+  @override
+  String get invoiceCustomer => 'نام مشتری';
+
+  @override
+  String get invoiceAmount => 'مبلغ';
+
+  @override
+  String get invoiceStatus => 'وضعیت';
+
+  @override
+  String get invoiceDescription => 'توضیحات';
+
+  @override
+  String get invoiceCancel => 'انصراف';
+
+  @override
+  String get invoiceCreate => 'ایجاد';
+
+  @override
+  String get invoiceSave => 'ذخیره';
+
+  @override
+  String get invoiceRequiredField => 'این فیلد الزامی است';
+
+  @override
+  String get invoiceStatusPending => 'در انتظار';
+
+  @override
+  String get invoiceLoadError => 'خطا در بارگذاری فاکتورها:';
+
+  @override
+  String get invoiceEmptyTitle => 'هنوز فاکتوری ثبت نشده است';
+
+  @override
+  String get invoiceEmptyMessage => 'هیچ فاکتوری ثبت نشده است.';
+
+  @override
+  String get invoiceEditAction => 'ویرایش';
+
+  @override
+  String get invoiceDeleteAction => 'حذف';
+
+  @override
+  String get invoiceCurrencyUnit => 'ریال';
+
+  @override
+  String get refresh => 'تازه‌سازی';
+
+  @override
+  String get dashboardOverview => 'نمای کلی فعالیت‌های حسابداری';
+
+  @override
+  String get dashboardSubtitle => 'شاخص‌های کلیدی برای دوره جاری';
+
+  @override
+  String get dashboardRevenue => 'درآمد';
+
+  @override
+  String get dashboardExpenses => 'هزینه‌ها';
+
+  @override
+  String get dashboardOutstandingInvoices => 'فاکتورهای معوق';
+
+  @override
+  String get dashboardCashFlow => 'جریان نقد';
+
+  @override
+  String get dashboardLoadError => 'خطا در بارگذاری داده‌های داشبورد:';
+
+  @override
+  String get dashboardLoading => 'در حال بارگذاری داشبورد';
+
+  @override
+  String get dashboardFinancialSubtitle =>
+      'شاخص‌های مالی تجمیع‌شده از داده‌های آزمایشی';
+
+  @override
+  String get dashboardAccountsReceivable => 'حساب‌های دریافتنی';
+
+  @override
+  String get dashboardTotalOutstandingInvoices => 'کل فاکتورهای معوق';
+
+  @override
+  String get dashboardOverdueInvoices => 'فاکتورهای سررسید گذشته';
+
+  @override
+  String get dashboardReceivedThisMonth => 'مبلغ دریافتی این ماه';
+
+  @override
+  String get dashboardAccountsPayable => 'حساب‌های پرداختنی';
+
+  @override
+  String get dashboardOutstandingVendorBills => 'صورتحساب‌های معوق تأمین‌کننده';
+
+  @override
+  String get dashboardOverdueBills => 'صورتحساب‌های سررسید گذشته';
+
+  @override
+  String get dashboardPaymentsMadeThisMonth => 'پرداخت‌های انجام‌شده این ماه';
+
+  @override
+  String get dashboardInventory => 'موجودی';
+
+  @override
+  String get dashboardProductCount => 'تعداد محصولات';
+
+  @override
+  String get dashboardLowStockProducts => 'محصولات با موجودی کم';
+
+  @override
+  String get dashboardTotalStockQuantity => 'کل موجودی انبار';
+
+  @override
+  String get dashboardWarehouseCount => 'تعداد انبارها';
+
+  @override
+  String get dashboardCashPosition => 'وضعیت نقدینگی';
+
+  @override
+  String get dashboardCash => 'نقد';
+
+  @override
+  String get dashboardBank => 'بانک';
+
+  @override
+  String get dashboardTotalLiquidAssets => 'کل دارایی‌های نقد';
+
+  @override
+  String get dashboardMonthlyRevenue => 'درآمد ماهانه';
+
+  @override
+  String get dashboardMonthlyExpenses => 'هزینه‌های ماهانه';
+
+  @override
+  String get dashboardProfitOverview => 'نمای کلی سود';
+
+  @override
+  String get dashboardGrossProfit => 'سود ناخالص';
+
+  @override
+  String get dashboardNetProfit => 'سود خالص';
+
+  @override
+  String get dashboardRecentActivity => 'فعالیت‌های اخیر';
+
+  @override
+  String get dashboardNoRecentActivity => 'فعالیت اخیری وجود ندارد';
+
+  @override
+  String get dashboardQuickActions => 'اقدامات سریع';
+
+  @override
+  String get dashboardCreateSalesInvoice => 'ایجاد فاکتور فروش';
+
+  @override
+  String get dashboardCreateVendorBill => 'ایجاد صورتحساب فروشنده';
+
+  @override
+  String get dashboardReceiveCustomerPayment => 'ثبت دریافت مشتری';
+
+  @override
+  String get dashboardRecordVendorPayment => 'ثبت پرداخت فروشنده';
+
+  @override
+  String get dashboardViewJournal => 'مشاهده دفتر روزنامه';
+
+  @override
+  String get dashboardActivityPurchaseOrder => 'سفارش خرید';
+
+  @override
+  String get dashboardActivityGoodsReceipt => 'رسید کالا';
+
+  @override
+  String get dashboardActivityVendorBill => 'صورتحساب فروشنده';
+
+  @override
+  String get dashboardActivityVendorPayment => 'پرداخت فروشنده';
+
+  @override
+  String get dashboardActivitySalesInvoice => 'فاکتور فروش';
+
+  @override
+  String get dashboardActivityCustomerPayment => 'دریافت از مشتری';
+
+  @override
+  String get dashboardActivityJournalEntry => 'سند حسابداری';
+
+  @override
+  String get expensesPageTitle => 'هزینه‌ها';
+
+  @override
+  String get expensesLoadError => 'خطا در بارگذاری هزینه‌ها:';
+
+  @override
+  String get expensesEmptyTitle => 'هزینه‌ای موجود نیست';
+
+  @override
+  String get expensesEmptyMessage => 'هنوز هزینه‌ای ثبت نشده است.';
+
+  @override
+  String get reportsPageTitle => 'گزارش‌ها';
+
+  @override
+  String get reportsLoadError => 'خطا در بارگذاری گزارش‌ها:';
+
+  @override
+  String get reportsEmptyTitle => 'گزارشی موجود نیست';
+
+  @override
+  String get reportsEmptyMessage => 'هنوز گزارشی ایجاد نشده است.';
+
+  @override
+  String get financialReportsPageTitle => 'گزارش‌های مالی';
+
+  @override
+  String get financialReportsLoadingMessage => 'در حال بارگذاری گزارش‌های مالی';
+
+  @override
+  String get financialReportsNoReportsTitle => 'گزارشی موجود نیست';
+
+  @override
+  String get financialReportsNoReportsMessage =>
+      'برای دوره انتخاب‌شده داده‌ای در دسترس نیست.';
+
+  @override
+  String get financialReportsTrialBalance => 'تراز آزمایشی';
+
+  @override
+  String get financialReportsBalanceSheet => 'ترازنامه';
+
+  @override
+  String get financialReportsCashFlow => 'جریان نقد';
+
+  @override
+  String get financialReportsSearchAccount => 'جست‌وجوی حساب';
+
+  @override
+  String get financialReportsStartLabel => 'از';
+
+  @override
+  String get financialReportsEndLabel => 'تا';
+
+  @override
+  String get financialReportsFilterAll => 'همه';
+
+  @override
+  String get financialReportsFilterDebit => 'بدهکار';
+
+  @override
+  String get financialReportsFilterCredit => 'بستانکار';
+
+  @override
+  String get financialReportsArAging => 'AR Aging';
+
+  @override
+  String get financialReportsApAging => 'AP Aging';
+
+  @override
+  String get financialReportsRevenue => 'درآمد';
+
+  @override
+  String get financialReportsExpenses => 'هزینه‌ها';
+
+  @override
+  String get financialReportsNetProfit => 'سود خالص';
+
+  @override
+  String get financialReportsBalanced => 'تراز';
+
+  @override
+  String get financialReportsYes => 'بله';
+
+  @override
+  String get financialReportsNo => 'خیر';
+
+  @override
+  String get financialReportsProfitAndLoss => 'صورت سود و زیان';
+
+  @override
+  String get financialReportsAccountCode => 'کد حساب';
+
+  @override
+  String get financialReportsAccountName => 'نام حساب';
+
+  @override
+  String get financialReportsDebit => 'بدهکار';
+
+  @override
+  String get financialReportsCredit => 'بستانکار';
+
+  @override
+  String get financialReportsEndingBalance => 'مانده نهایی';
+
+  @override
+  String get financialReportsAssets => 'دارایی‌ها';
+
+  @override
+  String get financialReportsLiabilities => 'بدهی‌ها';
+
+  @override
+  String get financialReportsEquity => 'حقوق صاحبان سهام';
+
+  @override
+  String get financialReportsCash => 'نقد';
+
+  @override
+  String get financialReportsBank => 'بانک';
+
+  @override
+  String get financialReportsReceivables => 'دریافتنی‌ها';
+
+  @override
+  String get financialReportsInventory => 'موجودی';
+
+  @override
+  String get financialReportsPayables => 'پرداختنی‌ها';
+
+  @override
+  String get financialReportsCapital => 'سرمایه';
+
+  @override
+  String get financialReportsOperatingActivities => 'فعالیت‌های عملیاتی';
+
+  @override
+  String get reportPeriodLabel => 'دوره';
+
+  @override
+  String get reportSelectLabel => 'انتخاب گزارش';
+
+  @override
+  String get supportedFiltersLabel => 'فیلترهای پشتیبانی‌شده';
+
+  @override
+  String get exportOptionsLabel => 'گزینه‌های خروجی';
+
+  @override
+  String get mockOnlyLabel => 'فقط شبیه‌سازی';
+
+  @override
+  String get revenueSummaryLabel => 'درآمد';
+
+  @override
+  String get expensesSummaryLabel => 'هزینه‌ها';
+
+  @override
+  String get netIncomeSummaryLabel => 'سود خالص';
+
+  @override
+  String get cashBalanceSummaryLabel => 'مانده نقد';
+
+  @override
+  String get settingsPageTitle => 'تنظیمات';
+
+  @override
+  String get settingsLoadError => 'امکان بارگذاری تنظیمات وجود ندارد';
+
+  @override
+  String get customersPageTitle => 'مشتریان';
+
+  @override
+  String get customersLoadError => 'خطا در بارگذاری مشتریان:';
+
+  @override
+  String get customersEmptyTitle => 'مشتری‌ای موجود نیست';
+
+  @override
+  String get customersEmptyMessage => 'هنوز مشتری‌ای ثبت نشده است.';
+
+  @override
+  String get customerAddTitle => 'افزودن مشتری';
+
+  @override
+  String get customerEditTitle => 'ویرایش مشتری';
+
+  @override
+  String get customerName => 'نام';
+
+  @override
+  String get customerCompany => 'شرکت';
+
+  @override
+  String get customerEmail => 'ایمیل';
+
+  @override
+  String get customerPhone => 'تلفن';
+
+  @override
+  String get customerBalance => 'مانده معوق';
+
+  @override
+  String get customerStatus => 'وضعیت';
+
+  @override
+  String get customerNotes => 'یادداشت';
+
+  @override
+  String get customerCreate => 'ایجاد';
+
+  @override
+  String get customerSave => 'ذخیره';
+
+  @override
+  String get generalLedgerPageTitle => 'دفتر کل';
+
+  @override
+  String get generalLedgerLoadError => 'خطا در بارگذاری دفتر کل:';
+
+  @override
+  String get generalLedgerEmptyTitle => 'داده‌ای برای دفتر کل موجود نیست';
+
+  @override
+  String get generalLedgerEmptyMessage =>
+      'هنوز داده‌ای برای دفتر کل در دسترس نیست.';
+
+  @override
+  String get generalLedgerSearchHint => 'جست‌وجوی حساب‌ها';
+
+  @override
+  String get generalLedgerActive => 'فعال';
+
+  @override
+  String get generalLedgerInactive => 'غیرفعال';
+
+  @override
+  String get generalLedgerBalanced => 'تراز';
+
+  @override
+  String get generalLedgerUnbalanced => 'نامتوازن';
+
+  @override
+  String get chartOfAccountsTitle => 'طرح حساب‌ها';
+
+  @override
+  String get journalEntriesTitle => 'سندهای حسابداری';
+
+  @override
+  String get trialBalanceTitle => 'تراز آزمایشی';
+
+  @override
+  String get ledgerAccountTypeLabel => 'نوع';
+
+  @override
+  String get ledgerOpeningBalanceLabel => 'مانده افتتاحیه';
+
+  @override
+  String get ledgerCurrentBalanceLabel => 'مانده فعلی';
+
+  @override
+  String get ledgerActiveLabel => 'فعال';
+
+  @override
+  String get ledgerAccountAsset => 'دارایی';
+
+  @override
+  String get ledgerAccountLiability => 'بدهی';
+
+  @override
+  String get ledgerAccountEquity => 'حقوق صاحبان سهام';
+
+  @override
+  String get ledgerAccountRevenue => 'درآمد';
+
+  @override
+  String get ledgerAccountExpense => 'هزینه';
+
+  @override
+  String get journalEntryDetailTitle => 'سند حسابداری';
+
+  @override
+  String get journalEntryReferenceLabel => 'مرجع';
+
+  @override
+  String get journalEntryDateLabel => 'تاریخ';
+
+  @override
+  String get journalEntryMemoLabel => 'یادداشت';
+
+  @override
+  String get journalEntryLinesLabel => 'ردیف‌ها';
+
+  @override
+  String get journalEntryNoMemo => 'بدون یادداشت';
+
+  @override
+  String get journalEntryLineDefault => 'ردیف سند';
+
+  @override
+  String get journalEntryDebit => 'بدهکار';
+
+  @override
+  String get journalEntryCredit => 'بستانکار';
+
+  @override
+  String get accountDetailPageTitle => 'جزئیات حساب';
+
+  @override
+  String get accountDetailLoadingMessage => 'در حال بارگذاری جزئیات حساب';
+
+  @override
+  String get accountDetailBalanceLabel => 'مانده فعلی';
+
+  @override
+  String get accountDetailTransactionsTitle => 'معاملات';
+
+  @override
+  String get accountDetailNoTransactionsTitle => 'معامله‌ای وجود ندارد';
+
+  @override
+  String get accountDetailNoTransactionsMessage =>
+      'این حساب هنوز معامله‌ای ندارد.';
+
+  @override
+  String get trialBalanceDebitLabel => 'بدهکار';
+
+  @override
+  String get trialBalanceCreditLabel => 'بستانکار';
+
+  @override
+  String get inventoryPageTitle => 'موجودی';
+
+  @override
+  String get inventoryLoadError => 'خطا در بارگذاری موجودی:';
+
+  @override
+  String get inventoryEmptyTitle => 'محصولی موجود نیست';
+
+  @override
+  String get inventoryEmptyMessage => 'هنوز محصولی در دسترس نیست.';
+
+  @override
+  String get inventorySearchHint => 'جست‌وجوی محصولات';
+
+  @override
+  String get inventoryCategoryFilter => 'فیلتر دسته‌بندی';
+
+  @override
+  String get inventoryAllCategories => 'همه دسته‌بندی‌ها';
+
+  @override
+  String get inventoryAddProduct => 'افزودن محصول';
+
+  @override
+  String get inventoryEditProduct => 'ویرایش محصول';
+
+  @override
+  String get inventoryDeleteProduct => 'حذف محصول';
+
+  @override
+  String get inventoryCreate => 'ایجاد';
+
+  @override
+  String get inventorySave => 'ذخیره';
+
+  @override
+  String get inventorySku => 'SKU';
+
+  @override
+  String get inventoryName => 'نام';
+
+  @override
+  String get inventoryDescription => 'توضیحات';
+
+  @override
+  String get inventoryCategory => 'دسته‌بندی';
+
+  @override
+  String get inventoryUnit => 'واحد';
+
+  @override
+  String get inventoryPrice => 'قیمت';
+
+  @override
+  String get inventoryStockOnHand => 'موجودی فعلی';
+
+  @override
+  String get inventoryActive => 'فعال';
+
+  @override
+  String get inventoryWarehousesTitle => 'انبارها';
+
+  @override
+  String get inventoryWarehousesLoadError => 'خطا در بارگذاری انبارها:';
+
+  @override
+  String get inventoryWarehousesEmptyTitle => 'انباری موجود نیست';
+
+  @override
+  String get inventoryWarehousesEmptyMessage => 'هنوز انباری در دسترس نیست.';
+
+  @override
+  String get inventoryStockDetailLoadError => 'خطا در بارگذاری جزئیات موجودی:';
+
+  @override
+  String get inventoryStockDetailEmptyTitle => 'حرکت موجودی وجود ندارد';
+
+  @override
+  String get inventoryStockDetailEmptyMessage =>
+      'این محصول هنوز حرکت موجودی ندارد.';
+
+  @override
+  String get inventoryStockDetailQuantity => 'موجودی فعلی';
+
+  @override
+  String get inventoryStockDetailWarehouse => 'انبار';
+
+  @override
+  String get inventoryStockDetailMovementHistory => 'تاریخچه حرکت‌ها';
+
+  @override
+  String get inventoryStockDetailNoWarehouse => 'انباری اختصاص داده نشده است';
+
+  @override
+  String get purchaseOrdersPageTitle => 'سفارش‌های خرید';
+
+  @override
+  String get purchaseOrdersLoadError => 'خطا در بارگذاری سفارش‌های خرید:';
+
+  @override
+  String get purchaseOrdersEmptyTitle => 'سفارش خریدی موجود نیست';
+
+  @override
+  String get purchaseOrdersEmptyMessage => 'هنوز سفارش خرید ثبت نشده است.';
+
+  @override
+  String get purchaseOrderAddTitle => 'افزودن سفارش خرید';
+
+  @override
+  String get purchaseOrderEditTitle => 'ویرایش سفارش خرید';
+
+  @override
+  String get purchaseOrderDeleteTitle => 'حذف سفارش خرید';
+
+  @override
+  String get purchaseOrderCreate => 'ایجاد';
+
+  @override
+  String get purchaseOrderSave => 'ذخیره';
+
+  @override
+  String get purchaseOrderReference => 'مرجع';
+
+  @override
+  String get purchaseOrderTitle => 'عنوان';
+
+  @override
+  String get purchaseOrderVendor => 'تأمین‌کننده';
+
+  @override
+  String get purchaseOrderStatus => 'وضعیت';
+
+  @override
+  String get purchaseOrderNotes => 'یادداشت';
+
+  @override
+  String get purchaseOrderLineDescription => 'توضیح ردیف';
+
+  @override
+  String get purchaseOrderQuantity => 'تعداد';
+
+  @override
+  String get purchaseOrderUnitPrice => 'قیمت واحد';
+
+  @override
+  String get purchaseOrderSearchHint => 'جست‌وجوی سفارش‌های خرید';
+
+  @override
+  String get vendorBillsPageTitle => 'صورتحساب‌های تأمین‌کننده';
+
+  @override
+  String get vendorBillsLoadError =>
+      'خطا در بارگذاری صورتحساب‌های تأمین‌کننده:';
+
+  @override
+  String get vendorBillsEmptyTitle => 'صورتحساب تأمین‌کننده‌ای موجود نیست';
+
+  @override
+  String get vendorBillsEmptyMessage =>
+      'هنوز صورتحساب تأمین‌کننده‌ای ثبت نشده است.';
+
+  @override
+  String get vendorBillAddTitle => 'افزودن صورتحساب تأمین‌کننده';
+
+  @override
+  String get vendorBillEditTitle => 'ویرایش صورتحساب تأمین‌کننده';
+
+  @override
+  String get vendorBillDetailTitle => 'جزئیات صورتحساب تأمین‌کننده';
+
+  @override
+  String get vendorBillDeleteTitle => 'حذف صورتحساب تأمین‌کننده';
+
+  @override
+  String get vendorBillCreate => 'ایجاد';
+
+  @override
+  String get vendorBillSave => 'ذخیره';
+
+  @override
+  String get vendorBillReference => 'مرجع';
+
+  @override
+  String get vendorBillTitle => 'عنوان';
+
+  @override
+  String get vendorBillVendor => 'تأمین‌کننده';
+
+  @override
+  String get vendorBillPurchaseOrder => 'سفارش خرید';
+
+  @override
+  String get vendorBillGoodsReceipt => 'رسید کالا';
+
+  @override
+  String get vendorBillStatus => 'وضعیت';
+
+  @override
+  String get vendorBillNotes => 'یادداشت';
+
+  @override
+  String get vendorBillSearchHint => 'جست‌وجوی صورتحساب‌های تأمین‌کننده';
+
+  @override
+  String get vendorBillCreateFromReceipt => 'ایجاد از رسید کالا';
+
+  @override
+  String get vendorBillLinesLabel => 'ردیف‌ها';
+
+  @override
+  String get salesInvoicesPageTitle => 'فاکتورهای فروش';
+
+  @override
+  String get salesInvoicesLoadError => 'خطا در بارگذاری فاکتورهای فروش:';
+
+  @override
+  String get salesInvoicesEmptyTitle => 'فاکتور فروش موجود نیست';
+
+  @override
+  String get salesInvoicesEmptyMessage => 'هنوز فاکتور فروش ثبت نشده است.';
+
+  @override
+  String get salesInvoiceAddTitle => 'افزودن فاکتور فروش';
+
+  @override
+  String get salesInvoiceEditTitle => 'ویرایش فاکتور فروش';
+
+  @override
+  String get salesInvoiceDetailTitle => 'جزئیات فاکتور فروش';
+
+  @override
+  String get salesInvoiceDeleteTitle => 'حذف فاکتور فروش';
+
+  @override
+  String get salesInvoiceCreate => 'ایجاد';
+
+  @override
+  String get salesInvoiceSave => 'ذخیره';
+
+  @override
+  String get salesInvoiceReference => 'مرجع';
+
+  @override
+  String get salesInvoiceTitle => 'عنوان';
+
+  @override
+  String get salesInvoiceCustomer => 'مشتری';
+
+  @override
+  String get salesInvoiceDueDate => 'تاریخ سررسید';
+
+  @override
+  String get salesInvoiceStatus => 'وضعیت';
+
+  @override
+  String get salesInvoiceNotes => 'یادداشت‌ها';
+
+  @override
+  String get salesInvoiceLinesLabel => 'سطرها';
+
+  @override
+  String get salesInvoiceAddLine => 'افزودن سطر';
+
+  @override
+  String get salesInvoiceSearchHint => 'جست‌وجوی فاکتورهای فروش';
+
+  @override
+  String get salesInvoiceSubtotal => 'جمع جزء';
+
+  @override
+  String get salesInvoiceTax => 'مالیات';
+
+  @override
+  String get salesInvoiceTotal => 'جمع کل';
+
+  @override
+  String get customerPaymentsPageTitle => 'دریافت‌های مشتری';
+
+  @override
+  String get customerPaymentsLoadError => 'خطا در بارگذاری دریافت‌های مشتری:';
+
+  @override
+  String get customerPaymentsEmptyTitle => 'دریافت مشتری موجود نیست';
+
+  @override
+  String get customerPaymentsEmptyMessage => 'هنوز دریافت مشتری ثبت نشده است.';
+
+  @override
+  String get customerPaymentAddTitle => 'افزودن دریافت مشتری';
+
+  @override
+  String get customerPaymentEditTitle => 'ویرایش دریافت مشتری';
+
+  @override
+  String get customerPaymentDetailTitle => 'جزئیات دریافت مشتری';
+
+  @override
+  String get customerPaymentDeleteTitle => 'حذف دریافت مشتری';
+
+  @override
+  String get customerPaymentCreate => 'ایجاد';
+
+  @override
+  String get customerPaymentSave => 'ذخیره';
+
+  @override
+  String get customerPaymentReference => 'مرجع';
+
+  @override
+  String get customerPaymentCustomer => 'مشتری';
+
+  @override
+  String get customerPaymentAmount => 'مبلغ';
+
+  @override
+  String get customerPaymentMethod => 'روش';
+
+  @override
+  String get customerPaymentStatus => 'وضعیت';
+
+  @override
+  String get customerPaymentNotes => 'یادداشت';
+
+  @override
+  String get customerPaymentSearchHint => 'جست‌وجوی دریافت‌های مشتری';
+
+  @override
+  String get customerPaymentAllocationsLabel => 'تخصیص‌ها';
+
+  @override
+  String get customerPaymentAllocationAmount => 'مبلغ تخصیص‌یافته';
+
+  @override
+  String get customerStatementsPageTitle => 'صورت‌حساب‌های مشتری';
+
+  @override
+  String get customerStatementsLoadError =>
+      'خطا در بارگذاری صورت‌حساب‌های مشتری:';
+
+  @override
+  String get customerStatementsEmptyTitle => 'صورت‌حساب مشتری‌ای موجود نیست';
+
+  @override
+  String get customerStatementsEmptyMessage =>
+      'هنوز صورت‌حسابی ایجاد نشده است.';
+
+  @override
+  String get customerStatementsSelectCustomer => 'انتخاب مشتری';
+
+  @override
+  String get customerStatementsDateRange => 'بازه زمانی';
+
+  @override
+  String get customerStatementsOpeningBalance => 'مانده افتتاحیه';
+
+  @override
+  String get customerStatementsRunningBalance => 'مانده جاری';
+
+  @override
+  String get customerStatementsOutstandingBalance => 'مانده معوق';
+
+  @override
+  String get customerStatementsInvoiceHistory => 'تاریخچه فاکتورها';
+
+  @override
+  String get customerStatementsPaymentHistory => 'تاریخچه پرداخت‌ها';
+
+  @override
+  String get customerStatementsAgingTitle => 'سنی‌سازی مطالبات';
+
+  @override
+  String get customerStatementsNoInvoices => 'فاکتوری یافت نشد';
+
+  @override
+  String get customerStatementsNoPayments => 'پرداختی یافت نشد';
+
+  @override
+  String get customerStatementsNoEntries =>
+      'ورودی‌ای در بازه انتخابی وجود ندارد';
+
+  @override
+  String get vendorPaymentsPageTitle => 'پرداخت‌های تأمین‌کننده';
+
+  @override
+  String get vendorPaymentsLoadError =>
+      'خطا در بارگذاری پرداخت‌های تأمین‌کننده:';
+
+  @override
+  String get vendorPaymentsEmptyTitle => 'پرداخت تأمین‌کننده‌ای موجود نیست';
+
+  @override
+  String get vendorPaymentsEmptyMessage =>
+      'هنوز پرداخت تأمین‌کننده‌ای ثبت نشده است.';
+
+  @override
+  String get vendorPaymentAddTitle => 'افزودن پرداخت تأمین‌کننده';
+
+  @override
+  String get vendorPaymentEditTitle => 'ویرایش پرداخت تأمین‌کننده';
+
+  @override
+  String get vendorPaymentDetailTitle => 'جزئیات پرداخت تأمین‌کننده';
+
+  @override
+  String get vendorPaymentDeleteTitle => 'حذف پرداخت تأمین‌کننده';
+
+  @override
+  String get vendorPaymentCreate => 'ایجاد';
+
+  @override
+  String get vendorPaymentSave => 'ذخیره';
+
+  @override
+  String get vendorPaymentReference => 'مرجع';
+
+  @override
+  String get vendorPaymentVendor => 'تأمین‌کننده';
+
+  @override
+  String get vendorPaymentAmount => 'مبلغ';
+
+  @override
+  String get vendorPaymentMethod => 'روش';
+
+  @override
+  String get vendorPaymentStatus => 'وضعیت';
+
+  @override
+  String get vendorPaymentNotes => 'یادداشت';
+
+  @override
+  String get vendorPaymentSearchHint => 'جست‌وجوی پرداخت‌های تأمین‌کننده';
+
+  @override
+  String get vendorPaymentAllocationsLabel => 'تخصیص‌ها';
+
+  @override
+  String get vendorPaymentAllocationAmount => 'مبلغ تخصیص‌یافته';
+
+  @override
+  String get vendorStatementsPageTitle => 'صورت‌حساب‌های تأمین‌کننده';
+
+  @override
+  String get vendorStatementsLoadError =>
+      'خطا در بارگذاری صورت‌حساب‌های تأمین‌کننده:';
+
+  @override
+  String get vendorStatementsEmptyTitle =>
+      'صورت‌حساب تأمین‌کننده‌ای موجود نیست';
+
+  @override
+  String get vendorStatementsEmptyMessage => 'هنوز صورت‌حسابی ایجاد نشده است.';
+
+  @override
+  String get vendorStatementsSelectVendor => 'انتخاب تأمین‌کننده';
+
+  @override
+  String get vendorStatementsDateRange => 'بازه زمانی';
+
+  @override
+  String get vendorStatementsOpeningBalance => 'مانده افتتاحیه';
+
+  @override
+  String get vendorStatementsRunningBalance => 'مانده جاری';
+
+  @override
+  String get vendorStatementsOutstandingBalance => 'مانده معوق';
+
+  @override
+  String get vendorStatementsBillHistory => 'تاریخچه صورتحساب‌ها';
+
+  @override
+  String get vendorStatementsPaymentHistory => 'تاریخچه پرداخت‌ها';
+
+  @override
+  String get vendorStatementsAgingTitle => 'سنی‌سازی بدهی‌ها';
+
+  @override
+  String get vendorStatementsNoBills => 'صورتحسابی یافت نشد';
+
+  @override
+  String get vendorStatementsNoPayments => 'پرداختی یافت نشد';
+
+  @override
+  String get vendorStatementsNoEntries => 'ورودی‌ای در بازه انتخابی وجود ندارد';
+
+  @override
+  String get journalPreviewPageTitle => 'پیش‌نمایش دفتر روزنامه';
+
+  @override
+  String get journalPreviewLoadError =>
+      'بارگذاری پیش‌نمایش دفتر روزنامه انجام نشد.';
+
+  @override
+  String get journalPreviewEmptyTitle => 'پیش‌نمایشی در دسترس نیست';
+
+  @override
+  String get journalPreviewEmptyMessage =>
+      'برای سند انتخاب‌شده هنوز پیش‌نمایش دفتر روزنامه وجود ندارد.';
+
+  @override
+  String get journalPreviewDocument => 'سند';
+
+  @override
+  String get journalPreviewPostingDate => 'تاریخ ثبت';
+
+  @override
+  String get journalPreviewNarration => 'شرح';
+
+  @override
+  String get journalPreviewLinesLabel => 'سطرهای ثبت';
+
+  @override
+  String get journalExplorerPageTitle => 'دفتر کل';
+
+  @override
+  String get journalExplorerLoadError => 'بارگذاری دفتر کل انجام نشد.';
+
+  @override
+  String get journalExplorerEmptyTitle => 'سند حسابداری یافت نشد';
+
+  @override
+  String get journalExplorerEmptyMessage =>
+      'هیچ سند حسابداری با فیلترهای فعلی مطابقت ندارد.';
+
+  @override
+  String get journalExplorerSearchHint => 'جست‌وجوی شماره یا مرجع';
+
+  @override
+  String get journalExplorerSourceType => 'نوع منبع';
+
+  @override
+  String get journalExplorerAccountCode => 'کد حساب';
+
+  @override
+  String get journalExplorerSortBy => 'مرتب‌سازی';
+
+  @override
+  String get journalExplorerNewest => 'جدیدترین';
+
+  @override
+  String get journalExplorerOldest => 'قدیمی‌ترین';
+
+  @override
+  String get journalExplorerDateRange => 'بازه زمانی';
+
+  @override
+  String get journalExplorerPostingDate => 'تاریخ ثبت';
+
+  @override
+  String get journalExplorerNarration => 'شرح';
+
+  @override
+  String get journalExplorerPostingStatus => 'وضعیت ثبت';
+
+  @override
+  String get journalExplorerTotalDebit => 'جمع بدهکار';
+
+  @override
+  String get journalExplorerTotalCredit => 'جمع بستانکار';
+
+  @override
+  String get journalExplorerLinesLabel => 'سطرهای دفتر';
+
+  @override
+  String get journalExplorerLoading => 'در حال بارگذاری اسناد';
+
+  @override
+  String get journalExplorerSourceAll => 'همه';
+
+  @override
+  String get journalExplorerSourcePurchaseOrder => 'سفارش خرید';
+
+  @override
+  String get journalExplorerSourceGoodsReceipt => 'رسید کالا';
+
+  @override
+  String get journalExplorerSourceVendorBill => 'صورتحساب تأمین‌کننده';
+
+  @override
+  String get journalExplorerSourceVendorPayment => 'پرداخت تأمین‌کننده';
+
+  @override
+  String get journalExplorerSourceSalesInvoice => 'فاکتور فروش';
+
+  @override
+  String get journalExplorerSourceCustomerPayment => 'دریافت مشتری';
+
+  @override
+  String get journalExplorerViewSource => 'مشاهده سند مبدأ';
+
+  @override
+  String get vendorsPageTitle => 'تأمین‌کنندگان';
+
+  @override
+  String get vendorsLoadError => 'خطا در بارگذاری تأمین‌کنندگان:';
+
+  @override
+  String get vendorsEmptyTitle => 'تأمین‌کننده‌ای موجود نیست';
+
+  @override
+  String get vendorsEmptyMessage => 'هنوز تأمین‌کننده‌ای ثبت نشده است.';
+
+  @override
+  String get vendorAddTitle => 'افزودن تأمین‌کننده';
+
+  @override
+  String get vendorEditTitle => 'ویرایش تأمین‌کننده';
+
+  @override
+  String get vendorCompanyName => 'نام شرکت';
+
+  @override
+  String get vendorContactName => 'نام تماس';
+
+  @override
+  String get vendorEmail => 'ایمیل';
+
+  @override
+  String get vendorPhone => 'تلفن';
+
+  @override
+  String get vendorAddress => 'آدرس';
+
+  @override
+  String get vendorTaxIdentifier => 'شناسه مالیاتی';
+
+  @override
+  String get vendorActiveStatus => 'فعال';
+
+  @override
+  String get vendorNotes => 'یادداشت';
+
+  @override
+  String get vendorSearchHint => 'جست‌وجوی تأمین‌کننده‌ها';
+
+  @override
+  String get vendorStatusLabel => 'وضعیت';
+
+  @override
+  String get vendorActive => 'فعال';
+
+  @override
+  String get vendorInactive => 'غیرفعال';
+
+  @override
+  String get vendorCreate => 'ایجاد';
+
+  @override
+  String get vendorSave => 'ذخیره';
+
+  @override
+  String get currencyUnit => 'ریال';
+
+  @override
+  String get bankReconciliationPageTitle => 'تطبیق بانک';
+
+  @override
+  String get bankReconciliationLoadError =>
+      'امکان بارگذاری داده‌های تطبیق وجود ندارد:';
+
+  @override
+  String get bankAccountSelector => 'حساب بانک';
+
+  @override
+  String get bankReconciliationSummary => 'خلاصه تطبیق';
+
+  @override
+  String get bankMatchedTransactions => 'معاملات منطبق';
+
+  @override
+  String get bankUnmatchedTransactions => 'معاملات نامنطبق';
+
+  @override
+  String get bankProgress => 'پیشرفت';
+
+  @override
+  String get bankNoTransactions => 'معامله‌ای یافت نشد';
+
+  @override
+  String get bankNoTransactionsMessage =>
+      'هنوز معامله‌ای برای این حساب در دسترس نیست.';
+
+  @override
+  String get bankFinalize => 'اتمام تطبیق';
+
+  @override
+  String get bankCompletionDialogTitle => 'تطبیق تکمیل شد';
+
+  @override
+  String get bankCompletionDialogMessage => 'جلسه تطبیق با موفقیت تکمیل شد.';
+
+  @override
+  String get bankDone => 'تأیید';
+}
