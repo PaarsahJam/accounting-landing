@@ -1,5 +1,6 @@
 // lib/features/fiscal_periods/repository/fiscal_year_repository.dart
 
+import 'package:accounting_app/features/fiscal_periods/domain/trial_balance_entry.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import '../domain/fiscal_year.dart';
 
@@ -32,6 +33,8 @@ class FiscalYearRepository extends StateNotifier<List<FiscalYear>> {
     // Use repository adapter to validate trial balance.
     return [];
   }
+
+  Future<List<FiscalYear>> getFiscalYears() async => state;
 
 }
 

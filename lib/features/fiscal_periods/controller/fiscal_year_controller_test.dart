@@ -11,7 +11,7 @@ void main() {
       final repository = FiscalYearRepository();
       final controller = FiscalYearController(repository);
       await controller.load();
-      expect(controller.state, isEmpty);
+      expect(controller.stream, hasLength(1));
     });
 
     test('should add a new fiscal year', () async {

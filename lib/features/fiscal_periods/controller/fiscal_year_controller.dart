@@ -9,8 +9,10 @@ class FiscalYearController extends StateNotifier<List<FiscalYear>> {
 
   FiscalYearController(this._repository) : super([]);
 
-  Future<void> load() async {
-    state = await _repository.load();
+  Future<List<FiscalYear>> load() async {
+    await _repository.load();
+    state = _repository.state;
+    return state;
   }
 
   Future<void> add(FiscalYear fiscalYear) async {
@@ -42,5 +44,5 @@ class FiscalYearController extends StateNotifier<List<FiscalYear>> {
 }
 
 final fiscalYearControllerProvider = StateNotifierProvider<FiscalYearController, List<FiscalYear>>((ref) {
-  return FiscalYearController(ref.watch(fiscalYearRepositoryProvider));
+  return FiscalYearController(ref.watch(fiscalYearRepositoryProvider.notifier));
 });

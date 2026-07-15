@@ -11,8 +11,8 @@ class FiscalPeriodsPage extends ConsumerWidget {
   FiscalPeriodsPage({required this.fiscalYearId});
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final fiscalPeriodController = watch(fiscalPeriodControllerProvider.notifier);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final fiscalPeriodController = ref.watch(fiscalPeriodControllerProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(title: Text('Fiscal Periods')),
@@ -30,7 +30,9 @@ class FiscalPeriodsPage extends ConsumerWidget {
           } else if (snapshot.hasError) {
             return Center(child: Text('Error loading fiscal periods.'));
           } else {
-            final fiscalPeriods = snapshot.data!;
+            final fiscalPeriods = snapshot.data!
+                .where((period) => period.fiscalYearId == fiscalYearId)
+                .toList();
             return ListView.builder(
               itemCount: fiscalPeriods.length,
               itemBuilder: (context, index) {
