@@ -213,25 +213,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dashboardViewJournal => 'View Journal';
 
   @override
-  String get dashboardActivityPurchaseOrder => 'Purchase order';
+  String get dashboardActivityPurchaseOrder => 'Purchase Order';
 
   @override
-  String get dashboardActivityGoodsReceipt => 'Goods receipt';
+  String get dashboardActivityGoodsReceipt => 'Goods Receipt';
 
   @override
-  String get dashboardActivityVendorBill => 'Vendor bill';
+  String get dashboardActivityVendorBill => 'Vendor Bill';
 
   @override
-  String get dashboardActivityVendorPayment => 'Vendor payment';
+  String get dashboardActivityVendorPayment => 'Vendor Payment';
 
   @override
-  String get dashboardActivitySalesInvoice => 'Sales invoice';
+  String get dashboardActivitySalesInvoice => 'Sales Invoice';
 
   @override
-  String get dashboardActivityCustomerPayment => 'Customer payment';
+  String get dashboardActivityCustomerPayment => 'Customer Payment';
 
   @override
-  String get dashboardActivityJournalEntry => 'Journal entry';
+  String get dashboardActivityJournalEntry => 'Journal Entry';
 
   @override
   String get expensesPageTitle => 'Expenses';
@@ -1214,7 +1214,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get vendorSave => 'Save';
 
   @override
-  String get currencyUnit => 'USD';
+  String get currencyUnit => 'IRR';
 
   @override
   String get bankReconciliationPageTitle => 'Bank Reconciliation';
@@ -1257,4 +1257,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bankDone => 'Done';
+
+  @override
+  String get fiscalYearsPageTitle => 'Fiscal Years';
+
+  @override
+  String get fiscalPeriodsPageTitle => 'Fiscal Periods';
+
+  @override
+  String get yearEndClosingPageTitle => 'Year-End Closing';
+
+  @override
+  String get createButton => 'Create';
 }

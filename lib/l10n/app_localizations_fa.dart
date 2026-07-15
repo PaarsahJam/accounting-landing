@@ -201,13 +201,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get dashboardCreateSalesInvoice => 'ایجاد فاکتور فروش';
 
   @override
-  String get dashboardCreateVendorBill => 'ایجاد صورتحساب فروشنده';
+  String get dashboardCreateVendorBill => 'ایجاد صورتحساب تأمین‌کننده';
 
   @override
-  String get dashboardReceiveCustomerPayment => 'ثبت دریافت مشتری';
+  String get dashboardReceiveCustomerPayment => 'دریافت پرداخت مشتری';
 
   @override
-  String get dashboardRecordVendorPayment => 'ثبت پرداخت فروشنده';
+  String get dashboardRecordVendorPayment => 'ثبت پرداخت تأمین‌کننده';
 
   @override
   String get dashboardViewJournal => 'مشاهده دفتر روزنامه';
@@ -219,16 +219,16 @@ class AppLocalizationsFa extends AppLocalizations {
   String get dashboardActivityGoodsReceipt => 'رسید کالا';
 
   @override
-  String get dashboardActivityVendorBill => 'صورتحساب فروشنده';
+  String get dashboardActivityVendorBill => 'صورتحساب تأمین‌کننده';
 
   @override
-  String get dashboardActivityVendorPayment => 'پرداخت فروشنده';
+  String get dashboardActivityVendorPayment => 'پرداخت تأمین‌کننده';
 
   @override
   String get dashboardActivitySalesInvoice => 'فاکتور فروش';
 
   @override
-  String get dashboardActivityCustomerPayment => 'دریافت از مشتری';
+  String get dashboardActivityCustomerPayment => 'دریافت مشتری';
 
   @override
   String get dashboardActivityJournalEntry => 'سند حسابداری';
@@ -1258,4 +1258,16 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get bankDone => 'تأیید';
+
+  @override
+  String get fiscalYearsPageTitle => 'دوره‌های مالی';
+
+  @override
+  String get fiscalPeriodsPageTitle => 'دوره‌های فاصله‌گذاری';
+
+  @override
+  String get yearEndClosingPageTitle => 'بستن سال‌نهايی';
+
+  @override
+  String get createButton => 'ایجاد کردن';
 }

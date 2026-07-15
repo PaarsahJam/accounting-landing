@@ -479,19 +479,19 @@ abstract class AppLocalizations {
   /// No description provided for @dashboardCreateVendorBill.
   ///
   /// In fa, this message translates to:
-  /// **'ایجاد صورتحساب فروشنده'**
+  /// **'ایجاد صورتحساب تأمین‌کننده'**
   String get dashboardCreateVendorBill;
 
   /// No description provided for @dashboardReceiveCustomerPayment.
   ///
   /// In fa, this message translates to:
-  /// **'ثبت دریافت مشتری'**
+  /// **'دریافت پرداخت مشتری'**
   String get dashboardReceiveCustomerPayment;
 
   /// No description provided for @dashboardRecordVendorPayment.
   ///
   /// In fa, this message translates to:
-  /// **'ثبت پرداخت فروشنده'**
+  /// **'ثبت پرداخت تأمین‌کننده'**
   String get dashboardRecordVendorPayment;
 
   /// No description provided for @dashboardViewJournal.
@@ -515,13 +515,13 @@ abstract class AppLocalizations {
   /// No description provided for @dashboardActivityVendorBill.
   ///
   /// In fa, this message translates to:
-  /// **'صورتحساب فروشنده'**
+  /// **'صورتحساب تأمین‌کننده'**
   String get dashboardActivityVendorBill;
 
   /// No description provided for @dashboardActivityVendorPayment.
   ///
   /// In fa, this message translates to:
-  /// **'پرداخت فروشنده'**
+  /// **'پرداخت تأمین‌کننده'**
   String get dashboardActivityVendorPayment;
 
   /// No description provided for @dashboardActivitySalesInvoice.
@@ -533,7 +533,7 @@ abstract class AppLocalizations {
   /// No description provided for @dashboardActivityCustomerPayment.
   ///
   /// In fa, this message translates to:
-  /// **'دریافت از مشتری'**
+  /// **'دریافت مشتری'**
   String get dashboardActivityCustomerPayment;
 
   /// No description provided for @dashboardActivityJournalEntry.
@@ -2557,6 +2557,30 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'تأیید'**
   String get bankDone;
+
+  /// No description provided for @fiscalYearsPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دوره‌های مالی'**
+  String get fiscalYearsPageTitle;
+
+  /// No description provided for @fiscalPeriodsPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دوره‌های فاصله‌گذاری'**
+  String get fiscalPeriodsPageTitle;
+
+  /// No description provided for @yearEndClosingPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'بستن سال‌نهايی'**
+  String get yearEndClosingPageTitle;
+
+  /// No description provided for @createButton.
+  ///
+  /// In fa, this message translates to:
+  /// **'ایجاد کردن'**
+  String get createButton;
 }
 
 class _AppLocalizationsDelegate
