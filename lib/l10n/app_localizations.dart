@@ -3571,6 +3571,120 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'موجودی انبار مبدأ کافی نیست'**
   String get stockTransferInsufficientStock;
+
+  /// No description provided for @attachmentsSectionTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیوست‌ها'**
+  String get attachmentsSectionTitle;
+
+  /// No description provided for @attachmentAdd.
+  ///
+  /// In fa, this message translates to:
+  /// **'افزودن'**
+  String get attachmentAdd;
+
+  /// No description provided for @attachmentAddTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'افزودن پیوست'**
+  String get attachmentAddTitle;
+
+  /// No description provided for @attachmentFilename.
+  ///
+  /// In fa, this message translates to:
+  /// **'نام فایل'**
+  String get attachmentFilename;
+
+  /// No description provided for @attachmentNotes.
+  ///
+  /// In fa, this message translates to:
+  /// **'یادداشت'**
+  String get attachmentNotes;
+
+  /// No description provided for @attachmentLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری پیوست‌ها:'**
+  String get attachmentLoadError;
+
+  /// No description provided for @attachmentEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیوستی وجود ندارد'**
+  String get attachmentEmptyTitle;
+
+  /// No description provided for @attachmentEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز هیچ فایلی به این سند ضمیمه نشده است.'**
+  String get attachmentEmptyMessage;
+
+  /// No description provided for @attachmentAddError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در افزودن پیوست'**
+  String get attachmentAddError;
+
+  /// No description provided for @attachmentRenameTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تغییر نام پیوست'**
+  String get attachmentRenameTitle;
+
+  /// No description provided for @attachmentRenameAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'تغییر نام'**
+  String get attachmentRenameAction;
+
+  /// No description provided for @attachmentEditNotesTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش یادداشت'**
+  String get attachmentEditNotesTitle;
+
+  /// No description provided for @attachmentEditNotesAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش یادداشت'**
+  String get attachmentEditNotesAction;
+
+  /// No description provided for @attachmentRemoveTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف پیوست'**
+  String get attachmentRemoveTitle;
+
+  /// No description provided for @attachmentRemoveAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف'**
+  String get attachmentRemoveAction;
+
+  /// No description provided for @attachmentRemoveConfirm.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف \"{filename}\" از این سند؟'**
+  String attachmentRemoveConfirm(String filename);
+
+  /// No description provided for @attachmentFileSize.
+  ///
+  /// In fa, this message translates to:
+  /// **'حجم'**
+  String get attachmentFileSize;
+
+  /// No description provided for @attachmentUploadedBy.
+  ///
+  /// In fa, this message translates to:
+  /// **'بارگذاری توسط'**
+  String get attachmentUploadedBy;
+
+  /// No description provided for @attachmentUploadedAt.
+  ///
+  /// In fa, this message translates to:
+  /// **'تاریخ بارگذاری'**
+  String get attachmentUploadedAt;
 }
 
 class _AppLocalizationsDelegate

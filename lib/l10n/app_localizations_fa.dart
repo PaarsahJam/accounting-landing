@@ -1775,4 +1775,64 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get stockTransferInsufficientStock => 'موجودی انبار مبدأ کافی نیست';
+
+  @override
+  String get attachmentsSectionTitle => 'پیوست‌ها';
+
+  @override
+  String get attachmentAdd => 'افزودن';
+
+  @override
+  String get attachmentAddTitle => 'افزودن پیوست';
+
+  @override
+  String get attachmentFilename => 'نام فایل';
+
+  @override
+  String get attachmentNotes => 'یادداشت';
+
+  @override
+  String get attachmentLoadError => 'خطا در بارگذاری پیوست‌ها:';
+
+  @override
+  String get attachmentEmptyTitle => 'پیوستی وجود ندارد';
+
+  @override
+  String get attachmentEmptyMessage =>
+      'هنوز هیچ فایلی به این سند ضمیمه نشده است.';
+
+  @override
+  String get attachmentAddError => 'خطا در افزودن پیوست';
+
+  @override
+  String get attachmentRenameTitle => 'تغییر نام پیوست';
+
+  @override
+  String get attachmentRenameAction => 'تغییر نام';
+
+  @override
+  String get attachmentEditNotesTitle => 'ویرایش یادداشت';
+
+  @override
+  String get attachmentEditNotesAction => 'ویرایش یادداشت';
+
+  @override
+  String get attachmentRemoveTitle => 'حذف پیوست';
+
+  @override
+  String get attachmentRemoveAction => 'حذف';
+
+  @override
+  String attachmentRemoveConfirm(String filename) {
+    return 'حذف \"$filename\" از این سند؟';
+  }
+
+  @override
+  String get attachmentFileSize => 'حجم';
+
+  @override
+  String get attachmentUploadedBy => 'بارگذاری توسط';
+
+  @override
+  String get attachmentUploadedAt => 'تاریخ بارگذاری';
 }

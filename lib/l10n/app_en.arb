@@ -587,6 +587,29 @@
   "stockTransferCreateError": "Failed to create transfer",
   "stockTransferCompleteAction": "Complete",
   "stockTransferCancelAction": "Cancel Transfer",
-  "stockTransferInsufficientStock": "Insufficient stock in source warehouse"
+  "stockTransferInsufficientStock": "Insufficient stock in source warehouse",
+
+  "attachmentsSectionTitle": "Attachments",
+  "attachmentAdd": "Add",
+  "attachmentAddTitle": "Add Attachment",
+  "attachmentFilename": "Filename",
+  "attachmentNotes": "Notes",
+  "attachmentLoadError": "Error loading attachments:",
+  "attachmentEmptyTitle": "No attachments",
+  "attachmentEmptyMessage": "No files have been attached to this document yet.",
+  "attachmentAddError": "Failed to add attachment",
+  "attachmentRenameTitle": "Rename Attachment",
+  "attachmentRenameAction": "Rename",
+  "attachmentEditNotesTitle": "Edit Notes",
+  "attachmentEditNotesAction": "Edit notes",
+  "attachmentRemoveTitle": "Remove Attachment",
+  "attachmentRemoveAction": "Remove",
+  "attachmentRemoveConfirm": "Remove \"{filename}\" from this document?",
+  "@attachmentRemoveConfirm": {
+    "placeholders": { "filename": { "type": "String" } }
+  },
+  "attachmentFileSize": "Size",
+  "attachmentUploadedBy": "Uploaded by",
+  "attachmentUploadedAt": "Uploaded"
 
 }

@@ -587,6 +587,29 @@
   "stockTransferCreateError": "خطا در ایجاد انتقال",
   "stockTransferCompleteAction": "تکمیل",
   "stockTransferCancelAction": "لغو انتقال",
-  "stockTransferInsufficientStock": "موجودی انبار مبدأ کافی نیست"
+  "stockTransferInsufficientStock": "موجودی انبار مبدأ کافی نیست",
+
+  "attachmentsSectionTitle": "پیوست‌ها",
+  "attachmentAdd": "افزودن",
+  "attachmentAddTitle": "افزودن پیوست",
+  "attachmentFilename": "نام فایل",
+  "attachmentNotes": "یادداشت",
+  "attachmentLoadError": "خطا در بارگذاری پیوست‌ها:",
+  "attachmentEmptyTitle": "پیوستی وجود ندارد",
+  "attachmentEmptyMessage": "هنوز هیچ فایلی به این سند ضمیمه نشده است.",
+  "attachmentAddError": "خطا در افزودن پیوست",
+  "attachmentRenameTitle": "تغییر نام پیوست",
+  "attachmentRenameAction": "تغییر نام",
+  "attachmentEditNotesTitle": "ویرایش یادداشت",
+  "attachmentEditNotesAction": "ویرایش یادداشت",
+  "attachmentRemoveTitle": "حذف پیوست",
+  "attachmentRemoveAction": "حذف",
+  "attachmentRemoveConfirm": "حذف \"{filename}\" از این سند؟",
+  "@attachmentRemoveConfirm": {
+    "placeholders": { "filename": { "type": "String" } }
+  },
+  "attachmentFileSize": "حجم",
+  "attachmentUploadedBy": "بارگذاری توسط",
+  "attachmentUploadedAt": "تاریخ بارگذاری"
 
 }

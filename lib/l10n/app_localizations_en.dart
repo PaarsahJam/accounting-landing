@@ -1780,4 +1780,64 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get stockTransferInsufficientStock =>
       'Insufficient stock in source warehouse';
+
+  @override
+  String get attachmentsSectionTitle => 'Attachments';
+
+  @override
+  String get attachmentAdd => 'Add';
+
+  @override
+  String get attachmentAddTitle => 'Add Attachment';
+
+  @override
+  String get attachmentFilename => 'Filename';
+
+  @override
+  String get attachmentNotes => 'Notes';
+
+  @override
+  String get attachmentLoadError => 'Error loading attachments:';
+
+  @override
+  String get attachmentEmptyTitle => 'No attachments';
+
+  @override
+  String get attachmentEmptyMessage =>
+      'No files have been attached to this document yet.';
+
+  @override
+  String get attachmentAddError => 'Failed to add attachment';
+
+  @override
+  String get attachmentRenameTitle => 'Rename Attachment';
+
+  @override
+  String get attachmentRenameAction => 'Rename';
+
+  @override
+  String get attachmentEditNotesTitle => 'Edit Notes';
+
+  @override
+  String get attachmentEditNotesAction => 'Edit notes';
+
+  @override
+  String get attachmentRemoveTitle => 'Remove Attachment';
+
+  @override
+  String get attachmentRemoveAction => 'Remove';
+
+  @override
+  String attachmentRemoveConfirm(String filename) {
+    return 'Remove \"$filename\" from this document?';
+  }
+
+  @override
+  String get attachmentFileSize => 'Size';
+
+  @override
+  String get attachmentUploadedBy => 'Uploaded by';
+
+  @override
+  String get attachmentUploadedAt => 'Uploaded';
 }
