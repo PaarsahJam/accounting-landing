@@ -8,7 +8,9 @@ import '../controller/fiscal_year_controller.dart';
 class FiscalYearsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final fiscalYearController = ref.watch(fiscalYearControllerProvider.notifier);
+    final fiscalYearController = ref.watch(
+      fiscalYearControllerProvider.notifier,
+    );
 
     return Scaffold(
       appBar: AppBar(title: Text('Fiscal Years')),

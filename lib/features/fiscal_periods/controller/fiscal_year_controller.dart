@@ -32,17 +32,24 @@ class FiscalYearController extends StateNotifier<List<FiscalYear>> {
 
   Future<void> activate(int id) async {
     final fiscalYear = state.firstWhere((e) => e.id == id);
-    await _repository.update(fiscalYear.copyWith(status: FiscalYearStatus.active));
+    await _repository.update(
+      fiscalYear.copyWith(status: FiscalYearStatus.active),
+    );
     await load();
   }
 
   Future<void> archive(int id) async {
     final fiscalYear = state.firstWhere((e) => e.id == id);
-    await _repository.update(fiscalYear.copyWith(status: FiscalYearStatus.archived));
+    await _repository.update(
+      fiscalYear.copyWith(status: FiscalYearStatus.archived),
+    );
     await load();
   }
 }
 
-final fiscalYearControllerProvider = StateNotifierProvider<FiscalYearController, List<FiscalYear>>((ref) {
-  return FiscalYearController(ref.watch(fiscalYearRepositoryProvider.notifier));
-});
+final fiscalYearControllerProvider =
+    StateNotifierProvider<FiscalYearController, List<FiscalYear>>((ref) {
+      return FiscalYearController(
+        ref.watch(fiscalYearRepositoryProvider.notifier),
+      );
+    });

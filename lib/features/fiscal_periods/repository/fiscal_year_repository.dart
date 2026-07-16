@@ -10,7 +10,13 @@ class FiscalYearRepository extends StateNotifier<List<FiscalYear>> {
   Future<void> load() async {
     // Simulate fetching data from a database.
     state = [
-      FiscalYear(id: 1, year: 2023, status: FiscalYearStatus.active, startDate: DateTime(2023, 1, 1), endDate: DateTime(2023, 12, 31)),
+      FiscalYear(
+        id: 1,
+        year: 2023,
+        status: FiscalYearStatus.active,
+        startDate: DateTime(2023, 1, 1),
+        endDate: DateTime(2023, 12, 31),
+      ),
     ];
   }
 
@@ -35,9 +41,9 @@ class FiscalYearRepository extends StateNotifier<List<FiscalYear>> {
   }
 
   Future<List<FiscalYear>> getFiscalYears() async => state;
-
 }
 
-final fiscalYearRepositoryProvider = StateNotifierProvider<FiscalYearRepository, List<FiscalYear>>((ref) {
-  return FiscalYearRepository();
-});
+final fiscalYearRepositoryProvider =
+    StateNotifierProvider<FiscalYearRepository, List<FiscalYear>>((ref) {
+      return FiscalYearRepository();
+    });

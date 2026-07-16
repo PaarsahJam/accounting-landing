@@ -1269,4 +1269,74 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get createButton => 'Create';
+
+  @override
+  String get draft => 'Draft';
+
+  @override
+  String get pendingApproval => 'Pending Approval';
+
+  @override
+  String get approved => 'Approved';
+
+  @override
+  String get posted => 'Posted';
+
+  @override
+  String get locked => 'Locked';
+
+  @override
+  String get cancelled => 'Cancelled';
+
+  @override
+  String get documentNumberLabel => 'Document Number';
+
+  @override
+  String get documentStatusLabel => 'Status';
+
+  @override
+  String get documentCreatedAtLabel => 'Created';
+
+  @override
+  String get documentApprovedAtLabel => 'Approved';
+
+  @override
+  String get documentPostedAtLabel => 'Posted';
+
+  @override
+  String get approvalTimelineTitle => 'Approval Timeline';
+
+  @override
+  String get documentTypeLabel => 'Type';
+
+  @override
+  String get workflowInvalidTransition => 'Invalid transition';
+
+  @override
+  String get workflowTransitionToPendingApproval => 'Submit for Approval';
+
+  @override
+  String get workflowTransitionToApproved => 'Approve';
+
+  @override
+  String get workflowTransitionToPosted => 'Post';
+
+  @override
+  String get workflowTransitionToLocked => 'Lock';
+
+  @override
+  String get workflowTransitionToCancelled => 'Cancel';
+
+  @override
+  String get approvalWorkflowPageTitle => 'Document Workflow';
+
+  @override
+  String get approvalWorkflowLoadError => 'Error loading documents:';
+
+  @override
+  String get approvalWorkflowEmptyTitle => 'No documents available';
+
+  @override
+  String get approvalWorkflowEmptyMessage =>
+      'No documents have been registered yet.';
 }

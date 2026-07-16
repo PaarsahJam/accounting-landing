@@ -11,23 +11,25 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('should display fiscal years', (WidgetTester tester) async {
     // final repository = FiscalYearRepository();
-    await tester.pumpWidget(MaterialApp(
-      home: Consumer(
-        builder: (context, ref, child) {
-          final controller = ref.watch(fiscalYearControllerProvider.notifier);
-          return FutureBuilder<List<FiscalYear>>(
-            future: controller.load(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                return FiscalYearsPage();
-              } else {
-                return CircularProgressIndicator();
-              }
-            },
-          );
-        },
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Consumer(
+          builder: (context, ref, child) {
+            final controller = ref.watch(fiscalYearControllerProvider.notifier);
+            return FutureBuilder<List<FiscalYear>>(
+              future: controller.load(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return FiscalYearsPage();
+                } else {
+                  return CircularProgressIndicator();
+                }
+              },
+            );
+          },
+        ),
       ),
-    ));
+    );
 
     await tester.pumpAndSettle();
     expect(find.text('Fiscal Years'), findsOneWidget);

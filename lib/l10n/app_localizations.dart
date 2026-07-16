@@ -2581,6 +2581,144 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'ایجاد کردن'**
   String get createButton;
+
+  /// No description provided for @draft.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیش‌نویس'**
+  String get draft;
+
+  /// No description provided for @pendingApproval.
+  ///
+  /// In fa, this message translates to:
+  /// **'در انتظار تایید'**
+  String get pendingApproval;
+
+  /// No description provided for @approved.
+  ///
+  /// In fa, this message translates to:
+  /// **'تایید شده'**
+  String get approved;
+
+  /// No description provided for @posted.
+  ///
+  /// In fa, this message translates to:
+  /// **'ثبت شده'**
+  String get posted;
+
+  /// No description provided for @locked.
+  ///
+  /// In fa, this message translates to:
+  /// **'قفل شده'**
+  String get locked;
+
+  /// No description provided for @cancelled.
+  ///
+  /// In fa, this message translates to:
+  /// **'لغو شده'**
+  String get cancelled;
+
+  /// No description provided for @documentNumberLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'شماره سند'**
+  String get documentNumberLabel;
+
+  /// No description provided for @documentStatusLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'وضعیت'**
+  String get documentStatusLabel;
+
+  /// No description provided for @documentCreatedAtLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'ایجاد شده'**
+  String get documentCreatedAtLabel;
+
+  /// No description provided for @documentApprovedAtLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'تایید شده'**
+  String get documentApprovedAtLabel;
+
+  /// No description provided for @documentPostedAtLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'ثبت شده'**
+  String get documentPostedAtLabel;
+
+  /// No description provided for @approvalTimelineTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'مراحل تأیید'**
+  String get approvalTimelineTitle;
+
+  /// No description provided for @documentTypeLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'نوع'**
+  String get documentTypeLabel;
+
+  /// No description provided for @workflowInvalidTransition.
+  ///
+  /// In fa, this message translates to:
+  /// **'انتقال غیرمجاز'**
+  String get workflowInvalidTransition;
+
+  /// No description provided for @workflowTransitionToPendingApproval.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارسال برای تأیید'**
+  String get workflowTransitionToPendingApproval;
+
+  /// No description provided for @workflowTransitionToApproved.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأیید'**
+  String get workflowTransitionToApproved;
+
+  /// No description provided for @workflowTransitionToPosted.
+  ///
+  /// In fa, this message translates to:
+  /// **'ثبت'**
+  String get workflowTransitionToPosted;
+
+  /// No description provided for @workflowTransitionToLocked.
+  ///
+  /// In fa, this message translates to:
+  /// **'قفل'**
+  String get workflowTransitionToLocked;
+
+  /// No description provided for @workflowTransitionToCancelled.
+  ///
+  /// In fa, this message translates to:
+  /// **'لغو'**
+  String get workflowTransitionToCancelled;
+
+  /// No description provided for @approvalWorkflowPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'گردش کار سند'**
+  String get approvalWorkflowPageTitle;
+
+  /// No description provided for @approvalWorkflowLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری اسناد:'**
+  String get approvalWorkflowLoadError;
+
+  /// No description provided for @approvalWorkflowEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'سندی موجود نیست'**
+  String get approvalWorkflowEmptyTitle;
+
+  /// No description provided for @approvalWorkflowEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز سندی ثبت نشده است.'**
+  String get approvalWorkflowEmptyMessage;
 }
 
 class _AppLocalizationsDelegate

@@ -1270,4 +1270,73 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get createButton => 'ایجاد کردن';
+
+  @override
+  String get draft => 'پیش‌نویس';
+
+  @override
+  String get pendingApproval => 'در انتظار تایید';
+
+  @override
+  String get approved => 'تایید شده';
+
+  @override
+  String get posted => 'ثبت شده';
+
+  @override
+  String get locked => 'قفل شده';
+
+  @override
+  String get cancelled => 'لغو شده';
+
+  @override
+  String get documentNumberLabel => 'شماره سند';
+
+  @override
+  String get documentStatusLabel => 'وضعیت';
+
+  @override
+  String get documentCreatedAtLabel => 'ایجاد شده';
+
+  @override
+  String get documentApprovedAtLabel => 'تایید شده';
+
+  @override
+  String get documentPostedAtLabel => 'ثبت شده';
+
+  @override
+  String get approvalTimelineTitle => 'مراحل تأیید';
+
+  @override
+  String get documentTypeLabel => 'نوع';
+
+  @override
+  String get workflowInvalidTransition => 'انتقال غیرمجاز';
+
+  @override
+  String get workflowTransitionToPendingApproval => 'ارسال برای تأیید';
+
+  @override
+  String get workflowTransitionToApproved => 'تأیید';
+
+  @override
+  String get workflowTransitionToPosted => 'ثبت';
+
+  @override
+  String get workflowTransitionToLocked => 'قفل';
+
+  @override
+  String get workflowTransitionToCancelled => 'لغو';
+
+  @override
+  String get approvalWorkflowPageTitle => 'گردش کار سند';
+
+  @override
+  String get approvalWorkflowLoadError => 'خطا در بارگذاری اسناد:';
+
+  @override
+  String get approvalWorkflowEmptyTitle => 'سندی موجود نیست';
+
+  @override
+  String get approvalWorkflowEmptyMessage => 'هنوز سندی ثبت نشده است.';
 }

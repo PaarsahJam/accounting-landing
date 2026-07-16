@@ -12,7 +12,9 @@ class FiscalPeriodsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final fiscalPeriodController = ref.watch(fiscalPeriodControllerProvider.notifier);
+    final fiscalPeriodController = ref.watch(
+      fiscalPeriodControllerProvider.notifier,
+    );
 
     return Scaffold(
       appBar: AppBar(title: Text('Fiscal Periods')),

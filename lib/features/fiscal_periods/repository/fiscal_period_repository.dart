@@ -9,7 +9,14 @@ class FiscalPeriodRepository extends StateNotifier<List<FiscalPeriod>> {
   Future<void> load() async {
     // Simulate fetching data from a database.
     state = [
-      FiscalPeriod(id: 1, fiscalYearId: 1, periodNumber: 1, startDate: DateTime(2023, 1, 1), endDate: DateTime(2023, 1, 31), status: FiscalPeriodStatus.open),
+      FiscalPeriod(
+        id: 1,
+        fiscalYearId: 1,
+        periodNumber: 1,
+        startDate: DateTime(2023, 1, 1),
+        endDate: DateTime(2023, 1, 31),
+        status: FiscalPeriodStatus.open,
+      ),
     ];
   }
 
@@ -29,6 +36,7 @@ class FiscalPeriodRepository extends StateNotifier<List<FiscalPeriod>> {
   }
 }
 
-final fiscalPeriodRepositoryProvider = StateNotifierProvider<FiscalPeriodRepository, List<FiscalPeriod>>((ref) {
-  return FiscalPeriodRepository();
-});
+final fiscalPeriodRepositoryProvider =
+    StateNotifierProvider<FiscalPeriodRepository, List<FiscalPeriod>>((ref) {
+      return FiscalPeriodRepository();
+    });
