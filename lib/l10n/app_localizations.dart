@@ -2983,6 +2983,174 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'گزارش مالی'**
   String get auditEntityFinancialReport;
+
+  /// No description provided for @bankAccountsPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'حساب‌های بانکی'**
+  String get bankAccountsPageTitle;
+
+  /// No description provided for @bankAccountsLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری حساب‌های بانکی:'**
+  String get bankAccountsLoadError;
+
+  /// No description provided for @bankAccountsEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'حساب بانکی یافت نشد'**
+  String get bankAccountsEmptyTitle;
+
+  /// No description provided for @bankAccountsEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ حساب بانکی ثبت نشده است.'**
+  String get bankAccountsEmptyMessage;
+
+  /// No description provided for @bankAccountsSearchHint.
+  ///
+  /// In fa, this message translates to:
+  /// **'جستجو در حساب‌ها'**
+  String get bankAccountsSearchHint;
+
+  /// No description provided for @bankAccountsBalanceLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی فعلی'**
+  String get bankAccountsBalanceLabel;
+
+  /// No description provided for @bankAccountsTypeChecking.
+  ///
+  /// In fa, this message translates to:
+  /// **'جاری'**
+  String get bankAccountsTypeChecking;
+
+  /// No description provided for @bankAccountsTypeSavings.
+  ///
+  /// In fa, this message translates to:
+  /// **'پس‌انداز'**
+  String get bankAccountsTypeSavings;
+
+  /// No description provided for @bankAccountsTypeCash.
+  ///
+  /// In fa, this message translates to:
+  /// **'نقد'**
+  String get bankAccountsTypeCash;
+
+  /// No description provided for @bankAccountsTypeCreditCard.
+  ///
+  /// In fa, this message translates to:
+  /// **'کارت اعتباری'**
+  String get bankAccountsTypeCreditCard;
+
+  /// No description provided for @bankAccountsStatusActive.
+  ///
+  /// In fa, this message translates to:
+  /// **'فعال'**
+  String get bankAccountsStatusActive;
+
+  /// No description provided for @bankAccountsStatusInactive.
+  ///
+  /// In fa, this message translates to:
+  /// **'غیرفعال'**
+  String get bankAccountsStatusInactive;
+
+  /// No description provided for @bankAccountsStatusFrozen.
+  ///
+  /// In fa, this message translates to:
+  /// **'مسدود'**
+  String get bankAccountsStatusFrozen;
+
+  /// No description provided for @bankTransactionsPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تراکنش‌ها'**
+  String get bankTransactionsPageTitle;
+
+  /// No description provided for @bankTransactionsLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری تراکنش‌ها:'**
+  String get bankTransactionsLoadError;
+
+  /// No description provided for @bankTransactionsEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تراکنشی یافت نشد'**
+  String get bankTransactionsEmptyTitle;
+
+  /// No description provided for @bankTransactionsEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ تراکنشی برای این حساب ثبت نشده است.'**
+  String get bankTransactionsEmptyMessage;
+
+  /// No description provided for @bankTransactionsSearchHint.
+  ///
+  /// In fa, this message translates to:
+  /// **'جستجو در تراکنش‌ها'**
+  String get bankTransactionsSearchHint;
+
+  /// No description provided for @bankTransactionsAllTypes.
+  ///
+  /// In fa, this message translates to:
+  /// **'همه انواع'**
+  String get bankTransactionsAllTypes;
+
+  /// No description provided for @bankTransactionTypeDeposit.
+  ///
+  /// In fa, this message translates to:
+  /// **'واریز'**
+  String get bankTransactionTypeDeposit;
+
+  /// No description provided for @bankTransactionTypeWithdrawal.
+  ///
+  /// In fa, this message translates to:
+  /// **'برداشت'**
+  String get bankTransactionTypeWithdrawal;
+
+  /// No description provided for @bankTransactionTypeTransfer.
+  ///
+  /// In fa, this message translates to:
+  /// **'انتقال'**
+  String get bankTransactionTypeTransfer;
+
+  /// No description provided for @bankTransactionTypeInterest.
+  ///
+  /// In fa, this message translates to:
+  /// **'سود'**
+  String get bankTransactionTypeInterest;
+
+  /// No description provided for @bankTransactionTypeBankFee.
+  ///
+  /// In fa, this message translates to:
+  /// **'کارمزد بانکی'**
+  String get bankTransactionTypeBankFee;
+
+  /// No description provided for @bankTransactionTypeAdjustment.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعدیل'**
+  String get bankTransactionTypeAdjustment;
+
+  /// No description provided for @bankTransactionRunningBalance.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی جاری'**
+  String get bankTransactionRunningBalance;
+
+  /// No description provided for @bankTransactionDate.
+  ///
+  /// In fa, this message translates to:
+  /// **'تاریخ'**
+  String get bankTransactionDate;
+
+  /// No description provided for @bankTransactionReference.
+  ///
+  /// In fa, this message translates to:
+  /// **'مرجع'**
+  String get bankTransactionReference;
 }
 
 class _AppLocalizationsDelegate

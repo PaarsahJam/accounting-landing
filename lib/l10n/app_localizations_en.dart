@@ -1474,4 +1474,90 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get auditEntityFinancialReport => 'Financial Report';
+
+  @override
+  String get bankAccountsPageTitle => 'Bank Accounts';
+
+  @override
+  String get bankAccountsLoadError => 'Error loading bank accounts:';
+
+  @override
+  String get bankAccountsEmptyTitle => 'No bank accounts found';
+
+  @override
+  String get bankAccountsEmptyMessage =>
+      'No bank accounts have been registered yet.';
+
+  @override
+  String get bankAccountsSearchHint => 'Search accounts';
+
+  @override
+  String get bankAccountsBalanceLabel => 'Current Balance';
+
+  @override
+  String get bankAccountsTypeChecking => 'Checking';
+
+  @override
+  String get bankAccountsTypeSavings => 'Savings';
+
+  @override
+  String get bankAccountsTypeCash => 'Cash';
+
+  @override
+  String get bankAccountsTypeCreditCard => 'Credit Card';
+
+  @override
+  String get bankAccountsStatusActive => 'Active';
+
+  @override
+  String get bankAccountsStatusInactive => 'Inactive';
+
+  @override
+  String get bankAccountsStatusFrozen => 'Frozen';
+
+  @override
+  String get bankTransactionsPageTitle => 'Transactions';
+
+  @override
+  String get bankTransactionsLoadError => 'Error loading transactions:';
+
+  @override
+  String get bankTransactionsEmptyTitle => 'No transactions found';
+
+  @override
+  String get bankTransactionsEmptyMessage =>
+      'No transactions are available for this account yet.';
+
+  @override
+  String get bankTransactionsSearchHint => 'Search transactions';
+
+  @override
+  String get bankTransactionsAllTypes => 'All types';
+
+  @override
+  String get bankTransactionTypeDeposit => 'Deposit';
+
+  @override
+  String get bankTransactionTypeWithdrawal => 'Withdrawal';
+
+  @override
+  String get bankTransactionTypeTransfer => 'Transfer';
+
+  @override
+  String get bankTransactionTypeInterest => 'Interest';
+
+  @override
+  String get bankTransactionTypeBankFee => 'Bank Fee';
+
+  @override
+  String get bankTransactionTypeAdjustment => 'Adjustment';
+
+  @override
+  String get bankTransactionRunningBalance => 'Running balance';
+
+  @override
+  String get bankTransactionDate => 'Date';
+
+  @override
+  String get bankTransactionReference => 'Reference';
 }

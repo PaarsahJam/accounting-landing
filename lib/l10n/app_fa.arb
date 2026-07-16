@@ -481,6 +481,36 @@
   "auditEntityInventory": "موجودی",
   "auditEntityJournalEntry": "سند حسابداری",
   "auditEntityFiscalPeriod": "دوره مالی",
-  "auditEntityFinancialReport": "گزارش مالی"
+  "auditEntityFinancialReport": "گزارش مالی",
+
+  "bankAccountsPageTitle": "حساب‌های بانکی",
+  "bankAccountsLoadError": "خطا در بارگذاری حساب‌های بانکی:",
+  "bankAccountsEmptyTitle": "حساب بانکی یافت نشد",
+  "bankAccountsEmptyMessage": "هیچ حساب بانکی ثبت نشده است.",
+  "bankAccountsSearchHint": "جستجو در حساب‌ها",
+  "bankAccountsBalanceLabel": "موجودی فعلی",
+  "bankAccountsTypeChecking": "جاری",
+  "bankAccountsTypeSavings": "پس‌انداز",
+  "bankAccountsTypeCash": "نقد",
+  "bankAccountsTypeCreditCard": "کارت اعتباری",
+  "bankAccountsStatusActive": "فعال",
+  "bankAccountsStatusInactive": "غیرفعال",
+  "bankAccountsStatusFrozen": "مسدود",
+
+  "bankTransactionsPageTitle": "تراکنش‌ها",
+  "bankTransactionsLoadError": "خطا در بارگذاری تراکنش‌ها:",
+  "bankTransactionsEmptyTitle": "تراکنشی یافت نشد",
+  "bankTransactionsEmptyMessage": "هیچ تراکنشی برای این حساب ثبت نشده است.",
+  "bankTransactionsSearchHint": "جستجو در تراکنش‌ها",
+  "bankTransactionsAllTypes": "همه انواع",
+  "bankTransactionTypeDeposit": "واریز",
+  "bankTransactionTypeWithdrawal": "برداشت",
+  "bankTransactionTypeTransfer": "انتقال",
+  "bankTransactionTypeInterest": "سود",
+  "bankTransactionTypeBankFee": "کارمزد بانکی",
+  "bankTransactionTypeAdjustment": "تعدیل",
+  "bankTransactionRunningBalance": "موجودی جاری",
+  "bankTransactionDate": "تاریخ",
+  "bankTransactionReference": "مرجع"
 
 }

@@ -41,6 +41,11 @@ class DashboardQuickActions extends StatelessWidget {
         icon: Icons.inventory_2,
         route: '/inventory',
       ),
+      _QuickAction(
+        title: l10n.bankAccountsPageTitle,
+        icon: Icons.account_balance_wallet,
+        route: '/bank-accounts',
+      ),
     ];
 
     return SizedBox(

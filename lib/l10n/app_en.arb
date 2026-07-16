@@ -481,6 +481,36 @@
   "auditEntityInventory": "Inventory",
   "auditEntityJournalEntry": "Journal Entry",
   "auditEntityFiscalPeriod": "Fiscal Period",
-  "auditEntityFinancialReport": "Financial Report"
+  "auditEntityFinancialReport": "Financial Report",
+
+  "bankAccountsPageTitle": "Bank Accounts",
+  "bankAccountsLoadError": "Error loading bank accounts:",
+  "bankAccountsEmptyTitle": "No bank accounts found",
+  "bankAccountsEmptyMessage": "No bank accounts have been registered yet.",
+  "bankAccountsSearchHint": "Search accounts",
+  "bankAccountsBalanceLabel": "Current Balance",
+  "bankAccountsTypeChecking": "Checking",
+  "bankAccountsTypeSavings": "Savings",
+  "bankAccountsTypeCash": "Cash",
+  "bankAccountsTypeCreditCard": "Credit Card",
+  "bankAccountsStatusActive": "Active",
+  "bankAccountsStatusInactive": "Inactive",
+  "bankAccountsStatusFrozen": "Frozen",
+
+  "bankTransactionsPageTitle": "Transactions",
+  "bankTransactionsLoadError": "Error loading transactions:",
+  "bankTransactionsEmptyTitle": "No transactions found",
+  "bankTransactionsEmptyMessage": "No transactions are available for this account yet.",
+  "bankTransactionsSearchHint": "Search transactions",
+  "bankTransactionsAllTypes": "All types",
+  "bankTransactionTypeDeposit": "Deposit",
+  "bankTransactionTypeWithdrawal": "Withdrawal",
+  "bankTransactionTypeTransfer": "Transfer",
+  "bankTransactionTypeInterest": "Interest",
+  "bankTransactionTypeBankFee": "Bank Fee",
+  "bankTransactionTypeAdjustment": "Adjustment",
+  "bankTransactionRunningBalance": "Running balance",
+  "bankTransactionDate": "Date",
+  "bankTransactionReference": "Reference"
 
 }

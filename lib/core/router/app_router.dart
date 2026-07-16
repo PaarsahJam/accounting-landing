@@ -33,6 +33,9 @@ import '../../features/journal_preview/presentation/journal_preview_page.dart';
 import '../../features/journal_explorer/domain/journal_entry.dart';
 import '../../features/journal_explorer/presentation/journal_entry_detail_page.dart';
 import '../../features/journal_explorer/presentation/journal_explorer_page.dart';
+import '../../features/banking/domain/bank_account.dart';
+import '../../features/banking/presentation/bank_accounts_page.dart';
+import '../../features/banking/presentation/bank_transactions_page.dart';
 import '../../l10n/app_localizations.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -217,6 +220,22 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'bank-reconciliation',
         path: '/bank-reconciliation',
         builder: (c, s) => const BankReconciliationPage(),
+      ),
+      GoRoute(
+        name: 'bank-accounts',
+        path: '/bank-accounts',
+        builder: (c, s) => const BankAccountsPage(),
+      ),
+      GoRoute(
+        name: 'bank-account-transactions',
+        path: '/bank-accounts/:id/transactions',
+        builder: (context, state) {
+          final account = state.extra as BankAccount?;
+          if (account == null) {
+            return const BankAccountsPage();
+          }
+          return BankTransactionsPage(account: account);
+        },
       ),
       GoRoute(
         name: 'settings',

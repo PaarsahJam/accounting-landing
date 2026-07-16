@@ -37,7 +37,7 @@ final class AuditTrailControllerProvider
 }
 
 String _$auditTrailControllerHash() =>
-    r'7ecaf5fe1e4089c9563eca45ff16bf2e18ee0837';
+    r'a1a6d8727c880723e5d7e953a1953124ea6ee5dc';
 
 /// Global audit trail — loads all entries, supports filtering.
 

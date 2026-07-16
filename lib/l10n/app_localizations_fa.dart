@@ -1474,4 +1474,89 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get auditEntityFinancialReport => 'گزارش مالی';
+
+  @override
+  String get bankAccountsPageTitle => 'حساب‌های بانکی';
+
+  @override
+  String get bankAccountsLoadError => 'خطا در بارگذاری حساب‌های بانکی:';
+
+  @override
+  String get bankAccountsEmptyTitle => 'حساب بانکی یافت نشد';
+
+  @override
+  String get bankAccountsEmptyMessage => 'هیچ حساب بانکی ثبت نشده است.';
+
+  @override
+  String get bankAccountsSearchHint => 'جستجو در حساب‌ها';
+
+  @override
+  String get bankAccountsBalanceLabel => 'موجودی فعلی';
+
+  @override
+  String get bankAccountsTypeChecking => 'جاری';
+
+  @override
+  String get bankAccountsTypeSavings => 'پس‌انداز';
+
+  @override
+  String get bankAccountsTypeCash => 'نقد';
+
+  @override
+  String get bankAccountsTypeCreditCard => 'کارت اعتباری';
+
+  @override
+  String get bankAccountsStatusActive => 'فعال';
+
+  @override
+  String get bankAccountsStatusInactive => 'غیرفعال';
+
+  @override
+  String get bankAccountsStatusFrozen => 'مسدود';
+
+  @override
+  String get bankTransactionsPageTitle => 'تراکنش‌ها';
+
+  @override
+  String get bankTransactionsLoadError => 'خطا در بارگذاری تراکنش‌ها:';
+
+  @override
+  String get bankTransactionsEmptyTitle => 'تراکنشی یافت نشد';
+
+  @override
+  String get bankTransactionsEmptyMessage =>
+      'هیچ تراکنشی برای این حساب ثبت نشده است.';
+
+  @override
+  String get bankTransactionsSearchHint => 'جستجو در تراکنش‌ها';
+
+  @override
+  String get bankTransactionsAllTypes => 'همه انواع';
+
+  @override
+  String get bankTransactionTypeDeposit => 'واریز';
+
+  @override
+  String get bankTransactionTypeWithdrawal => 'برداشت';
+
+  @override
+  String get bankTransactionTypeTransfer => 'انتقال';
+
+  @override
+  String get bankTransactionTypeInterest => 'سود';
+
+  @override
+  String get bankTransactionTypeBankFee => 'کارمزد بانکی';
+
+  @override
+  String get bankTransactionTypeAdjustment => 'تعدیل';
+
+  @override
+  String get bankTransactionRunningBalance => 'موجودی جاری';
+
+  @override
+  String get bankTransactionDate => 'تاریخ';
+
+  @override
+  String get bankTransactionReference => 'مرجع';
 }
