@@ -1835,4 +1835,50 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get attachmentUploadedAt => 'تاریخ بارگذاری';
+
+  @override
+  String get commentsSectionTitle => 'نظرات و یادداشت‌ها';
+
+  @override
+  String get commentAdd => 'افزودن نظر';
+
+  @override
+  String get commentAddPlaceholder => 'یک نظر یا یادداشت داخلی بنویسید…';
+
+  @override
+  String get commentLoadError => 'خطا در بارگذاری نظرات:';
+
+  @override
+  String get commentEmptyTitle => 'هنوز نظری ثبت نشده';
+
+  @override
+  String get commentEmptyMessage => 'اولین نظر یا یادداشت داخلی را بگذارید.';
+
+  @override
+  String get commentAddError => 'خطا در افزودن نظر';
+
+  @override
+  String get commentEditTitle => 'ویرایش نظر';
+
+  @override
+  String get commentEditAction => 'ذخیره';
+
+  @override
+  String get commentDeleteTitle => 'حذف نظر';
+
+  @override
+  String get commentDeleteAction => 'حذف';
+
+  @override
+  String commentDeleteConfirm(String author) {
+    return 'نظر $author حذف شود؟';
+  }
+
+  @override
+  String get commentEditedLabel => 'ویرایش‌شده';
+
+  @override
+  String commentPostedBy(String author) {
+    return '$author';
+  }
 }

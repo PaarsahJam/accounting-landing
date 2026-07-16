@@ -3685,6 +3685,90 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'تاریخ بارگذاری'**
   String get attachmentUploadedAt;
+
+  /// No description provided for @commentsSectionTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'نظرات و یادداشت‌ها'**
+  String get commentsSectionTitle;
+
+  /// No description provided for @commentAdd.
+  ///
+  /// In fa, this message translates to:
+  /// **'افزودن نظر'**
+  String get commentAdd;
+
+  /// No description provided for @commentAddPlaceholder.
+  ///
+  /// In fa, this message translates to:
+  /// **'یک نظر یا یادداشت داخلی بنویسید…'**
+  String get commentAddPlaceholder;
+
+  /// No description provided for @commentLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری نظرات:'**
+  String get commentLoadError;
+
+  /// No description provided for @commentEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز نظری ثبت نشده'**
+  String get commentEmptyTitle;
+
+  /// No description provided for @commentEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'اولین نظر یا یادداشت داخلی را بگذارید.'**
+  String get commentEmptyMessage;
+
+  /// No description provided for @commentAddError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در افزودن نظر'**
+  String get commentAddError;
+
+  /// No description provided for @commentEditTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش نظر'**
+  String get commentEditTitle;
+
+  /// No description provided for @commentEditAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'ذخیره'**
+  String get commentEditAction;
+
+  /// No description provided for @commentDeleteTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف نظر'**
+  String get commentDeleteTitle;
+
+  /// No description provided for @commentDeleteAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف'**
+  String get commentDeleteAction;
+
+  /// No description provided for @commentDeleteConfirm.
+  ///
+  /// In fa, this message translates to:
+  /// **'نظر {author} حذف شود؟'**
+  String commentDeleteConfirm(String author);
+
+  /// No description provided for @commentEditedLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش‌شده'**
+  String get commentEditedLabel;
+
+  /// No description provided for @commentPostedBy.
+  ///
+  /// In fa, this message translates to:
+  /// **'{author}'**
+  String commentPostedBy(String author);
 }
 
 class _AppLocalizationsDelegate

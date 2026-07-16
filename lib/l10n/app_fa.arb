@@ -610,6 +610,27 @@
   },
   "attachmentFileSize": "حجم",
   "attachmentUploadedBy": "بارگذاری توسط",
-  "attachmentUploadedAt": "تاریخ بارگذاری"
+  "attachmentUploadedAt": "تاریخ بارگذاری",
+
+  "commentsSectionTitle": "نظرات و یادداشت‌ها",
+  "commentAdd": "افزودن نظر",
+  "commentAddPlaceholder": "یک نظر یا یادداشت داخلی بنویسید…",
+  "commentLoadError": "خطا در بارگذاری نظرات:",
+  "commentEmptyTitle": "هنوز نظری ثبت نشده",
+  "commentEmptyMessage": "اولین نظر یا یادداشت داخلی را بگذارید.",
+  "commentAddError": "خطا در افزودن نظر",
+  "commentEditTitle": "ویرایش نظر",
+  "commentEditAction": "ذخیره",
+  "commentDeleteTitle": "حذف نظر",
+  "commentDeleteAction": "حذف",
+  "commentDeleteConfirm": "نظر {author} حذف شود؟",
+  "@commentDeleteConfirm": {
+    "placeholders": { "author": { "type": "String" } }
+  },
+  "commentEditedLabel": "ویرایش‌شده",
+  "commentPostedBy": "{author}",
+  "@commentPostedBy": {
+    "placeholders": { "author": { "type": "String" } }
+  }
 
 }

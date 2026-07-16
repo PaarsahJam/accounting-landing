@@ -1840,4 +1840,51 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get attachmentUploadedAt => 'Uploaded';
+
+  @override
+  String get commentsSectionTitle => 'Comments & Notes';
+
+  @override
+  String get commentAdd => 'Add Comment';
+
+  @override
+  String get commentAddPlaceholder => 'Write a comment or internal note…';
+
+  @override
+  String get commentLoadError => 'Failed to load comments:';
+
+  @override
+  String get commentEmptyTitle => 'No comments yet';
+
+  @override
+  String get commentEmptyMessage =>
+      'Be the first to leave a comment or internal note.';
+
+  @override
+  String get commentAddError => 'Failed to add comment';
+
+  @override
+  String get commentEditTitle => 'Edit Comment';
+
+  @override
+  String get commentEditAction => 'Save';
+
+  @override
+  String get commentDeleteTitle => 'Delete Comment';
+
+  @override
+  String get commentDeleteAction => 'Delete';
+
+  @override
+  String commentDeleteConfirm(String author) {
+    return 'Delete comment by $author?';
+  }
+
+  @override
+  String get commentEditedLabel => 'edited';
+
+  @override
+  String commentPostedBy(String author) {
+    return '$author';
+  }
 }
