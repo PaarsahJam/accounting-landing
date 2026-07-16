@@ -120,6 +120,16 @@ class SettingsPage extends ConsumerWidget {
                 trailing: const Icon(Icons.swap_horiz),
                 onTap: () => context.go('/stock-transfers'),
               ),
+              ListTile(
+                title: Text(l10n.currenciesPageTitle),
+                trailing: const Icon(Icons.currency_exchange),
+                onTap: () => context.go('/currencies'),
+              ),
+              ListTile(
+                title: Text(l10n.userRolesPageTitle),
+                trailing: const Icon(Icons.manage_accounts_outlined),
+                onTap: () => context.go('/user-roles'),
+              ),
             ],
           );
         },

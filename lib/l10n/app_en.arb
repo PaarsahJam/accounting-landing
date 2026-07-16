@@ -695,6 +695,32 @@
   "permissionCloseFiscalPeriod": "Close Fiscal Period",
   "permissionViewFinancialReports": "View Financial Reports",
   "permissionManageUsers": "Manage Users",
-  "permissionManageRoles": "Manage Roles"
+  "permissionManageRoles": "Manage Roles",
+
+  "currenciesPageTitle": "Currencies",
+  "currenciesTabCurrencies": "Currencies",
+  "currenciesTabRates": "Exchange Rates",
+  "currenciesLoadError": "Failed to load currencies:",
+  "currenciesEmptyTitle": "No currencies",
+  "currenciesEmptyMessage": "No currencies configured.",
+  "currencyBadgeBase": "BASE",
+  "currencyBadgeInactive": "INACTIVE",
+  "currencySetBaseTitle": "Set Base Currency",
+  "currencySetBaseConfirm": "Set {isoCode} as the base currency?",
+  "@currencySetBaseConfirm": {
+    "placeholders": { "isoCode": { "type": "String" } }
+  },
+  "currencySetBaseAction": "Set as Base",
+  "currencyEditRateTitle": "Edit Exchange Rate",
+  "currencyRateLabel": "{from} per {to}",
+  "@currencyRateLabel": {
+    "placeholders": {
+      "from": { "type": "String" },
+      "to":   { "type": "String" }
+    }
+  },
+  "currencyRateValue": "Rate",
+  "currencyRateInvalid": "Enter a positive number",
+  "dashboardCurrencies": "Currencies"
 
 }

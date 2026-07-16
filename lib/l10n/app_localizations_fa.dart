@@ -2050,4 +2050,56 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get permissionManageRoles => 'مدیریت نقش‌ها';
+
+  @override
+  String get currenciesPageTitle => 'ارزها';
+
+  @override
+  String get currenciesTabCurrencies => 'ارزها';
+
+  @override
+  String get currenciesTabRates => 'نرخ ارز';
+
+  @override
+  String get currenciesLoadError => 'خطا در بارگذاری ارزها:';
+
+  @override
+  String get currenciesEmptyTitle => 'ارزی تعریف نشده';
+
+  @override
+  String get currenciesEmptyMessage => 'هیچ ارزی پیکربندی نشده است.';
+
+  @override
+  String get currencyBadgeBase => 'پایه';
+
+  @override
+  String get currencyBadgeInactive => 'غیرفعال';
+
+  @override
+  String get currencySetBaseTitle => 'تعیین ارز پایه';
+
+  @override
+  String currencySetBaseConfirm(String isoCode) {
+    return 'آیا $isoCode را به عنوان ارز پایه تعیین می‌کنید؟';
+  }
+
+  @override
+  String get currencySetBaseAction => 'تعیین به عنوان پایه';
+
+  @override
+  String get currencyEditRateTitle => 'ویرایش نرخ ارز';
+
+  @override
+  String currencyRateLabel(String from, String to) {
+    return '$from به ازای $to';
+  }
+
+  @override
+  String get currencyRateValue => 'نرخ';
+
+  @override
+  String get currencyRateInvalid => 'یک عدد مثبت وارد کنید';
+
+  @override
+  String get dashboardCurrencies => 'ارزها';
 }

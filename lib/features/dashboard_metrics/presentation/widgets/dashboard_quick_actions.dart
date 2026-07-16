@@ -66,6 +66,11 @@ class DashboardQuickActions extends StatelessWidget {
         icon: Icons.swap_horiz,
         route: '/stock-transfers',
       ),
+      _QuickAction(
+        title: l10n.dashboardCurrencies,
+        icon: Icons.currency_exchange,
+        route: '/currencies',
+      ),
     ];
 
     return SizedBox(

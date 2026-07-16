@@ -4099,6 +4099,102 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'مدیریت نقش‌ها'**
   String get permissionManageRoles;
+
+  /// No description provided for @currenciesPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارزها'**
+  String get currenciesPageTitle;
+
+  /// No description provided for @currenciesTabCurrencies.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارزها'**
+  String get currenciesTabCurrencies;
+
+  /// No description provided for @currenciesTabRates.
+  ///
+  /// In fa, this message translates to:
+  /// **'نرخ ارز'**
+  String get currenciesTabRates;
+
+  /// No description provided for @currenciesLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری ارزها:'**
+  String get currenciesLoadError;
+
+  /// No description provided for @currenciesEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارزی تعریف نشده'**
+  String get currenciesEmptyTitle;
+
+  /// No description provided for @currenciesEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ ارزی پیکربندی نشده است.'**
+  String get currenciesEmptyMessage;
+
+  /// No description provided for @currencyBadgeBase.
+  ///
+  /// In fa, this message translates to:
+  /// **'پایه'**
+  String get currencyBadgeBase;
+
+  /// No description provided for @currencyBadgeInactive.
+  ///
+  /// In fa, this message translates to:
+  /// **'غیرفعال'**
+  String get currencyBadgeInactive;
+
+  /// No description provided for @currencySetBaseTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعیین ارز پایه'**
+  String get currencySetBaseTitle;
+
+  /// No description provided for @currencySetBaseConfirm.
+  ///
+  /// In fa, this message translates to:
+  /// **'آیا {isoCode} را به عنوان ارز پایه تعیین می‌کنید؟'**
+  String currencySetBaseConfirm(String isoCode);
+
+  /// No description provided for @currencySetBaseAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعیین به عنوان پایه'**
+  String get currencySetBaseAction;
+
+  /// No description provided for @currencyEditRateTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش نرخ ارز'**
+  String get currencyEditRateTitle;
+
+  /// No description provided for @currencyRateLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'{from} به ازای {to}'**
+  String currencyRateLabel(String from, String to);
+
+  /// No description provided for @currencyRateValue.
+  ///
+  /// In fa, this message translates to:
+  /// **'نرخ'**
+  String get currencyRateValue;
+
+  /// No description provided for @currencyRateInvalid.
+  ///
+  /// In fa, this message translates to:
+  /// **'یک عدد مثبت وارد کنید'**
+  String get currencyRateInvalid;
+
+  /// No description provided for @dashboardCurrencies.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارزها'**
+  String get dashboardCurrencies;
 }
 
 class _AppLocalizationsDelegate

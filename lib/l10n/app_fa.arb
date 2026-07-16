@@ -695,6 +695,32 @@
   "permissionCloseFiscalPeriod": "بستن دوره مالی",
   "permissionViewFinancialReports": "مشاهده گزارش‌های مالی",
   "permissionManageUsers": "مدیریت کاربران",
-  "permissionManageRoles": "مدیریت نقش‌ها"
+  "permissionManageRoles": "مدیریت نقش‌ها",
+
+  "currenciesPageTitle": "ارزها",
+  "currenciesTabCurrencies": "ارزها",
+  "currenciesTabRates": "نرخ ارز",
+  "currenciesLoadError": "خطا در بارگذاری ارزها:",
+  "currenciesEmptyTitle": "ارزی تعریف نشده",
+  "currenciesEmptyMessage": "هیچ ارزی پیکربندی نشده است.",
+  "currencyBadgeBase": "پایه",
+  "currencyBadgeInactive": "غیرفعال",
+  "currencySetBaseTitle": "تعیین ارز پایه",
+  "currencySetBaseConfirm": "آیا {isoCode} را به عنوان ارز پایه تعیین می‌کنید؟",
+  "@currencySetBaseConfirm": {
+    "placeholders": { "isoCode": { "type": "String" } }
+  },
+  "currencySetBaseAction": "تعیین به عنوان پایه",
+  "currencyEditRateTitle": "ویرایش نرخ ارز",
+  "currencyRateLabel": "{from} به ازای {to}",
+  "@currencyRateLabel": {
+    "placeholders": {
+      "from": { "type": "String" },
+      "to":   { "type": "String" }
+    }
+  },
+  "currencyRateValue": "نرخ",
+  "currencyRateInvalid": "یک عدد مثبت وارد کنید",
+  "dashboardCurrencies": "ارزها"
 
 }

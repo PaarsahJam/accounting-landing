@@ -2057,4 +2057,56 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get permissionManageRoles => 'Manage Roles';
+
+  @override
+  String get currenciesPageTitle => 'Currencies';
+
+  @override
+  String get currenciesTabCurrencies => 'Currencies';
+
+  @override
+  String get currenciesTabRates => 'Exchange Rates';
+
+  @override
+  String get currenciesLoadError => 'Failed to load currencies:';
+
+  @override
+  String get currenciesEmptyTitle => 'No currencies';
+
+  @override
+  String get currenciesEmptyMessage => 'No currencies configured.';
+
+  @override
+  String get currencyBadgeBase => 'BASE';
+
+  @override
+  String get currencyBadgeInactive => 'INACTIVE';
+
+  @override
+  String get currencySetBaseTitle => 'Set Base Currency';
+
+  @override
+  String currencySetBaseConfirm(String isoCode) {
+    return 'Set $isoCode as the base currency?';
+  }
+
+  @override
+  String get currencySetBaseAction => 'Set as Base';
+
+  @override
+  String get currencyEditRateTitle => 'Edit Exchange Rate';
+
+  @override
+  String currencyRateLabel(String from, String to) {
+    return '$from per $to';
+  }
+
+  @override
+  String get currencyRateValue => 'Rate';
+
+  @override
+  String get currencyRateInvalid => 'Enter a positive number';
+
+  @override
+  String get dashboardCurrencies => 'Currencies';
 }

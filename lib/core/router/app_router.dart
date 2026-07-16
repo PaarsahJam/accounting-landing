@@ -45,6 +45,7 @@ import '../../features/bank_reconciliation/domain/bank_statement.dart';
 import '../../features/bank_reconciliation/presentation/bank_statements_page.dart';
 import '../../features/bank_reconciliation/presentation/bank_reconciliation_detail_page.dart';
 import '../../features/global_search/presentation/global_search_page.dart';
+import '../../features/multi_currency/presentation/currencies_page.dart';
 import '../../features/tags/presentation/tags_page.dart';
 import '../../features/user_roles/presentation/user_roles_page.dart';
 import '../../l10n/app_localizations.dart';
@@ -305,6 +306,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'user-roles',
         path: '/user-roles',
         builder: (c, s) => const UserRolesPage(),
+      ),
+      GoRoute(
+        name: 'currencies',
+        path: '/currencies',
+        builder: (c, s) => const CurrenciesPage(),
       ),
     ],
     errorBuilder: (context, state) {

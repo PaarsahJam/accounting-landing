@@ -218,7 +218,7 @@ final class HasPermissionProvider extends $FunctionalProvider<bool, bool, bool>
   }
 }
 
-String _$hasPermissionHash() => r'67ec7b9644f6bce63ff28bbfba8f6e8570f66bd3';
+String _$hasPermissionHash() => r'4f98a05c5db0171bfc793000c21321c1eb3b506e';
 
 /// Returns `true` if the current user has [permission].
 ///
