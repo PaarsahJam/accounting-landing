@@ -6,6 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../controller/fiscal_year_controller.dart';
 
 class FiscalYearsPage extends ConsumerWidget {
+  const FiscalYearsPage({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final fiscalYearController = ref.watch(

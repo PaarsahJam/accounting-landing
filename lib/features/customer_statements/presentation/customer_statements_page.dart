@@ -26,9 +26,7 @@ class _CustomerStatementsPageState
     if (statements.isEmpty) {
       return null;
     }
-    if (_selectedCustomerId == null) {
-      _selectedCustomerId = statements.first.customerId;
-    }
+    _selectedCustomerId ??= statements.first.customerId;
     final matches = statements.where(
       (item) => item.customerId == _selectedCustomerId,
     );

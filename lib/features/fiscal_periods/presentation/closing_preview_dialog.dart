@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class ClosingPreviewDialog extends StatelessWidget {
   final List<ClosingEntry> entries;
 
-  ClosingPreviewDialog({required this.entries});
+  const ClosingPreviewDialog({super.key, required this.entries});
 
   @override
   Widget build(BuildContext context) {

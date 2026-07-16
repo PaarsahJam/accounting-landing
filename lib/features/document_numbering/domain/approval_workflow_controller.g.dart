@@ -39,7 +39,7 @@ final class ApprovalWorkflowControllerProvider
 }
 
 String _$approvalWorkflowControllerHash() =>
-    r'689f28d0d50535e2e1c216353944aeba8e999791';
+    r'c53dd065a1d9584351cab84b820268edf1faee9b';
 
 abstract class _$ApprovalWorkflowController
     extends $AsyncNotifier<List<DocumentRecord>> {

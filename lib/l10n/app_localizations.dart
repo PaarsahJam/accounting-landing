@@ -2719,6 +2719,270 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'هنوز سندی ثبت نشده است.'**
   String get approvalWorkflowEmptyMessage;
+
+  /// No description provided for @auditTrailPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'گزارش حسابرسی'**
+  String get auditTrailPageTitle;
+
+  /// No description provided for @auditTrailLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری گزارش حسابرسی:'**
+  String get auditTrailLoadError;
+
+  /// No description provided for @auditTrailEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز فعالیتی ثبت نشده است'**
+  String get auditTrailEmptyTitle;
+
+  /// No description provided for @auditTrailEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'برای این سند هنوز فعالیتی ثبت نشده است.'**
+  String get auditTrailEmptyMessage;
+
+  /// No description provided for @auditTrailFilterAll.
+  ///
+  /// In fa, this message translates to:
+  /// **'همه'**
+  String get auditTrailFilterAll;
+
+  /// No description provided for @auditTrailPerformedBy.
+  ///
+  /// In fa, this message translates to:
+  /// **'توسط {user}'**
+  String auditTrailPerformedBy(String user);
+
+  /// No description provided for @auditActionCreated.
+  ///
+  /// In fa, this message translates to:
+  /// **'ایجاد شد'**
+  String get auditActionCreated;
+
+  /// No description provided for @auditActionEdited.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش شد'**
+  String get auditActionEdited;
+
+  /// No description provided for @auditActionDeleted.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف شد'**
+  String get auditActionDeleted;
+
+  /// No description provided for @auditActionSubmittedForApproval.
+  ///
+  /// In fa, this message translates to:
+  /// **'برای تأیید ارسال شد'**
+  String get auditActionSubmittedForApproval;
+
+  /// No description provided for @auditActionApproved.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأیید شد'**
+  String get auditActionApproved;
+
+  /// No description provided for @auditActionRejected.
+  ///
+  /// In fa, this message translates to:
+  /// **'رد شد'**
+  String get auditActionRejected;
+
+  /// No description provided for @auditActionPosted.
+  ///
+  /// In fa, this message translates to:
+  /// **'ثبت شد'**
+  String get auditActionPosted;
+
+  /// No description provided for @auditActionLocked.
+  ///
+  /// In fa, this message translates to:
+  /// **'قفل شد'**
+  String get auditActionLocked;
+
+  /// No description provided for @auditActionCancelled.
+  ///
+  /// In fa, this message translates to:
+  /// **'لغو شد'**
+  String get auditActionCancelled;
+
+  /// No description provided for @auditActionReopened.
+  ///
+  /// In fa, this message translates to:
+  /// **'بازگشایی شد'**
+  String get auditActionReopened;
+
+  /// No description provided for @auditActionPaid.
+  ///
+  /// In fa, this message translates to:
+  /// **'پرداخت شد'**
+  String get auditActionPaid;
+
+  /// No description provided for @auditActionPartiallyPaid.
+  ///
+  /// In fa, this message translates to:
+  /// **'پرداخت جزئی شد'**
+  String get auditActionPartiallyPaid;
+
+  /// No description provided for @auditActionRefunded.
+  ///
+  /// In fa, this message translates to:
+  /// **'بازگشت داده شد'**
+  String get auditActionRefunded;
+
+  /// No description provided for @auditActionPrinted.
+  ///
+  /// In fa, this message translates to:
+  /// **'چاپ شد'**
+  String get auditActionPrinted;
+
+  /// No description provided for @auditActionExported.
+  ///
+  /// In fa, this message translates to:
+  /// **'خروجی گرفته شد'**
+  String get auditActionExported;
+
+  /// No description provided for @auditActionStockAdjusted.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی تنظیم شد'**
+  String get auditActionStockAdjusted;
+
+  /// No description provided for @auditActionStockTransferred.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی منتقل شد'**
+  String get auditActionStockTransferred;
+
+  /// No description provided for @auditActionStockCounted.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی شمارش شد'**
+  String get auditActionStockCounted;
+
+  /// No description provided for @auditActionJournalGenerated.
+  ///
+  /// In fa, this message translates to:
+  /// **'سند حسابداری تولید شد'**
+  String get auditActionJournalGenerated;
+
+  /// No description provided for @auditActionJournalReviewed.
+  ///
+  /// In fa, this message translates to:
+  /// **'سند حسابداری بررسی شد'**
+  String get auditActionJournalReviewed;
+
+  /// No description provided for @auditActionAddressChanged.
+  ///
+  /// In fa, this message translates to:
+  /// **'آدرس تغییر کرد'**
+  String get auditActionAddressChanged;
+
+  /// No description provided for @auditActionContactChanged.
+  ///
+  /// In fa, this message translates to:
+  /// **'اطلاعات تماس تغییر کرد'**
+  String get auditActionContactChanged;
+
+  /// No description provided for @auditActionArchived.
+  ///
+  /// In fa, this message translates to:
+  /// **'بایگانی شد'**
+  String get auditActionArchived;
+
+  /// No description provided for @auditActionUnarchived.
+  ///
+  /// In fa, this message translates to:
+  /// **'از بایگانی خارج شد'**
+  String get auditActionUnarchived;
+
+  /// No description provided for @auditActionPeriodOpened.
+  ///
+  /// In fa, this message translates to:
+  /// **'دوره مالی باز شد'**
+  String get auditActionPeriodOpened;
+
+  /// No description provided for @auditActionPeriodClosed.
+  ///
+  /// In fa, this message translates to:
+  /// **'دوره مالی بسته شد'**
+  String get auditActionPeriodClosed;
+
+  /// No description provided for @auditEntitySalesInvoice.
+  ///
+  /// In fa, this message translates to:
+  /// **'فاکتور فروش'**
+  String get auditEntitySalesInvoice;
+
+  /// No description provided for @auditEntityVendorBill.
+  ///
+  /// In fa, this message translates to:
+  /// **'صورتحساب تأمین‌کننده'**
+  String get auditEntityVendorBill;
+
+  /// No description provided for @auditEntityPurchaseOrder.
+  ///
+  /// In fa, this message translates to:
+  /// **'سفارش خرید'**
+  String get auditEntityPurchaseOrder;
+
+  /// No description provided for @auditEntityGoodsReceipt.
+  ///
+  /// In fa, this message translates to:
+  /// **'رسید کالا'**
+  String get auditEntityGoodsReceipt;
+
+  /// No description provided for @auditEntityVendorPayment.
+  ///
+  /// In fa, this message translates to:
+  /// **'پرداخت تأمین‌کننده'**
+  String get auditEntityVendorPayment;
+
+  /// No description provided for @auditEntityCustomerPayment.
+  ///
+  /// In fa, this message translates to:
+  /// **'دریافت مشتری'**
+  String get auditEntityCustomerPayment;
+
+  /// No description provided for @auditEntityCustomer.
+  ///
+  /// In fa, this message translates to:
+  /// **'مشتری'**
+  String get auditEntityCustomer;
+
+  /// No description provided for @auditEntityVendor.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأمین‌کننده'**
+  String get auditEntityVendor;
+
+  /// No description provided for @auditEntityInventory.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی'**
+  String get auditEntityInventory;
+
+  /// No description provided for @auditEntityJournalEntry.
+  ///
+  /// In fa, this message translates to:
+  /// **'سند حسابداری'**
+  String get auditEntityJournalEntry;
+
+  /// No description provided for @auditEntityFiscalPeriod.
+  ///
+  /// In fa, this message translates to:
+  /// **'دوره مالی'**
+  String get auditEntityFiscalPeriod;
+
+  /// No description provided for @auditEntityFinancialReport.
+  ///
+  /// In fa, this message translates to:
+  /// **'گزارش مالی'**
+  String get auditEntityFinancialReport;
 }
 
 class _AppLocalizationsDelegate

@@ -25,9 +25,7 @@ class _VendorStatementsPageState extends ConsumerState<VendorStatementsPage> {
     if (statements.isEmpty) {
       return null;
     }
-    if (_selectedVendorId == null) {
-      _selectedVendorId = statements.first.vendorId;
-    }
+    _selectedVendorId ??= statements.first.vendorId;
     final matches = statements.where(
       (item) => item.vendorId == _selectedVendorId,
     );

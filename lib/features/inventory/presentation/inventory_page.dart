@@ -349,7 +349,7 @@ class _InventoryPageState extends ConsumerState<InventoryPage> {
                 child: ListView.separated(
                   padding: const EdgeInsets.all(16),
                   itemCount: filteredProducts.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 8),
+                  separatorBuilder: (_, _) => const SizedBox(height: 8),
                   itemBuilder: (context, index) {
                     final product = filteredProducts[index];
                     return Card(

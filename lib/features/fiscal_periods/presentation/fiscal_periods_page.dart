@@ -8,7 +8,7 @@ import '../controller/fiscal_period_controller.dart';
 class FiscalPeriodsPage extends ConsumerWidget {
   final int fiscalYearId;
 
-  FiscalPeriodsPage({required this.fiscalYearId});
+  const FiscalPeriodsPage({super.key, required this.fiscalYearId});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

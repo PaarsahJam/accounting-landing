@@ -1339,4 +1339,139 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get approvalWorkflowEmptyMessage =>
       'No documents have been registered yet.';
+
+  @override
+  String get auditTrailPageTitle => 'Audit Trail';
+
+  @override
+  String get auditTrailLoadError => 'Error loading audit trail:';
+
+  @override
+  String get auditTrailEmptyTitle => 'No activity recorded yet';
+
+  @override
+  String get auditTrailEmptyMessage =>
+      'No activity has been recorded for this document yet.';
+
+  @override
+  String get auditTrailFilterAll => 'All';
+
+  @override
+  String auditTrailPerformedBy(String user) {
+    return 'by $user';
+  }
+
+  @override
+  String get auditActionCreated => 'Created';
+
+  @override
+  String get auditActionEdited => 'Edited';
+
+  @override
+  String get auditActionDeleted => 'Deleted';
+
+  @override
+  String get auditActionSubmittedForApproval => 'Submitted for Approval';
+
+  @override
+  String get auditActionApproved => 'Approved';
+
+  @override
+  String get auditActionRejected => 'Rejected';
+
+  @override
+  String get auditActionPosted => 'Posted';
+
+  @override
+  String get auditActionLocked => 'Locked';
+
+  @override
+  String get auditActionCancelled => 'Cancelled';
+
+  @override
+  String get auditActionReopened => 'Reopened';
+
+  @override
+  String get auditActionPaid => 'Paid';
+
+  @override
+  String get auditActionPartiallyPaid => 'Partially Paid';
+
+  @override
+  String get auditActionRefunded => 'Refunded';
+
+  @override
+  String get auditActionPrinted => 'Printed';
+
+  @override
+  String get auditActionExported => 'Exported';
+
+  @override
+  String get auditActionStockAdjusted => 'Stock Adjusted';
+
+  @override
+  String get auditActionStockTransferred => 'Stock Transferred';
+
+  @override
+  String get auditActionStockCounted => 'Stock Counted';
+
+  @override
+  String get auditActionJournalGenerated => 'Journal Generated';
+
+  @override
+  String get auditActionJournalReviewed => 'Journal Reviewed';
+
+  @override
+  String get auditActionAddressChanged => 'Address Changed';
+
+  @override
+  String get auditActionContactChanged => 'Contact Changed';
+
+  @override
+  String get auditActionArchived => 'Archived';
+
+  @override
+  String get auditActionUnarchived => 'Unarchived';
+
+  @override
+  String get auditActionPeriodOpened => 'Period Opened';
+
+  @override
+  String get auditActionPeriodClosed => 'Period Closed';
+
+  @override
+  String get auditEntitySalesInvoice => 'Sales Invoice';
+
+  @override
+  String get auditEntityVendorBill => 'Vendor Bill';
+
+  @override
+  String get auditEntityPurchaseOrder => 'Purchase Order';
+
+  @override
+  String get auditEntityGoodsReceipt => 'Goods Receipt';
+
+  @override
+  String get auditEntityVendorPayment => 'Vendor Payment';
+
+  @override
+  String get auditEntityCustomerPayment => 'Customer Payment';
+
+  @override
+  String get auditEntityCustomer => 'Customer';
+
+  @override
+  String get auditEntityVendor => 'Vendor';
+
+  @override
+  String get auditEntityInventory => 'Inventory';
+
+  @override
+  String get auditEntityJournalEntry => 'Journal Entry';
+
+  @override
+  String get auditEntityFiscalPeriod => 'Fiscal Period';
+
+  @override
+  String get auditEntityFinancialReport => 'Financial Report';
 }

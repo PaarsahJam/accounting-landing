@@ -33,7 +33,7 @@ void main() {
     test('refresh reloads dashboard data', () async {
       final subscription = container.listen(
         financialDashboardControllerProvider,
-        (_, __) {},
+        (_, _) {},
       );
       addTearDown(subscription.close);
 

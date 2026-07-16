@@ -58,7 +58,7 @@ class AccountDetailPage extends ConsumerWidget {
                 Expanded(
                   child: ListView.separated(
                     itemCount: data.transactions.length,
-                    separatorBuilder: (_, __) => const SizedBox(height: 8),
+                    separatorBuilder: (_, _) => const SizedBox(height: 8),
                     itemBuilder: (context, index) {
                       final transaction = data.transactions[index];
                       return Card(

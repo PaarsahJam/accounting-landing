@@ -1339,4 +1339,139 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get approvalWorkflowEmptyMessage => 'هنوز سندی ثبت نشده است.';
+
+  @override
+  String get auditTrailPageTitle => 'گزارش حسابرسی';
+
+  @override
+  String get auditTrailLoadError => 'خطا در بارگذاری گزارش حسابرسی:';
+
+  @override
+  String get auditTrailEmptyTitle => 'هنوز فعالیتی ثبت نشده است';
+
+  @override
+  String get auditTrailEmptyMessage =>
+      'برای این سند هنوز فعالیتی ثبت نشده است.';
+
+  @override
+  String get auditTrailFilterAll => 'همه';
+
+  @override
+  String auditTrailPerformedBy(String user) {
+    return 'توسط $user';
+  }
+
+  @override
+  String get auditActionCreated => 'ایجاد شد';
+
+  @override
+  String get auditActionEdited => 'ویرایش شد';
+
+  @override
+  String get auditActionDeleted => 'حذف شد';
+
+  @override
+  String get auditActionSubmittedForApproval => 'برای تأیید ارسال شد';
+
+  @override
+  String get auditActionApproved => 'تأیید شد';
+
+  @override
+  String get auditActionRejected => 'رد شد';
+
+  @override
+  String get auditActionPosted => 'ثبت شد';
+
+  @override
+  String get auditActionLocked => 'قفل شد';
+
+  @override
+  String get auditActionCancelled => 'لغو شد';
+
+  @override
+  String get auditActionReopened => 'بازگشایی شد';
+
+  @override
+  String get auditActionPaid => 'پرداخت شد';
+
+  @override
+  String get auditActionPartiallyPaid => 'پرداخت جزئی شد';
+
+  @override
+  String get auditActionRefunded => 'بازگشت داده شد';
+
+  @override
+  String get auditActionPrinted => 'چاپ شد';
+
+  @override
+  String get auditActionExported => 'خروجی گرفته شد';
+
+  @override
+  String get auditActionStockAdjusted => 'موجودی تنظیم شد';
+
+  @override
+  String get auditActionStockTransferred => 'موجودی منتقل شد';
+
+  @override
+  String get auditActionStockCounted => 'موجودی شمارش شد';
+
+  @override
+  String get auditActionJournalGenerated => 'سند حسابداری تولید شد';
+
+  @override
+  String get auditActionJournalReviewed => 'سند حسابداری بررسی شد';
+
+  @override
+  String get auditActionAddressChanged => 'آدرس تغییر کرد';
+
+  @override
+  String get auditActionContactChanged => 'اطلاعات تماس تغییر کرد';
+
+  @override
+  String get auditActionArchived => 'بایگانی شد';
+
+  @override
+  String get auditActionUnarchived => 'از بایگانی خارج شد';
+
+  @override
+  String get auditActionPeriodOpened => 'دوره مالی باز شد';
+
+  @override
+  String get auditActionPeriodClosed => 'دوره مالی بسته شد';
+
+  @override
+  String get auditEntitySalesInvoice => 'فاکتور فروش';
+
+  @override
+  String get auditEntityVendorBill => 'صورتحساب تأمین‌کننده';
+
+  @override
+  String get auditEntityPurchaseOrder => 'سفارش خرید';
+
+  @override
+  String get auditEntityGoodsReceipt => 'رسید کالا';
+
+  @override
+  String get auditEntityVendorPayment => 'پرداخت تأمین‌کننده';
+
+  @override
+  String get auditEntityCustomerPayment => 'دریافت مشتری';
+
+  @override
+  String get auditEntityCustomer => 'مشتری';
+
+  @override
+  String get auditEntityVendor => 'تأمین‌کننده';
+
+  @override
+  String get auditEntityInventory => 'موجودی';
+
+  @override
+  String get auditEntityJournalEntry => 'سند حسابداری';
+
+  @override
+  String get auditEntityFiscalPeriod => 'دوره مالی';
+
+  @override
+  String get auditEntityFinancialReport => 'گزارش مالی';
 }

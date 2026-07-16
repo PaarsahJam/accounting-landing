@@ -11,7 +11,7 @@ abstract class LedgerRepository {
 
 class MockLedgerRepository implements LedgerRepository {
   final List<JournalEntry> _entries = [];
-  ChartOfAccounts _chart = ChartOfAccounts.mockDefault();
+  final ChartOfAccounts _chart = ChartOfAccounts.mockDefault();
 
   @override
   Future<void> postJournalEntry(JournalEntry entry) async {

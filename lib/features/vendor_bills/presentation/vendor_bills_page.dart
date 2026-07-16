@@ -379,7 +379,7 @@ class _VendorBillsPageState extends ConsumerState<VendorBillsPage> {
                 child: ListView.separated(
                   padding: const EdgeInsets.all(16),
                   itemCount: filtered.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 8),
+                  separatorBuilder: (_, _) => const SizedBox(height: 8),
                   itemBuilder: (context, index) {
                     final bill = filtered[index];
                     return Card(
