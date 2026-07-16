@@ -47,6 +47,7 @@ import '../../features/bank_reconciliation/presentation/bank_reconciliation_deta
 import '../../features/global_search/presentation/global_search_page.dart';
 import '../../features/multi_currency/presentation/currencies_page.dart';
 import '../../features/fixed_assets/presentation/fixed_assets_page.dart';
+import '../../features/import_export/presentation/import_export_page.dart';
 import '../../features/recurring_transactions/presentation/recurring_transactions_page.dart';
 import '../../features/tags/presentation/tags_page.dart';
 import '../../features/user_roles/presentation/user_roles_page.dart';
@@ -323,6 +324,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'fixed-assets',
         path: '/fixed-assets',
         builder: (c, s) => const FixedAssetsPage(),
+      ),
+      GoRoute(
+        name: 'import-export',
+        path: '/import-export',
+        builder: (c, s) => const ImportExportPage(),
       ),
     ],
     errorBuilder: (context, state) {

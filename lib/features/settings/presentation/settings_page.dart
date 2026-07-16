@@ -136,6 +136,11 @@ class SettingsPage extends ConsumerWidget {
                 onTap: () => context.go('/fixed-assets'),
               ),
               ListTile(
+                title: Text(l10n.importExportPageTitle),
+                trailing: const Icon(Icons.import_export),
+                onTap: () => context.go('/import-export'),
+              ),
+              ListTile(
                 title: Text(l10n.userRolesPageTitle),
                 trailing: const Icon(Icons.manage_accounts_outlined),
                 onTap: () => context.go('/user-roles'),

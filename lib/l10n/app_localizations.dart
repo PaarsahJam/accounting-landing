@@ -4370,6 +4370,23 @@ abstract class AppLocalizations {
   String get fixedAssetScheduleClosing;
   String get fixedAssetInvalidNumber;
   String get dashboardFixedAssets;
+
+  String get importExportPageTitle;
+  String get importExportSelectEntity;
+  String get importExportExportBtn;
+  String get importExportImportBtn;
+  String get importExportRecentJobs;
+  String get importExportLoadError;
+  String get importExportEmptyTitle;
+  String get importExportEmptyMessage;
+  String get importExportRows;
+  String get importExportDirectionExport;
+  String get importExportDirectionImport;
+  String get importExportStatusSuccess;
+  String get importExportStatusFailed;
+  String get importExportPreviewBtn;
+  String get importExportPreviewTitle;
+  String get dashboardImportExport;
 }
 
 class _AppLocalizationsDelegate

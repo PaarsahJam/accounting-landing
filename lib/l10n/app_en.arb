@@ -780,6 +780,23 @@
   "fixedAssetScheduleAccum": "Accumulated",
   "fixedAssetScheduleClosing": "Closing",
   "fixedAssetInvalidNumber": "Enter a valid positive number",
-  "dashboardFixedAssets": "Fixed Assets"
+  "dashboardFixedAssets": "Fixed Assets",
+
+  "importExportPageTitle": "Import / Export",
+  "importExportSelectEntity": "Select entity type",
+  "importExportExportBtn": "Export CSV",
+  "importExportImportBtn": "Import CSV",
+  "importExportRecentJobs": "Recent jobs",
+  "importExportLoadError": "Failed to load jobs:",
+  "importExportEmptyTitle": "No jobs yet",
+  "importExportEmptyMessage": "Run an export or import to see results here.",
+  "importExportRows": "rows",
+  "importExportDirectionExport": "EXPORT",
+  "importExportDirectionImport": "IMPORT",
+  "importExportStatusSuccess": "OK",
+  "importExportStatusFailed": "FAILED",
+  "importExportPreviewBtn": "Preview CSV",
+  "importExportPreviewTitle": "CSV Preview",
+  "dashboardImportExport": "Import / Export"
 
 }

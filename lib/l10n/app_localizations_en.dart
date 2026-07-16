@@ -2247,4 +2247,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fixedAssetInvalidNumber => 'Enter a valid positive number';
   @override
   String get dashboardFixedAssets => 'Fixed Assets';
+
+  @override
+  String get importExportPageTitle => 'Import / Export';
+  @override
+  String get importExportSelectEntity => 'Select entity type';
+  @override
+  String get importExportExportBtn => 'Export CSV';
+  @override
+  String get importExportImportBtn => 'Import CSV';
+  @override
+  String get importExportRecentJobs => 'Recent jobs';
+  @override
+  String get importExportLoadError => 'Failed to load jobs:';
+  @override
+  String get importExportEmptyTitle => 'No jobs yet';
+  @override
+  String get importExportEmptyMessage =>
+      'Run an export or import to see results here.';
+  @override
+  String get importExportRows => 'rows';
+  @override
+  String get importExportDirectionExport => 'EXPORT';
+  @override
+  String get importExportDirectionImport => 'IMPORT';
+  @override
+  String get importExportStatusSuccess => 'OK';
+  @override
+  String get importExportStatusFailed => 'FAILED';
+  @override
+  String get importExportPreviewBtn => 'Preview CSV';
+  @override
+  String get importExportPreviewTitle => 'CSV Preview';
+  @override
+  String get dashboardImportExport => 'Import / Export';
 }

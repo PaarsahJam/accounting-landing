@@ -81,6 +81,11 @@ class DashboardQuickActions extends StatelessWidget {
         icon: Icons.business_center_outlined,
         route: '/fixed-assets',
       ),
+      _QuickAction(
+        title: l10n.dashboardImportExport,
+        icon: Icons.import_export,
+        route: '/import-export',
+      ),
     ];
 
     return SizedBox(

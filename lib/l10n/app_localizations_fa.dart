@@ -2241,4 +2241,38 @@ class AppLocalizationsFa extends AppLocalizations {
   String get fixedAssetInvalidNumber => 'یک عدد مثبت معتبر وارد کنید';
   @override
   String get dashboardFixedAssets => 'دارایی‌های ثابت';
+
+  @override
+  String get importExportPageTitle => 'واردات / صادرات';
+  @override
+  String get importExportSelectEntity => 'انتخاب نوع موجودیت';
+  @override
+  String get importExportExportBtn => 'صادرات CSV';
+  @override
+  String get importExportImportBtn => 'واردات CSV';
+  @override
+  String get importExportRecentJobs => 'عملیات اخیر';
+  @override
+  String get importExportLoadError => 'خطا در بارگذاری عملیات:';
+  @override
+  String get importExportEmptyTitle => 'هیچ عملیاتی انجام نشده';
+  @override
+  String get importExportEmptyMessage =>
+      'برای مشاهده نتایج، یک عملیات صادرات یا واردات انجام دهید.';
+  @override
+  String get importExportRows => 'سطر';
+  @override
+  String get importExportDirectionExport => 'صادرات';
+  @override
+  String get importExportDirectionImport => 'واردات';
+  @override
+  String get importExportStatusSuccess => 'موفق';
+  @override
+  String get importExportStatusFailed => 'ناموفق';
+  @override
+  String get importExportPreviewBtn => 'پیش‌نمایش CSV';
+  @override
+  String get importExportPreviewTitle => 'پیش‌نمایش CSV';
+  @override
+  String get dashboardImportExport => 'واردات / صادرات';
 }

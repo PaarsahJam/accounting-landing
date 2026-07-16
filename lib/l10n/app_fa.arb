@@ -780,6 +780,23 @@
   "fixedAssetScheduleAccum": "انباشته",
   "fixedAssetScheduleClosing": "اختتامیه",
   "fixedAssetInvalidNumber": "یک عدد مثبت معتبر وارد کنید",
-  "dashboardFixedAssets": "دارایی‌های ثابت"
+  "dashboardFixedAssets": "دارایی‌های ثابت",
+
+  "importExportPageTitle": "واردات / صادرات",
+  "importExportSelectEntity": "انتخاب نوع موجودیت",
+  "importExportExportBtn": "صادرات CSV",
+  "importExportImportBtn": "واردات CSV",
+  "importExportRecentJobs": "عملیات اخیر",
+  "importExportLoadError": "خطا در بارگذاری عملیات:",
+  "importExportEmptyTitle": "هیچ عملیاتی انجام نشده",
+  "importExportEmptyMessage": "برای مشاهده نتایج، یک عملیات صادرات یا واردات انجام دهید.",
+  "importExportRows": "سطر",
+  "importExportDirectionExport": "صادرات",
+  "importExportDirectionImport": "واردات",
+  "importExportStatusSuccess": "موفق",
+  "importExportStatusFailed": "ناموفق",
+  "importExportPreviewBtn": "پیش‌نمایش CSV",
+  "importExportPreviewTitle": "پیش‌نمایش CSV",
+  "dashboardImportExport": "واردات / صادرات"
 
 }
