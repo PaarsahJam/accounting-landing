@@ -3991,6 +3991,114 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'هنوز برچسبی تعریف نشده. یکی بسازید.'**
   String get tagEmptyPageMessage;
+
+  /// No description provided for @userRolesPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'کاربران و نقش‌ها'**
+  String get userRolesPageTitle;
+
+  /// No description provided for @userRolesTabUsers.
+  ///
+  /// In fa, this message translates to:
+  /// **'کاربران'**
+  String get userRolesTabUsers;
+
+  /// No description provided for @userRolesTabRoles.
+  ///
+  /// In fa, this message translates to:
+  /// **'نقش‌ها'**
+  String get userRolesTabRoles;
+
+  /// No description provided for @userRolesAssignTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تخصیص نقش'**
+  String get userRolesAssignTitle;
+
+  /// No description provided for @userRolesDeactivate.
+  ///
+  /// In fa, this message translates to:
+  /// **'غیرفعال‌سازی'**
+  String get userRolesDeactivate;
+
+  /// No description provided for @userRolesLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری:'**
+  String get userRolesLoadError;
+
+  /// No description provided for @userRolesEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'موردی یافت نشد'**
+  String get userRolesEmptyTitle;
+
+  /// No description provided for @userRolesEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'کاربر یا نقشی یافت نشد.'**
+  String get userRolesEmptyMessage;
+
+  /// No description provided for @userRolesUnknownRole.
+  ///
+  /// In fa, this message translates to:
+  /// **'نامشخص'**
+  String get userRolesUnknownRole;
+
+  /// No description provided for @userRolesCurrentUser.
+  ///
+  /// In fa, this message translates to:
+  /// **'کاربر جاری'**
+  String get userRolesCurrentUser;
+
+  /// No description provided for @permissionViewCustomers.
+  ///
+  /// In fa, this message translates to:
+  /// **'مشاهده مشتریان'**
+  String get permissionViewCustomers;
+
+  /// No description provided for @permissionEditCustomers.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش مشتریان'**
+  String get permissionEditCustomers;
+
+  /// No description provided for @permissionDeleteCustomers.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف مشتریان'**
+  String get permissionDeleteCustomers;
+
+  /// No description provided for @permissionPostJournal.
+  ///
+  /// In fa, this message translates to:
+  /// **'ثبت سند'**
+  String get permissionPostJournal;
+
+  /// No description provided for @permissionCloseFiscalPeriod.
+  ///
+  /// In fa, this message translates to:
+  /// **'بستن دوره مالی'**
+  String get permissionCloseFiscalPeriod;
+
+  /// No description provided for @permissionViewFinancialReports.
+  ///
+  /// In fa, this message translates to:
+  /// **'مشاهده گزارش‌های مالی'**
+  String get permissionViewFinancialReports;
+
+  /// No description provided for @permissionManageUsers.
+  ///
+  /// In fa, this message translates to:
+  /// **'مدیریت کاربران'**
+  String get permissionManageUsers;
+
+  /// No description provided for @permissionManageRoles.
+  ///
+  /// In fa, this message translates to:
+  /// **'مدیریت نقش‌ها'**
+  String get permissionManageRoles;
 }
 
 class _AppLocalizationsDelegate

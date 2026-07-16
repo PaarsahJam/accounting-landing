@@ -1996,4 +1996,58 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get tagEmptyPageMessage => 'هنوز برچسبی تعریف نشده. یکی بسازید.';
+
+  @override
+  String get userRolesPageTitle => 'کاربران و نقش‌ها';
+
+  @override
+  String get userRolesTabUsers => 'کاربران';
+
+  @override
+  String get userRolesTabRoles => 'نقش‌ها';
+
+  @override
+  String get userRolesAssignTitle => 'تخصیص نقش';
+
+  @override
+  String get userRolesDeactivate => 'غیرفعال‌سازی';
+
+  @override
+  String get userRolesLoadError => 'خطا در بارگذاری:';
+
+  @override
+  String get userRolesEmptyTitle => 'موردی یافت نشد';
+
+  @override
+  String get userRolesEmptyMessage => 'کاربر یا نقشی یافت نشد.';
+
+  @override
+  String get userRolesUnknownRole => 'نامشخص';
+
+  @override
+  String get userRolesCurrentUser => 'کاربر جاری';
+
+  @override
+  String get permissionViewCustomers => 'مشاهده مشتریان';
+
+  @override
+  String get permissionEditCustomers => 'ویرایش مشتریان';
+
+  @override
+  String get permissionDeleteCustomers => 'حذف مشتریان';
+
+  @override
+  String get permissionPostJournal => 'ثبت سند';
+
+  @override
+  String get permissionCloseFiscalPeriod => 'بستن دوره مالی';
+
+  @override
+  String get permissionViewFinancialReports => 'مشاهده گزارش‌های مالی';
+
+  @override
+  String get permissionManageUsers => 'مدیریت کاربران';
+
+  @override
+  String get permissionManageRoles => 'مدیریت نقش‌ها';
 }

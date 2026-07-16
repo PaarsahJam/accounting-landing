@@ -676,6 +676,25 @@
   "tagLoadError": "خطا در بارگذاری برچسب‌ها:",
   "tagEmptyTitle": "بدون برچسب",
   "tagEmptyMessage": "هیچ برچسبی به این سند تخصیص داده نشده است.",
-  "tagEmptyPageMessage": "هنوز برچسبی تعریف نشده. یکی بسازید."
+  "tagEmptyPageMessage": "هنوز برچسبی تعریف نشده. یکی بسازید.",
+
+  "userRolesPageTitle": "کاربران و نقش‌ها",
+  "userRolesTabUsers": "کاربران",
+  "userRolesTabRoles": "نقش‌ها",
+  "userRolesAssignTitle": "تخصیص نقش",
+  "userRolesDeactivate": "غیرفعال‌سازی",
+  "userRolesLoadError": "خطا در بارگذاری:",
+  "userRolesEmptyTitle": "موردی یافت نشد",
+  "userRolesEmptyMessage": "کاربر یا نقشی یافت نشد.",
+  "userRolesUnknownRole": "نامشخص",
+  "userRolesCurrentUser": "کاربر جاری",
+  "permissionViewCustomers": "مشاهده مشتریان",
+  "permissionEditCustomers": "ویرایش مشتریان",
+  "permissionDeleteCustomers": "حذف مشتریان",
+  "permissionPostJournal": "ثبت سند",
+  "permissionCloseFiscalPeriod": "بستن دوره مالی",
+  "permissionViewFinancialReports": "مشاهده گزارش‌های مالی",
+  "permissionManageUsers": "مدیریت کاربران",
+  "permissionManageRoles": "مدیریت نقش‌ها"
 
 }

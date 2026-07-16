@@ -676,6 +676,25 @@
   "tagLoadError": "Failed to load tags:",
   "tagEmptyTitle": "No tags",
   "tagEmptyMessage": "No tags assigned to this document.",
-  "tagEmptyPageMessage": "No tags defined yet. Create one to get started."
+  "tagEmptyPageMessage": "No tags defined yet. Create one to get started.",
+
+  "userRolesPageTitle": "Users & Roles",
+  "userRolesTabUsers": "Users",
+  "userRolesTabRoles": "Roles",
+  "userRolesAssignTitle": "Assign Role",
+  "userRolesDeactivate": "Deactivate",
+  "userRolesLoadError": "Failed to load:",
+  "userRolesEmptyTitle": "No records",
+  "userRolesEmptyMessage": "No users or roles found.",
+  "userRolesUnknownRole": "Unknown",
+  "userRolesCurrentUser": "Current User",
+  "permissionViewCustomers": "View Customers",
+  "permissionEditCustomers": "Edit Customers",
+  "permissionDeleteCustomers": "Delete Customers",
+  "permissionPostJournal": "Post Journal",
+  "permissionCloseFiscalPeriod": "Close Fiscal Period",
+  "permissionViewFinancialReports": "View Financial Reports",
+  "permissionManageUsers": "Manage Users",
+  "permissionManageRoles": "Manage Roles"
 
 }

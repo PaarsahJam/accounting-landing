@@ -2003,4 +2003,58 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get tagEmptyPageMessage =>
       'No tags defined yet. Create one to get started.';
+
+  @override
+  String get userRolesPageTitle => 'Users & Roles';
+
+  @override
+  String get userRolesTabUsers => 'Users';
+
+  @override
+  String get userRolesTabRoles => 'Roles';
+
+  @override
+  String get userRolesAssignTitle => 'Assign Role';
+
+  @override
+  String get userRolesDeactivate => 'Deactivate';
+
+  @override
+  String get userRolesLoadError => 'Failed to load:';
+
+  @override
+  String get userRolesEmptyTitle => 'No records';
+
+  @override
+  String get userRolesEmptyMessage => 'No users or roles found.';
+
+  @override
+  String get userRolesUnknownRole => 'Unknown';
+
+  @override
+  String get userRolesCurrentUser => 'Current User';
+
+  @override
+  String get permissionViewCustomers => 'View Customers';
+
+  @override
+  String get permissionEditCustomers => 'Edit Customers';
+
+  @override
+  String get permissionDeleteCustomers => 'Delete Customers';
+
+  @override
+  String get permissionPostJournal => 'Post Journal';
+
+  @override
+  String get permissionCloseFiscalPeriod => 'Close Fiscal Period';
+
+  @override
+  String get permissionViewFinancialReports => 'View Financial Reports';
+
+  @override
+  String get permissionManageUsers => 'Manage Users';
+
+  @override
+  String get permissionManageRoles => 'Manage Roles';
 }
