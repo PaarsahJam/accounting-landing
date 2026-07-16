@@ -530,6 +530,45 @@
   "bankReconciliationDifference": "اختلاف",
   "bankReconciliationBalanced": "متعادل",
   "bankReconciliationFinalized": "صورت بانکی با موفقیت تطابق یافت.",
-  "bankReconciliationNoTransactions": "تراکنشی یافت نشد"
+  "bankReconciliationNoTransactions": "تراکنشی یافت نشد",
+
+  "stockLedgerPageTitle": "دفتر موجودی",
+  "stockLedgerLoadError": "خطا در بارگذاری دفتر موجودی:",
+  "stockLedgerEmptyTitle": "ورودی‌ای در دفتر وجود ندارد",
+  "stockLedgerEmptyMessage": "هیچ ورودی دفتر موجودی برای این محصول یافت نشد.",
+  "stockLedgerWarehouseFilter": "فیلتر بر اساس انبار",
+  "stockLedgerAllWarehouses": "همه انبارها",
+  "stockLedgerBalance": "موجودی",
+  "stockLedgerTotalIn": "جمع ورودی",
+  "stockLedgerTotalOut": "جمع خروجی",
+  "stockLedgerTotalValue": "ارزش کل",
+
+  "stockAdjustmentPageTitle": "تعدیل موجودی",
+  "stockAdjustmentCreateTitle": "تعدیل جدید",
+  "stockAdjustmentLoadError": "خطا در بارگذاری تعدیل‌ها:",
+  "stockAdjustmentEmptyTitle": "تعدیلی وجود ندارد",
+  "stockAdjustmentEmptyMessage": "هنوز هیچ تعدیل موجودی ثبت نشده است.",
+  "stockAdjustmentProduct": "محصول",
+  "stockAdjustmentWarehouse": "انبار",
+  "stockAdjustmentQuantity": "تعداد",
+  "stockAdjustmentQuantityHint": "برای کاهش موجودی عدد منفی وارد کنید",
+  "stockAdjustmentReason": "دلیل",
+  "stockAdjustmentInvalidQuantity": "عدد معتبر وارد کنید",
+
+  "inventoryValuationPageTitle": "ارزیابی موجودی",
+  "inventoryValuationLoadError": "خطا در بارگذاری ارزیابی:",
+  "inventoryValuationEmptyTitle": "داده ارزیابی‌ای وجود ندارد",
+  "inventoryValuationEmptyMessage": "اطلاعات ارزیابی موجودی در دسترس نیست.",
+  "inventoryValuationTotalValue": "ارزش کل",
+  "inventoryValuationProducts": "محصولات",
+  "inventoryValuationWarehouses": "انبارها",
+  "inventoryValuationDate": "تاریخ محاسبه",
+  "inventoryValuationQty": "تعداد",
+  "inventoryValuationAvgCost": "میانگین بهای تمام‌شده",
+
+  "stockTransferPageTitle": "انتقال موجودی",
+  "stockTransferLoadError": "خطا در بارگذاری انتقال‌ها:",
+  "stockTransferEmptyTitle": "انتقالی وجود ندارد",
+  "stockTransferEmptyMessage": "هنوز هیچ انتقال موجودی ثبت نشده است."
 
 }

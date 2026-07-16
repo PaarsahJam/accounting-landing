@@ -105,6 +105,16 @@ class SettingsPage extends ConsumerWidget {
                 trailing: const Icon(Icons.account_balance_wallet),
                 onTap: () => context.go('/bank-accounts'),
               ),
+              ListTile(
+                title: Text(l10n.stockAdjustmentPageTitle),
+                trailing: const Icon(Icons.tune),
+                onTap: () => context.go('/inventory/adjustments'),
+              ),
+              ListTile(
+                title: Text(l10n.inventoryValuationPageTitle),
+                trailing: const Icon(Icons.bar_chart),
+                onTap: () => context.go('/inventory/valuation'),
+              ),
             ],
           );
         },

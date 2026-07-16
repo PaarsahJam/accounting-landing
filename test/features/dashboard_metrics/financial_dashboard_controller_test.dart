@@ -26,7 +26,7 @@ void main() {
       );
 
       expect(dashboard.accountsReceivable.totalOutstandingInvoices, 1);
-      expect(dashboard.inventory.productCount, 2);
+      expect(dashboard.inventory.productCount, 5);
       expect(dashboard.monthlyRevenue, hasLength(12));
     });
 

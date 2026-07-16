@@ -12,7 +12,11 @@ import '../../features/financial_reports/presentation/financial_reports_page.dar
 import '../../features/customers/presentation/customers_page.dart';
 import '../../features/vendors/presentation/vendors_page.dart';
 import '../../features/general_ledger/presentation/general_ledger_page.dart';
+import '../../features/inventory/domain/product.dart';
 import '../../features/inventory/presentation/inventory_page.dart';
+import '../../features/inventory/presentation/inventory_valuation_page.dart';
+import '../../features/inventory/presentation/stock_adjustment_page.dart';
+import '../../features/inventory/presentation/stock_ledger_page.dart';
 import '../../features/purchase_orders/presentation/purchase_orders_page.dart';
 import '../../features/sales_invoices/domain/sales_invoice.dart';
 import '../../features/sales_invoices/presentation/sales_invoice_detail_page.dart';
@@ -108,6 +112,27 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'inventory',
         path: '/inventory',
         builder: (c, s) => const InventoryPage(),
+      ),
+      GoRoute(
+        name: 'stock-ledger',
+        path: '/inventory/stock-ledger/:productId',
+        builder: (context, state) {
+          final product = state.extra as Product?;
+          if (product == null) {
+            return const InventoryPage();
+          }
+          return StockLedgerPage(product: product);
+        },
+      ),
+      GoRoute(
+        name: 'stock-adjustments',
+        path: '/inventory/adjustments',
+        builder: (c, s) => const StockAdjustmentPage(),
+      ),
+      GoRoute(
+        name: 'inventory-valuation',
+        path: '/inventory/valuation',
+        builder: (c, s) => const InventoryValuationPage(),
       ),
       GoRoute(
         name: 'purchase-orders',

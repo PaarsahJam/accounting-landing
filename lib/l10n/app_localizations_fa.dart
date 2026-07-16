@@ -1610,4 +1610,114 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get bankReconciliationNoTransactions => 'تراکنشی یافت نشد';
+
+  @override
+  String get stockLedgerPageTitle => 'دفتر موجودی';
+
+  @override
+  String get stockLedgerLoadError => 'خطا در بارگذاری دفتر موجودی:';
+
+  @override
+  String get stockLedgerEmptyTitle => 'ورودی‌ای در دفتر وجود ندارد';
+
+  @override
+  String get stockLedgerEmptyMessage =>
+      'هیچ ورودی دفتر موجودی برای این محصول یافت نشد.';
+
+  @override
+  String get stockLedgerWarehouseFilter => 'فیلتر بر اساس انبار';
+
+  @override
+  String get stockLedgerAllWarehouses => 'همه انبارها';
+
+  @override
+  String get stockLedgerBalance => 'موجودی';
+
+  @override
+  String get stockLedgerTotalIn => 'جمع ورودی';
+
+  @override
+  String get stockLedgerTotalOut => 'جمع خروجی';
+
+  @override
+  String get stockLedgerTotalValue => 'ارزش کل';
+
+  @override
+  String get stockAdjustmentPageTitle => 'تعدیل موجودی';
+
+  @override
+  String get stockAdjustmentCreateTitle => 'تعدیل جدید';
+
+  @override
+  String get stockAdjustmentLoadError => 'خطا در بارگذاری تعدیل‌ها:';
+
+  @override
+  String get stockAdjustmentEmptyTitle => 'تعدیلی وجود ندارد';
+
+  @override
+  String get stockAdjustmentEmptyMessage =>
+      'هنوز هیچ تعدیل موجودی ثبت نشده است.';
+
+  @override
+  String get stockAdjustmentProduct => 'محصول';
+
+  @override
+  String get stockAdjustmentWarehouse => 'انبار';
+
+  @override
+  String get stockAdjustmentQuantity => 'تعداد';
+
+  @override
+  String get stockAdjustmentQuantityHint =>
+      'برای کاهش موجودی عدد منفی وارد کنید';
+
+  @override
+  String get stockAdjustmentReason => 'دلیل';
+
+  @override
+  String get stockAdjustmentInvalidQuantity => 'عدد معتبر وارد کنید';
+
+  @override
+  String get inventoryValuationPageTitle => 'ارزیابی موجودی';
+
+  @override
+  String get inventoryValuationLoadError => 'خطا در بارگذاری ارزیابی:';
+
+  @override
+  String get inventoryValuationEmptyTitle => 'داده ارزیابی‌ای وجود ندارد';
+
+  @override
+  String get inventoryValuationEmptyMessage =>
+      'اطلاعات ارزیابی موجودی در دسترس نیست.';
+
+  @override
+  String get inventoryValuationTotalValue => 'ارزش کل';
+
+  @override
+  String get inventoryValuationProducts => 'محصولات';
+
+  @override
+  String get inventoryValuationWarehouses => 'انبارها';
+
+  @override
+  String get inventoryValuationDate => 'تاریخ محاسبه';
+
+  @override
+  String get inventoryValuationQty => 'تعداد';
+
+  @override
+  String get inventoryValuationAvgCost => 'میانگین بهای تمام‌شده';
+
+  @override
+  String get stockTransferPageTitle => 'انتقال موجودی';
+
+  @override
+  String get stockTransferLoadError => 'خطا در بارگذاری انتقال‌ها:';
+
+  @override
+  String get stockTransferEmptyTitle => 'انتقالی وجود ندارد';
+
+  @override
+  String get stockTransferEmptyMessage =>
+      'هنوز هیچ انتقال موجودی ثبت نشده است.';
 }

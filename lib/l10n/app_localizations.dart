@@ -3253,6 +3253,216 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'تراکنشی یافت نشد'**
   String get bankReconciliationNoTransactions;
+
+  /// No description provided for @stockLedgerPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دفتر موجودی'**
+  String get stockLedgerPageTitle;
+
+  /// No description provided for @stockLedgerLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری دفتر موجودی:'**
+  String get stockLedgerLoadError;
+
+  /// No description provided for @stockLedgerEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ورودی‌ای در دفتر وجود ندارد'**
+  String get stockLedgerEmptyTitle;
+
+  /// No description provided for @stockLedgerEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ ورودی دفتر موجودی برای این محصول یافت نشد.'**
+  String get stockLedgerEmptyMessage;
+
+  /// No description provided for @stockLedgerWarehouseFilter.
+  ///
+  /// In fa, this message translates to:
+  /// **'فیلتر بر اساس انبار'**
+  String get stockLedgerWarehouseFilter;
+
+  /// No description provided for @stockLedgerAllWarehouses.
+  ///
+  /// In fa, this message translates to:
+  /// **'همه انبارها'**
+  String get stockLedgerAllWarehouses;
+
+  /// No description provided for @stockLedgerBalance.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی'**
+  String get stockLedgerBalance;
+
+  /// No description provided for @stockLedgerTotalIn.
+  ///
+  /// In fa, this message translates to:
+  /// **'جمع ورودی'**
+  String get stockLedgerTotalIn;
+
+  /// No description provided for @stockLedgerTotalOut.
+  ///
+  /// In fa, this message translates to:
+  /// **'جمع خروجی'**
+  String get stockLedgerTotalOut;
+
+  /// No description provided for @stockLedgerTotalValue.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارزش کل'**
+  String get stockLedgerTotalValue;
+
+  /// No description provided for @stockAdjustmentPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعدیل موجودی'**
+  String get stockAdjustmentPageTitle;
+
+  /// No description provided for @stockAdjustmentCreateTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعدیل جدید'**
+  String get stockAdjustmentCreateTitle;
+
+  /// No description provided for @stockAdjustmentLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری تعدیل‌ها:'**
+  String get stockAdjustmentLoadError;
+
+  /// No description provided for @stockAdjustmentEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعدیلی وجود ندارد'**
+  String get stockAdjustmentEmptyTitle;
+
+  /// No description provided for @stockAdjustmentEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز هیچ تعدیل موجودی ثبت نشده است.'**
+  String get stockAdjustmentEmptyMessage;
+
+  /// No description provided for @stockAdjustmentProduct.
+  ///
+  /// In fa, this message translates to:
+  /// **'محصول'**
+  String get stockAdjustmentProduct;
+
+  /// No description provided for @stockAdjustmentWarehouse.
+  ///
+  /// In fa, this message translates to:
+  /// **'انبار'**
+  String get stockAdjustmentWarehouse;
+
+  /// No description provided for @stockAdjustmentQuantity.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعداد'**
+  String get stockAdjustmentQuantity;
+
+  /// No description provided for @stockAdjustmentQuantityHint.
+  ///
+  /// In fa, this message translates to:
+  /// **'برای کاهش موجودی عدد منفی وارد کنید'**
+  String get stockAdjustmentQuantityHint;
+
+  /// No description provided for @stockAdjustmentReason.
+  ///
+  /// In fa, this message translates to:
+  /// **'دلیل'**
+  String get stockAdjustmentReason;
+
+  /// No description provided for @stockAdjustmentInvalidQuantity.
+  ///
+  /// In fa, this message translates to:
+  /// **'عدد معتبر وارد کنید'**
+  String get stockAdjustmentInvalidQuantity;
+
+  /// No description provided for @inventoryValuationPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارزیابی موجودی'**
+  String get inventoryValuationPageTitle;
+
+  /// No description provided for @inventoryValuationLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری ارزیابی:'**
+  String get inventoryValuationLoadError;
+
+  /// No description provided for @inventoryValuationEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'داده ارزیابی‌ای وجود ندارد'**
+  String get inventoryValuationEmptyTitle;
+
+  /// No description provided for @inventoryValuationEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'اطلاعات ارزیابی موجودی در دسترس نیست.'**
+  String get inventoryValuationEmptyMessage;
+
+  /// No description provided for @inventoryValuationTotalValue.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارزش کل'**
+  String get inventoryValuationTotalValue;
+
+  /// No description provided for @inventoryValuationProducts.
+  ///
+  /// In fa, this message translates to:
+  /// **'محصولات'**
+  String get inventoryValuationProducts;
+
+  /// No description provided for @inventoryValuationWarehouses.
+  ///
+  /// In fa, this message translates to:
+  /// **'انبارها'**
+  String get inventoryValuationWarehouses;
+
+  /// No description provided for @inventoryValuationDate.
+  ///
+  /// In fa, this message translates to:
+  /// **'تاریخ محاسبه'**
+  String get inventoryValuationDate;
+
+  /// No description provided for @inventoryValuationQty.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعداد'**
+  String get inventoryValuationQty;
+
+  /// No description provided for @inventoryValuationAvgCost.
+  ///
+  /// In fa, this message translates to:
+  /// **'میانگین بهای تمام‌شده'**
+  String get inventoryValuationAvgCost;
+
+  /// No description provided for @stockTransferPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'انتقال موجودی'**
+  String get stockTransferPageTitle;
+
+  /// No description provided for @stockTransferLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری انتقال‌ها:'**
+  String get stockTransferLoadError;
+
+  /// No description provided for @stockTransferEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'انتقالی وجود ندارد'**
+  String get stockTransferEmptyTitle;
+
+  /// No description provided for @stockTransferEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز هیچ انتقال موجودی ثبت نشده است.'**
+  String get stockTransferEmptyMessage;
 }
 
 class _AppLocalizationsDelegate

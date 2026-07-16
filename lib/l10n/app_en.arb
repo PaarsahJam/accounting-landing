@@ -530,6 +530,45 @@
   "bankReconciliationDifference": "Difference",
   "bankReconciliationBalanced": "Balanced",
   "bankReconciliationFinalized": "Statement reconciled successfully.",
-  "bankReconciliationNoTransactions": "No transactions"
+  "bankReconciliationNoTransactions": "No transactions",
+
+  "stockLedgerPageTitle": "Stock Ledger",
+  "stockLedgerLoadError": "Error loading stock ledger:",
+  "stockLedgerEmptyTitle": "No ledger entries",
+  "stockLedgerEmptyMessage": "No stock ledger entries found for this product.",
+  "stockLedgerWarehouseFilter": "Filter by warehouse",
+  "stockLedgerAllWarehouses": "All warehouses",
+  "stockLedgerBalance": "Balance",
+  "stockLedgerTotalIn": "Total In",
+  "stockLedgerTotalOut": "Total Out",
+  "stockLedgerTotalValue": "Total Value",
+
+  "stockAdjustmentPageTitle": "Stock Adjustments",
+  "stockAdjustmentCreateTitle": "New Adjustment",
+  "stockAdjustmentLoadError": "Error loading adjustments:",
+  "stockAdjustmentEmptyTitle": "No adjustments",
+  "stockAdjustmentEmptyMessage": "No stock adjustments have been recorded yet.",
+  "stockAdjustmentProduct": "Product",
+  "stockAdjustmentWarehouse": "Warehouse",
+  "stockAdjustmentQuantity": "Quantity",
+  "stockAdjustmentQuantityHint": "Use negative value to decrease stock",
+  "stockAdjustmentReason": "Reason",
+  "stockAdjustmentInvalidQuantity": "Enter a valid number",
+
+  "inventoryValuationPageTitle": "Inventory Valuation",
+  "inventoryValuationLoadError": "Error loading valuation:",
+  "inventoryValuationEmptyTitle": "No valuation data",
+  "inventoryValuationEmptyMessage": "No inventory valuation data is available.",
+  "inventoryValuationTotalValue": "Total Value",
+  "inventoryValuationProducts": "Products",
+  "inventoryValuationWarehouses": "Warehouses",
+  "inventoryValuationDate": "As of Date",
+  "inventoryValuationQty": "Qty",
+  "inventoryValuationAvgCost": "Avg Cost",
+
+  "stockTransferPageTitle": "Stock Transfers",
+  "stockTransferLoadError": "Error loading transfers:",
+  "stockTransferEmptyTitle": "No transfers",
+  "stockTransferEmptyMessage": "No stock transfers have been recorded yet."
 
 }

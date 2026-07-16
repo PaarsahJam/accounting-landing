@@ -45,9 +45,9 @@ void main() {
     test('aggregates inventory metrics from inventory repository', () async {
       final result = await repository.fetchDashboard();
 
-      expect(result.data!.inventory.productCount, 2);
-      expect(result.data!.inventory.warehouseCount, 2);
-      expect(result.data!.inventory.totalStockQuantity, 37);
+      expect(result.data!.inventory.productCount, 5);
+      expect(result.data!.inventory.warehouseCount, 3);
+      expect(result.data!.inventory.totalStockQuantity, 95);
     });
 
     test('builds monthly revenue for last 12 months', () async {

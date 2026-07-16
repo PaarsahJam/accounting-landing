@@ -1613,4 +1613,114 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bankReconciliationNoTransactions => 'No transactions';
+
+  @override
+  String get stockLedgerPageTitle => 'Stock Ledger';
+
+  @override
+  String get stockLedgerLoadError => 'Error loading stock ledger:';
+
+  @override
+  String get stockLedgerEmptyTitle => 'No ledger entries';
+
+  @override
+  String get stockLedgerEmptyMessage =>
+      'No stock ledger entries found for this product.';
+
+  @override
+  String get stockLedgerWarehouseFilter => 'Filter by warehouse';
+
+  @override
+  String get stockLedgerAllWarehouses => 'All warehouses';
+
+  @override
+  String get stockLedgerBalance => 'Balance';
+
+  @override
+  String get stockLedgerTotalIn => 'Total In';
+
+  @override
+  String get stockLedgerTotalOut => 'Total Out';
+
+  @override
+  String get stockLedgerTotalValue => 'Total Value';
+
+  @override
+  String get stockAdjustmentPageTitle => 'Stock Adjustments';
+
+  @override
+  String get stockAdjustmentCreateTitle => 'New Adjustment';
+
+  @override
+  String get stockAdjustmentLoadError => 'Error loading adjustments:';
+
+  @override
+  String get stockAdjustmentEmptyTitle => 'No adjustments';
+
+  @override
+  String get stockAdjustmentEmptyMessage =>
+      'No stock adjustments have been recorded yet.';
+
+  @override
+  String get stockAdjustmentProduct => 'Product';
+
+  @override
+  String get stockAdjustmentWarehouse => 'Warehouse';
+
+  @override
+  String get stockAdjustmentQuantity => 'Quantity';
+
+  @override
+  String get stockAdjustmentQuantityHint =>
+      'Use negative value to decrease stock';
+
+  @override
+  String get stockAdjustmentReason => 'Reason';
+
+  @override
+  String get stockAdjustmentInvalidQuantity => 'Enter a valid number';
+
+  @override
+  String get inventoryValuationPageTitle => 'Inventory Valuation';
+
+  @override
+  String get inventoryValuationLoadError => 'Error loading valuation:';
+
+  @override
+  String get inventoryValuationEmptyTitle => 'No valuation data';
+
+  @override
+  String get inventoryValuationEmptyMessage =>
+      'No inventory valuation data is available.';
+
+  @override
+  String get inventoryValuationTotalValue => 'Total Value';
+
+  @override
+  String get inventoryValuationProducts => 'Products';
+
+  @override
+  String get inventoryValuationWarehouses => 'Warehouses';
+
+  @override
+  String get inventoryValuationDate => 'As of Date';
+
+  @override
+  String get inventoryValuationQty => 'Qty';
+
+  @override
+  String get inventoryValuationAvgCost => 'Avg Cost';
+
+  @override
+  String get stockTransferPageTitle => 'Stock Transfers';
+
+  @override
+  String get stockTransferLoadError => 'Error loading transfers:';
+
+  @override
+  String get stockTransferEmptyTitle => 'No transfers';
+
+  @override
+  String get stockTransferEmptyMessage =>
+      'No stock transfers have been recorded yet.';
 }
