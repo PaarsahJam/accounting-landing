@@ -569,6 +569,24 @@
   "stockTransferPageTitle": "Stock Transfers",
   "stockTransferLoadError": "Error loading transfers:",
   "stockTransferEmptyTitle": "No transfers",
-  "stockTransferEmptyMessage": "No stock transfers have been recorded yet."
+  "stockTransferEmptyMessage": "No stock transfers have been recorded yet.",
+  "stockTransferCreateTitle": "New Transfer",
+  "stockTransferProduct": "Product",
+  "stockTransferFrom": "From Warehouse",
+  "stockTransferTo": "To Warehouse",
+  "stockTransferQuantity": "Quantity",
+  "stockTransferNotes": "Notes",
+  "stockTransferReference": "Reference",
+  "stockTransferDate": "Transfer Date",
+  "stockTransferStatus": "Status",
+  "stockTransferStatusPending": "Pending",
+  "stockTransferStatusCompleted": "Completed",
+  "stockTransferStatusCancelled": "Cancelled",
+  "stockTransferSameWarehouseError": "Source and destination must differ",
+  "stockTransferInvalidQuantity": "Enter a quantity greater than zero",
+  "stockTransferCreateError": "Failed to create transfer",
+  "stockTransferCompleteAction": "Complete",
+  "stockTransferCancelAction": "Cancel Transfer",
+  "stockTransferInsufficientStock": "Insufficient stock in source warehouse"
 
 }

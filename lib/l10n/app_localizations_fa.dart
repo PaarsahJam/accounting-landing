@@ -1720,4 +1720,59 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get stockTransferEmptyMessage =>
       'هنوز هیچ انتقال موجودی ثبت نشده است.';
+
+  @override
+  String get stockTransferCreateTitle => 'انتقال جدید';
+
+  @override
+  String get stockTransferProduct => 'محصول';
+
+  @override
+  String get stockTransferFrom => 'انبار مبدأ';
+
+  @override
+  String get stockTransferTo => 'انبار مقصد';
+
+  @override
+  String get stockTransferQuantity => 'تعداد';
+
+  @override
+  String get stockTransferNotes => 'یادداشت';
+
+  @override
+  String get stockTransferReference => 'مرجع';
+
+  @override
+  String get stockTransferDate => 'تاریخ انتقال';
+
+  @override
+  String get stockTransferStatus => 'وضعیت';
+
+  @override
+  String get stockTransferStatusPending => 'در انتظار';
+
+  @override
+  String get stockTransferStatusCompleted => 'تکمیل شده';
+
+  @override
+  String get stockTransferStatusCancelled => 'لغو شده';
+
+  @override
+  String get stockTransferSameWarehouseError =>
+      'انبار مبدأ و مقصد باید متفاوت باشند';
+
+  @override
+  String get stockTransferInvalidQuantity => 'تعداد باید بیشتر از صفر باشد';
+
+  @override
+  String get stockTransferCreateError => 'خطا در ایجاد انتقال';
+
+  @override
+  String get stockTransferCompleteAction => 'تکمیل';
+
+  @override
+  String get stockTransferCancelAction => 'لغو انتقال';
+
+  @override
+  String get stockTransferInsufficientStock => 'موجودی انبار مبدأ کافی نیست';
 }

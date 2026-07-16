@@ -1723,4 +1723,61 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get stockTransferEmptyMessage =>
       'No stock transfers have been recorded yet.';
+
+  @override
+  String get stockTransferCreateTitle => 'New Transfer';
+
+  @override
+  String get stockTransferProduct => 'Product';
+
+  @override
+  String get stockTransferFrom => 'From Warehouse';
+
+  @override
+  String get stockTransferTo => 'To Warehouse';
+
+  @override
+  String get stockTransferQuantity => 'Quantity';
+
+  @override
+  String get stockTransferNotes => 'Notes';
+
+  @override
+  String get stockTransferReference => 'Reference';
+
+  @override
+  String get stockTransferDate => 'Transfer Date';
+
+  @override
+  String get stockTransferStatus => 'Status';
+
+  @override
+  String get stockTransferStatusPending => 'Pending';
+
+  @override
+  String get stockTransferStatusCompleted => 'Completed';
+
+  @override
+  String get stockTransferStatusCancelled => 'Cancelled';
+
+  @override
+  String get stockTransferSameWarehouseError =>
+      'Source and destination must differ';
+
+  @override
+  String get stockTransferInvalidQuantity =>
+      'Enter a quantity greater than zero';
+
+  @override
+  String get stockTransferCreateError => 'Failed to create transfer';
+
+  @override
+  String get stockTransferCompleteAction => 'Complete';
+
+  @override
+  String get stockTransferCancelAction => 'Cancel Transfer';
+
+  @override
+  String get stockTransferInsufficientStock =>
+      'Insufficient stock in source warehouse';
 }

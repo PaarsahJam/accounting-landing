@@ -17,6 +17,7 @@ import '../../features/inventory/presentation/inventory_page.dart';
 import '../../features/inventory/presentation/inventory_valuation_page.dart';
 import '../../features/inventory/presentation/stock_adjustment_page.dart';
 import '../../features/inventory/presentation/stock_ledger_page.dart';
+import '../../features/stock_transfers/presentation/stock_transfers_page.dart';
 import '../../features/purchase_orders/presentation/purchase_orders_page.dart';
 import '../../features/sales_invoices/domain/sales_invoice.dart';
 import '../../features/sales_invoices/presentation/sales_invoice_detail_page.dart';
@@ -133,6 +134,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'inventory-valuation',
         path: '/inventory/valuation',
         builder: (c, s) => const InventoryValuationPage(),
+      ),
+      GoRoute(
+        name: 'stock-transfers',
+        path: '/stock-transfers',
+        builder: (c, s) => const StockTransfersPage(),
       ),
       GoRoute(
         name: 'purchase-orders',

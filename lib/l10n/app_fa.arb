@@ -569,6 +569,24 @@
   "stockTransferPageTitle": "انتقال موجودی",
   "stockTransferLoadError": "خطا در بارگذاری انتقال‌ها:",
   "stockTransferEmptyTitle": "انتقالی وجود ندارد",
-  "stockTransferEmptyMessage": "هنوز هیچ انتقال موجودی ثبت نشده است."
+  "stockTransferEmptyMessage": "هنوز هیچ انتقال موجودی ثبت نشده است.",
+  "stockTransferCreateTitle": "انتقال جدید",
+  "stockTransferProduct": "محصول",
+  "stockTransferFrom": "انبار مبدأ",
+  "stockTransferTo": "انبار مقصد",
+  "stockTransferQuantity": "تعداد",
+  "stockTransferNotes": "یادداشت",
+  "stockTransferReference": "مرجع",
+  "stockTransferDate": "تاریخ انتقال",
+  "stockTransferStatus": "وضعیت",
+  "stockTransferStatusPending": "در انتظار",
+  "stockTransferStatusCompleted": "تکمیل شده",
+  "stockTransferStatusCancelled": "لغو شده",
+  "stockTransferSameWarehouseError": "انبار مبدأ و مقصد باید متفاوت باشند",
+  "stockTransferInvalidQuantity": "تعداد باید بیشتر از صفر باشد",
+  "stockTransferCreateError": "خطا در ایجاد انتقال",
+  "stockTransferCompleteAction": "تکمیل",
+  "stockTransferCancelAction": "لغو انتقال",
+  "stockTransferInsufficientStock": "موجودی انبار مبدأ کافی نیست"
 
 }

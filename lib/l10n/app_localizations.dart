@@ -3463,6 +3463,114 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'هنوز هیچ انتقال موجودی ثبت نشده است.'**
   String get stockTransferEmptyMessage;
+
+  /// No description provided for @stockTransferCreateTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'انتقال جدید'**
+  String get stockTransferCreateTitle;
+
+  /// No description provided for @stockTransferProduct.
+  ///
+  /// In fa, this message translates to:
+  /// **'محصول'**
+  String get stockTransferProduct;
+
+  /// No description provided for @stockTransferFrom.
+  ///
+  /// In fa, this message translates to:
+  /// **'انبار مبدأ'**
+  String get stockTransferFrom;
+
+  /// No description provided for @stockTransferTo.
+  ///
+  /// In fa, this message translates to:
+  /// **'انبار مقصد'**
+  String get stockTransferTo;
+
+  /// No description provided for @stockTransferQuantity.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعداد'**
+  String get stockTransferQuantity;
+
+  /// No description provided for @stockTransferNotes.
+  ///
+  /// In fa, this message translates to:
+  /// **'یادداشت'**
+  String get stockTransferNotes;
+
+  /// No description provided for @stockTransferReference.
+  ///
+  /// In fa, this message translates to:
+  /// **'مرجع'**
+  String get stockTransferReference;
+
+  /// No description provided for @stockTransferDate.
+  ///
+  /// In fa, this message translates to:
+  /// **'تاریخ انتقال'**
+  String get stockTransferDate;
+
+  /// No description provided for @stockTransferStatus.
+  ///
+  /// In fa, this message translates to:
+  /// **'وضعیت'**
+  String get stockTransferStatus;
+
+  /// No description provided for @stockTransferStatusPending.
+  ///
+  /// In fa, this message translates to:
+  /// **'در انتظار'**
+  String get stockTransferStatusPending;
+
+  /// No description provided for @stockTransferStatusCompleted.
+  ///
+  /// In fa, this message translates to:
+  /// **'تکمیل شده'**
+  String get stockTransferStatusCompleted;
+
+  /// No description provided for @stockTransferStatusCancelled.
+  ///
+  /// In fa, this message translates to:
+  /// **'لغو شده'**
+  String get stockTransferStatusCancelled;
+
+  /// No description provided for @stockTransferSameWarehouseError.
+  ///
+  /// In fa, this message translates to:
+  /// **'انبار مبدأ و مقصد باید متفاوت باشند'**
+  String get stockTransferSameWarehouseError;
+
+  /// No description provided for @stockTransferInvalidQuantity.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعداد باید بیشتر از صفر باشد'**
+  String get stockTransferInvalidQuantity;
+
+  /// No description provided for @stockTransferCreateError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در ایجاد انتقال'**
+  String get stockTransferCreateError;
+
+  /// No description provided for @stockTransferCompleteAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'تکمیل'**
+  String get stockTransferCompleteAction;
+
+  /// No description provided for @stockTransferCancelAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'لغو انتقال'**
+  String get stockTransferCancelAction;
+
+  /// No description provided for @stockTransferInsufficientStock.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی انبار مبدأ کافی نیست'**
+  String get stockTransferInsufficientStock;
 }
 
 class _AppLocalizationsDelegate

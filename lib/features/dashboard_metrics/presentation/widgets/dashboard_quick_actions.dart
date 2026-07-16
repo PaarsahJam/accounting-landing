@@ -61,6 +61,11 @@ class DashboardQuickActions extends StatelessWidget {
         icon: Icons.bar_chart,
         route: '/inventory/valuation',
       ),
+      _QuickAction(
+        title: l10n.stockTransferPageTitle,
+        icon: Icons.swap_horiz,
+        route: '/stock-transfers',
+      ),
     ];
 
     return SizedBox(
