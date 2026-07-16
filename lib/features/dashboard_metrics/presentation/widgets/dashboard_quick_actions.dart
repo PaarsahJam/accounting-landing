@@ -76,6 +76,11 @@ class DashboardQuickActions extends StatelessWidget {
         icon: Icons.repeat,
         route: '/recurring-transactions',
       ),
+      _QuickAction(
+        title: l10n.dashboardFixedAssets,
+        icon: Icons.business_center_outlined,
+        route: '/fixed-assets',
+      ),
     ];
 
     return SizedBox(

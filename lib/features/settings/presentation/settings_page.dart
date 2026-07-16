@@ -131,6 +131,11 @@ class SettingsPage extends ConsumerWidget {
                 onTap: () => context.go('/recurring-transactions'),
               ),
               ListTile(
+                title: Text(l10n.fixedAssetsPageTitle),
+                trailing: const Icon(Icons.business_center_outlined),
+                onTap: () => context.go('/fixed-assets'),
+              ),
+              ListTile(
                 title: Text(l10n.userRolesPageTitle),
                 trailing: const Icon(Icons.manage_accounts_outlined),
                 onTap: () => context.go('/user-roles'),

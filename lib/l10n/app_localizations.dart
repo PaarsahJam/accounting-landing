@@ -4339,6 +4339,37 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'تراکنش‌های دوره‌ای'**
   String get dashboardRecurringTransactions;
+
+  String get fixedAssetsPageTitle;
+  String get fixedAssetCreateTitle;
+  String get fixedAssetEditTitle;
+  String get fixedAssetsLoadError;
+  String get fixedAssetsEmptyTitle;
+  String get fixedAssetsEmptyMessage;
+  String get fixedAssetBadgeActive;
+  String get fixedAssetBadgeDisposed;
+  String get fixedAssetName;
+  String get fixedAssetCategory;
+  String get fixedAssetPurchaseCost;
+  String get fixedAssetSalvageValue;
+  String get fixedAssetUsefulLife;
+  String get fixedAssetDepreciationMethod;
+  String get fixedAssetMethodStraightLine;
+  String get fixedAssetMethodDecliningBalance;
+  String get fixedAssetNotes;
+  String get fixedAssetBookValue;
+  String get fixedAssetAccumDepreciation;
+  String get fixedAssetDispose;
+  String get fixedAssetCalculateDepreciation;
+  String get fixedAssetViewSchedule;
+  String get fixedAssetScheduleTitle;
+  String get fixedAssetScheduleYear;
+  String get fixedAssetScheduleOpening;
+  String get fixedAssetScheduleCharge;
+  String get fixedAssetScheduleAccum;
+  String get fixedAssetScheduleClosing;
+  String get fixedAssetInvalidNumber;
+  String get dashboardFixedAssets;
 }
 
 class _AppLocalizationsDelegate
