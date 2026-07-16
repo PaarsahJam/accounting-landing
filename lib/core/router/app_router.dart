@@ -44,6 +44,8 @@ import '../../features/banking/presentation/bank_transactions_page.dart';
 import '../../features/bank_reconciliation/domain/bank_statement.dart';
 import '../../features/bank_reconciliation/presentation/bank_statements_page.dart';
 import '../../features/bank_reconciliation/presentation/bank_reconciliation_detail_page.dart';
+import '../../features/global_search/presentation/global_search_page.dart';
+import '../../features/tags/presentation/tags_page.dart';
 import '../../l10n/app_localizations.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -292,6 +294,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/settings',
         builder: (c, s) => const SettingsPage(),
       ),
+      GoRoute(
+        name: 'global-search',
+        path: '/search',
+        builder: (c, s) => const GlobalSearchPage(),
+      ),
+      GoRoute(name: 'tags', path: '/tags', builder: (c, s) => const TagsPage()),
     ],
     errorBuilder: (context, state) {
       final l10n = AppLocalizations.of(context)!;

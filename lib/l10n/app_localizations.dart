@@ -3769,6 +3769,228 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'{author}'**
   String commentPostedBy(String author);
+
+  /// No description provided for @searchHint.
+  ///
+  /// In fa, this message translates to:
+  /// **'جستجوی اسناد، نام‌ها، کد محصول…'**
+  String get searchHint;
+
+  /// No description provided for @searchClear.
+  ///
+  /// In fa, this message translates to:
+  /// **'پاک کردن'**
+  String get searchClear;
+
+  /// No description provided for @searchErrorMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در جستجو:'**
+  String get searchErrorMessage;
+
+  /// No description provided for @searchEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'نتیجه‌ای یافت نشد'**
+  String get searchEmptyTitle;
+
+  /// No description provided for @searchEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ موردی برای \"{query}\" یافت نشد'**
+  String searchEmptyMessage(String query);
+
+  /// No description provided for @searchRecentTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'جستجوهای اخیر'**
+  String get searchRecentTitle;
+
+  /// No description provided for @searchRecentEmpty.
+  ///
+  /// In fa, this message translates to:
+  /// **'جستجوی اخیری وجود ندارد'**
+  String get searchRecentEmpty;
+
+  /// No description provided for @searchRecentClear.
+  ///
+  /// In fa, this message translates to:
+  /// **'پاک کردن همه'**
+  String get searchRecentClear;
+
+  /// No description provided for @searchGroupCustomers.
+  ///
+  /// In fa, this message translates to:
+  /// **'مشتریان'**
+  String get searchGroupCustomers;
+
+  /// No description provided for @searchGroupVendors.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأمین‌کنندگان'**
+  String get searchGroupVendors;
+
+  /// No description provided for @searchGroupProducts.
+  ///
+  /// In fa, this message translates to:
+  /// **'محصولات'**
+  String get searchGroupProducts;
+
+  /// No description provided for @searchGroupSalesInvoices.
+  ///
+  /// In fa, this message translates to:
+  /// **'فاکتورهای فروش'**
+  String get searchGroupSalesInvoices;
+
+  /// No description provided for @searchGroupVendorBills.
+  ///
+  /// In fa, this message translates to:
+  /// **'صورت‌حساب‌های خرید'**
+  String get searchGroupVendorBills;
+
+  /// No description provided for @searchGroupPurchaseOrders.
+  ///
+  /// In fa, this message translates to:
+  /// **'سفارش‌های خرید'**
+  String get searchGroupPurchaseOrders;
+
+  /// No description provided for @searchGroupGoodsReceipts.
+  ///
+  /// In fa, this message translates to:
+  /// **'رسیدهای کالا'**
+  String get searchGroupGoodsReceipts;
+
+  /// No description provided for @searchGroupBankAccounts.
+  ///
+  /// In fa, this message translates to:
+  /// **'حساب‌های بانکی'**
+  String get searchGroupBankAccounts;
+
+  /// No description provided for @searchGroupJournalEntries.
+  ///
+  /// In fa, this message translates to:
+  /// **'ثبت‌های دفتر'**
+  String get searchGroupJournalEntries;
+
+  /// No description provided for @searchGroupFiscalPeriods.
+  ///
+  /// In fa, this message translates to:
+  /// **'دوره‌های مالی'**
+  String get searchGroupFiscalPeriods;
+
+  /// No description provided for @searchPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'جستجوی سراسری'**
+  String get searchPageTitle;
+
+  /// No description provided for @tagsPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'برچسب‌ها'**
+  String get tagsPageTitle;
+
+  /// No description provided for @tagsSectionTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'برچسب‌ها'**
+  String get tagsSectionTitle;
+
+  /// No description provided for @tagName.
+  ///
+  /// In fa, this message translates to:
+  /// **'نام برچسب'**
+  String get tagName;
+
+  /// No description provided for @tagDescription.
+  ///
+  /// In fa, this message translates to:
+  /// **'توضیحات (اختیاری)'**
+  String get tagDescription;
+
+  /// No description provided for @tagColor.
+  ///
+  /// In fa, this message translates to:
+  /// **'رنگ'**
+  String get tagColor;
+
+  /// No description provided for @tagCreateTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'برچسب جدید'**
+  String get tagCreateTitle;
+
+  /// No description provided for @tagEditTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش برچسب'**
+  String get tagEditTitle;
+
+  /// No description provided for @tagEditAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش'**
+  String get tagEditAction;
+
+  /// No description provided for @tagDeleteTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف برچسب'**
+  String get tagDeleteTitle;
+
+  /// No description provided for @tagDeleteAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف'**
+  String get tagDeleteAction;
+
+  /// No description provided for @tagDeleteConfirm.
+  ///
+  /// In fa, this message translates to:
+  /// **'برچسب \"{name}\" حذف شود؟ از همه اسناد حذف خواهد شد.'**
+  String tagDeleteConfirm(String name);
+
+  /// No description provided for @tagAssignTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'افزودن برچسب'**
+  String get tagAssignTitle;
+
+  /// No description provided for @tagAssign.
+  ///
+  /// In fa, this message translates to:
+  /// **'افزودن برچسب'**
+  String get tagAssign;
+
+  /// No description provided for @tagNoAvailable.
+  ///
+  /// In fa, this message translates to:
+  /// **'همه برچسب‌ها قبلاً تخصیص داده شده‌اند'**
+  String get tagNoAvailable;
+
+  /// No description provided for @tagLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری برچسب‌ها:'**
+  String get tagLoadError;
+
+  /// No description provided for @tagEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'بدون برچسب'**
+  String get tagEmptyTitle;
+
+  /// No description provided for @tagEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ برچسبی به این سند تخصیص داده نشده است.'**
+  String get tagEmptyMessage;
+
+  /// No description provided for @tagEmptyPageMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز برچسبی تعریف نشده. یکی بسازید.'**
+  String get tagEmptyPageMessage;
 }
 
 class _AppLocalizationsDelegate

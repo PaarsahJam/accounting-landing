@@ -631,6 +631,51 @@
   "commentPostedBy": "{author}",
   "@commentPostedBy": {
     "placeholders": { "author": { "type": "String" } }
-  }
+  },
+
+  "searchHint": "جستجوی اسناد، نام‌ها، کد محصول…",
+  "searchClear": "پاک کردن",
+  "searchErrorMessage": "خطا در جستجو:",
+  "searchEmptyTitle": "نتیجه‌ای یافت نشد",
+  "searchEmptyMessage": "هیچ موردی برای \"{query}\" یافت نشد",
+  "@searchEmptyMessage": {
+    "placeholders": { "query": { "type": "String" } }
+  },
+  "searchRecentTitle": "جستجوهای اخیر",
+  "searchRecentEmpty": "جستجوی اخیری وجود ندارد",
+  "searchRecentClear": "پاک کردن همه",
+  "searchGroupCustomers": "مشتریان",
+  "searchGroupVendors": "تأمین‌کنندگان",
+  "searchGroupProducts": "محصولات",
+  "searchGroupSalesInvoices": "فاکتورهای فروش",
+  "searchGroupVendorBills": "صورت‌حساب‌های خرید",
+  "searchGroupPurchaseOrders": "سفارش‌های خرید",
+  "searchGroupGoodsReceipts": "رسیدهای کالا",
+  "searchGroupBankAccounts": "حساب‌های بانکی",
+  "searchGroupJournalEntries": "ثبت‌های دفتر",
+  "searchGroupFiscalPeriods": "دوره‌های مالی",
+  "searchPageTitle": "جستجوی سراسری",
+
+  "tagsPageTitle": "برچسب‌ها",
+  "tagsSectionTitle": "برچسب‌ها",
+  "tagName": "نام برچسب",
+  "tagDescription": "توضیحات (اختیاری)",
+  "tagColor": "رنگ",
+  "tagCreateTitle": "برچسب جدید",
+  "tagEditTitle": "ویرایش برچسب",
+  "tagEditAction": "ویرایش",
+  "tagDeleteTitle": "حذف برچسب",
+  "tagDeleteAction": "حذف",
+  "tagDeleteConfirm": "برچسب \"{name}\" حذف شود؟ از همه اسناد حذف خواهد شد.",
+  "@tagDeleteConfirm": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "tagAssignTitle": "افزودن برچسب",
+  "tagAssign": "افزودن برچسب",
+  "tagNoAvailable": "همه برچسب‌ها قبلاً تخصیص داده شده‌اند",
+  "tagLoadError": "خطا در بارگذاری برچسب‌ها:",
+  "tagEmptyTitle": "بدون برچسب",
+  "tagEmptyMessage": "هیچ برچسبی به این سند تخصیص داده نشده است.",
+  "tagEmptyPageMessage": "هنوز برچسبی تعریف نشده. یکی بسازید."
 
 }

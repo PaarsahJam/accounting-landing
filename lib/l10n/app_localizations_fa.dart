@@ -1881,4 +1881,119 @@ class AppLocalizationsFa extends AppLocalizations {
   String commentPostedBy(String author) {
     return '$author';
   }
+
+  @override
+  String get searchHint => 'جستجوی اسناد، نام‌ها، کد محصول…';
+
+  @override
+  String get searchClear => 'پاک کردن';
+
+  @override
+  String get searchErrorMessage => 'خطا در جستجو:';
+
+  @override
+  String get searchEmptyTitle => 'نتیجه‌ای یافت نشد';
+
+  @override
+  String searchEmptyMessage(String query) {
+    return 'هیچ موردی برای \"$query\" یافت نشد';
+  }
+
+  @override
+  String get searchRecentTitle => 'جستجوهای اخیر';
+
+  @override
+  String get searchRecentEmpty => 'جستجوی اخیری وجود ندارد';
+
+  @override
+  String get searchRecentClear => 'پاک کردن همه';
+
+  @override
+  String get searchGroupCustomers => 'مشتریان';
+
+  @override
+  String get searchGroupVendors => 'تأمین‌کنندگان';
+
+  @override
+  String get searchGroupProducts => 'محصولات';
+
+  @override
+  String get searchGroupSalesInvoices => 'فاکتورهای فروش';
+
+  @override
+  String get searchGroupVendorBills => 'صورت‌حساب‌های خرید';
+
+  @override
+  String get searchGroupPurchaseOrders => 'سفارش‌های خرید';
+
+  @override
+  String get searchGroupGoodsReceipts => 'رسیدهای کالا';
+
+  @override
+  String get searchGroupBankAccounts => 'حساب‌های بانکی';
+
+  @override
+  String get searchGroupJournalEntries => 'ثبت‌های دفتر';
+
+  @override
+  String get searchGroupFiscalPeriods => 'دوره‌های مالی';
+
+  @override
+  String get searchPageTitle => 'جستجوی سراسری';
+
+  @override
+  String get tagsPageTitle => 'برچسب‌ها';
+
+  @override
+  String get tagsSectionTitle => 'برچسب‌ها';
+
+  @override
+  String get tagName => 'نام برچسب';
+
+  @override
+  String get tagDescription => 'توضیحات (اختیاری)';
+
+  @override
+  String get tagColor => 'رنگ';
+
+  @override
+  String get tagCreateTitle => 'برچسب جدید';
+
+  @override
+  String get tagEditTitle => 'ویرایش برچسب';
+
+  @override
+  String get tagEditAction => 'ویرایش';
+
+  @override
+  String get tagDeleteTitle => 'حذف برچسب';
+
+  @override
+  String get tagDeleteAction => 'حذف';
+
+  @override
+  String tagDeleteConfirm(String name) {
+    return 'برچسب \"$name\" حذف شود؟ از همه اسناد حذف خواهد شد.';
+  }
+
+  @override
+  String get tagAssignTitle => 'افزودن برچسب';
+
+  @override
+  String get tagAssign => 'افزودن برچسب';
+
+  @override
+  String get tagNoAvailable => 'همه برچسب‌ها قبلاً تخصیص داده شده‌اند';
+
+  @override
+  String get tagLoadError => 'خطا در بارگذاری برچسب‌ها:';
+
+  @override
+  String get tagEmptyTitle => 'بدون برچسب';
+
+  @override
+  String get tagEmptyMessage => 'هیچ برچسبی به این سند تخصیص داده نشده است.';
+
+  @override
+  String get tagEmptyPageMessage => 'هنوز برچسبی تعریف نشده. یکی بسازید.';
 }

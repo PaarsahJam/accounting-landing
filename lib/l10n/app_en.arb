@@ -631,6 +631,51 @@
   "commentPostedBy": "{author}",
   "@commentPostedBy": {
     "placeholders": { "author": { "type": "String" } }
-  }
+  },
+
+  "searchHint": "Search documents, names, SKUs…",
+  "searchClear": "Clear",
+  "searchErrorMessage": "Search failed:",
+  "searchEmptyTitle": "No results found",
+  "searchEmptyMessage": "No matches for \"{query}\"",
+  "@searchEmptyMessage": {
+    "placeholders": { "query": { "type": "String" } }
+  },
+  "searchRecentTitle": "Recent Searches",
+  "searchRecentEmpty": "No recent searches",
+  "searchRecentClear": "Clear all",
+  "searchGroupCustomers": "Customers",
+  "searchGroupVendors": "Vendors",
+  "searchGroupProducts": "Products",
+  "searchGroupSalesInvoices": "Sales Invoices",
+  "searchGroupVendorBills": "Vendor Bills",
+  "searchGroupPurchaseOrders": "Purchase Orders",
+  "searchGroupGoodsReceipts": "Goods Receipts",
+  "searchGroupBankAccounts": "Bank Accounts",
+  "searchGroupJournalEntries": "Journal Entries",
+  "searchGroupFiscalPeriods": "Fiscal Periods",
+  "searchPageTitle": "Global Search",
+
+  "tagsPageTitle": "Tags",
+  "tagsSectionTitle": "Tags",
+  "tagName": "Tag name",
+  "tagDescription": "Description (optional)",
+  "tagColor": "Color",
+  "tagCreateTitle": "New Tag",
+  "tagEditTitle": "Edit Tag",
+  "tagEditAction": "Edit",
+  "tagDeleteTitle": "Delete Tag",
+  "tagDeleteAction": "Delete",
+  "tagDeleteConfirm": "Delete tag \"{name}\"? It will be removed from all documents.",
+  "@tagDeleteConfirm": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "tagAssignTitle": "Assign Tag",
+  "tagAssign": "Add Tag",
+  "tagNoAvailable": "All tags are already assigned",
+  "tagLoadError": "Failed to load tags:",
+  "tagEmptyTitle": "No tags",
+  "tagEmptyMessage": "No tags assigned to this document.",
+  "tagEmptyPageMessage": "No tags defined yet. Create one to get started."
 
 }

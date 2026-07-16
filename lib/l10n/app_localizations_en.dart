@@ -1887,4 +1887,120 @@ class AppLocalizationsEn extends AppLocalizations {
   String commentPostedBy(String author) {
     return '$author';
   }
+
+  @override
+  String get searchHint => 'Search documents, names, SKUs…';
+
+  @override
+  String get searchClear => 'Clear';
+
+  @override
+  String get searchErrorMessage => 'Search failed:';
+
+  @override
+  String get searchEmptyTitle => 'No results found';
+
+  @override
+  String searchEmptyMessage(String query) {
+    return 'No matches for \"$query\"';
+  }
+
+  @override
+  String get searchRecentTitle => 'Recent Searches';
+
+  @override
+  String get searchRecentEmpty => 'No recent searches';
+
+  @override
+  String get searchRecentClear => 'Clear all';
+
+  @override
+  String get searchGroupCustomers => 'Customers';
+
+  @override
+  String get searchGroupVendors => 'Vendors';
+
+  @override
+  String get searchGroupProducts => 'Products';
+
+  @override
+  String get searchGroupSalesInvoices => 'Sales Invoices';
+
+  @override
+  String get searchGroupVendorBills => 'Vendor Bills';
+
+  @override
+  String get searchGroupPurchaseOrders => 'Purchase Orders';
+
+  @override
+  String get searchGroupGoodsReceipts => 'Goods Receipts';
+
+  @override
+  String get searchGroupBankAccounts => 'Bank Accounts';
+
+  @override
+  String get searchGroupJournalEntries => 'Journal Entries';
+
+  @override
+  String get searchGroupFiscalPeriods => 'Fiscal Periods';
+
+  @override
+  String get searchPageTitle => 'Global Search';
+
+  @override
+  String get tagsPageTitle => 'Tags';
+
+  @override
+  String get tagsSectionTitle => 'Tags';
+
+  @override
+  String get tagName => 'Tag name';
+
+  @override
+  String get tagDescription => 'Description (optional)';
+
+  @override
+  String get tagColor => 'Color';
+
+  @override
+  String get tagCreateTitle => 'New Tag';
+
+  @override
+  String get tagEditTitle => 'Edit Tag';
+
+  @override
+  String get tagEditAction => 'Edit';
+
+  @override
+  String get tagDeleteTitle => 'Delete Tag';
+
+  @override
+  String get tagDeleteAction => 'Delete';
+
+  @override
+  String tagDeleteConfirm(String name) {
+    return 'Delete tag \"$name\"? It will be removed from all documents.';
+  }
+
+  @override
+  String get tagAssignTitle => 'Assign Tag';
+
+  @override
+  String get tagAssign => 'Add Tag';
+
+  @override
+  String get tagNoAvailable => 'All tags are already assigned';
+
+  @override
+  String get tagLoadError => 'Failed to load tags:';
+
+  @override
+  String get tagEmptyTitle => 'No tags';
+
+  @override
+  String get tagEmptyMessage => 'No tags assigned to this document.';
+
+  @override
+  String get tagEmptyPageMessage =>
+      'No tags defined yet. Create one to get started.';
 }
