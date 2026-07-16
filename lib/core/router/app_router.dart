@@ -36,6 +36,9 @@ import '../../features/journal_explorer/presentation/journal_explorer_page.dart'
 import '../../features/banking/domain/bank_account.dart';
 import '../../features/banking/presentation/bank_accounts_page.dart';
 import '../../features/banking/presentation/bank_transactions_page.dart';
+import '../../features/bank_reconciliation/domain/bank_statement.dart';
+import '../../features/bank_reconciliation/presentation/bank_statements_page.dart';
+import '../../features/bank_reconciliation/presentation/bank_reconciliation_detail_page.dart';
 import '../../l10n/app_localizations.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -220,6 +223,22 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'bank-reconciliation',
         path: '/bank-reconciliation',
         builder: (c, s) => const BankReconciliationPage(),
+      ),
+      GoRoute(
+        name: 'bank-statements',
+        path: '/bank-statements',
+        builder: (c, s) => const BankStatementsPage(),
+      ),
+      GoRoute(
+        name: 'bank-statement-reconcile',
+        path: '/bank-statements/:id/reconcile',
+        builder: (context, state) {
+          final stmt = state.extra as BankStatement?;
+          if (stmt == null) {
+            return const BankStatementsPage();
+          }
+          return BankReconciliationDetailPage(statement: stmt);
+        },
       ),
       GoRoute(
         name: 'bank-accounts',

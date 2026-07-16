@@ -1559,4 +1559,55 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get bankTransactionReference => 'مرجع';
+
+  @override
+  String get bankStatementsPageTitle => 'صورت‌های بانکی';
+
+  @override
+  String get bankStatementsLoadError => 'خطا در بارگذاری صورت‌های بانکی:';
+
+  @override
+  String get bankStatementsEmptyTitle => 'صورت بانکی یافت نشد';
+
+  @override
+  String get bankStatementsEmptyMessage => 'هیچ صورت بانکی وارد نشده است.';
+
+  @override
+  String get bankStatementsOpeningBalance => 'موجودی ابتدای دوره';
+
+  @override
+  String get bankStatementsClosingBalance => 'موجودی پایان دوره';
+
+  @override
+  String get bankStatementsStatusDraft => 'پیش‌نویس';
+
+  @override
+  String get bankStatementsStatusInProgress => 'در حال تطابق';
+
+  @override
+  String get bankStatementsStatusReconciled => 'تطابق یافت';
+
+  @override
+  String get bankStatementsStatusNeedsAttention => 'نیاز به بررسی';
+
+  @override
+  String get bankReconciliationAutoMatch => 'تطابق خودکار';
+
+  @override
+  String get bankReconciliationMatch => 'تطابق';
+
+  @override
+  String get bankReconciliationUnmatch => 'لغو تطابق';
+
+  @override
+  String get bankReconciliationDifference => 'اختلاف';
+
+  @override
+  String get bankReconciliationBalanced => 'متعادل';
+
+  @override
+  String get bankReconciliationFinalized => 'صورت بانکی با موفقیت تطابق یافت.';
+
+  @override
+  String get bankReconciliationNoTransactions => 'تراکنشی یافت نشد';
 }

@@ -56,7 +56,7 @@ final class BankTransactionsControllerProvider
 }
 
 String _$bankTransactionsControllerHash() =>
-    r'48bc57b09eb4351bd96da73faaf7a844bc0455ac';
+    r'1ade912ee457284daf89dd413a4ce0d9b2a0ab80';
 
 final class BankTransactionsControllerFamily extends $Family
     with

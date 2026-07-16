@@ -1560,4 +1560,57 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bankTransactionReference => 'Reference';
+
+  @override
+  String get bankStatementsPageTitle => 'Bank Statements';
+
+  @override
+  String get bankStatementsLoadError => 'Error loading bank statements:';
+
+  @override
+  String get bankStatementsEmptyTitle => 'No bank statements found';
+
+  @override
+  String get bankStatementsEmptyMessage =>
+      'No bank statements have been imported yet.';
+
+  @override
+  String get bankStatementsOpeningBalance => 'Opening Balance';
+
+  @override
+  String get bankStatementsClosingBalance => 'Closing Balance';
+
+  @override
+  String get bankStatementsStatusDraft => 'Draft';
+
+  @override
+  String get bankStatementsStatusInProgress => 'In Progress';
+
+  @override
+  String get bankStatementsStatusReconciled => 'Reconciled';
+
+  @override
+  String get bankStatementsStatusNeedsAttention => 'Needs Attention';
+
+  @override
+  String get bankReconciliationAutoMatch => 'Auto-Match';
+
+  @override
+  String get bankReconciliationMatch => 'Match';
+
+  @override
+  String get bankReconciliationUnmatch => 'Unmatch';
+
+  @override
+  String get bankReconciliationDifference => 'Difference';
+
+  @override
+  String get bankReconciliationBalanced => 'Balanced';
+
+  @override
+  String get bankReconciliationFinalized =>
+      'Statement reconciled successfully.';
+
+  @override
+  String get bankReconciliationNoTransactions => 'No transactions';
 }

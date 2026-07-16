@@ -511,6 +511,25 @@
   "bankTransactionTypeAdjustment": "Adjustment",
   "bankTransactionRunningBalance": "Running balance",
   "bankTransactionDate": "Date",
-  "bankTransactionReference": "Reference"
+  "bankTransactionReference": "Reference",
+
+  "bankStatementsPageTitle": "Bank Statements",
+  "bankStatementsLoadError": "Error loading bank statements:",
+  "bankStatementsEmptyTitle": "No bank statements found",
+  "bankStatementsEmptyMessage": "No bank statements have been imported yet.",
+  "bankStatementsOpeningBalance": "Opening Balance",
+  "bankStatementsClosingBalance": "Closing Balance",
+  "bankStatementsStatusDraft": "Draft",
+  "bankStatementsStatusInProgress": "In Progress",
+  "bankStatementsStatusReconciled": "Reconciled",
+  "bankStatementsStatusNeedsAttention": "Needs Attention",
+
+  "bankReconciliationAutoMatch": "Auto-Match",
+  "bankReconciliationMatch": "Match",
+  "bankReconciliationUnmatch": "Unmatch",
+  "bankReconciliationDifference": "Difference",
+  "bankReconciliationBalanced": "Balanced",
+  "bankReconciliationFinalized": "Statement reconciled successfully.",
+  "bankReconciliationNoTransactions": "No transactions"
 
 }

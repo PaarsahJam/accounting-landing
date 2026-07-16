@@ -511,6 +511,25 @@
   "bankTransactionTypeAdjustment": "تعدیل",
   "bankTransactionRunningBalance": "موجودی جاری",
   "bankTransactionDate": "تاریخ",
-  "bankTransactionReference": "مرجع"
+  "bankTransactionReference": "مرجع",
+
+  "bankStatementsPageTitle": "صورت‌های بانکی",
+  "bankStatementsLoadError": "خطا در بارگذاری صورت‌های بانکی:",
+  "bankStatementsEmptyTitle": "صورت بانکی یافت نشد",
+  "bankStatementsEmptyMessage": "هیچ صورت بانکی وارد نشده است.",
+  "bankStatementsOpeningBalance": "موجودی ابتدای دوره",
+  "bankStatementsClosingBalance": "موجودی پایان دوره",
+  "bankStatementsStatusDraft": "پیش‌نویس",
+  "bankStatementsStatusInProgress": "در حال تطابق",
+  "bankStatementsStatusReconciled": "تطابق یافت",
+  "bankStatementsStatusNeedsAttention": "نیاز به بررسی",
+
+  "bankReconciliationAutoMatch": "تطابق خودکار",
+  "bankReconciliationMatch": "تطابق",
+  "bankReconciliationUnmatch": "لغو تطابق",
+  "bankReconciliationDifference": "اختلاف",
+  "bankReconciliationBalanced": "متعادل",
+  "bankReconciliationFinalized": "صورت بانکی با موفقیت تطابق یافت.",
+  "bankReconciliationNoTransactions": "تراکنشی یافت نشد"
 
 }

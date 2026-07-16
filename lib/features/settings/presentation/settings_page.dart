@@ -96,6 +96,11 @@ class SettingsPage extends ConsumerWidget {
                 onTap: () => context.go('/bank-reconciliation'),
               ),
               ListTile(
+                title: Text(l10n.bankStatementsPageTitle),
+                trailing: const Icon(Icons.description_outlined),
+                onTap: () => context.go('/bank-statements'),
+              ),
+              ListTile(
                 title: Text(l10n.bankAccountsPageTitle),
                 trailing: const Icon(Icons.account_balance_wallet),
                 onTap: () => context.go('/bank-accounts'),

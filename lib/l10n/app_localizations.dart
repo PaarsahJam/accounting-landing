@@ -3151,6 +3151,108 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'مرجع'**
   String get bankTransactionReference;
+
+  /// No description provided for @bankStatementsPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'صورت‌های بانکی'**
+  String get bankStatementsPageTitle;
+
+  /// No description provided for @bankStatementsLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری صورت‌های بانکی:'**
+  String get bankStatementsLoadError;
+
+  /// No description provided for @bankStatementsEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'صورت بانکی یافت نشد'**
+  String get bankStatementsEmptyTitle;
+
+  /// No description provided for @bankStatementsEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ صورت بانکی وارد نشده است.'**
+  String get bankStatementsEmptyMessage;
+
+  /// No description provided for @bankStatementsOpeningBalance.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی ابتدای دوره'**
+  String get bankStatementsOpeningBalance;
+
+  /// No description provided for @bankStatementsClosingBalance.
+  ///
+  /// In fa, this message translates to:
+  /// **'موجودی پایان دوره'**
+  String get bankStatementsClosingBalance;
+
+  /// No description provided for @bankStatementsStatusDraft.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیش‌نویس'**
+  String get bankStatementsStatusDraft;
+
+  /// No description provided for @bankStatementsStatusInProgress.
+  ///
+  /// In fa, this message translates to:
+  /// **'در حال تطابق'**
+  String get bankStatementsStatusInProgress;
+
+  /// No description provided for @bankStatementsStatusReconciled.
+  ///
+  /// In fa, this message translates to:
+  /// **'تطابق یافت'**
+  String get bankStatementsStatusReconciled;
+
+  /// No description provided for @bankStatementsStatusNeedsAttention.
+  ///
+  /// In fa, this message translates to:
+  /// **'نیاز به بررسی'**
+  String get bankStatementsStatusNeedsAttention;
+
+  /// No description provided for @bankReconciliationAutoMatch.
+  ///
+  /// In fa, this message translates to:
+  /// **'تطابق خودکار'**
+  String get bankReconciliationAutoMatch;
+
+  /// No description provided for @bankReconciliationMatch.
+  ///
+  /// In fa, this message translates to:
+  /// **'تطابق'**
+  String get bankReconciliationMatch;
+
+  /// No description provided for @bankReconciliationUnmatch.
+  ///
+  /// In fa, this message translates to:
+  /// **'لغو تطابق'**
+  String get bankReconciliationUnmatch;
+
+  /// No description provided for @bankReconciliationDifference.
+  ///
+  /// In fa, this message translates to:
+  /// **'اختلاف'**
+  String get bankReconciliationDifference;
+
+  /// No description provided for @bankReconciliationBalanced.
+  ///
+  /// In fa, this message translates to:
+  /// **'متعادل'**
+  String get bankReconciliationBalanced;
+
+  /// No description provided for @bankReconciliationFinalized.
+  ///
+  /// In fa, this message translates to:
+  /// **'صورت بانکی با موفقیت تطابق یافت.'**
+  String get bankReconciliationFinalized;
+
+  /// No description provided for @bankReconciliationNoTransactions.
+  ///
+  /// In fa, this message translates to:
+  /// **'تراکنشی یافت نشد'**
+  String get bankReconciliationNoTransactions;
 }
 
 class _AppLocalizationsDelegate
