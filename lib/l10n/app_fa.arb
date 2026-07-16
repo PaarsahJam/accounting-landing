@@ -721,6 +721,34 @@
   },
   "currencyRateValue": "نرخ",
   "currencyRateInvalid": "یک عدد مثبت وارد کنید",
-  "dashboardCurrencies": "ارزها"
+  "dashboardCurrencies": "ارزها",
+
+  "recurringTransactionsPageTitle": "تراکنش‌های دوره‌ای",
+  "recurringTransactionCreateTitle": "تراکنش دوره‌ای جدید",
+  "recurringTransactionEditTitle": "ویرایش تراکنش دوره‌ای",
+  "recurringTransactionsLoadError": "خطا در بارگذاری تراکنش‌های دوره‌ای:",
+  "recurringTransactionsEmptyTitle": "تراکنش دوره‌ای‌ای وجود ندارد",
+  "recurringTransactionsEmptyMessage": "هنوز هیچ تراکنش دوره‌ای تعریف نشده است.",
+  "recurringTransactionBadgeActive": "فعال",
+  "recurringTransactionBadgeInactive": "غیرفعال",
+  "recurringTransactionNextRun": "اجرای بعدی",
+  "recurringTransactionName": "نام",
+  "recurringTransactionFrequency": "تکرار",
+  "recurringTransactionSourceId": "شناسه سند مبدأ",
+  "recurringTransactionSourceType": "نوع سند مبدأ",
+  "recurringTransactionNotes": "یادداشت",
+  "recurringTransactionActivate": "فعال‌سازی",
+  "recurringTransactionDeactivate": "غیرفعال‌سازی",
+  "recurringTransactionExecuteNow": "اجرای فوری",
+  "recurringTransactionExecuted": "{name} اجرا شد (شبیه‌سازی)",
+  "@recurringTransactionExecuted": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "recurringFrequencyDaily": "روزانه",
+  "recurringFrequencyWeekly": "هفتگی",
+  "recurringFrequencyMonthly": "ماهانه",
+  "recurringFrequencyQuarterly": "فصلی",
+  "recurringFrequencyYearly": "سالانه",
+  "dashboardRecurringTransactions": "تراکنش‌های دوره‌ای"
 
 }

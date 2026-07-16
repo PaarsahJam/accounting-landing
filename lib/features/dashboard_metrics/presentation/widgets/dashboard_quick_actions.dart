@@ -71,6 +71,11 @@ class DashboardQuickActions extends StatelessWidget {
         icon: Icons.currency_exchange,
         route: '/currencies',
       ),
+      _QuickAction(
+        title: l10n.dashboardRecurringTransactions,
+        icon: Icons.repeat,
+        route: '/recurring-transactions',
+      ),
     ];
 
     return SizedBox(

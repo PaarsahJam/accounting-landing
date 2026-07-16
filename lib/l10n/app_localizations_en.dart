@@ -2109,4 +2109,80 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dashboardCurrencies => 'Currencies';
+
+  @override
+  String get recurringTransactionsPageTitle => 'Recurring Transactions';
+
+  @override
+  String get recurringTransactionCreateTitle => 'New Recurring Transaction';
+
+  @override
+  String get recurringTransactionEditTitle => 'Edit Recurring Transaction';
+
+  @override
+  String get recurringTransactionsLoadError =>
+      'Failed to load recurring transactions:';
+
+  @override
+  String get recurringTransactionsEmptyTitle => 'No recurring transactions';
+
+  @override
+  String get recurringTransactionsEmptyMessage =>
+      'No recurring transactions have been set up yet.';
+
+  @override
+  String get recurringTransactionBadgeActive => 'ACTIVE';
+
+  @override
+  String get recurringTransactionBadgeInactive => 'INACTIVE';
+
+  @override
+  String get recurringTransactionNextRun => 'Next run';
+
+  @override
+  String get recurringTransactionName => 'Name';
+
+  @override
+  String get recurringTransactionFrequency => 'Frequency';
+
+  @override
+  String get recurringTransactionSourceId => 'Source Document ID';
+
+  @override
+  String get recurringTransactionSourceType => 'Source Document Type';
+
+  @override
+  String get recurringTransactionNotes => 'Notes';
+
+  @override
+  String get recurringTransactionActivate => 'Activate';
+
+  @override
+  String get recurringTransactionDeactivate => 'Deactivate';
+
+  @override
+  String get recurringTransactionExecuteNow => 'Execute Now';
+
+  @override
+  String recurringTransactionExecuted(String name) {
+    return '$name executed (mock)';
+  }
+
+  @override
+  String get recurringFrequencyDaily => 'Daily';
+
+  @override
+  String get recurringFrequencyWeekly => 'Weekly';
+
+  @override
+  String get recurringFrequencyMonthly => 'Monthly';
+
+  @override
+  String get recurringFrequencyQuarterly => 'Quarterly';
+
+  @override
+  String get recurringFrequencyYearly => 'Yearly';
+
+  @override
+  String get dashboardRecurringTransactions => 'Recurring Transactions';
 }

@@ -46,6 +46,7 @@ import '../../features/bank_reconciliation/presentation/bank_statements_page.dar
 import '../../features/bank_reconciliation/presentation/bank_reconciliation_detail_page.dart';
 import '../../features/global_search/presentation/global_search_page.dart';
 import '../../features/multi_currency/presentation/currencies_page.dart';
+import '../../features/recurring_transactions/presentation/recurring_transactions_page.dart';
 import '../../features/tags/presentation/tags_page.dart';
 import '../../features/user_roles/presentation/user_roles_page.dart';
 import '../../l10n/app_localizations.dart';
@@ -311,6 +312,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'currencies',
         path: '/currencies',
         builder: (c, s) => const CurrenciesPage(),
+      ),
+      GoRoute(
+        name: 'recurring-transactions',
+        path: '/recurring-transactions',
+        builder: (c, s) => const RecurringTransactionsPage(),
       ),
     ],
     errorBuilder: (context, state) {

@@ -721,6 +721,34 @@
   },
   "currencyRateValue": "Rate",
   "currencyRateInvalid": "Enter a positive number",
-  "dashboardCurrencies": "Currencies"
+  "dashboardCurrencies": "Currencies",
+
+  "recurringTransactionsPageTitle": "Recurring Transactions",
+  "recurringTransactionCreateTitle": "New Recurring Transaction",
+  "recurringTransactionEditTitle": "Edit Recurring Transaction",
+  "recurringTransactionsLoadError": "Failed to load recurring transactions:",
+  "recurringTransactionsEmptyTitle": "No recurring transactions",
+  "recurringTransactionsEmptyMessage": "No recurring transactions have been set up yet.",
+  "recurringTransactionBadgeActive": "ACTIVE",
+  "recurringTransactionBadgeInactive": "INACTIVE",
+  "recurringTransactionNextRun": "Next run",
+  "recurringTransactionName": "Name",
+  "recurringTransactionFrequency": "Frequency",
+  "recurringTransactionSourceId": "Source Document ID",
+  "recurringTransactionSourceType": "Source Document Type",
+  "recurringTransactionNotes": "Notes",
+  "recurringTransactionActivate": "Activate",
+  "recurringTransactionDeactivate": "Deactivate",
+  "recurringTransactionExecuteNow": "Execute Now",
+  "recurringTransactionExecuted": "{name} executed (mock)",
+  "@recurringTransactionExecuted": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "recurringFrequencyDaily": "Daily",
+  "recurringFrequencyWeekly": "Weekly",
+  "recurringFrequencyMonthly": "Monthly",
+  "recurringFrequencyQuarterly": "Quarterly",
+  "recurringFrequencyYearly": "Yearly",
+  "dashboardRecurringTransactions": "Recurring Transactions"
 
 }

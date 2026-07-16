@@ -2102,4 +2102,81 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get dashboardCurrencies => 'ارزها';
+
+  @override
+  String get recurringTransactionsPageTitle => 'تراکنش‌های دوره‌ای';
+
+  @override
+  String get recurringTransactionCreateTitle => 'تراکنش دوره‌ای جدید';
+
+  @override
+  String get recurringTransactionEditTitle => 'ویرایش تراکنش دوره‌ای';
+
+  @override
+  String get recurringTransactionsLoadError =>
+      'خطا در بارگذاری تراکنش‌های دوره‌ای:';
+
+  @override
+  String get recurringTransactionsEmptyTitle =>
+      'تراکنش دوره‌ای‌ای وجود ندارد';
+
+  @override
+  String get recurringTransactionsEmptyMessage =>
+      'هنوز هیچ تراکنش دوره‌ای تعریف نشده است.';
+
+  @override
+  String get recurringTransactionBadgeActive => 'فعال';
+
+  @override
+  String get recurringTransactionBadgeInactive => 'غیرفعال';
+
+  @override
+  String get recurringTransactionNextRun => 'اجرای بعدی';
+
+  @override
+  String get recurringTransactionName => 'نام';
+
+  @override
+  String get recurringTransactionFrequency => 'تکرار';
+
+  @override
+  String get recurringTransactionSourceId => 'شناسه سند مبدأ';
+
+  @override
+  String get recurringTransactionSourceType => 'نوع سند مبدأ';
+
+  @override
+  String get recurringTransactionNotes => 'یادداشت';
+
+  @override
+  String get recurringTransactionActivate => 'فعال‌سازی';
+
+  @override
+  String get recurringTransactionDeactivate => 'غیرفعال‌سازی';
+
+  @override
+  String get recurringTransactionExecuteNow => 'اجرای فوری';
+
+  @override
+  String recurringTransactionExecuted(String name) {
+    return '$name اجرا شد (شبیه‌سازی)';
+  }
+
+  @override
+  String get recurringFrequencyDaily => 'روزانه';
+
+  @override
+  String get recurringFrequencyWeekly => 'هفتگی';
+
+  @override
+  String get recurringFrequencyMonthly => 'ماهانه';
+
+  @override
+  String get recurringFrequencyQuarterly => 'فصلی';
+
+  @override
+  String get recurringFrequencyYearly => 'سالانه';
+
+  @override
+  String get dashboardRecurringTransactions => 'تراکنش‌های دوره‌ای';
 }

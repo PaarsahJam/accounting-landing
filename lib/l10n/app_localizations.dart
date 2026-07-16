@@ -4195,6 +4195,150 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'ارزها'**
   String get dashboardCurrencies;
+
+  /// No description provided for @recurringTransactionsPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تراکنش‌های دوره‌ای'**
+  String get recurringTransactionsPageTitle;
+
+  /// No description provided for @recurringTransactionCreateTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تراکنش دوره‌ای جدید'**
+  String get recurringTransactionCreateTitle;
+
+  /// No description provided for @recurringTransactionEditTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش تراکنش دوره‌ای'**
+  String get recurringTransactionEditTitle;
+
+  /// No description provided for @recurringTransactionsLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری تراکنش‌های دوره‌ای:'**
+  String get recurringTransactionsLoadError;
+
+  /// No description provided for @recurringTransactionsEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تراکنش دوره‌ای‌ای وجود ندارد'**
+  String get recurringTransactionsEmptyTitle;
+
+  /// No description provided for @recurringTransactionsEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز هیچ تراکنش دوره‌ای تعریف نشده است.'**
+  String get recurringTransactionsEmptyMessage;
+
+  /// No description provided for @recurringTransactionBadgeActive.
+  ///
+  /// In fa, this message translates to:
+  /// **'فعال'**
+  String get recurringTransactionBadgeActive;
+
+  /// No description provided for @recurringTransactionBadgeInactive.
+  ///
+  /// In fa, this message translates to:
+  /// **'غیرفعال'**
+  String get recurringTransactionBadgeInactive;
+
+  /// No description provided for @recurringTransactionNextRun.
+  ///
+  /// In fa, this message translates to:
+  /// **'اجرای بعدی'**
+  String get recurringTransactionNextRun;
+
+  /// No description provided for @recurringTransactionName.
+  ///
+  /// In fa, this message translates to:
+  /// **'نام'**
+  String get recurringTransactionName;
+
+  /// No description provided for @recurringTransactionFrequency.
+  ///
+  /// In fa, this message translates to:
+  /// **'تکرار'**
+  String get recurringTransactionFrequency;
+
+  /// No description provided for @recurringTransactionSourceId.
+  ///
+  /// In fa, this message translates to:
+  /// **'شناسه سند مبدأ'**
+  String get recurringTransactionSourceId;
+
+  /// No description provided for @recurringTransactionSourceType.
+  ///
+  /// In fa, this message translates to:
+  /// **'نوع سند مبدأ'**
+  String get recurringTransactionSourceType;
+
+  /// No description provided for @recurringTransactionNotes.
+  ///
+  /// In fa, this message translates to:
+  /// **'یادداشت'**
+  String get recurringTransactionNotes;
+
+  /// No description provided for @recurringTransactionActivate.
+  ///
+  /// In fa, this message translates to:
+  /// **'فعال‌سازی'**
+  String get recurringTransactionActivate;
+
+  /// No description provided for @recurringTransactionDeactivate.
+  ///
+  /// In fa, this message translates to:
+  /// **'غیرفعال‌سازی'**
+  String get recurringTransactionDeactivate;
+
+  /// No description provided for @recurringTransactionExecuteNow.
+  ///
+  /// In fa, this message translates to:
+  /// **'اجرای فوری'**
+  String get recurringTransactionExecuteNow;
+
+  /// No description provided for @recurringTransactionExecuted.
+  ///
+  /// In fa, this message translates to:
+  /// **'{name} اجرا شد (شبیه‌سازی)'**
+  String recurringTransactionExecuted(String name);
+
+  /// No description provided for @recurringFrequencyDaily.
+  ///
+  /// In fa, this message translates to:
+  /// **'روزانه'**
+  String get recurringFrequencyDaily;
+
+  /// No description provided for @recurringFrequencyWeekly.
+  ///
+  /// In fa, this message translates to:
+  /// **'هفتگی'**
+  String get recurringFrequencyWeekly;
+
+  /// No description provided for @recurringFrequencyMonthly.
+  ///
+  /// In fa, this message translates to:
+  /// **'ماهانه'**
+  String get recurringFrequencyMonthly;
+
+  /// No description provided for @recurringFrequencyQuarterly.
+  ///
+  /// In fa, this message translates to:
+  /// **'فصلی'**
+  String get recurringFrequencyQuarterly;
+
+  /// No description provided for @recurringFrequencyYearly.
+  ///
+  /// In fa, this message translates to:
+  /// **'سالانه'**
+  String get recurringFrequencyYearly;
+
+  /// No description provided for @dashboardRecurringTransactions.
+  ///
+  /// In fa, this message translates to:
+  /// **'تراکنش‌های دوره‌ای'**
+  String get dashboardRecurringTransactions;
 }
 
 class _AppLocalizationsDelegate
