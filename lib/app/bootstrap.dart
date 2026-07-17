@@ -25,7 +25,14 @@ class _BootstrapState extends State<Bootstrap> {
 
   @override
   Widget build(BuildContext context) {
-    if (!_ready) return const SizedBox.shrink();
+    if (!_ready) {
+      return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: Center(child: CircularProgressIndicator.adaptive()),
+        ),
+      );
+    }
     return const App();
   }
 }

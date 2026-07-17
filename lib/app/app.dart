@@ -26,7 +26,7 @@ class App extends ConsumerWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       theme: AppTheme.lightTheme(GoogleFonts.vazirmatnTextTheme()),
-      darkTheme: AppTheme.darkTheme(GoogleFonts.interTextTheme()),
+      darkTheme: AppTheme.darkTheme(GoogleFonts.vazirmatnTextTheme()),
       themeMode: ThemeMode.system,
     );
   }

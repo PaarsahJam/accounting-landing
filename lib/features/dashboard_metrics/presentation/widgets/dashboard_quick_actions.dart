@@ -28,7 +28,7 @@ class DashboardQuickActions extends StatelessWidget {
       ),
       _QuickAction(
         title: l10n.dashboardRecordVendorPayment,
-        icon: Icons.account_balance_wallet,
+        icon: Icons.outbox_outlined,
         route: '/vendor-payments',
       ),
       _QuickAction(
@@ -43,7 +43,7 @@ class DashboardQuickActions extends StatelessWidget {
       ),
       _QuickAction(
         title: l10n.bankAccountsPageTitle,
-        icon: Icons.account_balance_wallet,
+        icon: Icons.account_balance,
         route: '/bank-accounts',
       ),
       _QuickAction(
@@ -96,26 +96,30 @@ class DashboardQuickActions extends StatelessWidget {
         separatorBuilder: (_, _) => const SizedBox(width: 12),
         itemBuilder: (context, index) {
           final action = actions[index];
-          return SizedBox(
-            width: 180,
-            child: Card(
-              child: InkWell(
-                onTap: () => context.go(action.route),
-                borderRadius: BorderRadius.circular(12),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(action.icon, size: 28),
-                      const Spacer(),
-                      Text(
-                        action.title,
-                        style: Theme.of(context).textTheme.titleSmall,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
+          return Semantics(
+            label: action.title,
+            button: true,
+            child: SizedBox(
+              width: 180,
+              child: Card(
+                child: InkWell(
+                  onTap: () => context.go(action.route),
+                  borderRadius: BorderRadius.circular(12),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(action.icon, size: 28),
+                        const Spacer(),
+                        Text(
+                          action.title,
+                          style: Theme.of(context).textTheme.titleSmall,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

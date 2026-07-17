@@ -37,23 +37,26 @@ class DashboardMetricCard extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             ...metrics.map(
-              (metric) => Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        metric.label,
-                        style: Theme.of(context).textTheme.bodyMedium,
+              (metric) => Semantics(
+                label: '${metric.label}: ${metric.value}',
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          metric.label,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
                       ),
-                    ),
-                    Text(
-                      metric.value,
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w600,
+                      Text(
+                        metric.value,
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

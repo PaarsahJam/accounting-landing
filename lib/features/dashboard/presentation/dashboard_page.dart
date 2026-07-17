@@ -254,10 +254,7 @@ class DashboardPage extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              l10n.dashboardProfitOverview,
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
+                            SectionHeader(title: l10n.dashboardProfitOverview),
                             const SizedBox(height: 16),
                             Wrap(
                               spacing: 24,
@@ -293,10 +290,7 @@ class DashboardPage extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    Text(
-                      l10n.dashboardRecentActivity,
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
+                    SectionHeader(title: l10n.dashboardRecentActivity),
                     const SizedBox(height: 8),
                     Card(
                       child: ActivityTimeline(
@@ -356,19 +350,22 @@ class _ProfitStat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(label, style: Theme.of(context).textTheme.bodyMedium),
-        const SizedBox(height: 4),
-        Text(
-          value,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            color: color,
-            fontWeight: FontWeight.bold,
+    return Semantics(
+      label: '$label: $value',
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: Theme.of(context).textTheme.bodyMedium),
+          const SizedBox(height: 4),
+          Text(
+            value,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: color,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

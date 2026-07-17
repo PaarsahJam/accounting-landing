@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../l10n/app_localizations_en.dart';
+import '../../../shared/widgets/app_error_state.dart';
+import '../../../shared/widgets/app_loading_state.dart';
 import '../../../shared/widgets/invoice_card.dart';
 import '../../../shared/widgets/invoice_empty_state.dart';
 import '../domain/invoice.dart';
@@ -212,9 +214,9 @@ class _InvoicesPageState extends ConsumerState<InvoicesPage> {
             ],
           ),
           body: invoicesAsync.when(
-            loading: () => const Center(child: CircularProgressIndicator()),
+            loading: () => const AppLoadingState(),
             error: (error, stackTrace) =>
-                Center(child: Text('${l10n.invoiceLoadError} $error')),
+                AppErrorState(message: '${l10n.invoiceLoadError} $error'),
             data: (invoices) {
               if (invoices.isEmpty) {
                 return InvoiceEmptyState(

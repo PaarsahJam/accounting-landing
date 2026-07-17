@@ -39,26 +39,41 @@ class ActivityTimeline extends StatelessWidget {
       separatorBuilder: (_, _) => const Divider(height: 1),
       itemBuilder: (context, index) {
         final item = items[index];
-        return ListTile(
-          leading: CircleAvatar(
-            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-            child: Icon(_iconForType(item.type), size: 18),
-          ),
-          title: Text(item.title),
-          subtitle: Text(
-            '${_labelForType(item.type, l10n)} • ${item.reference}',
-          ),
-          trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(dateFormat.format(item.occurredAt)),
-              if (item.amount != null)
-                Text(
-                  '${item.amount!.toStringAsFixed(0)} ${l10n.currencyUnit}',
-                  style: Theme.of(context).textTheme.labelMedium,
-                ),
-            ],
+        final typeLabel = _labelForType(item.type, l10n);
+        final amountStr = item.amount != null
+            ? '${item.amount?.toStringAsFixed(0)} ${l10n.currencyUnit}'
+            : null;
+        final semanticLabel = [
+          typeLabel,
+          item.title,
+          item.reference,
+          dateFormat.format(item.occurredAt),
+          ?amountStr,
+        ].join(', ');
+        return Semantics(
+          label: semanticLabel,
+          child: ListTile(
+            leading: Semantics(
+              excludeSemantics: true,
+              child: CircleAvatar(
+                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                child: Icon(_iconForType(item.type), size: 18),
+              ),
+            ),
+            title: Text(item.title),
+            subtitle: Text('$typeLabel • ${item.reference}'),
+            trailing: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(dateFormat.format(item.occurredAt)),
+                if (amountStr != null)
+                  Text(
+                    amountStr,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+              ],
+            ),
           ),
         );
       },
