@@ -116,7 +116,10 @@ void main() {
       final state = container
           .read(recurringTransactionsControllerProvider)
           .value!;
-      expect(state.firstWhere((t) => t.id == target.id).name, equals('Renamed'));
+      expect(
+        state.firstWhere((t) => t.id == target.id).name,
+        equals('Renamed'),
+      );
     });
 
     test('executeNow advances nextRun in state', () async {
@@ -125,8 +128,7 @@ void main() {
         recurringTransactionsControllerProvider.notifier,
       );
       final initial = await notifier.future;
-      final prevNextRun =
-          initial.firstWhere((t) => t.id == 'RT-001').nextRun;
+      final prevNextRun = initial.firstWhere((t) => t.id == 'RT-001').nextRun;
 
       final success = await notifier.executeNow('RT-001');
       expect(success, isTrue);

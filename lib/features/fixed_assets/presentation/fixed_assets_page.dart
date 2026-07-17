@@ -50,8 +50,7 @@ class FixedAssetsPage extends ConsumerWidget {
                 asset: asset,
                 l10n: l10n,
                 ref: ref,
-                onEdit: () =>
-                    _showCreateEditDialog(context, ref, l10n, asset),
+                onEdit: () => _showCreateEditDialog(context, ref, l10n, asset),
                 onSchedule: () =>
                     _showScheduleDialog(context, ref, l10n, asset),
               );
@@ -83,8 +82,7 @@ class FixedAssetsPage extends ConsumerWidget {
   ) async {
     await showDialog<void>(
       context: context,
-      builder: (dCtx) =>
-          _ScheduleDialog(asset: asset, l10n: l10n, ref: ref),
+      builder: (dCtx) => _ScheduleDialog(asset: asset, l10n: l10n, ref: ref),
     );
   }
 }
@@ -158,8 +156,7 @@ class _AssetTile extends StatelessWidget {
           ),
           PopupMenuButton<String>(
             onSelected: (value) async {
-              final notifier =
-                  ref.read(fixedAssetsControllerProvider.notifier);
+              final notifier = ref.read(fixedAssetsControllerProvider.notifier);
               switch (value) {
                 case 'edit':
                   onEdit();
@@ -240,9 +237,7 @@ class _ScheduleDialogState extends State<_ScheduleDialog> {
     final l10n = widget.l10n;
     final asset = widget.asset;
     return AlertDialog(
-      title: Text(
-        '${l10n.fixedAssetScheduleTitle} — ${asset.assetName}',
-      ),
+      title: Text('${l10n.fixedAssetScheduleTitle} — ${asset.assetName}'),
       content: SizedBox(
         width: 560,
         height: 320,
@@ -279,21 +274,19 @@ class _ScheduleDialogState extends State<_ScheduleDialog> {
                 ],
                 rows: entries
                     .map(
-                      (e) => DataRow(cells: [
-                        DataCell(Text(e.year.toString())),
-                        DataCell(
-                          Text(e.openingBookValue.toStringAsFixed(2)),
-                        ),
-                        DataCell(
-                          Text(e.depreciationCharge.toStringAsFixed(2)),
-                        ),
-                        DataCell(
-                          Text(e.accumulatedDepreciation.toStringAsFixed(2)),
-                        ),
-                        DataCell(
-                          Text(e.closingBookValue.toStringAsFixed(2)),
-                        ),
-                      ]),
+                      (e) => DataRow(
+                        cells: [
+                          DataCell(Text(e.year.toString())),
+                          DataCell(Text(e.openingBookValue.toStringAsFixed(2))),
+                          DataCell(
+                            Text(e.depreciationCharge.toStringAsFixed(2)),
+                          ),
+                          DataCell(
+                            Text(e.accumulatedDepreciation.toStringAsFixed(2)),
+                          ),
+                          DataCell(Text(e.closingBookValue.toStringAsFixed(2))),
+                        ],
+                      ),
                     )
                     .toList(),
               ),
@@ -388,13 +381,10 @@ class _CreateEditDialogState extends State<_CreateEditDialog> {
               children: [
                 TextFormField(
                   controller: _nameCtrl,
-                  decoration: InputDecoration(
-                    labelText: l10n.fixedAssetName,
-                  ),
-                  validator: (v) =>
-                      (v == null || v.trim().isEmpty)
-                          ? l10n.requiredField
-                          : null,
+                  decoration: InputDecoration(labelText: l10n.fixedAssetName),
+                  validator: (v) => (v == null || v.trim().isEmpty)
+                      ? l10n.requiredField
+                      : null,
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
@@ -402,10 +392,9 @@ class _CreateEditDialogState extends State<_CreateEditDialog> {
                   decoration: InputDecoration(
                     labelText: l10n.fixedAssetCategory,
                   ),
-                  validator: (v) =>
-                      (v == null || v.trim().isEmpty)
-                          ? l10n.requiredField
-                          : null,
+                  validator: (v) => (v == null || v.trim().isEmpty)
+                      ? l10n.requiredField
+                      : null,
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
@@ -486,9 +475,7 @@ class _CreateEditDialogState extends State<_CreateEditDialog> {
                 const SizedBox(height: 10),
                 TextFormField(
                   controller: _notesCtrl,
-                  decoration: InputDecoration(
-                    labelText: l10n.fixedAssetNotes,
-                  ),
+                  decoration: InputDecoration(labelText: l10n.fixedAssetNotes),
                   maxLines: 2,
                 ),
               ],

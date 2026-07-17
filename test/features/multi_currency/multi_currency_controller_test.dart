@@ -23,7 +23,9 @@ void main() {
 
     test('loads 5 seeded currencies', () async {
       container.listen(currenciesControllerProvider, (_, _) {});
-      final currencies = await container.read(currenciesControllerProvider.future);
+      final currencies = await container.read(
+        currenciesControllerProvider.future,
+      );
       expect(currencies.length, equals(5));
     });
 
@@ -56,7 +58,9 @@ void main() {
 
     test('loads 4 seeded rates', () async {
       container.listen(exchangeRatesControllerProvider, (_, _) {});
-      final rates = await container.read(exchangeRatesControllerProvider.future);
+      final rates = await container.read(
+        exchangeRatesControllerProvider.future,
+      );
       expect(rates.length, equals(4));
     });
 

@@ -33,8 +33,7 @@ final class RecurringTransactionsRepositoryProvider
       );
 
   @override
-  String debugGetCreateSourceHash() =>
-      _$recurringTransactionsRepositoryHash();
+  String debugGetCreateSourceHash() => _$recurringTransactionsRepositoryHash();
 
   @$internal
   @override

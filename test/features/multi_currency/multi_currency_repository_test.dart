@@ -77,9 +77,24 @@ void main() {
 
   group('Currency model', () {
     test('equality is by isoCode', () {
-      const a = Currency(isoCode: 'USD', name: 'A', symbol: '\$', decimalPlaces: 2);
-      const b = Currency(isoCode: 'USD', name: 'B', symbol: '€', decimalPlaces: 0);
-      const c = Currency(isoCode: 'EUR', name: 'A', symbol: '\$', decimalPlaces: 2);
+      const a = Currency(
+        isoCode: 'USD',
+        name: 'A',
+        symbol: '\$',
+        decimalPlaces: 2,
+      );
+      const b = Currency(
+        isoCode: 'USD',
+        name: 'B',
+        symbol: '€',
+        decimalPlaces: 0,
+      );
+      const c = Currency(
+        isoCode: 'EUR',
+        name: 'A',
+        symbol: '\$',
+        decimalPlaces: 2,
+      );
       expect(a, equals(b));
       expect(a, isNot(equals(c)));
     });
@@ -99,7 +114,12 @@ void main() {
     });
 
     test('isActive defaults to true', () {
-      const c = Currency(isoCode: 'USD', name: 'X', symbol: '\$', decimalPlaces: 2);
+      const c = Currency(
+        isoCode: 'USD',
+        name: 'X',
+        symbol: '\$',
+        decimalPlaces: 2,
+      );
       expect(c.isActive, isTrue);
     });
   });

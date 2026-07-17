@@ -45,7 +45,8 @@ SI-2026-000002,INV-002,Beta Ltd,2026-01-15,750.00,Draft''',
 VB-2026-000001,BILL-001,Office Supplies Co,2026-01-08,350.00,Posted
 VB-2026-000002,BILL-002,Tech Hardware Ltd,2026-01-12,890.00,Draft''',
 
-  ExportEntityType.inventory: '''warehouse,sku,productName,qty,avgCost,totalValue
+  ExportEntityType.inventory:
+      '''warehouse,sku,productName,qty,avgCost,totalValue
 WH-001,PRD-001,Printer Paper A4,200,10.00,2000.00
 WH-001,PRD-002,Laptop Stand,15,30.00,450.00
 WH-002,PRD-003,USB-C Hub,40,20.00,800.00''',
@@ -54,7 +55,8 @@ WH-002,PRD-003,USB-C Hub,40,20.00,800.00''',
 JV-2026-000001,2026-01-10,Sales Invoice SI-001,1100,1500.00,0.00
 JV-2026-000001,2026-01-10,Sales Invoice SI-001,4000,0.00,1500.00''',
 
-  ExportEntityType.fixedAssets: '''id,code,name,category,purchaseDate,cost,bookValue,method
+  ExportEntityType.fixedAssets:
+      '''id,code,name,category,purchaseDate,cost,bookValue,method
 FA-001,FA-001,Office Computer,Equipment,2022-06-01,1500.00,940.00,Straight Line
 FA-002,FA-002,Office Furniture,Furniture,2021-03-15,3000.00,2160.00,Straight Line
 FA-003,FA-003,Company Vehicle,Vehicle,2023-01-10,25000.00,20000.00,Declining Balance''',
@@ -66,7 +68,7 @@ FA-003,FA-003,Company Vehicle,Vehicle,2023-01-10,25000.00,20000.00,Declining Bal
 
 class MockImportExportRepository implements ImportExportRepository {
   MockImportExportRepository({AuditTrailRepository? auditRepository})
-      : _audit = auditRepository ?? MockAuditTrailRepository();
+    : _audit = auditRepository ?? MockAuditTrailRepository();
 
   final AuditTrailRepository _audit;
   final List<ImportExportJob> _jobs = [];
@@ -100,16 +102,18 @@ class MockImportExportRepository implements ImportExportRepository {
     );
     _jobs.insert(0, job);
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-EXP-${job.id}',
-      entityType: AuditEntityType.financialReport,
-      entityId: job.id,
-      entityLabel: '${entityType.label} CSV export',
-      action: AuditAction.exported,
-      performedAt: job.performedAt,
-      performedBy: 'system',
-      note: 'Exported ${entityType.label}: $rowCount rows',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-EXP-${job.id}',
+        entityType: AuditEntityType.financialReport,
+        entityId: job.id,
+        entityLabel: '${entityType.label} CSV export',
+        action: AuditAction.exported,
+        performedAt: job.performedAt,
+        performedBy: 'system',
+        note: 'Exported ${entityType.label}: $rowCount rows',
+      ),
+    );
 
     return AppResult.success(job);
   }
@@ -133,16 +137,18 @@ class MockImportExportRepository implements ImportExportRepository {
     );
     _jobs.insert(0, job);
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-IMP-${job.id}',
-      entityType: AuditEntityType.financialReport,
-      entityId: job.id,
-      entityLabel: '${entityType.label} CSV import',
-      action: AuditAction.created,
-      performedAt: job.performedAt,
-      performedBy: 'system',
-      note: 'Imported ${entityType.label}: $rowCount rows (mock)',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-IMP-${job.id}',
+        entityType: AuditEntityType.financialReport,
+        entityId: job.id,
+        entityLabel: '${entityType.label} CSV import',
+        action: AuditAction.created,
+        performedAt: job.performedAt,
+        performedBy: 'system',
+        note: 'Imported ${entityType.label}: $rowCount rows (mock)',
+      ),
+    );
 
     return AppResult.success(job);
   }

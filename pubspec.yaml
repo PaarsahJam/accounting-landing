@@ -1,7 +1,7 @@
 name: accounting_app
-description: A production-ready cross-platform accounting application.
+description: A production-ready cross-platform accounting application built with Flutter.
 publish_to: none
-version: 0.1.0
+version: 1.0.0+1
 environment:
   sdk: '>=3.12.0 <4.0.0'
 
@@ -47,5 +47,3 @@ dev_dependencies:
 flutter:
   generate: true
   uses-material-design: true
-  assets:
-    - assets/

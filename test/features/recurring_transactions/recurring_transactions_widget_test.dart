@@ -45,8 +45,9 @@ void main() {
     expect(find.textContaining('Recurring'), findsWidgets);
   });
 
-  testWidgets('RecurringTransactionsPage shows seeded transaction names',
-      (tester) async {
+  testWidgets('RecurringTransactionsPage shows seeded transaction names', (
+    tester,
+  ) async {
     await tester.pumpWidget(_buildApp());
     await tester.pumpAndSettle();
 
@@ -61,8 +62,9 @@ void main() {
     expect(find.text('ACTIVE'), findsWidgets);
   });
 
-  testWidgets('RecurringTransactionsPage shows INACTIVE badge for RT-004',
-      (tester) async {
+  testWidgets('RecurringTransactionsPage shows INACTIVE badge for RT-004', (
+    tester,
+  ) async {
     await tester.pumpWidget(_buildApp());
     await tester.pumpAndSettle();
 
@@ -76,8 +78,9 @@ void main() {
     expect(find.byIcon(Icons.add), findsWidgets);
   });
 
-  testWidgets('RecurringTransactionsPage shows execute-now button',
-      (tester) async {
+  testWidgets('RecurringTransactionsPage shows execute-now button', (
+    tester,
+  ) async {
     await tester.pumpWidget(_buildApp());
     await tester.pumpAndSettle();
 

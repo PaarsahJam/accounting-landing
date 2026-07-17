@@ -26,15 +26,13 @@ void main() {
 
     test('initial state is empty list', () async {
       container.listen(importExportControllerProvider, (_, _) {});
-      final jobs =
-          await container.read(importExportControllerProvider.future);
+      final jobs = await container.read(importExportControllerProvider.future);
       expect(jobs, isEmpty);
     });
 
     test('exportCsv adds job to state', () async {
       container.listen(importExportControllerProvider, (_, _) {});
-      final notifier =
-          container.read(importExportControllerProvider.notifier);
+      final notifier = container.read(importExportControllerProvider.notifier);
       await notifier.future;
 
       final result = await notifier.exportCsv(ExportEntityType.customers);
@@ -48,8 +46,7 @@ void main() {
 
     test('importCsv adds job to state', () async {
       container.listen(importExportControllerProvider, (_, _) {});
-      final notifier =
-          container.read(importExportControllerProvider.notifier);
+      final notifier = container.read(importExportControllerProvider.notifier);
       await notifier.future;
 
       final result = await notifier.importCsv(ExportEntityType.vendors);
@@ -62,8 +59,7 @@ void main() {
 
     test('multiple operations accumulate in state newest-first', () async {
       container.listen(importExportControllerProvider, (_, _) {});
-      final notifier =
-          container.read(importExportControllerProvider.notifier);
+      final notifier = container.read(importExportControllerProvider.notifier);
       await notifier.future;
 
       await notifier.exportCsv(ExportEntityType.customers);
@@ -78,8 +74,7 @@ void main() {
 
     test('exportCsv result has csvPreview', () async {
       container.listen(importExportControllerProvider, (_, _) {});
-      final notifier =
-          container.read(importExportControllerProvider.notifier);
+      final notifier = container.read(importExportControllerProvider.notifier);
       await notifier.future;
 
       final result = await notifier.exportCsv(ExportEntityType.salesInvoices);

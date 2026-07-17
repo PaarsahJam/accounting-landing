@@ -28,18 +28,14 @@ class AppErrorState extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
-                Icons.error_outline,
-                size: 48,
-                color: cs.error,
-              ),
+              Icon(Icons.error_outline, size: 48, color: cs.error),
               const SizedBox(height: 16),
               Text(
                 message,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: cs.onSurface,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyLarge?.copyWith(color: cs.onSurface),
               ),
               if (onRetry != null) ...[
                 const SizedBox(height: 20),

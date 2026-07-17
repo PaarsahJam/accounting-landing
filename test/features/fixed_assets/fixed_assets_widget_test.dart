@@ -60,14 +60,18 @@ void main() {
     expect(find.text('ACTIVE'), findsWidgets);
   });
 
-  testWidgets('FixedAssetsPage shows DISPOSED badge for FA-004', (tester) async {
+  testWidgets('FixedAssetsPage shows DISPOSED badge for FA-004', (
+    tester,
+  ) async {
     await tester.pumpWidget(_buildApp());
     await tester.pumpAndSettle();
 
     expect(find.text('DISPOSED'), findsWidgets);
   });
 
-  testWidgets('FixedAssetsPage shows method badges (SL and DB)', (tester) async {
+  testWidgets('FixedAssetsPage shows method badges (SL and DB)', (
+    tester,
+  ) async {
     await tester.pumpWidget(_buildApp());
     await tester.pumpAndSettle();
 

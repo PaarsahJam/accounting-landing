@@ -22,7 +22,7 @@ abstract class MultiCurrencyRepository {
 
 class MockMultiCurrencyRepository implements MultiCurrencyRepository {
   MockMultiCurrencyRepository({AuditTrailRepository? auditRepository})
-      : _audit = auditRepository ?? MockAuditTrailRepository() {
+    : _audit = auditRepository ?? MockAuditTrailRepository() {
     _seed();
   }
 
@@ -122,24 +122,23 @@ class MockMultiCurrencyRepository implements MultiCurrencyRepository {
       );
     }
     final old = _rates[idx];
-    final updated = old.copyWith(
-      rate: newRate,
-      effectiveDate: DateTime.now(),
-    );
+    final updated = old.copyWith(rate: newRate, effectiveDate: DateTime.now());
     _rates[idx] = updated;
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-FX-$rateId',
-      entityType: AuditEntityType.financialReport,
-      entityId: rateId,
-      entityLabel: '${old.fromCurrency}→${old.toCurrency}',
-      action: AuditAction.edited,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Exchange rate updated',
-      previousValue: old.rate.toString(),
-      newValue: newRate.toString(),
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-FX-$rateId',
+        entityType: AuditEntityType.financialReport,
+        entityId: rateId,
+        entityLabel: '${old.fromCurrency}→${old.toCurrency}',
+        action: AuditAction.edited,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Exchange rate updated',
+        previousValue: old.rate.toString(),
+        newValue: newRate.toString(),
+      ),
+    );
 
     return AppResult.success(updated);
   }
@@ -153,25 +152,31 @@ class MockMultiCurrencyRepository implements MultiCurrencyRepository {
         const UnknownFailure(message: 'Currency not found'),
       );
     }
-    final old =
-        _currencies.firstWhere((c) => c.isBase, orElse: () => _currencies[0]);
+    final old = _currencies.firstWhere(
+      (c) => c.isBase,
+      orElse: () => _currencies[0],
+    );
 
     for (var i = 0; i < _currencies.length; i++) {
-      _currencies[i] = _currencies[i].copyWith(isBase: _currencies[i].isoCode == isoCode);
+      _currencies[i] = _currencies[i].copyWith(
+        isBase: _currencies[i].isoCode == isoCode,
+      );
     }
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-FX-BASE-$isoCode',
-      entityType: AuditEntityType.financialReport,
-      entityId: isoCode,
-      entityLabel: 'Base Currency',
-      action: AuditAction.edited,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Base currency changed from ${old.isoCode} to $isoCode',
-      previousValue: old.isoCode,
-      newValue: isoCode,
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-FX-BASE-$isoCode',
+        entityType: AuditEntityType.financialReport,
+        entityId: isoCode,
+        entityLabel: 'Base Currency',
+        action: AuditAction.edited,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Base currency changed from ${old.isoCode} to $isoCode',
+        previousValue: old.isoCode,
+        newValue: isoCode,
+      ),
+    );
 
     return AppResult.success(_currencies[idx]);
   }

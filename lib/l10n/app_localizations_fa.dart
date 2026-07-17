@@ -2117,8 +2117,7 @@ class AppLocalizationsFa extends AppLocalizations {
       'خطا در بارگذاری تراکنش‌های دوره‌ای:';
 
   @override
-  String get recurringTransactionsEmptyTitle =>
-      'تراکنش دوره‌ای‌ای وجود ندارد';
+  String get recurringTransactionsEmptyTitle => 'تراکنش دوره‌ای‌ای وجود ندارد';
 
   @override
   String get recurringTransactionsEmptyMessage =>
@@ -2191,8 +2190,7 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get fixedAssetsEmptyTitle => 'دارایی ثابتی وجود ندارد';
   @override
-  String get fixedAssetsEmptyMessage =>
-      'هنوز هیچ دارایی ثابتی ثبت نشده است.';
+  String get fixedAssetsEmptyMessage => 'هنوز هیچ دارایی ثابتی ثبت نشده است.';
   @override
   String get fixedAssetBadgeActive => 'فعال';
   @override

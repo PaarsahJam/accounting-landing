@@ -24,10 +24,7 @@ void main() {
     test('seeded data contains Monthly Office Rent', () async {
       final repo = _makeRepo();
       final result = await repo.fetchRecurringTransactions();
-      expect(
-        result.data!.any((t) => t.name == 'Monthly Office Rent'),
-        isTrue,
-      );
+      expect(result.data!.any((t) => t.name == 'Monthly Office Rent'), isTrue);
     });
 
     test('seeded data has 3 active and 1 inactive', () async {

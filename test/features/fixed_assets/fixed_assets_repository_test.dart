@@ -22,10 +22,7 @@ void main() {
     test('seeded assets include Office Computer', () async {
       final repo = _makeRepo();
       final result = await repo.fetchAssets();
-      expect(
-        result.data!.any((a) => a.assetName == 'Office Computer'),
-        isTrue,
-      );
+      expect(result.data!.any((a) => a.assetName == 'Office Computer'), isTrue);
     });
 
     test('4 active and 1 disposed in seed', () async {
@@ -105,8 +102,9 @@ void main() {
 
     test('calculateDepreciation increases accumulatedDepreciation', () async {
       final repo = _makeRepo();
-      final before =
-          (await repo.fetchAssets()).data!.firstWhere((a) => a.id == 'FA-005');
+      final before = (await repo.fetchAssets()).data!.firstWhere(
+        (a) => a.id == 'FA-005',
+      );
       expect(before.accumulatedDepreciation, equals(0.0));
 
       final result = await repo.calculateDepreciation('FA-005');
@@ -121,14 +119,16 @@ void main() {
       expect(result.isSuccess, isFalse);
     });
 
-    test('fetchDepreciationSchedule returns schedule with correct year count',
-        () async {
-      final repo = _makeRepo();
-      final result = await repo.fetchDepreciationSchedule('FA-001');
-      expect(result.isSuccess, isTrue);
-      expect(result.data!, isNotEmpty);
-      expect(result.data!.first.year, equals(1));
-    });
+    test(
+      'fetchDepreciationSchedule returns schedule with correct year count',
+      () async {
+        final repo = _makeRepo();
+        final result = await repo.fetchDepreciationSchedule('FA-001');
+        expect(result.isSuccess, isTrue);
+        expect(result.data!, isNotEmpty);
+        expect(result.data!.first.year, equals(1));
+      },
+    );
 
     test('straight-line schedule has equal annual charges', () async {
       final repo = _makeRepo();

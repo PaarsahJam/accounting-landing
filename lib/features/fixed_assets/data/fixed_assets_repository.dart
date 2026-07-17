@@ -33,7 +33,7 @@ abstract class FixedAssetsRepository {
 
 class MockFixedAssetsRepository implements FixedAssetsRepository {
   MockFixedAssetsRepository({AuditTrailRepository? auditRepository})
-      : _audit = auditRepository ?? MockAuditTrailRepository() {
+    : _audit = auditRepository ?? MockAuditTrailRepository() {
     _seed();
   }
 
@@ -133,16 +133,18 @@ class MockFixedAssetsRepository implements FixedAssetsRepository {
     final created = asset.copyWith(id: id, assetCode: id);
     _assets.add(created);
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-FA-CREATE-$id',
-      entityType: AuditEntityType.financialReport,
-      entityId: id,
-      entityLabel: created.assetName,
-      action: AuditAction.created,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Fixed asset created',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-FA-CREATE-$id',
+        entityType: AuditEntityType.financialReport,
+        entityId: id,
+        entityLabel: created.assetName,
+        action: AuditAction.created,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Fixed asset created',
+      ),
+    );
 
     return AppResult.success(created);
   }
@@ -158,16 +160,18 @@ class MockFixedAssetsRepository implements FixedAssetsRepository {
     }
     _assets[idx] = asset;
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-FA-EDIT-${asset.id}',
-      entityType: AuditEntityType.financialReport,
-      entityId: asset.id,
-      entityLabel: asset.assetName,
-      action: AuditAction.edited,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Fixed asset updated',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-FA-EDIT-${asset.id}',
+        entityType: AuditEntityType.financialReport,
+        entityId: asset.id,
+        entityLabel: asset.assetName,
+        action: AuditAction.edited,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Fixed asset updated',
+      ),
+    );
 
     return AppResult.success(asset);
   }
@@ -184,16 +188,18 @@ class MockFixedAssetsRepository implements FixedAssetsRepository {
     final disposed = _assets[idx].copyWith(isActive: false);
     _assets[idx] = disposed;
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-FA-DISPOSE-$id',
-      entityType: AuditEntityType.financialReport,
-      entityId: id,
-      entityLabel: disposed.assetName,
-      action: AuditAction.cancelled,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Fixed asset disposed',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-FA-DISPOSE-$id',
+        entityType: AuditEntityType.financialReport,
+        entityId: id,
+        entityLabel: disposed.assetName,
+        action: AuditAction.cancelled,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Fixed asset disposed',
+      ),
+    );
 
     return AppResult.success(disposed);
   }
@@ -210,33 +216,32 @@ class MockFixedAssetsRepository implements FixedAssetsRepository {
     final asset = _assets[idx];
     if (!asset.isActive) {
       return AppResult.failure(
-        const UnknownFailure(
-          message: 'Cannot depreciate a disposed asset',
-        ),
+        const UnknownFailure(message: 'Cannot depreciate a disposed asset'),
       );
     }
 
     final charge = _annualCharge(asset);
-    final newAccumulated =
-        (asset.accumulatedDepreciation + charge).clamp(
+    final newAccumulated = (asset.accumulatedDepreciation + charge).clamp(
       0.0,
       asset.purchaseCost - asset.salvageValue,
     );
     final updated = asset.copyWith(accumulatedDepreciation: newAccumulated);
     _assets[idx] = updated;
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-FA-DEPR-$id-${DateTime.now().millisecondsSinceEpoch}',
-      entityType: AuditEntityType.financialReport,
-      entityId: id,
-      entityLabel: asset.assetName,
-      action: AuditAction.edited,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Depreciation applied: $charge',
-      previousValue: asset.accumulatedDepreciation.toStringAsFixed(2),
-      newValue: newAccumulated.toStringAsFixed(2),
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-FA-DEPR-$id-${DateTime.now().millisecondsSinceEpoch}',
+        entityType: AuditEntityType.financialReport,
+        entityId: id,
+        entityLabel: asset.assetName,
+        action: AuditAction.edited,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Depreciation applied: $charge',
+        previousValue: asset.accumulatedDepreciation.toStringAsFixed(2),
+        newValue: newAccumulated.toStringAsFixed(2),
+      ),
+    );
 
     return AppResult.success(updated);
   }
@@ -256,18 +261,20 @@ class MockFixedAssetsRepository implements FixedAssetsRepository {
     double accumulated = 0.0;
 
     for (var year = 1; year <= asset.usefulLifeYears; year++) {
-      final charge = _annualCharge(asset, currentBookValue: bookValue).clamp(
-        0.0,
-        bookValue - asset.salvageValue,
-      );
+      final charge = _annualCharge(
+        asset,
+        currentBookValue: bookValue,
+      ).clamp(0.0, bookValue - asset.salvageValue);
       accumulated += charge;
-      schedule.add(DepreciationEntry(
-        year: year,
-        openingBookValue: bookValue,
-        depreciationCharge: charge,
-        accumulatedDepreciation: accumulated,
-        closingBookValue: bookValue - charge,
-      ));
+      schedule.add(
+        DepreciationEntry(
+          year: year,
+          openingBookValue: bookValue,
+          depreciationCharge: charge,
+          accumulatedDepreciation: accumulated,
+          closingBookValue: bookValue - charge,
+        ),
+      );
       bookValue -= charge;
       if (bookValue <= asset.salvageValue) break;
     }
@@ -275,13 +282,11 @@ class MockFixedAssetsRepository implements FixedAssetsRepository {
     return AppResult.success(List.unmodifiable(schedule));
   }
 
-  double _annualCharge(
-    FixedAsset asset, {
-    double? currentBookValue,
-  }) {
+  double _annualCharge(FixedAsset asset, {double? currentBookValue}) {
     switch (asset.depreciationMethod) {
       case DepreciationMethod.straightLine:
-        return (asset.purchaseCost - asset.salvageValue) / asset.usefulLifeYears;
+        return (asset.purchaseCost - asset.salvageValue) /
+            asset.usefulLifeYears;
       case DepreciationMethod.decliningBalance:
         final bv = currentBookValue ?? asset.bookValue;
         final rate = 2.0 / asset.usefulLifeYears;

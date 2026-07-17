@@ -32,8 +32,17 @@ class CurrenciesPage extends ConsumerWidget {
         ),
         body: TabBarView(
           children: [
-            _CurrenciesTab(currenciesAsync: currenciesAsync, l10n: l10n, ref: ref),
-            _RatesTab(ratesAsync: ratesAsync, currenciesAsync: currenciesAsync, l10n: l10n, ref: ref),
+            _CurrenciesTab(
+              currenciesAsync: currenciesAsync,
+              l10n: l10n,
+              ref: ref,
+            ),
+            _RatesTab(
+              ratesAsync: ratesAsync,
+              currenciesAsync: currenciesAsync,
+              l10n: l10n,
+              ref: ref,
+            ),
           ],
         ),
       ),
@@ -98,7 +107,9 @@ class _CurrenciesTab extends StatelessWidget {
                           context: ctx,
                           builder: (dCtx) => AlertDialog(
                             title: Text(l10n.currencySetBaseTitle),
-                            content: Text(l10n.currencySetBaseConfirm(c.isoCode)),
+                            content: Text(
+                              l10n.currencySetBaseConfirm(c.isoCode),
+                            ),
                             actions: [
                               TextButton(
                                 onPressed: () => Navigator.of(dCtx).pop(false),
@@ -147,10 +158,7 @@ class _RatesTab extends StatelessWidget {
   String _formatDate(DateTime d) =>
       '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
 
-  Future<void> _showEditDialog(
-    BuildContext context,
-    ExchangeRate rate,
-  ) async {
+  Future<void> _showEditDialog(BuildContext context, ExchangeRate rate) async {
     final ctrl = TextEditingController(text: rate.rate.toString());
     final formKey = GlobalKey<FormState>();
 
@@ -169,8 +177,9 @@ class _RatesTab extends StatelessWidget {
                   rate.toCurrency,
                 ),
               ),
-              keyboardType:
-                  const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
               validator: (v) {
                 if (v == null || v.trim().isEmpty) return l10n.requiredField;
                 final n = double.tryParse(v.trim());

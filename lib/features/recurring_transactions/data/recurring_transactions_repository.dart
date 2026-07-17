@@ -34,7 +34,7 @@ abstract class RecurringTransactionsRepository {
 class MockRecurringTransactionsRepository
     implements RecurringTransactionsRepository {
   MockRecurringTransactionsRepository({AuditTrailRepository? auditRepository})
-      : _audit = auditRepository ?? MockAuditTrailRepository() {
+    : _audit = auditRepository ?? MockAuditTrailRepository() {
     _seed();
   }
 
@@ -109,16 +109,18 @@ class MockRecurringTransactionsRepository
     final created = transaction.copyWith(id: _nextId());
     _items.add(created);
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-RT-CREATE-${created.id}',
-      entityType: AuditEntityType.financialReport,
-      entityId: created.id,
-      entityLabel: created.name,
-      action: AuditAction.created,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Recurring transaction created',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-RT-CREATE-${created.id}',
+        entityType: AuditEntityType.financialReport,
+        entityId: created.id,
+        entityLabel: created.name,
+        action: AuditAction.created,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Recurring transaction created',
+      ),
+    );
 
     return AppResult.success(created);
   }
@@ -136,16 +138,18 @@ class MockRecurringTransactionsRepository
     }
     _items[idx] = transaction;
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-RT-EDIT-${transaction.id}',
-      entityType: AuditEntityType.financialReport,
-      entityId: transaction.id,
-      entityLabel: transaction.name,
-      action: AuditAction.edited,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Recurring transaction updated',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-RT-EDIT-${transaction.id}',
+        entityType: AuditEntityType.financialReport,
+        entityId: transaction.id,
+        entityLabel: transaction.name,
+        action: AuditAction.edited,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Recurring transaction updated',
+      ),
+    );
 
     return AppResult.success(transaction);
   }
@@ -162,16 +166,18 @@ class MockRecurringTransactionsRepository
     final updated = _items[idx].copyWith(isActive: true);
     _items[idx] = updated;
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-RT-ACTIVATE-$id',
-      entityType: AuditEntityType.financialReport,
-      entityId: id,
-      entityLabel: updated.name,
-      action: AuditAction.reopened,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Recurring transaction activated',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-RT-ACTIVATE-$id',
+        entityType: AuditEntityType.financialReport,
+        entityId: id,
+        entityLabel: updated.name,
+        action: AuditAction.reopened,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Recurring transaction activated',
+      ),
+    );
 
     return AppResult.success(updated);
   }
@@ -188,16 +194,18 @@ class MockRecurringTransactionsRepository
     final updated = _items[idx].copyWith(isActive: false);
     _items[idx] = updated;
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-RT-DEACTIVATE-$id',
-      entityType: AuditEntityType.financialReport,
-      entityId: id,
-      entityLabel: updated.name,
-      action: AuditAction.cancelled,
-      performedAt: DateTime.now(),
-      performedBy: 'system',
-      note: 'Recurring transaction deactivated',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-RT-DEACTIVATE-$id',
+        entityType: AuditEntityType.financialReport,
+        entityId: id,
+        entityLabel: updated.name,
+        action: AuditAction.cancelled,
+        performedAt: DateTime.now(),
+        performedBy: 'system',
+        note: 'Recurring transaction deactivated',
+      ),
+    );
 
     return AppResult.success(updated);
   }
@@ -219,16 +227,18 @@ class MockRecurringTransactionsRepository
     );
     _items[idx] = updated;
 
-    await _audit.addEntry(AuditEntry(
-      id: 'AUD-RT-EXEC-$id-${now.millisecondsSinceEpoch}',
-      entityType: AuditEntityType.financialReport,
-      entityId: id,
-      entityLabel: updated.name,
-      action: AuditAction.posted,
-      performedAt: now,
-      performedBy: 'system',
-      note: 'Recurring transaction executed (mock)',
-    ));
+    await _audit.addEntry(
+      AuditEntry(
+        id: 'AUD-RT-EXEC-$id-${now.millisecondsSinceEpoch}',
+        entityType: AuditEntityType.financialReport,
+        entityId: id,
+        entityLabel: updated.name,
+        action: AuditAction.posted,
+        performedAt: now,
+        performedBy: 'system',
+        note: 'Recurring transaction executed (mock)',
+      ),
+    );
 
     return AppResult.success(updated);
   }

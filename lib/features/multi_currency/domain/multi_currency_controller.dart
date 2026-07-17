@@ -67,7 +67,10 @@ class ExchangeRatesController extends _$ExchangeRatesController {
       final repo = ref.read(multiCurrencyRepositoryProvider);
       final result = await repo.updateExchangeRate(rateId, newRate);
       if (!result.isSuccess) {
-        AppLogger.warning('Failed to update exchange rate', error: result.error);
+        AppLogger.warning(
+          'Failed to update exchange rate',
+          error: result.error,
+        );
         return result;
       }
       _replaceInState(result.data!);

@@ -16,7 +16,9 @@ class RecurringTransactionsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
-    final transactionsAsync = ref.watch(recurringTransactionsControllerProvider);
+    final transactionsAsync = ref.watch(
+      recurringTransactionsControllerProvider,
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -31,9 +33,8 @@ class RecurringTransactionsPage extends ConsumerWidget {
       ),
       body: transactionsAsync.when(
         loading: () => const AppLoadingState(),
-        error: (e, _) => AppErrorState(
-          message: '${l10n.recurringTransactionsLoadError} $e',
-        ),
+        error: (e, _) =>
+            AppErrorState(message: '${l10n.recurringTransactionsLoadError} $e'),
         data: (transactions) {
           if (transactions.isEmpty) {
             return AppEmptyState(
@@ -50,8 +51,7 @@ class RecurringTransactionsPage extends ConsumerWidget {
                 transaction: tx,
                 l10n: l10n,
                 ref: ref,
-                onEdit: () =>
-                    _showCreateEditDialog(context, ref, l10n, tx),
+                onEdit: () => _showCreateEditDialog(context, ref, l10n, tx),
               );
             },
           );
@@ -68,11 +68,8 @@ class RecurringTransactionsPage extends ConsumerWidget {
   ) async {
     await showDialog<void>(
       context: context,
-      builder: (dCtx) => _CreateEditDialog(
-        existing: existing,
-        l10n: l10n,
-        ref: ref,
-      ),
+      builder: (dCtx) =>
+          _CreateEditDialog(existing: existing, l10n: l10n, ref: ref),
     );
   }
 }
@@ -306,10 +303,9 @@ class _CreateEditDialogState extends State<_CreateEditDialog> {
                   decoration: InputDecoration(
                     labelText: l10n.recurringTransactionName,
                   ),
-                  validator: (v) =>
-                      (v == null || v.trim().isEmpty)
-                          ? l10n.requiredField
-                          : null,
+                  validator: (v) => (v == null || v.trim().isEmpty)
+                      ? l10n.requiredField
+                      : null,
                 ),
                 const SizedBox(height: 12),
                 DropdownButtonFormField<RecurrenceFrequency>(
@@ -333,10 +329,9 @@ class _CreateEditDialogState extends State<_CreateEditDialog> {
                   decoration: InputDecoration(
                     labelText: l10n.recurringTransactionSourceId,
                   ),
-                  validator: (v) =>
-                      (v == null || v.trim().isEmpty)
-                          ? l10n.requiredField
-                          : null,
+                  validator: (v) => (v == null || v.trim().isEmpty)
+                      ? l10n.requiredField
+                      : null,
                 ),
                 const SizedBox(height: 12),
                 TextFormField(
@@ -378,7 +373,8 @@ class _CreateEditDialogState extends State<_CreateEditDialog> {
                   ? 'Vendor Bill'
                   : _sourceTypeCtrl.text.trim(),
               frequency: _frequency,
-              nextRun: widget.existing?.nextRun ??
+              nextRun:
+                  widget.existing?.nextRun ??
                   DateTime(now.year, now.month + 1, 1),
               lastRun: widget.existing?.lastRun,
               isActive: widget.existing?.isActive ?? true,

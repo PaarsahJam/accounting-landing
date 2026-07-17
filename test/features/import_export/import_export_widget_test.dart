@@ -45,7 +45,9 @@ void main() {
     expect(find.textContaining('Import'), findsWidgets);
   });
 
-  testWidgets('ImportExportPage shows Export and Import buttons', (tester) async {
+  testWidgets('ImportExportPage shows Export and Import buttons', (
+    tester,
+  ) async {
     await tester.pumpWidget(_buildApp());
     await tester.pumpAndSettle();
 

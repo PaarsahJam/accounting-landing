@@ -28,15 +28,13 @@ void main() {
 
     test('loads 5 seeded assets', () async {
       container.listen(fixedAssetsControllerProvider, (_, _) {});
-      final assets =
-          await container.read(fixedAssetsControllerProvider.future);
+      final assets = await container.read(fixedAssetsControllerProvider.future);
       expect(assets.length, equals(5));
     });
 
     test('createAsset adds asset to state', () async {
       container.listen(fixedAssetsControllerProvider, (_, _) {});
-      final notifier =
-          container.read(fixedAssetsControllerProvider.notifier);
+      final notifier = container.read(fixedAssetsControllerProvider.notifier);
       await notifier.future;
 
       final asset = FixedAsset(
@@ -60,8 +58,7 @@ void main() {
 
     test('updateAsset replaces item in state', () async {
       container.listen(fixedAssetsControllerProvider, (_, _) {});
-      final notifier =
-          container.read(fixedAssetsControllerProvider.notifier);
+      final notifier = container.read(fixedAssetsControllerProvider.notifier);
       final initial = await notifier.future;
       final target = initial.first;
       final renamed = target.copyWith(assetName: 'Renamed');
@@ -78,8 +75,7 @@ void main() {
 
     test('disposeAsset sets isActive to false in state', () async {
       container.listen(fixedAssetsControllerProvider, (_, _) {});
-      final notifier =
-          container.read(fixedAssetsControllerProvider.notifier);
+      final notifier = container.read(fixedAssetsControllerProvider.notifier);
       await notifier.future;
 
       final success = await notifier.disposeAsset('FA-001');
@@ -89,29 +85,30 @@ void main() {
       expect(state.firstWhere((a) => a.id == 'FA-001').isActive, isFalse);
     });
 
-    test('calculateDepreciation increases accumulated depreciation in state',
-        () async {
-      container.listen(fixedAssetsControllerProvider, (_, _) {});
-      final notifier =
-          container.read(fixedAssetsControllerProvider.notifier);
-      final initial = await notifier.future;
-      final prev =
-          initial.firstWhere((a) => a.id == 'FA-005').accumulatedDepreciation;
+    test(
+      'calculateDepreciation increases accumulated depreciation in state',
+      () async {
+        container.listen(fixedAssetsControllerProvider, (_, _) {});
+        final notifier = container.read(fixedAssetsControllerProvider.notifier);
+        final initial = await notifier.future;
+        final prev = initial
+            .firstWhere((a) => a.id == 'FA-005')
+            .accumulatedDepreciation;
 
-      final success = await notifier.calculateDepreciation('FA-005');
-      expect(success, isTrue);
+        final success = await notifier.calculateDepreciation('FA-005');
+        expect(success, isTrue);
 
-      final state = container.read(fixedAssetsControllerProvider).value!;
-      expect(
-        state.firstWhere((a) => a.id == 'FA-005').accumulatedDepreciation,
-        greaterThan(prev),
-      );
-    });
+        final state = container.read(fixedAssetsControllerProvider).value!;
+        expect(
+          state.firstWhere((a) => a.id == 'FA-005').accumulatedDepreciation,
+          greaterThan(prev),
+        );
+      },
+    );
 
     test('disposeAsset returns false for unknown id', () async {
       container.listen(fixedAssetsControllerProvider, (_, _) {});
-      final notifier =
-          container.read(fixedAssetsControllerProvider.notifier);
+      final notifier = container.read(fixedAssetsControllerProvider.notifier);
       await notifier.future;
       final success = await notifier.disposeAsset('NO-SUCH');
       expect(success, isFalse);

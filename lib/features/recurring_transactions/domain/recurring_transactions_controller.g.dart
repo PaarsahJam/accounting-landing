@@ -31,13 +31,11 @@ final class RecurringTransactionsControllerProvider
       );
 
   @override
-  String debugGetCreateSourceHash() =>
-      _$recurringTransactionsControllerHash();
+  String debugGetCreateSourceHash() => _$recurringTransactionsControllerHash();
 
   @$internal
   @override
-  RecurringTransactionsController create() =>
-      RecurringTransactionsController();
+  RecurringTransactionsController create() => RecurringTransactionsController();
 }
 
 String _$recurringTransactionsControllerHash() =>
@@ -98,8 +96,7 @@ final class ActiveRecurringTransactionsProvider
       );
 
   @override
-  String debugGetCreateSourceHash() =>
-      _$activeRecurringTransactionsHash();
+  String debugGetCreateSourceHash() => _$activeRecurringTransactionsHash();
 
   @$internal
   @override
@@ -116,8 +113,7 @@ final class ActiveRecurringTransactionsProvider
   Override overrideWithValue(List<RecurringTransaction> value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride:
-          $SyncValueProvider<List<RecurringTransaction>>(value),
+      providerOverride: $SyncValueProvider<List<RecurringTransaction>>(value),
     );
   }
 }
@@ -153,8 +149,7 @@ final class InactiveRecurringTransactionsProvider
       );
 
   @override
-  String debugGetCreateSourceHash() =>
-      _$inactiveRecurringTransactionsHash();
+  String debugGetCreateSourceHash() => _$inactiveRecurringTransactionsHash();
 
   @$internal
   @override
@@ -171,8 +166,7 @@ final class InactiveRecurringTransactionsProvider
   Override overrideWithValue(List<RecurringTransaction> value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride:
-          $SyncValueProvider<List<RecurringTransaction>>(value),
+      providerOverride: $SyncValueProvider<List<RecurringTransaction>>(value),
     );
   }
 }

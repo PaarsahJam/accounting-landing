@@ -144,7 +144,11 @@ class _SelectorPanel extends StatelessWidget {
             items: ExportEntityType.values.map((e) {
               return DropdownMenuItem(value: e, child: Text(e.label));
             }).toList(),
-            onChanged: busy ? null : (v) { if (v != null) onChanged(v); },
+            onChanged: busy
+                ? null
+                : (v) {
+                    if (v != null) onChanged(v);
+                  },
           ),
           const SizedBox(height: 12),
           Row(
@@ -183,11 +187,7 @@ class _SelectorPanel extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _JobTile extends StatelessWidget {
-  const _JobTile({
-    required this.job,
-    required this.l10n,
-    required this.ref,
-  });
+  const _JobTile({required this.job, required this.l10n, required this.ref});
 
   final ImportExportJob job;
   final AppLocalizations l10n;
@@ -255,9 +255,7 @@ class _CsvPreviewDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(
-        '${l10n.importExportPreviewTitle} — ${job.entityType.label}',
-      ),
+      title: Text('${l10n.importExportPreviewTitle} — ${job.entityType.label}'),
       content: SizedBox(
         width: 560,
         height: 300,

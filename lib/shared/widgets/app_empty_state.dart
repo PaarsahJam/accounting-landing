@@ -39,14 +39,11 @@ class AppEmptyState extends StatelessWidget {
               Text(
                 message,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: cs.onSurfaceVariant,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
               ),
-              if (action != null) ...[
-                const SizedBox(height: 24),
-                action!,
-              ],
+              if (action != null) ...[const SizedBox(height: 24), action!],
             ],
           ),
         ),

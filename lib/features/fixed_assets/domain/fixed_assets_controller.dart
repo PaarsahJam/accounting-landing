@@ -93,10 +93,7 @@ class FixedAssetsController extends _$FixedAssetsController {
       _replaceInState(result.data!);
       return true;
     } catch (e, st) {
-      AppLogger.warning(
-        'Unexpected error calculating depreciation',
-        error: e,
-      );
+      AppLogger.warning('Unexpected error calculating depreciation', error: e);
       state = AsyncValue.error(e, st);
       return false;
     }
