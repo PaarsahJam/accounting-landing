@@ -837,6 +837,32 @@
   "interactionAdd": "افزودن",
   "interactionsLoadError": "خطا در بارگذاری تعاملات:",
   "interactionsEmptyTitle": "هنوز تعاملی ثبت نشده",
-  "interactionsEmptyMessage": "هیچ تعاملی برای این مخاطب ثبت نشده است."
+  "interactionsEmptyMessage": "هیچ تعاملی برای این مخاطب ثبت نشده است.",
+
+  "docProcessingQueueTitle": "صف پردازش اسناد",
+  "docProcessingQueueLoading": "در حال بارگذاری صف",
+  "docProcessingQueueLoadError": "خطا در بارگذاری صف:",
+  "docProcessingQueueEmptyTitle": "صف خالی است",
+  "docProcessingQueueEmptyMessage": "هیچ سندی در انتظار بررسی نیست.",
+  "docProcessingJobId": "شناسه کار",
+  "docReviewPageTitle": "بررسی سند",
+  "docReviewDocumentSection": "سند",
+  "docReviewAttachment": "پیوست",
+  "docReviewStatus": "وضعیت",
+  "docReviewDocumentType": "نوع سند",
+  "docReviewConfidence": "اطمینان",
+  "docReviewExtractedSection": "داده استخراجشده",
+  "docReviewNoteSection": "یادداشت بررسی",
+  "docReviewNoteHint": "یادداشت اختیاری برای این تصمیم…",
+  "docReviewApproveAction": "تأیید",
+  "docReviewRejectAction": "رد",
+  "docReviewRejectTitle": "رد سند",
+  "docReviewRejectNoteLabel": "دلیل رد",
+  "docReviewRejectConfirm": "رد",
+  "docReviewRejectedDefault": "توسط بررسیکننده رد شد",
+  "docReviewDecisionSection": "تصمیم بررسی",
+  "docReviewDecisionOutcome": "نتیجه",
+  "docReviewDecisionBy": "بررسیشده توسط",
+  "docReviewDecisionNote": "یادداشت"
 
 }

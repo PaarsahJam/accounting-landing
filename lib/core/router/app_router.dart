@@ -55,6 +55,9 @@ import '../../features/recurring_transactions/presentation/recurring_transaction
 import '../../features/tags/presentation/tags_page.dart';
 import '../../features/user_roles/presentation/user_roles_page.dart';
 import '../../features/crm/presentation/contacts_page.dart';
+import '../../features/document_processing/domain/document_processing_job.dart';
+import '../../features/document_processing/presentation/document_processing_queue_page.dart';
+import '../../features/document_processing/presentation/document_review_page.dart';
 import '../../features/crm/presentation/crm_dashboard_page.dart';
 import '../../features/crm/presentation/crm_tasks_page.dart';
 import '../../features/crm/presentation/pipeline_page.dart';
@@ -249,6 +252,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           _r('/crm/tasks', child: const CrmTasksPage()),
           _r('/crm/pipeline', child: const PipelinePage()),
           _r('/crm/dashboard', child: const CrmDashboardPage()),
+          _r('/document-processing', child: const DocumentProcessingQueuePage()),
+          _rBuilder(
+            '/document-processing/:id',
+            builder: (context, state) {
+              final job = state.extra as DocumentProcessingJob?;
+              if (job == null) return const DocumentProcessingQueuePage();
+              return DocumentReviewPage(job: job);
+            },
+          ),
           ...pluginRouteList.map((pr) => pr.toGoRoute()),
         ],
       ),

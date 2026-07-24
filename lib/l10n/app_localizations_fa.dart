@@ -2435,4 +2435,79 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get interactionsEmptyMessage =>
       'هیچ تعاملی برای این مخاطب ثبت نشده است.';
+
+  @override
+  String get docProcessingQueueTitle => 'صف پردازش اسناد';
+
+  @override
+  String get docProcessingQueueLoading => 'در حال بارگذاری صف';
+
+  @override
+  String get docProcessingQueueLoadError => 'خطا در بارگذاری صف:';
+
+  @override
+  String get docProcessingQueueEmptyTitle => 'صف خالی است';
+
+  @override
+  String get docProcessingQueueEmptyMessage => 'هیچ سندی در انتظار بررسی نیست.';
+
+  @override
+  String get docProcessingJobId => 'شناسه کار';
+
+  @override
+  String get docReviewPageTitle => 'بررسی سند';
+
+  @override
+  String get docReviewDocumentSection => 'سند';
+
+  @override
+  String get docReviewAttachment => 'پیوست';
+
+  @override
+  String get docReviewStatus => 'وضعیت';
+
+  @override
+  String get docReviewDocumentType => 'نوع سند';
+
+  @override
+  String get docReviewConfidence => 'اطمینان';
+
+  @override
+  String get docReviewExtractedSection => 'داده استخراجشده';
+
+  @override
+  String get docReviewNoteSection => 'یادداشت بررسی';
+
+  @override
+  String get docReviewNoteHint => 'یادداشت اختیاری برای این تصمیم…';
+
+  @override
+  String get docReviewApproveAction => 'تأیید';
+
+  @override
+  String get docReviewRejectAction => 'رد';
+
+  @override
+  String get docReviewRejectTitle => 'رد سند';
+
+  @override
+  String get docReviewRejectNoteLabel => 'دلیل رد';
+
+  @override
+  String get docReviewRejectConfirm => 'رد';
+
+  @override
+  String get docReviewRejectedDefault => 'توسط بررسیکننده رد شد';
+
+  @override
+  String get docReviewDecisionSection => 'تصمیم بررسی';
+
+  @override
+  String get docReviewDecisionOutcome => 'نتیجه';
+
+  @override
+  String get docReviewDecisionBy => 'بررسیشده توسط';
+
+  @override
+  String get docReviewDecisionNote => 'یادداشت';
 }

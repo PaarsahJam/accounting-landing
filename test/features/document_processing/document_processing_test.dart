@@ -416,13 +416,22 @@ void main() {
       final repo = MockDocumentProcessingRepository();
       final service = _makeService(repo: repo);
 
-      final j1 = await service.startProcessing('ATT-001');
-      final j2 = await service.startProcessing('ATT-002');
+      // Use a fresh repo with no seed — create jobs manually
+      final freshRepo = MockDocumentProcessingRepository();
+      // Clear seeded jobs by fetching and approving them all
+      final seeded = (await freshRepo.fetchPendingReview()).data!;
+      for (final j in seeded) {
+        await freshRepo.updateJob(j.copyWith(step: ProcessingStep.completed));
+      }
 
-      await service.runPipeline(j1.data!);
+      final freshService = _makeService(repo: freshRepo);
+      final j1 = await freshService.startProcessing('ATT-001');
+      final j2 = await freshService.startProcessing('ATT-002');
+
+      await freshService.runPipeline(j1.data!);
       // j2 stays at uploaded
 
-      final pending = await repo.fetchPendingReview();
+      final pending = await freshRepo.fetchPendingReview();
       expect(pending.isSuccess, isTrue);
       expect(pending.data!.length, 1);
       expect(pending.data!.first.attachmentId, 'ATT-001');

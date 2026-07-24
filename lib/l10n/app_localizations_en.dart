@@ -2443,4 +2443,80 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get interactionsEmptyMessage =>
       'No interactions have been recorded for this contact.';
+
+  @override
+  String get docProcessingQueueTitle => 'Document Processing Queue';
+
+  @override
+  String get docProcessingQueueLoading => 'Loading queue';
+
+  @override
+  String get docProcessingQueueLoadError => 'Error loading queue:';
+
+  @override
+  String get docProcessingQueueEmptyTitle => 'Queue is clear';
+
+  @override
+  String get docProcessingQueueEmptyMessage =>
+      'No documents are awaiting review.';
+
+  @override
+  String get docProcessingJobId => 'Job ID';
+
+  @override
+  String get docReviewPageTitle => 'Document Review';
+
+  @override
+  String get docReviewDocumentSection => 'Document';
+
+  @override
+  String get docReviewAttachment => 'Attachment';
+
+  @override
+  String get docReviewStatus => 'Status';
+
+  @override
+  String get docReviewDocumentType => 'Document type';
+
+  @override
+  String get docReviewConfidence => 'Confidence';
+
+  @override
+  String get docReviewExtractedSection => 'Extracted data';
+
+  @override
+  String get docReviewNoteSection => 'Review note';
+
+  @override
+  String get docReviewNoteHint => 'Optional note for this review decision…';
+
+  @override
+  String get docReviewApproveAction => 'Approve';
+
+  @override
+  String get docReviewRejectAction => 'Reject';
+
+  @override
+  String get docReviewRejectTitle => 'Reject document';
+
+  @override
+  String get docReviewRejectNoteLabel => 'Reason for rejection';
+
+  @override
+  String get docReviewRejectConfirm => 'Reject';
+
+  @override
+  String get docReviewRejectedDefault => 'Rejected by reviewer';
+
+  @override
+  String get docReviewDecisionSection => 'Review decision';
+
+  @override
+  String get docReviewDecisionOutcome => 'Outcome';
+
+  @override
+  String get docReviewDecisionBy => 'Reviewed by';
+
+  @override
+  String get docReviewDecisionNote => 'Note';
 }

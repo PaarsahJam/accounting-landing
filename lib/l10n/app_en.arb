@@ -882,6 +882,32 @@
   "interactionAdd": "Add",
   "interactionsLoadError": "Error loading interactions:",
   "interactionsEmptyTitle": "No interactions yet",
-  "interactionsEmptyMessage": "No interactions have been recorded for this contact."
+  "interactionsEmptyMessage": "No interactions have been recorded for this contact.",
+
+  "docProcessingQueueTitle": "Document Processing Queue",
+  "docProcessingQueueLoading": "Loading queue",
+  "docProcessingQueueLoadError": "Error loading queue:",
+  "docProcessingQueueEmptyTitle": "Queue is clear",
+  "docProcessingQueueEmptyMessage": "No documents are awaiting review.",
+  "docProcessingJobId": "Job ID",
+  "docReviewPageTitle": "Document Review",
+  "docReviewDocumentSection": "Document",
+  "docReviewAttachment": "Attachment",
+  "docReviewStatus": "Status",
+  "docReviewDocumentType": "Document type",
+  "docReviewConfidence": "Confidence",
+  "docReviewExtractedSection": "Extracted data",
+  "docReviewNoteSection": "Review note",
+  "docReviewNoteHint": "Optional note for this review decision…",
+  "docReviewApproveAction": "Approve",
+  "docReviewRejectAction": "Reject",
+  "docReviewRejectTitle": "Reject document",
+  "docReviewRejectNoteLabel": "Reason for rejection",
+  "docReviewRejectConfirm": "Reject",
+  "docReviewRejectedDefault": "Rejected by reviewer",
+  "docReviewDecisionSection": "Review decision",
+  "docReviewDecisionOutcome": "Outcome",
+  "docReviewDecisionBy": "Reviewed by",
+  "docReviewDecisionNote": "Note"
 
 }

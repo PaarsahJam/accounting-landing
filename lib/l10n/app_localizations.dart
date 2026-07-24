@@ -4849,6 +4849,156 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'هیچ تعاملی برای این مخاطب ثبت نشده است.'**
   String get interactionsEmptyMessage;
+
+  /// No description provided for @docProcessingQueueTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'صف پردازش اسناد'**
+  String get docProcessingQueueTitle;
+
+  /// No description provided for @docProcessingQueueLoading.
+  ///
+  /// In fa, this message translates to:
+  /// **'در حال بارگذاری صف'**
+  String get docProcessingQueueLoading;
+
+  /// No description provided for @docProcessingQueueLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری صف:'**
+  String get docProcessingQueueLoadError;
+
+  /// No description provided for @docProcessingQueueEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'صف خالی است'**
+  String get docProcessingQueueEmptyTitle;
+
+  /// No description provided for @docProcessingQueueEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ سندی در انتظار بررسی نیست.'**
+  String get docProcessingQueueEmptyMessage;
+
+  /// No description provided for @docProcessingJobId.
+  ///
+  /// In fa, this message translates to:
+  /// **'شناسه کار'**
+  String get docProcessingJobId;
+
+  /// No description provided for @docReviewPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'بررسی سند'**
+  String get docReviewPageTitle;
+
+  /// No description provided for @docReviewDocumentSection.
+  ///
+  /// In fa, this message translates to:
+  /// **'سند'**
+  String get docReviewDocumentSection;
+
+  /// No description provided for @docReviewAttachment.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیوست'**
+  String get docReviewAttachment;
+
+  /// No description provided for @docReviewStatus.
+  ///
+  /// In fa, this message translates to:
+  /// **'وضعیت'**
+  String get docReviewStatus;
+
+  /// No description provided for @docReviewDocumentType.
+  ///
+  /// In fa, this message translates to:
+  /// **'نوع سند'**
+  String get docReviewDocumentType;
+
+  /// No description provided for @docReviewConfidence.
+  ///
+  /// In fa, this message translates to:
+  /// **'اطمینان'**
+  String get docReviewConfidence;
+
+  /// No description provided for @docReviewExtractedSection.
+  ///
+  /// In fa, this message translates to:
+  /// **'داده استخراجشده'**
+  String get docReviewExtractedSection;
+
+  /// No description provided for @docReviewNoteSection.
+  ///
+  /// In fa, this message translates to:
+  /// **'یادداشت بررسی'**
+  String get docReviewNoteSection;
+
+  /// No description provided for @docReviewNoteHint.
+  ///
+  /// In fa, this message translates to:
+  /// **'یادداشت اختیاری برای این تصمیم…'**
+  String get docReviewNoteHint;
+
+  /// No description provided for @docReviewApproveAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأیید'**
+  String get docReviewApproveAction;
+
+  /// No description provided for @docReviewRejectAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'رد'**
+  String get docReviewRejectAction;
+
+  /// No description provided for @docReviewRejectTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'رد سند'**
+  String get docReviewRejectTitle;
+
+  /// No description provided for @docReviewRejectNoteLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'دلیل رد'**
+  String get docReviewRejectNoteLabel;
+
+  /// No description provided for @docReviewRejectConfirm.
+  ///
+  /// In fa, this message translates to:
+  /// **'رد'**
+  String get docReviewRejectConfirm;
+
+  /// No description provided for @docReviewRejectedDefault.
+  ///
+  /// In fa, this message translates to:
+  /// **'توسط بررسیکننده رد شد'**
+  String get docReviewRejectedDefault;
+
+  /// No description provided for @docReviewDecisionSection.
+  ///
+  /// In fa, this message translates to:
+  /// **'تصمیم بررسی'**
+  String get docReviewDecisionSection;
+
+  /// No description provided for @docReviewDecisionOutcome.
+  ///
+  /// In fa, this message translates to:
+  /// **'نتیجه'**
+  String get docReviewDecisionOutcome;
+
+  /// No description provided for @docReviewDecisionBy.
+  ///
+  /// In fa, this message translates to:
+  /// **'بررسیشده توسط'**
+  String get docReviewDecisionBy;
+
+  /// No description provided for @docReviewDecisionNote.
+  ///
+  /// In fa, this message translates to:
+  /// **'یادداشت'**
+  String get docReviewDecisionNote;
 }
 
 class _AppLocalizationsDelegate
