@@ -156,6 +156,7 @@ class _CustomerPaymentsPageState extends ConsumerState<CustomerPaymentsPage> {
     final repository = ref.read(customerPaymentsRepositoryProvider);
     final invoicesResult = await repository.fetchSalesInvoices();
 
+    if (!mounted) return;
     if (payment != null) {
       _referenceController.text = payment.reference;
       _customerController.text = payment.customerName;

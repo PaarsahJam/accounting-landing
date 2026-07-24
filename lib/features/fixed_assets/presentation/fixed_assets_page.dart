@@ -454,7 +454,7 @@ class _CreateEditDialogState extends State<_CreateEditDialog> {
                 ),
                 const SizedBox(height: 10),
                 DropdownButtonFormField<DepreciationMethod>(
-                  value: _method,
+                  initialValue: _method,
                   decoration: InputDecoration(
                     labelText: l10n.fixedAssetDepreciationMethod,
                   ),

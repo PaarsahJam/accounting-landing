@@ -10,7 +10,7 @@ class TimePeriod {
   DateTime get start => DateTime(year, month, 1);
   DateTime get end => DateTime(year, month + 1, 0, 23, 59, 59, 999);
 
-  String get label => '${year}/${month.toString().padLeft(2, '0')}';
+  String get label => '$year/${month.toString().padLeft(2, '0')}';
 
   bool contains(DateTime date) {
     return date.year == year && date.month == month;

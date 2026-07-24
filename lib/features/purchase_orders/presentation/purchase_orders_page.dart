@@ -175,8 +175,7 @@ class _PurchaseOrdersPageState extends ConsumerState<PurchaseOrdersPage> {
                       await ref
                           .read(purchaseOrdersControllerProvider.notifier)
                           .refresh();
-                      if (!mounted) return;
-                      Navigator.of(context).pop();
+                      if (context.mounted) Navigator.of(context).pop();
                     },
                     child: const Text('Receipts'),
                   ),
