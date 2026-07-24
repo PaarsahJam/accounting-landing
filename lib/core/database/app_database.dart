@@ -38,13 +38,28 @@ class VendorsTable extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DriftDatabase(tables: [CustomersTable, VendorsTable])
+class ProductsTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get sku => text()();
+  TextColumn get name => text()();
+  TextColumn get description => text()();
+  TextColumn get categoryId => text()();
+  TextColumn get unitId => text()();
+  RealColumn get price => real()();
+  RealColumn get stockOnHand => real()();
+  BoolColumn get active => boolean()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DriftDatabase(tables: [CustomersTable, VendorsTable, ProductsTable])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
   AppDatabase.withExecutor(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration {
@@ -53,9 +68,7 @@ class AppDatabase extends _$AppDatabase {
         await m.createAll();
       },
       onUpgrade: (m, from, to) async {
-        if (from < 2) {
-          await m.createAll();
-        }
+        await m.createAll();
       },
     );
   }

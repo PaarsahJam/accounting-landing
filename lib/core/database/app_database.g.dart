@@ -1182,11 +1182,578 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
   }
 }
 
+class $ProductsTableTable extends ProductsTable
+    with TableInfo<$ProductsTableTable, ProductsTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ProductsTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _skuMeta = const VerificationMeta('sku');
+  @override
+  late final GeneratedColumn<String> sku = GeneratedColumn<String>(
+    'sku',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _categoryIdMeta = const VerificationMeta(
+    'categoryId',
+  );
+  @override
+  late final GeneratedColumn<String> categoryId = GeneratedColumn<String>(
+    'category_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<String> unitId = GeneratedColumn<String>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _priceMeta = const VerificationMeta('price');
+  @override
+  late final GeneratedColumn<double> price = GeneratedColumn<double>(
+    'price',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _stockOnHandMeta = const VerificationMeta(
+    'stockOnHand',
+  );
+  @override
+  late final GeneratedColumn<double> stockOnHand = GeneratedColumn<double>(
+    'stock_on_hand',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _activeMeta = const VerificationMeta('active');
+  @override
+  late final GeneratedColumn<bool> active = GeneratedColumn<bool>(
+    'active',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("active" IN (0, 1))',
+    ),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    sku,
+    name,
+    description,
+    categoryId,
+    unitId,
+    price,
+    stockOnHand,
+    active,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'products_table';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ProductsTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('sku')) {
+      context.handle(
+        _skuMeta,
+        sku.isAcceptableOrUnknown(data['sku']!, _skuMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_skuMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_descriptionMeta);
+    }
+    if (data.containsKey('category_id')) {
+      context.handle(
+        _categoryIdMeta,
+        categoryId.isAcceptableOrUnknown(data['category_id']!, _categoryIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_categoryIdMeta);
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('price')) {
+      context.handle(
+        _priceMeta,
+        price.isAcceptableOrUnknown(data['price']!, _priceMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_priceMeta);
+    }
+    if (data.containsKey('stock_on_hand')) {
+      context.handle(
+        _stockOnHandMeta,
+        stockOnHand.isAcceptableOrUnknown(
+          data['stock_on_hand']!,
+          _stockOnHandMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_stockOnHandMeta);
+    }
+    if (data.containsKey('active')) {
+      context.handle(
+        _activeMeta,
+        active.isAcceptableOrUnknown(data['active']!, _activeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_activeMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ProductsTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ProductsTableData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      sku: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sku'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      )!,
+      categoryId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      price: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}price'],
+      )!,
+      stockOnHand: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}stock_on_hand'],
+      )!,
+      active: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}active'],
+      )!,
+    );
+  }
+
+  @override
+  $ProductsTableTable createAlias(String alias) {
+    return $ProductsTableTable(attachedDatabase, alias);
+  }
+}
+
+class ProductsTableData extends DataClass
+    implements Insertable<ProductsTableData> {
+  final String id;
+  final String sku;
+  final String name;
+  final String description;
+  final String categoryId;
+  final String unitId;
+  final double price;
+  final double stockOnHand;
+  final bool active;
+  const ProductsTableData({
+    required this.id,
+    required this.sku,
+    required this.name,
+    required this.description,
+    required this.categoryId,
+    required this.unitId,
+    required this.price,
+    required this.stockOnHand,
+    required this.active,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['sku'] = Variable<String>(sku);
+    map['name'] = Variable<String>(name);
+    map['description'] = Variable<String>(description);
+    map['category_id'] = Variable<String>(categoryId);
+    map['unit_id'] = Variable<String>(unitId);
+    map['price'] = Variable<double>(price);
+    map['stock_on_hand'] = Variable<double>(stockOnHand);
+    map['active'] = Variable<bool>(active);
+    return map;
+  }
+
+  ProductsTableCompanion toCompanion(bool nullToAbsent) {
+    return ProductsTableCompanion(
+      id: Value(id),
+      sku: Value(sku),
+      name: Value(name),
+      description: Value(description),
+      categoryId: Value(categoryId),
+      unitId: Value(unitId),
+      price: Value(price),
+      stockOnHand: Value(stockOnHand),
+      active: Value(active),
+    );
+  }
+
+  factory ProductsTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ProductsTableData(
+      id: serializer.fromJson<String>(json['id']),
+      sku: serializer.fromJson<String>(json['sku']),
+      name: serializer.fromJson<String>(json['name']),
+      description: serializer.fromJson<String>(json['description']),
+      categoryId: serializer.fromJson<String>(json['categoryId']),
+      unitId: serializer.fromJson<String>(json['unitId']),
+      price: serializer.fromJson<double>(json['price']),
+      stockOnHand: serializer.fromJson<double>(json['stockOnHand']),
+      active: serializer.fromJson<bool>(json['active']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'sku': serializer.toJson<String>(sku),
+      'name': serializer.toJson<String>(name),
+      'description': serializer.toJson<String>(description),
+      'categoryId': serializer.toJson<String>(categoryId),
+      'unitId': serializer.toJson<String>(unitId),
+      'price': serializer.toJson<double>(price),
+      'stockOnHand': serializer.toJson<double>(stockOnHand),
+      'active': serializer.toJson<bool>(active),
+    };
+  }
+
+  ProductsTableData copyWith({
+    String? id,
+    String? sku,
+    String? name,
+    String? description,
+    String? categoryId,
+    String? unitId,
+    double? price,
+    double? stockOnHand,
+    bool? active,
+  }) => ProductsTableData(
+    id: id ?? this.id,
+    sku: sku ?? this.sku,
+    name: name ?? this.name,
+    description: description ?? this.description,
+    categoryId: categoryId ?? this.categoryId,
+    unitId: unitId ?? this.unitId,
+    price: price ?? this.price,
+    stockOnHand: stockOnHand ?? this.stockOnHand,
+    active: active ?? this.active,
+  );
+  ProductsTableData copyWithCompanion(ProductsTableCompanion data) {
+    return ProductsTableData(
+      id: data.id.present ? data.id.value : this.id,
+      sku: data.sku.present ? data.sku.value : this.sku,
+      name: data.name.present ? data.name.value : this.name,
+      description: data.description.present
+          ? data.description.value
+          : this.description,
+      categoryId: data.categoryId.present
+          ? data.categoryId.value
+          : this.categoryId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      price: data.price.present ? data.price.value : this.price,
+      stockOnHand: data.stockOnHand.present
+          ? data.stockOnHand.value
+          : this.stockOnHand,
+      active: data.active.present ? data.active.value : this.active,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ProductsTableData(')
+          ..write('id: $id, ')
+          ..write('sku: $sku, ')
+          ..write('name: $name, ')
+          ..write('description: $description, ')
+          ..write('categoryId: $categoryId, ')
+          ..write('unitId: $unitId, ')
+          ..write('price: $price, ')
+          ..write('stockOnHand: $stockOnHand, ')
+          ..write('active: $active')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    sku,
+    name,
+    description,
+    categoryId,
+    unitId,
+    price,
+    stockOnHand,
+    active,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ProductsTableData &&
+          other.id == this.id &&
+          other.sku == this.sku &&
+          other.name == this.name &&
+          other.description == this.description &&
+          other.categoryId == this.categoryId &&
+          other.unitId == this.unitId &&
+          other.price == this.price &&
+          other.stockOnHand == this.stockOnHand &&
+          other.active == this.active);
+}
+
+class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
+  final Value<String> id;
+  final Value<String> sku;
+  final Value<String> name;
+  final Value<String> description;
+  final Value<String> categoryId;
+  final Value<String> unitId;
+  final Value<double> price;
+  final Value<double> stockOnHand;
+  final Value<bool> active;
+  final Value<int> rowid;
+  const ProductsTableCompanion({
+    this.id = const Value.absent(),
+    this.sku = const Value.absent(),
+    this.name = const Value.absent(),
+    this.description = const Value.absent(),
+    this.categoryId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.price = const Value.absent(),
+    this.stockOnHand = const Value.absent(),
+    this.active = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ProductsTableCompanion.insert({
+    required String id,
+    required String sku,
+    required String name,
+    required String description,
+    required String categoryId,
+    required String unitId,
+    required double price,
+    required double stockOnHand,
+    required bool active,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       sku = Value(sku),
+       name = Value(name),
+       description = Value(description),
+       categoryId = Value(categoryId),
+       unitId = Value(unitId),
+       price = Value(price),
+       stockOnHand = Value(stockOnHand),
+       active = Value(active);
+  static Insertable<ProductsTableData> custom({
+    Expression<String>? id,
+    Expression<String>? sku,
+    Expression<String>? name,
+    Expression<String>? description,
+    Expression<String>? categoryId,
+    Expression<String>? unitId,
+    Expression<double>? price,
+    Expression<double>? stockOnHand,
+    Expression<bool>? active,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (sku != null) 'sku': sku,
+      if (name != null) 'name': name,
+      if (description != null) 'description': description,
+      if (categoryId != null) 'category_id': categoryId,
+      if (unitId != null) 'unit_id': unitId,
+      if (price != null) 'price': price,
+      if (stockOnHand != null) 'stock_on_hand': stockOnHand,
+      if (active != null) 'active': active,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ProductsTableCompanion copyWith({
+    Value<String>? id,
+    Value<String>? sku,
+    Value<String>? name,
+    Value<String>? description,
+    Value<String>? categoryId,
+    Value<String>? unitId,
+    Value<double>? price,
+    Value<double>? stockOnHand,
+    Value<bool>? active,
+    Value<int>? rowid,
+  }) {
+    return ProductsTableCompanion(
+      id: id ?? this.id,
+      sku: sku ?? this.sku,
+      name: name ?? this.name,
+      description: description ?? this.description,
+      categoryId: categoryId ?? this.categoryId,
+      unitId: unitId ?? this.unitId,
+      price: price ?? this.price,
+      stockOnHand: stockOnHand ?? this.stockOnHand,
+      active: active ?? this.active,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (sku.present) {
+      map['sku'] = Variable<String>(sku.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (categoryId.present) {
+      map['category_id'] = Variable<String>(categoryId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<String>(unitId.value);
+    }
+    if (price.present) {
+      map['price'] = Variable<double>(price.value);
+    }
+    if (stockOnHand.present) {
+      map['stock_on_hand'] = Variable<double>(stockOnHand.value);
+    }
+    if (active.present) {
+      map['active'] = Variable<bool>(active.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ProductsTableCompanion(')
+          ..write('id: $id, ')
+          ..write('sku: $sku, ')
+          ..write('name: $name, ')
+          ..write('description: $description, ')
+          ..write('categoryId: $categoryId, ')
+          ..write('unitId: $unitId, ')
+          ..write('price: $price, ')
+          ..write('stockOnHand: $stockOnHand, ')
+          ..write('active: $active, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $CustomersTableTable customersTable = $CustomersTableTable(this);
   late final $VendorsTableTable vendorsTable = $VendorsTableTable(this);
+  late final $ProductsTableTable productsTable = $ProductsTableTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -1194,6 +1761,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   List<DatabaseSchemaEntity> get allSchemaEntities => [
     customersTable,
     vendorsTable,
+    productsTable,
   ];
 }
 
@@ -1782,6 +2350,292 @@ typedef $$VendorsTableTableProcessedTableManager =
       VendorsTableData,
       PrefetchHooks Function()
     >;
+typedef $$ProductsTableTableCreateCompanionBuilder =
+    ProductsTableCompanion Function({
+      required String id,
+      required String sku,
+      required String name,
+      required String description,
+      required String categoryId,
+      required String unitId,
+      required double price,
+      required double stockOnHand,
+      required bool active,
+      Value<int> rowid,
+    });
+typedef $$ProductsTableTableUpdateCompanionBuilder =
+    ProductsTableCompanion Function({
+      Value<String> id,
+      Value<String> sku,
+      Value<String> name,
+      Value<String> description,
+      Value<String> categoryId,
+      Value<String> unitId,
+      Value<double> price,
+      Value<double> stockOnHand,
+      Value<bool> active,
+      Value<int> rowid,
+    });
+
+class $$ProductsTableTableFilterComposer
+    extends Composer<_$AppDatabase, $ProductsTableTable> {
+  $$ProductsTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sku => $composableBuilder(
+    column: $table.sku,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get categoryId => $composableBuilder(
+    column: $table.categoryId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get price => $composableBuilder(
+    column: $table.price,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get stockOnHand => $composableBuilder(
+    column: $table.stockOnHand,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get active => $composableBuilder(
+    column: $table.active,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ProductsTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $ProductsTableTable> {
+  $$ProductsTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sku => $composableBuilder(
+    column: $table.sku,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get categoryId => $composableBuilder(
+    column: $table.categoryId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get price => $composableBuilder(
+    column: $table.price,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get stockOnHand => $composableBuilder(
+    column: $table.stockOnHand,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get active => $composableBuilder(
+    column: $table.active,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ProductsTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ProductsTableTable> {
+  $$ProductsTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get sku =>
+      $composableBuilder(column: $table.sku, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get categoryId => $composableBuilder(
+    column: $table.categoryId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<double> get price =>
+      $composableBuilder(column: $table.price, builder: (column) => column);
+
+  GeneratedColumn<double> get stockOnHand => $composableBuilder(
+    column: $table.stockOnHand,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get active =>
+      $composableBuilder(column: $table.active, builder: (column) => column);
+}
+
+class $$ProductsTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ProductsTableTable,
+          ProductsTableData,
+          $$ProductsTableTableFilterComposer,
+          $$ProductsTableTableOrderingComposer,
+          $$ProductsTableTableAnnotationComposer,
+          $$ProductsTableTableCreateCompanionBuilder,
+          $$ProductsTableTableUpdateCompanionBuilder,
+          (
+            ProductsTableData,
+            BaseReferences<
+              _$AppDatabase,
+              $ProductsTableTable,
+              ProductsTableData
+            >,
+          ),
+          ProductsTableData,
+          PrefetchHooks Function()
+        > {
+  $$ProductsTableTableTableManager(_$AppDatabase db, $ProductsTableTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ProductsTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ProductsTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ProductsTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> sku = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String> description = const Value.absent(),
+                Value<String> categoryId = const Value.absent(),
+                Value<String> unitId = const Value.absent(),
+                Value<double> price = const Value.absent(),
+                Value<double> stockOnHand = const Value.absent(),
+                Value<bool> active = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ProductsTableCompanion(
+                id: id,
+                sku: sku,
+                name: name,
+                description: description,
+                categoryId: categoryId,
+                unitId: unitId,
+                price: price,
+                stockOnHand: stockOnHand,
+                active: active,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String sku,
+                required String name,
+                required String description,
+                required String categoryId,
+                required String unitId,
+                required double price,
+                required double stockOnHand,
+                required bool active,
+                Value<int> rowid = const Value.absent(),
+              }) => ProductsTableCompanion.insert(
+                id: id,
+                sku: sku,
+                name: name,
+                description: description,
+                categoryId: categoryId,
+                unitId: unitId,
+                price: price,
+                stockOnHand: stockOnHand,
+                active: active,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ProductsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ProductsTableTable,
+      ProductsTableData,
+      $$ProductsTableTableFilterComposer,
+      $$ProductsTableTableOrderingComposer,
+      $$ProductsTableTableAnnotationComposer,
+      $$ProductsTableTableCreateCompanionBuilder,
+      $$ProductsTableTableUpdateCompanionBuilder,
+      (
+        ProductsTableData,
+        BaseReferences<_$AppDatabase, $ProductsTableTable, ProductsTableData>,
+      ),
+      ProductsTableData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -1790,4 +2644,6 @@ class $AppDatabaseManager {
       $$CustomersTableTableTableManager(_db, _db.customersTable);
   $$VendorsTableTableTableManager get vendorsTable =>
       $$VendorsTableTableTableManager(_db, _db.vendorsTable);
+  $$ProductsTableTableTableManager get productsTable =>
+      $$ProductsTableTableTableManager(_db, _db.productsTable);
 }
