@@ -2281,4 +2281,67 @@ class AppLocalizationsEn extends AppLocalizations {
   String get importExportPreviewTitle => 'CSV Preview';
   @override
   String get dashboardImportExport => 'Import / Export';
+
+  @override
+  String get crmPageTitle => 'CRM';
+  @override
+  String get contactsPageTitle => 'Contacts';
+  @override
+  String get contactsLoadError => 'Error loading contacts:';
+  @override
+  String get contactsEmptyTitle => 'No contacts yet';
+  @override
+  String get contactsEmptyMessage => 'No contacts have been added to this customer yet.';
+  @override
+  String get contactCreateTitle => 'Add Contact';
+  @override
+  String get contactEditTitle => 'Edit Contact';
+  @override
+  String get contactFirstName => 'First name';
+  @override
+  String get contactLastName => 'Last name';
+  @override
+  String get contactEmail => 'Email';
+  @override
+  String get contactPhone => 'Phone';
+  @override
+  String get contactJobTitle => 'Job title';
+  @override
+  String get contactDepartment => 'Department';
+  @override
+  String get contactPrimary => 'Primary contact';
+  @override
+  String get contactPrimaryLabel => 'PRIMARY';
+  @override
+  String get contactNotes => 'Notes';
+  @override
+  String get contactDeleteTitle => 'Delete Contact';
+  @override
+  String get contactDeleteError => 'Failed to delete contact';
+  @override
+  String get interactionsSectionTitle => 'Interaction History';
+  @override
+  String get interactionAdd => 'Add';
+  @override
+  String get interactionAddTitle => 'Add Interaction';
+  @override
+  String get interactionType => 'Type';
+  @override
+  String get interactionSubject => 'Subject';
+  @override
+  String get interactionDescription => 'Description';
+  @override
+  String get interactionCreateError => 'Failed to add interaction';
+  @override
+  String get interactionDeleteError => 'Failed to delete interaction';
+  @override
+  String get interactionsLoadError => 'Error loading interactions:';
+  @override
+  String get interactionsEmptyTitle => 'No interactions yet';
+  @override
+  String get interactionsEmptyMessage => 'No interactions recorded for this contact yet.';
+  @override
+  String get saveButton => 'Save';
+  @override
+  String get unknownError => 'An unknown error occurred.';
 }

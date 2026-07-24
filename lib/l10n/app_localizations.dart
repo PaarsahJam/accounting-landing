@@ -4387,6 +4387,39 @@ abstract class AppLocalizations {
   String get importExportPreviewBtn;
   String get importExportPreviewTitle;
   String get dashboardImportExport;
+
+  // ── CRM ──────────────────────────────────────────────
+  String get crmPageTitle;
+  String get contactsPageTitle;
+  String get contactsLoadError;
+  String get contactsEmptyTitle;
+  String get contactsEmptyMessage;
+  String get contactCreateTitle;
+  String get contactEditTitle;
+  String get contactFirstName;
+  String get contactLastName;
+  String get contactEmail;
+  String get contactPhone;
+  String get contactJobTitle;
+  String get contactDepartment;
+  String get contactPrimary;
+  String get contactPrimaryLabel;
+  String get contactNotes;
+  String get contactDeleteTitle;
+  String get contactDeleteError;
+  String get interactionsSectionTitle;
+  String get interactionAdd;
+  String get interactionAddTitle;
+  String get interactionType;
+  String get interactionSubject;
+  String get interactionDescription;
+  String get interactionCreateError;
+  String get interactionDeleteError;
+  String get interactionsLoadError;
+  String get interactionsEmptyTitle;
+  String get interactionsEmptyMessage;
+  String get saveButton;
+  String get unknownError;
 }
 
 class _AppLocalizationsDelegate

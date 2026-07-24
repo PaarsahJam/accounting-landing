@@ -51,6 +51,7 @@ import '../../features/import_export/presentation/import_export_page.dart';
 import '../../features/recurring_transactions/presentation/recurring_transactions_page.dart';
 import '../../features/tags/presentation/tags_page.dart';
 import '../../features/user_roles/presentation/user_roles_page.dart';
+import '../../features/crm/presentation/contacts_page.dart';
 import '../../l10n/app_localizations.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -329,6 +330,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'import-export',
         path: '/import-export',
         builder: (c, s) => const ImportExportPage(),
+      ),
+      GoRoute(
+        name: 'crm-contacts',
+        path: '/crm/contacts/:customerId',
+        builder: (context, state) {
+          final customerId = state.pathParameters['customerId'] ?? '';
+          return ContactsPage(customerId: customerId);
+        },
       ),
     ],
     errorBuilder: (context, state) {

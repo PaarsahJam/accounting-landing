@@ -2273,4 +2273,67 @@ class AppLocalizationsFa extends AppLocalizations {
   String get importExportPreviewTitle => 'پیش‌نمایش CSV';
   @override
   String get dashboardImportExport => 'واردات / صادرات';
+
+  @override
+  String get crmPageTitle => 'مدیریت ارتباط با مشتری';
+  @override
+  String get contactsPageTitle => 'مخاطبین';
+  @override
+  String get contactsLoadError => 'خطا در بارگذاری مخاطبین:';
+  @override
+  String get contactsEmptyTitle => 'هنوز مخاطبی ثبت نشده';
+  @override
+  String get contactsEmptyMessage => 'هنوز مخاطبی برای این مشتری ثبت نشده است.';
+  @override
+  String get contactCreateTitle => 'افزودن مخاطب';
+  @override
+  String get contactEditTitle => 'ویرایش مخاطب';
+  @override
+  String get contactFirstName => 'نام';
+  @override
+  String get contactLastName => 'نام خانوادگی';
+  @override
+  String get contactEmail => 'ایمیل';
+  @override
+  String get contactPhone => 'تلفن';
+  @override
+  String get contactJobTitle => 'سمت';
+  @override
+  String get contactDepartment => 'دپارتمان';
+  @override
+  String get contactPrimary => 'مخاطب اصلی';
+  @override
+  String get contactPrimaryLabel => 'اصلی';
+  @override
+  String get contactNotes => 'یادداشت‌ها';
+  @override
+  String get contactDeleteTitle => 'حذف مخاطب';
+  @override
+  String get contactDeleteError => 'خطا در حذف مخاطب';
+  @override
+  String get interactionsSectionTitle => 'تاریخچه تعاملات';
+  @override
+  String get interactionAdd => 'افزودن';
+  @override
+  String get interactionAddTitle => 'افزودن تعامل';
+  @override
+  String get interactionType => 'نوع';
+  @override
+  String get interactionSubject => 'موضوع';
+  @override
+  String get interactionDescription => 'توضیحات';
+  @override
+  String get interactionCreateError => 'خطا در ایجاد تعامل';
+  @override
+  String get interactionDeleteError => 'خطا در حذف تعامل';
+  @override
+  String get interactionsLoadError => 'خطا در بارگذاری تعاملات:';
+  @override
+  String get interactionsEmptyTitle => 'هنوز تعاملی ثبت نشده';
+  @override
+  String get interactionsEmptyMessage => 'هنوز تعاملی برای این مخاطب ثبت نشده است.';
+  @override
+  String get saveButton => 'ذخیره';
+  @override
+  String get unknownError => 'خطای ناشناخته رخ داد.';
 }
