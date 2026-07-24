@@ -26,7 +26,7 @@ final class VendorRepositoryProvider
         argument: null,
         retry: null,
         name: r'vendorRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -53,4 +53,4 @@ final class VendorRepositoryProvider
   }
 }
 
-String _$vendorRepositoryHash() => r'290ee588743a8e257400ef246f30c47e094e4dbd';
+String _$vendorRepositoryHash() => r'4474bec80c716e568c4cf2d8c27dffd985de3f5f';
