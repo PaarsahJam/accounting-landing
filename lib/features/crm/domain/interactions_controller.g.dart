@@ -52,7 +52,7 @@ final class InteractionsControllerProvider
 }
 
 String _$interactionsControllerHash() =>
-    r'beab389c918a6fe059da3ce5c0c8e955858dfb02';
+    r'2ff264572f69d0c633faeacaa3cd4fd00f03cb70';
 
 final class InteractionsControllerFamily extends $Family
     with

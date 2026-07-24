@@ -51,7 +51,7 @@ final class ContactsControllerProvider
 }
 
 String _$contactsControllerHash() =>
-    r'0a8602badcd87355df2b08551e1abf5313ad5595';
+    r'aae1745131ca331cec438c7593a450d249e586e6';
 
 final class ContactsControllerFamily extends $Family
     with

@@ -1883,6 +1883,37 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String get tasks => 'وظایف';
+  @override
+  String get noTasks => 'وظیفه‌ای وجود ندارد';
+  @override
+  String get newTask => 'وظیفه جدید';
+  @override
+  String get dueDate => 'تاریخ سررسید';
+  @override
+  String get priority => 'اولویت';
+  @override
+  String get create => 'ایجاد';
+  @override
+  String get cancel => 'انصراف';
+  @override
+  String get title => 'عنوان';
+  @override
+  String get description => 'توضیحات';
+  @override
+  String get contactInfo => 'اطلاعات مخاطب';
+  @override
+  String get auditTrailLabel => 'گزارش حسابرسی';
+  @override
+  String get pipeline => 'خط فروش';
+  @override
+  String get crmDashboard => 'داشبورد CRM';
+  @override
+  String get newOpportunity => 'فرصت جدید';
+  @override
+  String get noOpportunities => 'فرصتی وجود ندارد';
+
+  @override
   String get searchHint => 'جستجوی اسناد، نام‌ها، کد محصول…';
 
   @override

@@ -52,6 +52,9 @@ import '../../features/recurring_transactions/presentation/recurring_transaction
 import '../../features/tags/presentation/tags_page.dart';
 import '../../features/user_roles/presentation/user_roles_page.dart';
 import '../../features/crm/presentation/contacts_page.dart';
+import '../../features/crm/presentation/crm_dashboard_page.dart';
+import '../../features/crm/presentation/crm_tasks_page.dart';
+import '../../features/crm/presentation/pipeline_page.dart';
 import '../../l10n/app_localizations.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -338,6 +341,21 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           final customerId = state.pathParameters['customerId'] ?? '';
           return ContactsPage(customerId: customerId);
         },
+      ),
+      GoRoute(
+        name: 'crm-tasks',
+        path: '/crm/tasks',
+        builder: (c, s) => const CrmTasksPage(),
+      ),
+      GoRoute(
+        name: 'crm-pipeline',
+        path: '/crm/pipeline',
+        builder: (c, s) => const PipelinePage(),
+      ),
+      GoRoute(
+        name: 'crm-dashboard',
+        path: '/crm/dashboard',
+        builder: (c, s) => const CrmDashboardPage(),
       ),
     ],
     errorBuilder: (context, state) {

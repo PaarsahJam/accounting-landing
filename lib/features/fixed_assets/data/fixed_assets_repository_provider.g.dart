@@ -55,4 +55,4 @@ final class FixedAssetsRepositoryProvider
 }
 
 String _$fixedAssetsRepositoryHash() =>
-    r'f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0';
+    r'3031a317320dd03493186b87fb80556ee1b1f5ef';

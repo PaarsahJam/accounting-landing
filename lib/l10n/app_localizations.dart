@@ -3770,6 +3770,22 @@ abstract class AppLocalizations {
   /// **'{author}'**
   String commentPostedBy(String author);
 
+  String get tasks;
+  String get noTasks;
+  String get newTask;
+  String get dueDate;
+  String get priority;
+  String get create;
+  String get cancel;
+  String get title;
+  String get description;
+  String get contactInfo;
+  String get auditTrailLabel;
+  String get pipeline;
+  String get crmDashboard;
+  String get newOpportunity;
+  String get noOpportunities;
+
   /// No description provided for @searchHint.
   ///
   /// In fa, this message translates to:

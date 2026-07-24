@@ -1889,6 +1889,37 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get tasks => 'Tasks';
+  @override
+  String get noTasks => 'No tasks';
+  @override
+  String get newTask => 'New Task';
+  @override
+  String get dueDate => 'Due date';
+  @override
+  String get priority => 'Priority';
+  @override
+  String get create => 'Create';
+  @override
+  String get cancel => 'Cancel';
+  @override
+  String get title => 'Title';
+  @override
+  String get description => 'Description';
+  @override
+  String get contactInfo => 'Contact Info';
+  @override
+  String get auditTrailLabel => 'Audit Trail';
+  @override
+  String get pipeline => 'Pipeline';
+  @override
+  String get crmDashboard => 'CRM Dashboard';
+  @override
+  String get newOpportunity => 'New Opportunity';
+  @override
+  String get noOpportunities => 'No opportunities';
+
+  @override
   String get searchHint => 'Search documents, names, SKUs…';
 
   @override

@@ -13,7 +13,11 @@ enum AuditEntityType {
   inventory,
   journalEntry,
   fiscalPeriod,
-  financialReport;
+  financialReport,
+  contact,
+  crmTask,
+  lead,
+  opportunity;
 
   /// Human-readable label for display.
   String get label {
@@ -42,6 +46,14 @@ enum AuditEntityType {
         return 'Fiscal Period';
       case AuditEntityType.financialReport:
         return 'Financial Report';
+      case AuditEntityType.contact:
+        return 'Contact';
+      case AuditEntityType.crmTask:
+        return 'CRM Task';
+      case AuditEntityType.lead:
+        return 'Lead';
+      case AuditEntityType.opportunity:
+        return 'Opportunity';
     }
   }
 }
