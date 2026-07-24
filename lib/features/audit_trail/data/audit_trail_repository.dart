@@ -8,13 +8,23 @@ import '../domain/audit_filter.dart';
 
 abstract class AuditTrailRepository {
   /// Returns all entries (newest first) optionally narrowed by [filter].
-  Future<AppResult<List<AuditEntry>>> fetchEntries({AuditFilter? filter});
+  Future<AppResult<List<AuditEntry>>> fetchEntries({
+    AuditFilter? filter,
+    String? companyId,
+  });
 
   /// Returns all entries for a single entity, newest first.
   Future<AppResult<List<AuditEntry>>> fetchEntriesForEntity(
     AuditEntityType entityType,
-    String entityId,
-  );
+    String entityId, {
+    String? companyId,
+  });
+
+  /// Returns all entries scoped to a company, newest first.
+  Future<AppResult<List<AuditEntry>>> fetchEntriesForCompany(
+    String companyId, {
+    AuditFilter? filter,
+  });
 
   /// Appends a new immutable [entry]. Returns the stored entry.
   Future<AppResult<AuditEntry>> addEntry(AuditEntry entry);
@@ -337,24 +347,46 @@ class MockAuditTrailRepository implements AuditTrailRepository {
   @override
   Future<AppResult<List<AuditEntry>>> fetchEntries({
     AuditFilter? filter,
+    String? companyId,
   }) async {
     await Future<void>.delayed(const Duration(milliseconds: 250));
-    final result = filter == null
-        ? List<AuditEntry>.from(_entries)
-        : _entries.where(filter.matches).toList();
+    Iterable<AuditEntry> result = List<AuditEntry>.from(_entries);
+    if (companyId != null) {
+      result = result.where((e) => e.companyId == companyId);
+    }
+    if (filter != null) {
+      result = result.where(filter.matches);
+    }
     return AppResult.success(List.unmodifiable(result));
   }
 
   @override
   Future<AppResult<List<AuditEntry>>> fetchEntriesForEntity(
     AuditEntityType entityType,
-    String entityId,
-  ) async {
+    String entityId, {
+    String? companyId,
+  }) async {
     await Future<void>.delayed(const Duration(milliseconds: 150));
-    final result = _entries
-        .where((e) => e.entityType == entityType && e.entityId == entityId)
-        .toList();
-    return AppResult.success(List.unmodifiable(result));
+    var result = _entries
+        .where((e) => e.entityType == entityType && e.entityId == entityId);
+    if (companyId != null) {
+      result = result.where((e) => e.companyId == companyId);
+    }
+    return AppResult.success(List.unmodifiable(result.toList()));
+  }
+
+  @override
+  Future<AppResult<List<AuditEntry>>> fetchEntriesForCompany(
+    String companyId, {
+    AuditFilter? filter,
+  }) async {
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    Iterable<AuditEntry> result =
+        _entries.where((e) => e.companyId == companyId);
+    if (filter != null) {
+      result = result.where(filter.matches);
+    }
+    return AppResult.success(List.unmodifiable(result.toList()));
   }
 
   @override

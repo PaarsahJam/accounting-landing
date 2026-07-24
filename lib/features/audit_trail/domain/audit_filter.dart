@@ -10,6 +10,7 @@ class AuditFilter {
     this.entityId,
     this.action,
     this.performedBy,
+    this.companyId,
     this.from,
     this.to,
   });
@@ -26,6 +27,9 @@ class AuditFilter {
   /// Restrict to a single performer. `null` = all performers.
   final String? performedBy;
 
+  /// Company/tenant scope. `null` = all companies.
+  final String? companyId;
+
   /// Start of date range (inclusive). `null` = no lower bound.
   final DateTime? from;
 
@@ -38,6 +42,7 @@ class AuditFilter {
     if (entityId != null && entry.entityId != entityId) return false;
     if (action != null && entry.action != action) return false;
     if (performedBy != null && entry.performedBy != performedBy) return false;
+    if (companyId != null && entry.companyId != companyId) return false;
     if (from != null && entry.performedAt.isBefore(from!)) return false;
     if (to != null && entry.performedAt.isAfter(to!)) return false;
     return true;
@@ -48,12 +53,14 @@ class AuditFilter {
     String? entityId,
     AuditAction? action,
     String? performedBy,
+    String? companyId,
     DateTime? from,
     DateTime? to,
     bool clearEntityType = false,
     bool clearEntityId = false,
     bool clearAction = false,
     bool clearPerformedBy = false,
+    bool clearCompanyId = false,
     bool clearFrom = false,
     bool clearTo = false,
   }) {
@@ -62,6 +69,7 @@ class AuditFilter {
       entityId: clearEntityId ? null : entityId ?? this.entityId,
       action: clearAction ? null : action ?? this.action,
       performedBy: clearPerformedBy ? null : performedBy ?? this.performedBy,
+      companyId: clearCompanyId ? null : companyId ?? this.companyId,
       from: clearFrom ? null : from ?? this.from,
       to: clearTo ? null : to ?? this.to,
     );
@@ -73,6 +81,7 @@ class AuditFilter {
       entityId == null &&
       action == null &&
       performedBy == null &&
+      companyId == null &&
       from == null &&
       to == null;
 }

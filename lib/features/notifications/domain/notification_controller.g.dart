@@ -106,4 +106,4 @@ final class UnreadNotificationCountProvider
 }
 
 String _$unreadNotificationCountHash() =>
-    r'b7e7c368201f36a2d2026ed6f27f9a1259afeb21';
+    r'61c498e4da9d450c5c0202ec52895a6de150f416';

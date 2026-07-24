@@ -15,6 +15,7 @@ class AuditEntry {
     required this.action,
     required this.performedAt,
     this.performedBy = 'system',
+    this.companyId,
     this.note,
     this.previousValue,
     this.newValue,
@@ -40,6 +41,9 @@ class AuditEntry {
 
   /// Who performed the action (user name / id, defaults to `"system"`).
   final String performedBy;
+
+  /// Company/tenant scope — which company this entry belongs to.
+  final String? companyId;
 
   /// Optional free-form note or comment attached to this entry.
   final String? note;

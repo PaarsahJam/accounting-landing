@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../core/company/company_controller.dart';
 import '../app/app.dart';
 
 class Bootstrap extends StatefulWidget {
@@ -19,8 +21,19 @@ class _BootstrapState extends State<Bootstrap> {
 
   Future<void> _init() async {
     WidgetsFlutterBinding.ensureInitialized();
+    // Trigger company loading before the app tree mounts
+    // so the router redirect guard has data on first frame.
+    final container = ProviderContainer();
+    container.read(companyListProvider);
+    container.dispose();
     await Future<void>.delayed(const Duration(milliseconds: 200));
+    if (!mounted) return;
     setState(() => _ready = true);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/company/company_controller.dart';
+import '../../core/company/presentation/company_selection_page.dart';
 import '../../features/auth/presentation/login_page.dart';
 import '../../features/auth/presentation/signup_page.dart';
 import '../../features/dashboard/presentation/dashboard_page.dart';
@@ -59,6 +61,7 @@ import '../../l10n/app_localizations.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final auth = ref.watch(authProvider);
+  final companyAsync = ref.watch(currentCompanyProvider);
 
   return GoRouter(
     initialLocation: '/dashboard',
@@ -72,9 +75,26 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           state.matchedLocation == '/signup';
       if (!isLoggedIn && !goingToLogin) return '/login';
       if (isLoggedIn && goingToLogin) return '/dashboard';
+
+      // Company selection guard – only when logged in
+      if (isLoggedIn) {
+        final hasCompany = companyAsync.maybeWhen(
+          data: (c) => c != null,
+          orElse: () => false,
+        );
+        final goingToCompanySelect =
+            state.matchedLocation == '/company/select';
+        if (!hasCompany && !goingToCompanySelect) return '/company/select';
+        if (hasCompany && goingToCompanySelect) return '/dashboard';
+      }
       return null;
     },
     routes: [
+      GoRoute(
+        name: 'company-select',
+        path: '/company/select',
+        builder: (c, s) => const CompanySelectionPage(),
+      ),
       GoRoute(
         name: 'login',
         path: '/login',
