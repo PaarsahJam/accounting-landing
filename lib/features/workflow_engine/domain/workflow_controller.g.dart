@@ -39,7 +39,7 @@ final class WorkflowInstanceControllerProvider
 }
 
 String _$workflowInstanceControllerHash() =>
-    r'8d28aa7b1a1e12c5c6e49f06636f895392ded4c1';
+    r'112a0373f856a6ed52093747034f83a0a1b35a98';
 
 abstract class _$WorkflowInstanceController
     extends $AsyncNotifier<List<WorkflowInstance>> {
