@@ -2188,97 +2188,141 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get fixedAssetsPageTitle => 'Fixed Assets';
+
   @override
   String get fixedAssetCreateTitle => 'New Fixed Asset';
+
   @override
   String get fixedAssetEditTitle => 'Edit Fixed Asset';
+
   @override
   String get fixedAssetsLoadError => 'Failed to load fixed assets:';
+
   @override
   String get fixedAssetsEmptyTitle => 'No fixed assets';
+
   @override
   String get fixedAssetsEmptyMessage =>
       'No fixed assets have been registered yet.';
+
   @override
   String get fixedAssetBadgeActive => 'ACTIVE';
+
   @override
   String get fixedAssetBadgeDisposed => 'DISPOSED';
+
   @override
   String get fixedAssetName => 'Asset Name';
+
   @override
   String get fixedAssetCategory => 'Category';
+
   @override
   String get fixedAssetPurchaseCost => 'Purchase Cost';
+
   @override
   String get fixedAssetSalvageValue => 'Salvage Value';
+
   @override
   String get fixedAssetUsefulLife => 'Useful Life (years)';
+
   @override
   String get fixedAssetDepreciationMethod => 'Depreciation Method';
+
   @override
   String get fixedAssetMethodStraightLine => 'Straight Line';
+
   @override
   String get fixedAssetMethodDecliningBalance => 'Declining Balance';
+
   @override
   String get fixedAssetNotes => 'Notes';
+
   @override
   String get fixedAssetBookValue => 'Book Value';
+
   @override
   String get fixedAssetAccumDepreciation => 'Accum. Depreciation';
+
   @override
   String get fixedAssetDispose => 'Dispose Asset';
+
   @override
   String get fixedAssetCalculateDepreciation => 'Apply Depreciation';
+
   @override
   String get fixedAssetViewSchedule => 'View Schedule';
+
   @override
   String get fixedAssetScheduleTitle => 'Depreciation Schedule';
+
   @override
   String get fixedAssetScheduleYear => 'Year';
+
   @override
   String get fixedAssetScheduleOpening => 'Opening';
+
   @override
   String get fixedAssetScheduleCharge => 'Charge';
+
   @override
   String get fixedAssetScheduleAccum => 'Accumulated';
+
   @override
   String get fixedAssetScheduleClosing => 'Closing';
+
   @override
   String get fixedAssetInvalidNumber => 'Enter a valid positive number';
+
   @override
   String get dashboardFixedAssets => 'Fixed Assets';
 
   @override
   String get importExportPageTitle => 'Import / Export';
+
   @override
   String get importExportSelectEntity => 'Select entity type';
+
   @override
   String get importExportExportBtn => 'Export CSV';
+
   @override
   String get importExportImportBtn => 'Import CSV';
+
   @override
   String get importExportRecentJobs => 'Recent jobs';
+
   @override
   String get importExportLoadError => 'Failed to load jobs:';
+
   @override
   String get importExportEmptyTitle => 'No jobs yet';
+
   @override
   String get importExportEmptyMessage =>
       'Run an export or import to see results here.';
+
   @override
   String get importExportRows => 'rows';
+
   @override
   String get importExportDirectionExport => 'EXPORT';
+
   @override
   String get importExportDirectionImport => 'IMPORT';
+
   @override
   String get importExportStatusSuccess => 'OK';
+
   @override
   String get importExportStatusFailed => 'FAILED';
+
   @override
   String get importExportPreviewBtn => 'Preview CSV';
+
   @override
   String get importExportPreviewTitle => 'CSV Preview';
+
   @override
   String get dashboardImportExport => 'Import / Export';
 }

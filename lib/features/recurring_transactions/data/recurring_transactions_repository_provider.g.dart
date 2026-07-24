@@ -58,4 +58,4 @@ final class RecurringTransactionsRepositoryProvider
 }
 
 String _$recurringTransactionsRepositoryHash() =>
-    r'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0';
+    r'e5323c78e03e965a7fb8e0e8fdd8c0740560706d';

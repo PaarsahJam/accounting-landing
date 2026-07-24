@@ -2181,96 +2181,140 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get fixedAssetsPageTitle => 'دارایی‌های ثابت';
+
   @override
   String get fixedAssetCreateTitle => 'دارایی ثابت جدید';
+
   @override
   String get fixedAssetEditTitle => 'ویرایش دارایی ثابت';
+
   @override
   String get fixedAssetsLoadError => 'خطا در بارگذاری دارایی‌های ثابت:';
+
   @override
   String get fixedAssetsEmptyTitle => 'دارایی ثابتی وجود ندارد';
+
   @override
   String get fixedAssetsEmptyMessage => 'هنوز هیچ دارایی ثابتی ثبت نشده است.';
+
   @override
   String get fixedAssetBadgeActive => 'فعال';
+
   @override
   String get fixedAssetBadgeDisposed => 'اسقاط';
+
   @override
   String get fixedAssetName => 'نام دارایی';
+
   @override
   String get fixedAssetCategory => 'دسته‌بندی';
+
   @override
   String get fixedAssetPurchaseCost => 'بهای تمام‌شده';
+
   @override
   String get fixedAssetSalvageValue => 'ارزش اسقاط';
+
   @override
   String get fixedAssetUsefulLife => 'عمر مفید (سال)';
+
   @override
   String get fixedAssetDepreciationMethod => 'روش استهلاک';
+
   @override
   String get fixedAssetMethodStraightLine => 'خط مستقیم';
+
   @override
   String get fixedAssetMethodDecliningBalance => 'نزولی';
+
   @override
   String get fixedAssetNotes => 'یادداشت';
+
   @override
   String get fixedAssetBookValue => 'ارزش دفتری';
+
   @override
   String get fixedAssetAccumDepreciation => 'استهلاک انباشته';
+
   @override
   String get fixedAssetDispose => 'اسقاط دارایی';
+
   @override
   String get fixedAssetCalculateDepreciation => 'اعمال استهلاک';
+
   @override
   String get fixedAssetViewSchedule => 'مشاهده جدول استهلاک';
+
   @override
   String get fixedAssetScheduleTitle => 'جدول استهلاک';
+
   @override
   String get fixedAssetScheduleYear => 'سال';
+
   @override
   String get fixedAssetScheduleOpening => 'افتتاحیه';
+
   @override
   String get fixedAssetScheduleCharge => 'هزینه';
+
   @override
   String get fixedAssetScheduleAccum => 'انباشته';
+
   @override
   String get fixedAssetScheduleClosing => 'اختتامیه';
+
   @override
   String get fixedAssetInvalidNumber => 'یک عدد مثبت معتبر وارد کنید';
+
   @override
   String get dashboardFixedAssets => 'دارایی‌های ثابت';
 
   @override
   String get importExportPageTitle => 'واردات / صادرات';
+
   @override
   String get importExportSelectEntity => 'انتخاب نوع موجودیت';
+
   @override
   String get importExportExportBtn => 'صادرات CSV';
+
   @override
   String get importExportImportBtn => 'واردات CSV';
+
   @override
   String get importExportRecentJobs => 'عملیات اخیر';
+
   @override
   String get importExportLoadError => 'خطا در بارگذاری عملیات:';
+
   @override
   String get importExportEmptyTitle => 'هیچ عملیاتی انجام نشده';
+
   @override
   String get importExportEmptyMessage =>
       'برای مشاهده نتایج، یک عملیات صادرات یا واردات انجام دهید.';
+
   @override
   String get importExportRows => 'سطر';
+
   @override
   String get importExportDirectionExport => 'صادرات';
+
   @override
   String get importExportDirectionImport => 'واردات';
+
   @override
   String get importExportStatusSuccess => 'موفق';
+
   @override
   String get importExportStatusFailed => 'ناموفق';
+
   @override
   String get importExportPreviewBtn => 'پیش‌نمایش CSV';
+
   @override
   String get importExportPreviewTitle => 'پیش‌نمایش CSV';
+
   @override
   String get dashboardImportExport => 'واردات / صادرات';
 }

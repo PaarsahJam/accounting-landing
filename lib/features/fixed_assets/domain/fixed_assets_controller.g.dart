@@ -34,7 +34,7 @@ final class FixedAssetsControllerProvider
 }
 
 String _$fixedAssetsControllerHash() =>
-    r'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0';
+    r'e062deb46b3d084cfa7bb1d14d2bbe48a02a87f5';
 
 abstract class _$FixedAssetsController
     extends $AsyncNotifier<List<FixedAsset>> {

@@ -35,6 +35,12 @@ dependencies:
   freezed_annotation: any
   json_annotation: any
 
+  # Database
+  drift: any
+  sqlite3_flutter_libs: any
+  path_provider: any
+  path: any
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -43,6 +49,7 @@ dev_dependencies:
   riverpod_generator: any
   freezed: any
   json_serializable: any
+  drift_dev: any
 
 flutter:
   generate: true

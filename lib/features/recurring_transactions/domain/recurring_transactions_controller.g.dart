@@ -39,7 +39,7 @@ final class RecurringTransactionsControllerProvider
 }
 
 String _$recurringTransactionsControllerHash() =>
-    r'b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0';
+    r'509667c6ecc37dd1f39e981a225dee244e4e314a';
 
 abstract class _$RecurringTransactionsController
     extends $AsyncNotifier<List<RecurringTransaction>> {
@@ -67,10 +67,6 @@ abstract class _$RecurringTransactionsController
     return element.handleCreate(ref, build);
   }
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// activeRecurringTransactions
-// ─────────────────────────────────────────────────────────────────────────────
 
 @ProviderFor(activeRecurringTransactions)
 final activeRecurringTransactionsProvider =
@@ -119,11 +115,7 @@ final class ActiveRecurringTransactionsProvider
 }
 
 String _$activeRecurringTransactionsHash() =>
-    r'c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1';
-
-// ─────────────────────────────────────────────────────────────────────────────
-// inactiveRecurringTransactions
-// ─────────────────────────────────────────────────────────────────────────────
+    r'fd99c60d109f3a1542d26889bc7d9dceb455d053';
 
 @ProviderFor(inactiveRecurringTransactions)
 final inactiveRecurringTransactionsProvider =
@@ -172,4 +164,4 @@ final class InactiveRecurringTransactionsProvider
 }
 
 String _$inactiveRecurringTransactionsHash() =>
-    r'd3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2';
+    r'5e1245b40e0ffe4ea5e5a64de8a84919666a4e43';

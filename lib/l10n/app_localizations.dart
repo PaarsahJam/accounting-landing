@@ -4340,52 +4340,280 @@ abstract class AppLocalizations {
   /// **'تراکنش‌های دوره‌ای'**
   String get dashboardRecurringTransactions;
 
+  /// No description provided for @fixedAssetsPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دارایی‌های ثابت'**
   String get fixedAssetsPageTitle;
+
+  /// No description provided for @fixedAssetCreateTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دارایی ثابت جدید'**
   String get fixedAssetCreateTitle;
+
+  /// No description provided for @fixedAssetEditTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش دارایی ثابت'**
   String get fixedAssetEditTitle;
+
+  /// No description provided for @fixedAssetsLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری دارایی‌های ثابت:'**
   String get fixedAssetsLoadError;
+
+  /// No description provided for @fixedAssetsEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دارایی ثابتی وجود ندارد'**
   String get fixedAssetsEmptyTitle;
+
+  /// No description provided for @fixedAssetsEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز هیچ دارایی ثابتی ثبت نشده است.'**
   String get fixedAssetsEmptyMessage;
+
+  /// No description provided for @fixedAssetBadgeActive.
+  ///
+  /// In fa, this message translates to:
+  /// **'فعال'**
   String get fixedAssetBadgeActive;
+
+  /// No description provided for @fixedAssetBadgeDisposed.
+  ///
+  /// In fa, this message translates to:
+  /// **'اسقاط'**
   String get fixedAssetBadgeDisposed;
+
+  /// No description provided for @fixedAssetName.
+  ///
+  /// In fa, this message translates to:
+  /// **'نام دارایی'**
   String get fixedAssetName;
+
+  /// No description provided for @fixedAssetCategory.
+  ///
+  /// In fa, this message translates to:
+  /// **'دسته‌بندی'**
   String get fixedAssetCategory;
+
+  /// No description provided for @fixedAssetPurchaseCost.
+  ///
+  /// In fa, this message translates to:
+  /// **'بهای تمام‌شده'**
   String get fixedAssetPurchaseCost;
+
+  /// No description provided for @fixedAssetSalvageValue.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارزش اسقاط'**
   String get fixedAssetSalvageValue;
+
+  /// No description provided for @fixedAssetUsefulLife.
+  ///
+  /// In fa, this message translates to:
+  /// **'عمر مفید (سال)'**
   String get fixedAssetUsefulLife;
+
+  /// No description provided for @fixedAssetDepreciationMethod.
+  ///
+  /// In fa, this message translates to:
+  /// **'روش استهلاک'**
   String get fixedAssetDepreciationMethod;
+
+  /// No description provided for @fixedAssetMethodStraightLine.
+  ///
+  /// In fa, this message translates to:
+  /// **'خط مستقیم'**
   String get fixedAssetMethodStraightLine;
+
+  /// No description provided for @fixedAssetMethodDecliningBalance.
+  ///
+  /// In fa, this message translates to:
+  /// **'نزولی'**
   String get fixedAssetMethodDecliningBalance;
+
+  /// No description provided for @fixedAssetNotes.
+  ///
+  /// In fa, this message translates to:
+  /// **'یادداشت'**
   String get fixedAssetNotes;
+
+  /// No description provided for @fixedAssetBookValue.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارزش دفتری'**
   String get fixedAssetBookValue;
+
+  /// No description provided for @fixedAssetAccumDepreciation.
+  ///
+  /// In fa, this message translates to:
+  /// **'استهلاک انباشته'**
   String get fixedAssetAccumDepreciation;
+
+  /// No description provided for @fixedAssetDispose.
+  ///
+  /// In fa, this message translates to:
+  /// **'اسقاط دارایی'**
   String get fixedAssetDispose;
+
+  /// No description provided for @fixedAssetCalculateDepreciation.
+  ///
+  /// In fa, this message translates to:
+  /// **'اعمال استهلاک'**
   String get fixedAssetCalculateDepreciation;
+
+  /// No description provided for @fixedAssetViewSchedule.
+  ///
+  /// In fa, this message translates to:
+  /// **'مشاهده جدول استهلاک'**
   String get fixedAssetViewSchedule;
+
+  /// No description provided for @fixedAssetScheduleTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'جدول استهلاک'**
   String get fixedAssetScheduleTitle;
+
+  /// No description provided for @fixedAssetScheduleYear.
+  ///
+  /// In fa, this message translates to:
+  /// **'سال'**
   String get fixedAssetScheduleYear;
+
+  /// No description provided for @fixedAssetScheduleOpening.
+  ///
+  /// In fa, this message translates to:
+  /// **'افتتاحیه'**
   String get fixedAssetScheduleOpening;
+
+  /// No description provided for @fixedAssetScheduleCharge.
+  ///
+  /// In fa, this message translates to:
+  /// **'هزینه'**
   String get fixedAssetScheduleCharge;
+
+  /// No description provided for @fixedAssetScheduleAccum.
+  ///
+  /// In fa, this message translates to:
+  /// **'انباشته'**
   String get fixedAssetScheduleAccum;
+
+  /// No description provided for @fixedAssetScheduleClosing.
+  ///
+  /// In fa, this message translates to:
+  /// **'اختتامیه'**
   String get fixedAssetScheduleClosing;
+
+  /// No description provided for @fixedAssetInvalidNumber.
+  ///
+  /// In fa, this message translates to:
+  /// **'یک عدد مثبت معتبر وارد کنید'**
   String get fixedAssetInvalidNumber;
+
+  /// No description provided for @dashboardFixedAssets.
+  ///
+  /// In fa, this message translates to:
+  /// **'دارایی‌های ثابت'**
   String get dashboardFixedAssets;
 
+  /// No description provided for @importExportPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'واردات / صادرات'**
   String get importExportPageTitle;
+
+  /// No description provided for @importExportSelectEntity.
+  ///
+  /// In fa, this message translates to:
+  /// **'انتخاب نوع موجودیت'**
   String get importExportSelectEntity;
+
+  /// No description provided for @importExportExportBtn.
+  ///
+  /// In fa, this message translates to:
+  /// **'صادرات CSV'**
   String get importExportExportBtn;
+
+  /// No description provided for @importExportImportBtn.
+  ///
+  /// In fa, this message translates to:
+  /// **'واردات CSV'**
   String get importExportImportBtn;
+
+  /// No description provided for @importExportRecentJobs.
+  ///
+  /// In fa, this message translates to:
+  /// **'عملیات اخیر'**
   String get importExportRecentJobs;
+
+  /// No description provided for @importExportLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری عملیات:'**
   String get importExportLoadError;
+
+  /// No description provided for @importExportEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ عملیاتی انجام نشده'**
   String get importExportEmptyTitle;
+
+  /// No description provided for @importExportEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'برای مشاهده نتایج، یک عملیات صادرات یا واردات انجام دهید.'**
   String get importExportEmptyMessage;
+
+  /// No description provided for @importExportRows.
+  ///
+  /// In fa, this message translates to:
+  /// **'سطر'**
   String get importExportRows;
+
+  /// No description provided for @importExportDirectionExport.
+  ///
+  /// In fa, this message translates to:
+  /// **'صادرات'**
   String get importExportDirectionExport;
+
+  /// No description provided for @importExportDirectionImport.
+  ///
+  /// In fa, this message translates to:
+  /// **'واردات'**
   String get importExportDirectionImport;
+
+  /// No description provided for @importExportStatusSuccess.
+  ///
+  /// In fa, this message translates to:
+  /// **'موفق'**
   String get importExportStatusSuccess;
+
+  /// No description provided for @importExportStatusFailed.
+  ///
+  /// In fa, this message translates to:
+  /// **'ناموفق'**
   String get importExportStatusFailed;
+
+  /// No description provided for @importExportPreviewBtn.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیش‌نمایش CSV'**
   String get importExportPreviewBtn;
+
+  /// No description provided for @importExportPreviewTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیش‌نمایش CSV'**
   String get importExportPreviewTitle;
+
+  /// No description provided for @dashboardImportExport.
+  ///
+  /// In fa, this message translates to:
+  /// **'واردات / صادرات'**
   String get dashboardImportExport;
 }
 

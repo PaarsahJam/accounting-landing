@@ -1,182 +1,277 @@
-# Accounting App — v1.0.0
+# Accounting App
 
-A production-ready, cross-platform accounting application built with Flutter.
-Supports Android, iOS, Web, Windows, macOS, and Linux from a single codebase.
+A production-ready, cross-platform accounting and business management application built with Flutter.
 
----
-
-## Features
-
-| Module | Description |
-|---|---|
-| **Dashboard** | Financial KPIs, charts, profit overview, recent activity, quick actions |
-| **Invoicing** | Create, edit, and delete invoices with status tracking |
-| **Sales Invoices** | Full sales invoice lifecycle with line items, tax, and approval workflow |
-| **Vendor Bills** | Vendor bill management with purchase-order linkage and goods-receipt matching |
-| **Customer Payments** | Record customer receipts with invoice allocation |
-| **Vendor Payments** | Record vendor disbursements with bill allocation |
-| **Customer Statements** | AR statements, invoice history, aging analysis |
-| **Vendor Statements** | AP statements, bill history, aging analysis |
-| **Purchase Orders** | Purchase order management with status workflow |
-| **General Ledger** | Chart of accounts, journal entries, trial balance |
-| **Journal Explorer** | Full general journal with search, filters, and drill-down |
-| **Journal Preview** | Document-level journal preview before posting |
-| **Financial Reports** | Trial balance, balance sheet, P&L, cash flow, AR/AP aging |
-| **Bank Accounts** | Bank account registry with transaction history |
-| **Bank Statements** | Import and manage bank statements |
-| **Bank Reconciliation** | Auto-match and manual reconciliation with finalization |
-| **Inventory** | Products, warehouses, stock-on-hand management |
-| **Stock Ledger** | Per-product movement history |
-| **Stock Adjustments** | Positive and negative stock adjustments |
-| **Inventory Valuation** | Average-cost valuation across warehouses |
-| **Stock Transfers** | Inter-warehouse stock transfers |
-| **Fixed Assets** | Asset registry, straight-line and declining-balance depreciation |
-| **Recurring Transactions** | Scheduled transaction templates with frequency settings |
-| **Multi-Currency** | ISO 4217 currency management, exchange rates, base-currency selection |
-| **Customers** | Customer directory with balance tracking |
-| **Vendors** | Vendor directory with contact and tax data |
-| **Tags** | Document tagging system |
-| **Attachments** | File attachment support on documents |
-| **Comments** | Internal notes and comments on documents |
-| **Audit Trail** | Immutable audit log for every state change |
-| **Document Numbering** | Sequential document numbering per entity type |
-| **Approval Workflow** | Document lifecycle: Draft → Pending → Approved → Posted → Locked |
-| **Fiscal Periods** | Fiscal year and period management with open/close operations |
-| **User Roles** | User management with role-based permission sets |
-| **Global Search** | Cross-entity full-text search |
-| **Import / Export** | CSV import and export for major entity types |
-| **Settings** | Application settings and navigation hub |
+The application is designed with a modular, scalable architecture and includes accounting, banking, inventory, purchasing, sales, reporting, localization, and administrative features. It targets desktop, web, and mobile platforms using a single Flutter codebase.
 
 ---
 
-## Tech Stack
+## Developer
 
-| Concern | Library |
-|---|---|
-| Framework | Flutter 3.44.4 / Dart 3.12.2 |
-| State management | Riverpod (riverpod_annotation + riverpod_generator) |
-| Navigation | go_router |
-| Localization | flutter_localizations + intl (EN + FA/RTL) |
-| Fonts | google_fonts (VazirMatn — supports Persian/RTL) |
-| HTTP client | dio |
-| Storage | flutter_secure_storage, flutter_dotenv |
-| Code generation | build_runner, freezed, json_serializable |
-| Testing | flutter_test |
+**Paarsah Soroury Jam**
+
+GitHub: https://github.com/PaarsahJam
 
 ---
 
-## Getting Started
+## Development Assistance
 
-### Prerequisites
+This project was developed with the assistance of AI tools for:
 
-- Flutter SDK ≥ 3.44 (`flutter --version`)
-- Dart SDK ≥ 3.12
+- Software architecture review
+- Code generation and refactoring
+- Debugging and issue resolution
+- Test generation
+- Documentation and release preparation
 
-### Install
+All architectural decisions, feature selection, project direction, and final review were performed by the project developer.
+
+---
+
+# Features
+
+### Accounting
+
+- Double-entry bookkeeping
+- Journal Entries
+- Chart of Accounts
+- General Ledger
+- Trial Balance
+- Fiscal Years & Periods
+
+### Sales
+
+- Customers
+- Quotations
+- Sales Orders
+- Delivery Notes
+- Sales Invoices
+- Customer Payments
+- Credit Notes
+
+### Purchasing
+
+- Vendors
+- Purchase Orders
+- Goods Receipts
+- Vendor Bills
+- Vendor Payments
+
+### Banking
+
+- Bank Accounts
+- Bank Transactions
+- Bank Reconciliation
+
+### Inventory
+
+- Products
+- Warehouses
+- Stock Ledger
+- Inventory Valuation
+- Stock Adjustments
+- Stock Transfers
+
+### Financial Management
+
+- Budgeting
+- Financial Reports
+- Dashboard Metrics
+- Recurring Transactions
+- Fixed Assets & Depreciation
+- Multi-Currency
+
+### Productivity
+
+- Global Search
+- Tags & Labels
+- Comments & Internal Notes
+- Document Attachments
+- Import / Export (CSV)
+
+### Administration
+
+- User Roles & Permissions
+- Audit Trail
+- Localization (English & Persian)
+- Responsive UI
+- RTL Support
+
+---
+
+# Technology Stack
+
+- Flutter
+- Dart
+- Riverpod
+- Riverpod Generator
+- GoRouter
+- Material Design 3
+- Intl Localization
+- Flutter Localizations
+
+---
+
+# Architecture
+
+The application follows a clean feature-based architecture.
+
+```
+lib/
+ ├── app/
+ ├── core/
+ ├── features/
+ │     ├── accounting/
+ │     ├── banking/
+ │     ├── inventory/
+ │     ├── reporting/
+ │     ├── ...
+ └── l10n/
+```
+
+Each feature follows the same structure:
+
+```
+feature/
+ ├── data/
+ ├── domain/
+ └── presentation/
+```
+
+State management is implemented using Riverpod with generated providers.
+
+Repositories are abstracted behind interfaces with mock implementations to allow testing without external services.
+
+---
+
+# Getting Started
+
+## Requirements
+
+- Flutter Stable
+- Dart SDK
+- Git
+
+## Clone the repository
+
+```bash
+git clone https://github.com/PaarsahJam/accounting-app.git
+```
+
+## Install packages
 
 ```bash
 flutter pub get
-flutter gen-l10n
-dart run build_runner build --delete-conflicting-outputs
 ```
 
-### Run
+## Generate code
 
 ```bash
-flutter run -d chrome          # web
-flutter run -d windows         # desktop
-flutter run                    # connected device
+dart run build_runner build
 ```
 
-### Test
+## Generate localization
+
+```bash
+flutter gen-l10n
+```
+
+## Run the application
+
+```bash
+flutter run
+```
+
+---
+
+# Testing
+
+Run all tests:
 
 ```bash
 flutter test
 ```
 
-### Analyze
+Analyze the project:
 
 ```bash
 flutter analyze
-dart format .
 ```
 
 ---
 
-## Project Structure
+# Localization
 
-```
-lib/
-├── app/                    # App bootstrap, MaterialApp wiring
-├── core/
-│   ├── errors/             # AppResult, AppFailure
-│   ├── finance/            # Finance engine (immutable, no side effects)
-│   ├── logging/            # AppLogger
-│   ├── router/             # GoRouter configuration (35+ routes)
-│   └── theme/              # AppTheme (light + dark, Material 3)
-├── features/               # 36 feature modules
-│   └── <feature>/
-│       ├── data/           # Repository + Riverpod provider
-│       ├── domain/         # Models, controllers (.dart + .g.dart)
-│       └── presentation/   # Pages and feature widgets
-├── l10n/                   # ARB files + generated localization
-│   ├── app_en.arb          # English strings (763 keys)
-│   ├── app_fa.arb          # Farsi/Persian strings (763 keys)
-│   └── app_localizations*.dart
-├── modules/                # Cross-cutting modules
-└── shared/
-    └── widgets/            # AppLoadingState, AppErrorState, AppEmptyState,
-                            # ResponsivePageScaffold, SectionHeader, …
-```
+The application currently supports:
+
+- 🇺🇸 English
+- 🇮🇷 Persian (RTL)
+
+Localization is powered by Flutter's internationalization system using ARB files.
 
 ---
 
-## Architecture
+# Project Status
 
-The application follows a **feature-first, clean-layered** architecture:
+**Version:** **v1.0.0**
 
-```
-Page → Controller (Riverpod AsyncNotifier) → Repository → Domain Model
-                                           → AppResult<T>
-```
+Current status:
 
-- **Domain models** are plain Dart classes with `copyWith`, `==`, `hashCode`.
-- **Repositories** expose typed async operations returning `AppResult<T>`.
-- **Controllers** are Riverpod `@riverpod` async notifiers that load, mutate, and invalidate state.
-- **Pages** consume providers with `.when(loading, error, data)`.
-- All implementations are **mock-only** — no network calls in v1.0.
-- **Audit Trail** entries are created by repositories for every significant mutation.
-
-See [`docs/architecture.md`](docs/architecture.md) for the full architecture guide.
+- Production-ready architecture
+- 37 implemented feature modules
+- 675 automated tests passing
+- Responsive desktop and mobile layouts
+- Full RTL support
+- Mock repositories for demonstration and development
 
 ---
 
-## Localization
+# Roadmap
 
-The app defaults to **Farsi (RTL)** and also supports English.
+## Version 1.0
 
-To add a string: edit both `lib/l10n/app_en.arb` and `lib/l10n/app_fa.arb`,
-then run `flutter gen-l10n`.
+- ✅ Core accounting
+- ✅ Sales
+- ✅ Purchasing
+- ✅ Inventory
+- ✅ Banking
+- ✅ Financial Reporting
+- ✅ User Permissions
+- ✅ Multi-Currency
+- ✅ Fixed Assets
+- ✅ Recurring Transactions
+- ✅ Import / Export
+- ✅ Dashboard
+- ✅ Global Search
+
+## Planned for Version 2
+
+Potential future enhancements include:
+
+- CRM
+- Workflow Engine
+- REST API
+- Multi-company support
+- Notifications
+- Backup & Restore
+- Offline Synchronization
+- Plugin Architecture
+- AI-powered assistants
 
 ---
 
-## Screenshots
+# Contributing
 
-> Screenshots will be added after first device build.
-
----
-
-## Known Limitations (v1.0)
-
-- All data is mock in-memory — no persistence between sessions.
-- No real authentication — login accepts any credentials.
-- No network calls — all repositories use `MockXxx` implementations.
-- No push notifications.
-- No PDF generation.
-- No real file I/O for import/export — CSV is simulated.
+This project is currently maintained by the developer and is not accepting external contributions at this time.
 
 ---
 
-## License
+# License
 
-Private — all rights reserved.
+Copyright © 2026 **Paarsah Soroury Jam**
+
+All rights reserved.
+
+This software and its source code are the intellectual property of the copyright holder.
+
+No part of this software may be copied, modified, distributed, published, or used for commercial purposes without prior written permission from the copyright holder.
