@@ -17,7 +17,10 @@ enum AuditEntityType {
   contact,
   crmTask,
   lead,
-  opportunity;
+  opportunity,
+
+  /// Sync / offline operation metadata.
+  syncOperation;
 
   /// Human-readable label for display.
   String get label {
@@ -54,6 +57,8 @@ enum AuditEntityType {
         return 'Lead';
       case AuditEntityType.opportunity:
         return 'Opportunity';
+      case AuditEntityType.syncOperation:
+        return 'Sync Operation';
     }
   }
 }

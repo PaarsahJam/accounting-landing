@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Customer {
 
- String get id; String get name; String get company; String get email; String get phone; double get outstandingBalance; String get status; String get notes;
+ String get id; String get name; String get company; String get email; String get phone; double get outstandingBalance; String get status; String get notes; int get version;
 /// Create a copy of Customer
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $CustomerCopyWith<Customer> get copyWith => _$CustomerCopyWithImpl<Customer>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Customer&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.company, company) || other.company == company)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.outstandingBalance, outstandingBalance) || other.outstandingBalance == outstandingBalance)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Customer&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.company, company) || other.company == company)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.outstandingBalance, outstandingBalance) || other.outstandingBalance == outstandingBalance)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.version, version) || other.version == version));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,company,email,phone,outstandingBalance,status,notes);
+int get hashCode => Object.hash(runtimeType,id,name,company,email,phone,outstandingBalance,status,notes,version);
 
 @override
 String toString() {
-  return 'Customer(id: $id, name: $name, company: $company, email: $email, phone: $phone, outstandingBalance: $outstandingBalance, status: $status, notes: $notes)';
+  return 'Customer(id: $id, name: $name, company: $company, email: $email, phone: $phone, outstandingBalance: $outstandingBalance, status: $status, notes: $notes, version: $version)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $CustomerCopyWith<$Res>  {
   factory $CustomerCopyWith(Customer value, $Res Function(Customer) _then) = _$CustomerCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String company, String email, String phone, double outstandingBalance, String status, String notes
+ String id, String name, String company, String email, String phone, double outstandingBalance, String status, String notes, int version
 });
 
 
@@ -62,7 +62,7 @@ class _$CustomerCopyWithImpl<$Res>
 
 /// Create a copy of Customer
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? company = null,Object? email = null,Object? phone = null,Object? outstandingBalance = null,Object? status = null,Object? notes = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? company = null,Object? email = null,Object? phone = null,Object? outstandingBalance = null,Object? status = null,Object? notes = null,Object? version = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -72,7 +72,8 @@ as String,phone: null == phone ? _self.phone : phone // ignore: cast_nullable_to
 as String,outstandingBalance: null == outstandingBalance ? _self.outstandingBalance : outstandingBalance // ignore: cast_nullable_to_non_nullable
 as double,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
-as String,
+as String,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 
@@ -157,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String company,  String email,  String phone,  double outstandingBalance,  String status,  String notes)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String company,  String email,  String phone,  double outstandingBalance,  String status,  String notes,  int version)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Customer() when $default != null:
-return $default(_that.id,_that.name,_that.company,_that.email,_that.phone,_that.outstandingBalance,_that.status,_that.notes);case _:
+return $default(_that.id,_that.name,_that.company,_that.email,_that.phone,_that.outstandingBalance,_that.status,_that.notes,_that.version);case _:
   return orElse();
 
 }
@@ -178,10 +179,10 @@ return $default(_that.id,_that.name,_that.company,_that.email,_that.phone,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String company,  String email,  String phone,  double outstandingBalance,  String status,  String notes)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String company,  String email,  String phone,  double outstandingBalance,  String status,  String notes,  int version)  $default,) {final _that = this;
 switch (_that) {
 case _Customer():
-return $default(_that.id,_that.name,_that.company,_that.email,_that.phone,_that.outstandingBalance,_that.status,_that.notes);case _:
+return $default(_that.id,_that.name,_that.company,_that.email,_that.phone,_that.outstandingBalance,_that.status,_that.notes,_that.version);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +199,10 @@ return $default(_that.id,_that.name,_that.company,_that.email,_that.phone,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String company,  String email,  String phone,  double outstandingBalance,  String status,  String notes)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String company,  String email,  String phone,  double outstandingBalance,  String status,  String notes,  int version)?  $default,) {final _that = this;
 switch (_that) {
 case _Customer() when $default != null:
-return $default(_that.id,_that.name,_that.company,_that.email,_that.phone,_that.outstandingBalance,_that.status,_that.notes);case _:
+return $default(_that.id,_that.name,_that.company,_that.email,_that.phone,_that.outstandingBalance,_that.status,_that.notes,_that.version);case _:
   return null;
 
 }
@@ -213,7 +214,7 @@ return $default(_that.id,_that.name,_that.company,_that.email,_that.phone,_that.
 
 
 class _Customer implements Customer {
-  const _Customer({required this.id, required this.name, required this.company, required this.email, required this.phone, required this.outstandingBalance, required this.status, required this.notes});
+  const _Customer({required this.id, required this.name, required this.company, required this.email, required this.phone, required this.outstandingBalance, required this.status, required this.notes, this.version = 1});
   
 
 @override final  String id;
@@ -224,6 +225,7 @@ class _Customer implements Customer {
 @override final  double outstandingBalance;
 @override final  String status;
 @override final  String notes;
+@override@JsonKey() final  int version;
 
 /// Create a copy of Customer
 /// with the given fields replaced by the non-null parameter values.
@@ -235,16 +237,16 @@ _$CustomerCopyWith<_Customer> get copyWith => __$CustomerCopyWithImpl<_Customer>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Customer&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.company, company) || other.company == company)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.outstandingBalance, outstandingBalance) || other.outstandingBalance == outstandingBalance)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Customer&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.company, company) || other.company == company)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.outstandingBalance, outstandingBalance) || other.outstandingBalance == outstandingBalance)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.version, version) || other.version == version));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,company,email,phone,outstandingBalance,status,notes);
+int get hashCode => Object.hash(runtimeType,id,name,company,email,phone,outstandingBalance,status,notes,version);
 
 @override
 String toString() {
-  return 'Customer(id: $id, name: $name, company: $company, email: $email, phone: $phone, outstandingBalance: $outstandingBalance, status: $status, notes: $notes)';
+  return 'Customer(id: $id, name: $name, company: $company, email: $email, phone: $phone, outstandingBalance: $outstandingBalance, status: $status, notes: $notes, version: $version)';
 }
 
 
@@ -255,7 +257,7 @@ abstract mixin class _$CustomerCopyWith<$Res> implements $CustomerCopyWith<$Res>
   factory _$CustomerCopyWith(_Customer value, $Res Function(_Customer) _then) = __$CustomerCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String company, String email, String phone, double outstandingBalance, String status, String notes
+ String id, String name, String company, String email, String phone, double outstandingBalance, String status, String notes, int version
 });
 
 
@@ -272,7 +274,7 @@ class __$CustomerCopyWithImpl<$Res>
 
 /// Create a copy of Customer
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? company = null,Object? email = null,Object? phone = null,Object? outstandingBalance = null,Object? status = null,Object? notes = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? company = null,Object? email = null,Object? phone = null,Object? outstandingBalance = null,Object? status = null,Object? notes = null,Object? version = null,}) {
   return _then(_Customer(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -282,7 +284,8 @@ as String,phone: null == phone ? _self.phone : phone // ignore: cast_nullable_to
 as String,outstandingBalance: null == outstandingBalance ? _self.outstandingBalance : outstandingBalance // ignore: cast_nullable_to_non_nullable
 as double,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
-as String,
+as String,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 

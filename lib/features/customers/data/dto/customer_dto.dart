@@ -13,6 +13,7 @@ class CustomerDto {
     @JsonKey(name: 'outstanding_balance') required this.outstandingBalance,
     required this.status,
     required this.notes,
+    @JsonKey(defaultValue: 1) this.version = 1,
   });
 
   factory CustomerDto.fromJson(Map<String, dynamic> json) =>
@@ -29,6 +30,9 @@ class CustomerDto {
 
   final String status;
   final String notes;
+
+  @JsonKey(defaultValue: 1)
+  final int version;
 
   Map<String, dynamic> toJson() => _$CustomerDtoToJson(this);
 }

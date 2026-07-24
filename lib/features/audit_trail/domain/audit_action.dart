@@ -42,7 +42,13 @@ enum AuditAction {
 
   // ── Fiscal ─────────────────────────────────────────────────────────────────
   periodOpened,
-  periodClosed;
+  periodClosed,
+
+  // ── Sync / Offline ─────────────────────────────────────────────────────────
+  syncEnqueued,
+  syncCompleted,
+  syncFailed,
+  syncConflictResolved;
 
   /// Short display label.
   String get label {
@@ -99,6 +105,14 @@ enum AuditAction {
         return 'Period Opened';
       case AuditAction.periodClosed:
         return 'Period Closed';
+      case AuditAction.syncEnqueued:
+        return 'Sync Enqueued';
+      case AuditAction.syncCompleted:
+        return 'Sync Completed';
+      case AuditAction.syncFailed:
+        return 'Sync Failed';
+      case AuditAction.syncConflictResolved:
+        return 'Sync Conflict Resolved';
     }
   }
 }

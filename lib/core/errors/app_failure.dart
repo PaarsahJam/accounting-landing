@@ -22,3 +22,9 @@ class StorageFailure extends AppFailure {
 class UnknownFailure extends AppFailure {
   const UnknownFailure({required String message}) : super(message);
 }
+
+class SyncFailure extends AppFailure {
+  const SyncFailure({required String message, this.conflictingVersion})
+      : super(message);
+  final int? conflictingVersion;
+}

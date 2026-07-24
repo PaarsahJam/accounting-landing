@@ -13,5 +13,6 @@ abstract class Customer with _$Customer {
     required double outstandingBalance,
     required String status,
     required String notes,
+    @Default(1) int version,
   }) = _Customer;
 }

@@ -15,6 +15,7 @@ CustomerDto _$CustomerDtoFromJson(Map<String, dynamic> json) => CustomerDto(
   outstandingBalance: (json['outstanding_balance'] as num).toDouble(),
   status: json['status'] as String,
   notes: json['notes'] as String,
+  version: (json['version'] as num?)?.toInt() ?? 1,
 );
 
 Map<String, dynamic> _$CustomerDtoToJson(CustomerDto instance) =>
@@ -27,4 +28,5 @@ Map<String, dynamic> _$CustomerDtoToJson(CustomerDto instance) =>
       'outstanding_balance': instance.outstandingBalance,
       'status': instance.status,
       'notes': instance.notes,
+      'version': instance.version,
     };

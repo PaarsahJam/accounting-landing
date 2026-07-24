@@ -20,6 +20,7 @@ class MockCustomerRepository implements CustomerRepository {
       outstandingBalance: 2450000,
       status: 'Active',
       notes: 'Preferred for monthly invoicing',
+      version: 1,
     ),
     const Customer(
       id: 'CUST-1002',
@@ -30,6 +31,7 @@ class MockCustomerRepository implements CustomerRepository {
       outstandingBalance: 860000,
       status: 'Pending',
       notes: 'Settlement expected next week',
+      version: 1,
     ),
   ];
 

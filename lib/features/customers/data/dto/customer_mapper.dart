@@ -11,6 +11,7 @@ extension CustomerDtoMapping on CustomerDto {
         outstandingBalance: outstandingBalance,
         status: status,
         notes: notes,
+        version: version,
       );
 }
 
@@ -24,5 +25,6 @@ extension CustomerMapping on Customer {
         outstandingBalance: outstandingBalance,
         status: status,
         notes: notes,
+        version: version,
       );
 }

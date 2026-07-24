@@ -139,6 +139,11 @@ class AuditEntryTile extends StatelessWidget {
       case AuditAction.addressChanged:
       case AuditAction.contactChanged:
         return Colors.cyan.shade700;
+      case AuditAction.syncEnqueued:
+      case AuditAction.syncCompleted:
+      case AuditAction.syncFailed:
+      case AuditAction.syncConflictResolved:
+        return Colors.grey;
     }
   }
 
@@ -196,6 +201,14 @@ class AuditEntryTile extends StatelessWidget {
         return Icons.calendar_today_outlined;
       case AuditAction.periodClosed:
         return Icons.event_busy_outlined;
+      case AuditAction.syncEnqueued:
+        return Icons.cloud_upload_outlined;
+      case AuditAction.syncCompleted:
+        return Icons.cloud_done_outlined;
+      case AuditAction.syncFailed:
+        return Icons.cloud_off_outlined;
+      case AuditAction.syncConflictResolved:
+        return Icons.sync_disabled_outlined;
     }
   }
 }
