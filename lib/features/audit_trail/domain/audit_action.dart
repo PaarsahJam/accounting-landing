@@ -48,7 +48,10 @@ enum AuditAction {
   syncEnqueued,
   syncCompleted,
   syncFailed,
-  syncConflictResolved;
+  syncConflictResolved,
+
+  // ── AI Assistant ────────────────────────────────────────────────────────────
+  aiActionGenerated;
 
   /// Short display label.
   String get label {
@@ -113,6 +116,8 @@ enum AuditAction {
         return 'Sync Failed';
       case AuditAction.syncConflictResolved:
         return 'Sync Conflict Resolved';
+      case AuditAction.aiActionGenerated:
+        return 'AI Action Generated';
     }
   }
 }

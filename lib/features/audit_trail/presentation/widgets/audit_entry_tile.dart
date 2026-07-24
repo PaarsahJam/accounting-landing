@@ -144,6 +144,8 @@ class AuditEntryTile extends StatelessWidget {
       case AuditAction.syncFailed:
       case AuditAction.syncConflictResolved:
         return Colors.grey;
+      case AuditAction.aiActionGenerated:
+        return Colors.blueGrey;
     }
   }
 
@@ -209,6 +211,8 @@ class AuditEntryTile extends StatelessWidget {
         return Icons.cloud_off_outlined;
       case AuditAction.syncConflictResolved:
         return Icons.sync_disabled_outlined;
+      case AuditAction.aiActionGenerated:
+        return Icons.auto_awesome_outlined;
     }
   }
 }

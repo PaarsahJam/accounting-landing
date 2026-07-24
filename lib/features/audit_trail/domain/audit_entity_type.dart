@@ -20,7 +20,10 @@ enum AuditEntityType {
   opportunity,
 
   /// Sync / offline operation metadata.
-  syncOperation;
+  syncOperation,
+
+  /// AI assistant generated suggestions.
+  aiAssistant;
 
   /// Human-readable label for display.
   String get label {
@@ -59,6 +62,8 @@ enum AuditEntityType {
         return 'Opportunity';
       case AuditEntityType.syncOperation:
         return 'Sync Operation';
+      case AuditEntityType.aiAssistant:
+        return 'AI Assistant';
     }
   }
 }
