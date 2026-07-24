@@ -2317,4 +2317,122 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get dashboardImportExport => 'واردات / صادرات';
+
+  @override
+  String get crmDashboard => 'داشبورد CRM';
+
+  @override
+  String get pipeline => 'خط فروش';
+
+  @override
+  String get newOpportunity => 'فرصت جدید';
+
+  @override
+  String get noOpportunities => 'هنوز فرصتی ثبت نشده';
+
+  @override
+  String get tasks => 'وظایف';
+
+  @override
+  String get newTask => 'وظیفه جدید';
+
+  @override
+  String get noTasks => 'هنوز وظیفهای ثبت نشده';
+
+  @override
+  String get title => 'عنوان';
+
+  @override
+  String get description => 'توضیحات';
+
+  @override
+  String get dueDate => 'تاریخ سررسید';
+
+  @override
+  String get priority => 'اولویت';
+
+  @override
+  String get cancel => 'انصراف';
+
+  @override
+  String get create => 'ایجاد';
+
+  @override
+  String get saveButton => 'ذخیره';
+
+  @override
+  String get contactsPageTitle => 'مخاطبان';
+
+  @override
+  String get contactsLoadError => 'خطا در بارگذاری مخاطبان:';
+
+  @override
+  String get contactsEmptyTitle => 'هنوز مخاطبی ثبت نشده';
+
+  @override
+  String get contactsEmptyMessage => 'هنوز هیچ مخاطبی اضافه نشده است.';
+
+  @override
+  String get contactCreateTitle => 'افزودن مخاطب';
+
+  @override
+  String get contactEditTitle => 'ویرایش مخاطب';
+
+  @override
+  String get contactDeleteTitle => 'حذف مخاطب';
+
+  @override
+  String get contactFirstName => 'نام';
+
+  @override
+  String get contactLastName => 'نام خانوادگی';
+
+  @override
+  String get contactEmail => 'ایمیل';
+
+  @override
+  String get contactPhone => 'تلفن';
+
+  @override
+  String get contactJobTitle => 'عنوان شغلی';
+
+  @override
+  String get contactDepartment => 'بخش';
+
+  @override
+  String get contactPrimary => 'مخاطب اصلی';
+
+  @override
+  String get contactPrimaryLabel => 'اصلی';
+
+  @override
+  String get contactNotes => 'یادداشت';
+
+  @override
+  String get interactionsSectionTitle => 'تعاملات';
+
+  @override
+  String get interactionAddTitle => 'افزودن تعامل';
+
+  @override
+  String get interactionType => 'نوع';
+
+  @override
+  String get interactionSubject => 'موضوع';
+
+  @override
+  String get interactionDescription => 'توضیحات';
+
+  @override
+  String get interactionAdd => 'افزودن';
+
+  @override
+  String get interactionsLoadError => 'خطا در بارگذاری تعاملات:';
+
+  @override
+  String get interactionsEmptyTitle => 'هنوز تعاملی ثبت نشده';
+
+  @override
+  String get interactionsEmptyMessage =>
+      'هیچ تعاملی برای این مخاطب ثبت نشده است.';
 }

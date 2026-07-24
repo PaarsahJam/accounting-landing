@@ -4615,6 +4615,240 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'واردات / صادرات'**
   String get dashboardImportExport;
+
+  /// No description provided for @crmDashboard.
+  ///
+  /// In fa, this message translates to:
+  /// **'داشبورد CRM'**
+  String get crmDashboard;
+
+  /// No description provided for @pipeline.
+  ///
+  /// In fa, this message translates to:
+  /// **'خط فروش'**
+  String get pipeline;
+
+  /// No description provided for @newOpportunity.
+  ///
+  /// In fa, this message translates to:
+  /// **'فرصت جدید'**
+  String get newOpportunity;
+
+  /// No description provided for @noOpportunities.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز فرصتی ثبت نشده'**
+  String get noOpportunities;
+
+  /// No description provided for @tasks.
+  ///
+  /// In fa, this message translates to:
+  /// **'وظایف'**
+  String get tasks;
+
+  /// No description provided for @newTask.
+  ///
+  /// In fa, this message translates to:
+  /// **'وظیفه جدید'**
+  String get newTask;
+
+  /// No description provided for @noTasks.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز وظیفهای ثبت نشده'**
+  String get noTasks;
+
+  /// No description provided for @title.
+  ///
+  /// In fa, this message translates to:
+  /// **'عنوان'**
+  String get title;
+
+  /// No description provided for @description.
+  ///
+  /// In fa, this message translates to:
+  /// **'توضیحات'**
+  String get description;
+
+  /// No description provided for @dueDate.
+  ///
+  /// In fa, this message translates to:
+  /// **'تاریخ سررسید'**
+  String get dueDate;
+
+  /// No description provided for @priority.
+  ///
+  /// In fa, this message translates to:
+  /// **'اولویت'**
+  String get priority;
+
+  /// No description provided for @cancel.
+  ///
+  /// In fa, this message translates to:
+  /// **'انصراف'**
+  String get cancel;
+
+  /// No description provided for @create.
+  ///
+  /// In fa, this message translates to:
+  /// **'ایجاد'**
+  String get create;
+
+  /// No description provided for @saveButton.
+  ///
+  /// In fa, this message translates to:
+  /// **'ذخیره'**
+  String get saveButton;
+
+  /// No description provided for @contactsPageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'مخاطبان'**
+  String get contactsPageTitle;
+
+  /// No description provided for @contactsLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری مخاطبان:'**
+  String get contactsLoadError;
+
+  /// No description provided for @contactsEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز مخاطبی ثبت نشده'**
+  String get contactsEmptyTitle;
+
+  /// No description provided for @contactsEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز هیچ مخاطبی اضافه نشده است.'**
+  String get contactsEmptyMessage;
+
+  /// No description provided for @contactCreateTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'افزودن مخاطب'**
+  String get contactCreateTitle;
+
+  /// No description provided for @contactEditTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش مخاطب'**
+  String get contactEditTitle;
+
+  /// No description provided for @contactDeleteTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'حذف مخاطب'**
+  String get contactDeleteTitle;
+
+  /// No description provided for @contactFirstName.
+  ///
+  /// In fa, this message translates to:
+  /// **'نام'**
+  String get contactFirstName;
+
+  /// No description provided for @contactLastName.
+  ///
+  /// In fa, this message translates to:
+  /// **'نام خانوادگی'**
+  String get contactLastName;
+
+  /// No description provided for @contactEmail.
+  ///
+  /// In fa, this message translates to:
+  /// **'ایمیل'**
+  String get contactEmail;
+
+  /// No description provided for @contactPhone.
+  ///
+  /// In fa, this message translates to:
+  /// **'تلفن'**
+  String get contactPhone;
+
+  /// No description provided for @contactJobTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'عنوان شغلی'**
+  String get contactJobTitle;
+
+  /// No description provided for @contactDepartment.
+  ///
+  /// In fa, this message translates to:
+  /// **'بخش'**
+  String get contactDepartment;
+
+  /// No description provided for @contactPrimary.
+  ///
+  /// In fa, this message translates to:
+  /// **'مخاطب اصلی'**
+  String get contactPrimary;
+
+  /// No description provided for @contactPrimaryLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'اصلی'**
+  String get contactPrimaryLabel;
+
+  /// No description provided for @contactNotes.
+  ///
+  /// In fa, this message translates to:
+  /// **'یادداشت'**
+  String get contactNotes;
+
+  /// No description provided for @interactionsSectionTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تعاملات'**
+  String get interactionsSectionTitle;
+
+  /// No description provided for @interactionAddTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'افزودن تعامل'**
+  String get interactionAddTitle;
+
+  /// No description provided for @interactionType.
+  ///
+  /// In fa, this message translates to:
+  /// **'نوع'**
+  String get interactionType;
+
+  /// No description provided for @interactionSubject.
+  ///
+  /// In fa, this message translates to:
+  /// **'موضوع'**
+  String get interactionSubject;
+
+  /// No description provided for @interactionDescription.
+  ///
+  /// In fa, this message translates to:
+  /// **'توضیحات'**
+  String get interactionDescription;
+
+  /// No description provided for @interactionAdd.
+  ///
+  /// In fa, this message translates to:
+  /// **'افزودن'**
+  String get interactionAdd;
+
+  /// No description provided for @interactionsLoadError.
+  ///
+  /// In fa, this message translates to:
+  /// **'خطا در بارگذاری تعاملات:'**
+  String get interactionsLoadError;
+
+  /// No description provided for @interactionsEmptyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز تعاملی ثبت نشده'**
+  String get interactionsEmptyTitle;
+
+  /// No description provided for @interactionsEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'هیچ تعاملی برای این مخاطب ثبت نشده است.'**
+  String get interactionsEmptyMessage;
 }
 
 class _AppLocalizationsDelegate

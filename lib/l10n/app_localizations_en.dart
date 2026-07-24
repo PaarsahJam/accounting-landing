@@ -2325,4 +2325,122 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dashboardImportExport => 'Import / Export';
+
+  @override
+  String get crmDashboard => 'CRM Dashboard';
+
+  @override
+  String get pipeline => 'Pipeline';
+
+  @override
+  String get newOpportunity => 'New Opportunity';
+
+  @override
+  String get noOpportunities => 'No opportunities yet';
+
+  @override
+  String get tasks => 'Tasks';
+
+  @override
+  String get newTask => 'New Task';
+
+  @override
+  String get noTasks => 'No tasks yet';
+
+  @override
+  String get title => 'Title';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get dueDate => 'Due Date';
+
+  @override
+  String get priority => 'Priority';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get create => 'Create';
+
+  @override
+  String get saveButton => 'Save';
+
+  @override
+  String get contactsPageTitle => 'Contacts';
+
+  @override
+  String get contactsLoadError => 'Error loading contacts:';
+
+  @override
+  String get contactsEmptyTitle => 'No contacts yet';
+
+  @override
+  String get contactsEmptyMessage => 'No contacts have been added yet.';
+
+  @override
+  String get contactCreateTitle => 'Add Contact';
+
+  @override
+  String get contactEditTitle => 'Edit Contact';
+
+  @override
+  String get contactDeleteTitle => 'Delete Contact';
+
+  @override
+  String get contactFirstName => 'First Name';
+
+  @override
+  String get contactLastName => 'Last Name';
+
+  @override
+  String get contactEmail => 'Email';
+
+  @override
+  String get contactPhone => 'Phone';
+
+  @override
+  String get contactJobTitle => 'Job Title';
+
+  @override
+  String get contactDepartment => 'Department';
+
+  @override
+  String get contactPrimary => 'Primary contact';
+
+  @override
+  String get contactPrimaryLabel => 'Primary';
+
+  @override
+  String get contactNotes => 'Notes';
+
+  @override
+  String get interactionsSectionTitle => 'Interactions';
+
+  @override
+  String get interactionAddTitle => 'Add Interaction';
+
+  @override
+  String get interactionType => 'Type';
+
+  @override
+  String get interactionSubject => 'Subject';
+
+  @override
+  String get interactionDescription => 'Description';
+
+  @override
+  String get interactionAdd => 'Add';
+
+  @override
+  String get interactionsLoadError => 'Error loading interactions:';
+
+  @override
+  String get interactionsEmptyTitle => 'No interactions yet';
+
+  @override
+  String get interactionsEmptyMessage =>
+      'No interactions have been recorded for this contact.';
 }
