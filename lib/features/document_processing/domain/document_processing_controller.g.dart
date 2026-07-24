@@ -39,7 +39,7 @@ final class DocumentProcessingControllerProvider
 }
 
 String _$documentProcessingControllerHash() =>
-    r'19a47e3ef7c7be8ab5ebc9d7bba08550736c839c';
+    r'9a9fbb802a03dad8d2f2e768da5f5d94c9c35554';
 
 abstract class _$DocumentProcessingController
     extends $AsyncNotifier<List<DocumentProcessingJob>> {

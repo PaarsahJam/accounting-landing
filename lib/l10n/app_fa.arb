@@ -863,6 +863,8 @@
   "docReviewDecisionSection": "تصمیم بررسی",
   "docReviewDecisionOutcome": "نتیجه",
   "docReviewDecisionBy": "بررسیشده توسط",
-  "docReviewDecisionNote": "یادداشت"
+  "docReviewDecisionNote": "یادداشت",
+  "docReviewJournalPreviewTitle": "پیشنمایش سند حسابداری",
+  "docReviewPostAndCreate": "ثبت و ایجاد"
 
 }

@@ -2510,4 +2510,10 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get docReviewDecisionNote => 'یادداشت';
+
+  @override
+  String get docReviewJournalPreviewTitle => 'پیشنمایش سند حسابداری';
+
+  @override
+  String get docReviewPostAndCreate => 'ثبت و ایجاد';
 }

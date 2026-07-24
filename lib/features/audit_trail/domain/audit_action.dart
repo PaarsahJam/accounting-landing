@@ -55,7 +55,16 @@ enum AuditAction {
 
   // ── Email ───────────────────────────────────────────────────────────────────
   emailSent,
-  emailFailed;
+  emailFailed,
+
+  // Roadmap
+  roadmapCreated,
+  roadmapApproved,
+  roadmapRejected,
+  roadmapMutationPreviewed,
+  roadmapMutationCommitted,
+  roadmapMutationRejected,
+  roadmapItemDeleted;
 
   /// Short display label.
   String get label {
@@ -126,6 +135,21 @@ enum AuditAction {
         return 'Email Sent';
       case AuditAction.emailFailed:
         return 'Email Failed';
+      // ── Roadmap ───────────────────────────────────────────────────────────
+      case AuditAction.roadmapCreated:
+        return 'Roadmap Created';
+      case AuditAction.roadmapApproved:
+        return 'Roadmap Approved';
+      case AuditAction.roadmapRejected:
+        return 'Roadmap Rejected';
+      case AuditAction.roadmapMutationPreviewed:
+        return 'Roadmap Mutation Previewed';
+      case AuditAction.roadmapMutationCommitted:
+        return 'Roadmap Mutation Committed';
+      case AuditAction.roadmapMutationRejected:
+        return 'Roadmap Mutation Rejected';
+      case AuditAction.roadmapItemDeleted:
+        return 'Roadmap Item Deleted';
     }
   }
 }

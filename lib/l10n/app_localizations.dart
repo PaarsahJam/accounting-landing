@@ -4999,6 +4999,18 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'یادداشت'**
   String get docReviewDecisionNote;
+
+  /// No description provided for @docReviewJournalPreviewTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیشنمایش سند حسابداری'**
+  String get docReviewJournalPreviewTitle;
+
+  /// No description provided for @docReviewPostAndCreate.
+  ///
+  /// In fa, this message translates to:
+  /// **'ثبت و ایجاد'**
+  String get docReviewPostAndCreate;
 }
 
 class _AppLocalizationsDelegate

@@ -908,6 +908,8 @@
   "docReviewDecisionSection": "Review decision",
   "docReviewDecisionOutcome": "Outcome",
   "docReviewDecisionBy": "Reviewed by",
-  "docReviewDecisionNote": "Note"
+  "docReviewDecisionNote": "Note",
+  "docReviewJournalPreviewTitle": "Journal Entry Preview",
+  "docReviewPostAndCreate": "Post & Create"
 
 }

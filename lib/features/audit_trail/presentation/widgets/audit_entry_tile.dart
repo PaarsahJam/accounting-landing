@@ -150,6 +150,21 @@ class AuditEntryTile extends StatelessWidget {
         return Colors.blue;
       case AuditAction.emailFailed:
         return Colors.red;
+      // ── Roadmap ────────────────────────────────────────────────────────────
+      case AuditAction.roadmapCreated:
+        return Colors.teal;
+      case AuditAction.roadmapApproved:
+        return Colors.green;
+      case AuditAction.roadmapRejected:
+        return Colors.grey;
+      case AuditAction.roadmapMutationPreviewed:
+        return Colors.blueGrey;
+      case AuditAction.roadmapMutationCommitted:
+        return Colors.teal;
+      case AuditAction.roadmapMutationRejected:
+        return Colors.red;
+      case AuditAction.roadmapItemDeleted:
+        return Colors.red;
     }
   }
 
@@ -221,6 +236,21 @@ class AuditEntryTile extends StatelessWidget {
         return Icons.mail_outline;
       case AuditAction.emailFailed:
         return Icons.mail_outline;
+      // ── Roadmap ────────────────────────────────────────────────────────────
+      case AuditAction.roadmapCreated:
+        return Icons.map_outlined;
+      case AuditAction.roadmapApproved:
+        return Icons.check_circle_outline;
+      case AuditAction.roadmapRejected:
+        return Icons.cancel_outlined;
+      case AuditAction.roadmapMutationPreviewed:
+        return Icons.preview_outlined;
+      case AuditAction.roadmapMutationCommitted:
+        return Icons.publish_outlined;
+      case AuditAction.roadmapMutationRejected:
+        return Icons.block_outlined;
+      case AuditAction.roadmapItemDeleted:
+        return Icons.delete_outline;
     }
   }
 }

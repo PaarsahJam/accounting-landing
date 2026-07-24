@@ -26,7 +26,10 @@ enum AuditEntityType {
   aiAssistant,
 
   /// Emails sent from the system.
-  email;
+  email,
+
+  /// Roadmap feature for financial planning and mutation.
+  roadmap;
 
   /// Human-readable label for display.
   String get label {
@@ -69,6 +72,8 @@ enum AuditEntityType {
         return 'AI Assistant';
       case AuditEntityType.email:
         return 'Email';
+      case AuditEntityType.roadmap:
+        return 'Roadmap';
     }
   }
 }

@@ -2519,4 +2519,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get docReviewDecisionNote => 'Note';
+
+  @override
+  String get docReviewJournalPreviewTitle => 'Journal Entry Preview';
+
+  @override
+  String get docReviewPostAndCreate => 'Post & Create';
 }
