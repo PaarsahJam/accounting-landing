@@ -23,7 +23,10 @@ enum AuditEntityType {
   syncOperation,
 
   /// AI assistant generated suggestions.
-  aiAssistant;
+  aiAssistant,
+
+  /// Emails sent from the system.
+  email;
 
   /// Human-readable label for display.
   String get label {
@@ -64,6 +67,8 @@ enum AuditEntityType {
         return 'Sync Operation';
       case AuditEntityType.aiAssistant:
         return 'AI Assistant';
+      case AuditEntityType.email:
+        return 'Email';
     }
   }
 }

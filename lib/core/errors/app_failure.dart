@@ -28,3 +28,7 @@ class SyncFailure extends AppFailure {
       : super(message);
   final int? conflictingVersion;
 }
+
+class EmailFailure extends AppFailure {
+  const EmailFailure({required String message}) : super(message);
+}

@@ -146,6 +146,10 @@ class AuditEntryTile extends StatelessWidget {
         return Colors.grey;
       case AuditAction.aiActionGenerated:
         return Colors.blueGrey;
+      case AuditAction.emailSent:
+        return Colors.blue;
+      case AuditAction.emailFailed:
+        return Colors.red;
     }
   }
 
@@ -213,6 +217,10 @@ class AuditEntryTile extends StatelessWidget {
         return Icons.sync_disabled_outlined;
       case AuditAction.aiActionGenerated:
         return Icons.auto_awesome_outlined;
+      case AuditAction.emailSent:
+        return Icons.mail_outline;
+      case AuditAction.emailFailed:
+        return Icons.mail_outline;
     }
   }
 }

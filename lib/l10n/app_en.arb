@@ -797,6 +797,51 @@
   "importExportStatusFailed": "FAILED",
   "importExportPreviewBtn": "Preview CSV",
   "importExportPreviewTitle": "CSV Preview",
-  "dashboardImportExport": "Import / Export"
+  "dashboardImportExport": "Import / Export",
+
+  "emailSendInvoice": "Send Invoice",
+  "emailSendSubject": "Invoice {reference} — {customerName}",
+  "@emailSendSubject": {
+    "placeholders": {
+      "reference": { "type": "String" },
+      "customerName": { "type": "String" }
+    }
+  },
+  "emailSendBody": "Dear {customerName},\n\nPlease find attached invoice {reference} for a total of {total} due by {dueDate}.\n\nBest regards,\nAccounting Team",
+  "@emailSendBody": {
+    "placeholders": {
+      "customerName": { "type": "String" },
+      "reference": { "type": "String" },
+      "total": { "type": "String" },
+      "dueDate": { "type": "String" }
+    }
+  },
+  "emailSendSuccess": "Invoice sent to {email}",
+  "@emailSendSuccess": {
+    "placeholders": {
+      "email": { "type": "String" }
+    }
+  },
+  "emailSendError": "Failed to send invoice email",
+  "emailSendButton": "Send Email",
+  "emailDialogTitle": "Send Invoice by Email",
+  "emailToLabel": "To",
+  "emailSubjectLabel": "Subject",
+  "emailSentNotificationTitle": "Email sent",
+  "emailFailedNotificationTitle": "Email failed",
+  "emailSentNotificationBody": "\"{subject}\" sent to {address}",
+  "@emailSentNotificationBody": {
+    "placeholders": {
+      "subject": { "type": "String" },
+      "address": { "type": "String" }
+    }
+  },
+  "emailFailedNotificationBody": "Failed to send \"{subject}\" to {address}",
+  "@emailFailedNotificationBody": {
+    "placeholders": {
+      "subject": { "type": "String" },
+      "address": { "type": "String" }
+    }
+  }
 
 }

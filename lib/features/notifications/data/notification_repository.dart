@@ -12,6 +12,8 @@ abstract class NotificationRepository {
     int limit = 50,
   });
 
+  Future<AppResult<AppNotification>> addNotification(AppNotification notification);
+
   Future<AppResult<AppNotification>> markAsRead(String id);
 
   Future<AppResult<void>> markAllAsRead();
@@ -134,6 +136,21 @@ class MockNotificationRepository implements NotificationRepository {
       }
       _notifications[index] = _notifications[index].copyWith(isRead: true);
       return AppResult.success(_notifications[index]);
+    } catch (error) {
+      return AppResult.failure(
+        UnknownFailure(message: error.toString()),
+      );
+    }
+  }
+
+  @override
+  Future<AppResult<AppNotification>> addNotification(
+    AppNotification notification,
+  ) async {
+    try {
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+      _notifications.insert(0, notification);
+      return AppResult.success(notification);
     } catch (error) {
       return AppResult.failure(
         UnknownFailure(message: error.toString()),
