@@ -3,7 +3,7 @@ enum OperationType { create, update, delete }
 enum OperationStatus { pending, inFlight, failed }
 
 class SyncOperation {
-  const SyncOperation({
+  SyncOperation({
     required this.id,
     required this.operationType,
     required this.entityType,
@@ -15,7 +15,8 @@ class SyncOperation {
     this.status = OperationStatus.pending,
     this.failureReason,
     this.companyId,
-  });
+    String? idempotencyKey,
+  }) : idempotencyKey = idempotencyKey ?? _generateIdempotencyKey();
 
   final String id;
   final OperationType operationType;
@@ -28,6 +29,13 @@ class SyncOperation {
   final OperationStatus status;
   final String? failureReason;
   final String? companyId;
+  final String idempotencyKey;
+
+  static String _generateIdempotencyKey() =>
+      '${DateTime.now().microsecondsSinceEpoch}-${_randomSuffix()}';
+
+  static String _randomSuffix() =>
+      (DateTime.now().microsecondsSinceEpoch & 0xFFFF).toRadixString(16);
 
   SyncOperation copyWith({
     String? id,
@@ -41,6 +49,7 @@ class SyncOperation {
     OperationStatus? status,
     String? failureReason,
     String? companyId,
+    String? idempotencyKey,
   }) =>
       SyncOperation(
         id: id ?? this.id,
@@ -54,6 +63,7 @@ class SyncOperation {
         status: status ?? this.status,
         failureReason: failureReason ?? this.failureReason,
         companyId: companyId ?? this.companyId,
+        idempotencyKey: idempotencyKey ?? this.idempotencyKey,
       );
 
   Map<String, dynamic> toJson() => {
@@ -66,6 +76,7 @@ class SyncOperation {
         'createdAt': createdAt?.toIso8601String(),
         'retryCount': retryCount,
         'status': status.name,
+        'idempotencyKey': idempotencyKey,
         if (failureReason != null) 'failureReason': failureReason,
         if (companyId != null) 'companyId': companyId,
       };
@@ -85,6 +96,7 @@ class SyncOperation {
         status: OperationStatus.values.byName(json['status'] as String),
         failureReason: json['failureReason'] as String?,
         companyId: json['companyId'] as String?,
+        idempotencyKey: json['idempotencyKey'] as String?,
       );
 
   @override

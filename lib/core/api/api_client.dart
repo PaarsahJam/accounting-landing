@@ -5,13 +5,22 @@ import 'api_interceptors.dart';
 import 'auth_token_storage.dart';
 
 class ApiClient {
-  ApiClient({Dio? dio, AuthTokenStorage? tokenStorage})
-      : _dio = dio ??
-            _createDio(tokenStorage ?? const AuthTokenStorage());
+  ApiClient({
+    Dio? dio,
+    AuthTokenStorage? tokenStorage,
+    List<Interceptor>? extraInterceptors,
+  }) : _dio = dio ??
+            _createDio(
+              tokenStorage ?? const AuthTokenStorage(),
+              extraInterceptors,
+            );
 
   final Dio _dio;
 
-  static Dio _createDio(AuthTokenStorage tokenStorage) {
+  static Dio _createDio(
+    AuthTokenStorage tokenStorage,
+    List<Interceptor>? extraInterceptors,
+  ) {
     final dio = Dio(
       BaseOptions(
         baseUrl: ApiConfig.baseUrl,
@@ -34,6 +43,7 @@ class ApiClient {
           // ignore: avoid_print — debug-only logging behind env flag
           logPrint: (o) => print('[DIO] $o'),
         ),
+      if (extraInterceptors != null) ...extraInterceptors,
     ]);
     return dio;
   }
@@ -100,4 +110,7 @@ class ApiClient {
           queryParameters: queryParameters,
           options: options,
           cancelToken: cancelToken);
+
+  Future<Response<T>> fetch<T>(RequestOptions requestOptions) =>
+      _dio.fetch<T>(requestOptions);
 }
