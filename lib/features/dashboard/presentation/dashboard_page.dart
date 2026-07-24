@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../l10n/app_localizations_en.dart';
+import '../../../shared/extensions/menu_button.dart';
 import '../../../shared/widgets/app_error_state.dart';
 import '../../../shared/widgets/app_loading_state.dart';
 import '../../../shared/widgets/section_header.dart';
@@ -46,6 +47,7 @@ class DashboardPage extends ConsumerWidget {
         },
         child: Scaffold(
           appBar: AppBar(
+            leading: context.menuButton,
             title: Text(l10n.dashboard),
             actions: [
               IconButton(

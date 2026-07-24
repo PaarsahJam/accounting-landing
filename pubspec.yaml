@@ -31,6 +31,9 @@ dependencies:
   flutter_secure_storage: any
   flutter_dotenv: any
 
+  # Mobile experience — stubs for connectivity and image picking;
+  # replace with real packages when available.
+
   # Models / Codegen helpers (annotations)
   freezed_annotation: any
   json_annotation: any

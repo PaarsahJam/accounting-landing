@@ -14,6 +14,7 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
     final l10n = AppLocalizations.of(context);
+
     return CompanyScopeGuard(
       child: MaterialApp.router(
         title: l10n?.appTitle ?? 'Accounting',
@@ -30,7 +31,10 @@ class App extends ConsumerWidget {
         theme: AppTheme.lightTheme(GoogleFonts.vazirmatnTextTheme()),
         darkTheme: AppTheme.darkTheme(GoogleFonts.vazirmatnTextTheme()),
         themeMode: ThemeMode.system,
+        scaffoldMessengerKey: _scaffoldMessengerKey,
       ),
     );
   }
+
+  static final _scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 }

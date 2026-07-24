@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../l10n/app_localizations_en.dart';
+import '../../../shared/extensions/menu_button.dart';
 import '../domain/vendor.dart';
 import '../domain/vendors_controller.dart';
 
@@ -226,6 +227,7 @@ class _VendorsPageState extends ConsumerState<VendorsPage> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: context.menuButton,
         title: Text(l10n.vendorsPageTitle),
         actions: [
           IconButton(

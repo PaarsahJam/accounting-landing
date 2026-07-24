@@ -1883,37 +1883,6 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String get tasks => 'وظایف';
-  @override
-  String get noTasks => 'وظیفه‌ای وجود ندارد';
-  @override
-  String get newTask => 'وظیفه جدید';
-  @override
-  String get dueDate => 'تاریخ سررسید';
-  @override
-  String get priority => 'اولویت';
-  @override
-  String get create => 'ایجاد';
-  @override
-  String get cancel => 'انصراف';
-  @override
-  String get title => 'عنوان';
-  @override
-  String get description => 'توضیحات';
-  @override
-  String get contactInfo => 'اطلاعات مخاطب';
-  @override
-  String get auditTrailLabel => 'گزارش حسابرسی';
-  @override
-  String get pipeline => 'خط فروش';
-  @override
-  String get crmDashboard => 'داشبورد CRM';
-  @override
-  String get newOpportunity => 'فرصت جدید';
-  @override
-  String get noOpportunities => 'فرصتی وجود ندارد';
-
-  @override
   String get searchHint => 'جستجوی اسناد، نام‌ها، کد محصول…';
 
   @override
@@ -2212,159 +2181,140 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get fixedAssetsPageTitle => 'دارایی‌های ثابت';
+
   @override
   String get fixedAssetCreateTitle => 'دارایی ثابت جدید';
+
   @override
   String get fixedAssetEditTitle => 'ویرایش دارایی ثابت';
+
   @override
   String get fixedAssetsLoadError => 'خطا در بارگذاری دارایی‌های ثابت:';
+
   @override
   String get fixedAssetsEmptyTitle => 'دارایی ثابتی وجود ندارد';
+
   @override
   String get fixedAssetsEmptyMessage => 'هنوز هیچ دارایی ثابتی ثبت نشده است.';
+
   @override
   String get fixedAssetBadgeActive => 'فعال';
+
   @override
   String get fixedAssetBadgeDisposed => 'اسقاط';
+
   @override
   String get fixedAssetName => 'نام دارایی';
+
   @override
   String get fixedAssetCategory => 'دسته‌بندی';
+
   @override
   String get fixedAssetPurchaseCost => 'بهای تمام‌شده';
+
   @override
   String get fixedAssetSalvageValue => 'ارزش اسقاط';
+
   @override
   String get fixedAssetUsefulLife => 'عمر مفید (سال)';
+
   @override
   String get fixedAssetDepreciationMethod => 'روش استهلاک';
+
   @override
   String get fixedAssetMethodStraightLine => 'خط مستقیم';
+
   @override
   String get fixedAssetMethodDecliningBalance => 'نزولی';
+
   @override
   String get fixedAssetNotes => 'یادداشت';
+
   @override
   String get fixedAssetBookValue => 'ارزش دفتری';
+
   @override
   String get fixedAssetAccumDepreciation => 'استهلاک انباشته';
+
   @override
   String get fixedAssetDispose => 'اسقاط دارایی';
+
   @override
   String get fixedAssetCalculateDepreciation => 'اعمال استهلاک';
+
   @override
   String get fixedAssetViewSchedule => 'مشاهده جدول استهلاک';
+
   @override
   String get fixedAssetScheduleTitle => 'جدول استهلاک';
+
   @override
   String get fixedAssetScheduleYear => 'سال';
+
   @override
   String get fixedAssetScheduleOpening => 'افتتاحیه';
+
   @override
   String get fixedAssetScheduleCharge => 'هزینه';
+
   @override
   String get fixedAssetScheduleAccum => 'انباشته';
+
   @override
   String get fixedAssetScheduleClosing => 'اختتامیه';
+
   @override
   String get fixedAssetInvalidNumber => 'یک عدد مثبت معتبر وارد کنید';
+
   @override
   String get dashboardFixedAssets => 'دارایی‌های ثابت';
 
   @override
   String get importExportPageTitle => 'واردات / صادرات';
+
   @override
   String get importExportSelectEntity => 'انتخاب نوع موجودیت';
+
   @override
   String get importExportExportBtn => 'صادرات CSV';
+
   @override
   String get importExportImportBtn => 'واردات CSV';
+
   @override
   String get importExportRecentJobs => 'عملیات اخیر';
+
   @override
   String get importExportLoadError => 'خطا در بارگذاری عملیات:';
+
   @override
   String get importExportEmptyTitle => 'هیچ عملیاتی انجام نشده';
+
   @override
   String get importExportEmptyMessage =>
       'برای مشاهده نتایج، یک عملیات صادرات یا واردات انجام دهید.';
-  @override
-  String get importExportRows => 'سطر';
-  @override
-  String get importExportDirectionExport => 'صادرات';
-  @override
-  String get importExportDirectionImport => 'واردات';
-  @override
-  String get importExportStatusSuccess => 'موفق';
-  @override
-  String get importExportStatusFailed => 'ناموفق';
-  @override
-  String get importExportPreviewBtn => 'پیش‌نمایش CSV';
-  @override
-  String get importExportPreviewTitle => 'پیش‌نمایش CSV';
-  @override
-  String get dashboardImportExport => 'واردات / صادرات';
 
   @override
-  String get crmPageTitle => 'مدیریت ارتباط با مشتری';
+  String get importExportRows => 'سطر';
+
   @override
-  String get contactsPageTitle => 'مخاطبین';
+  String get importExportDirectionExport => 'صادرات';
+
   @override
-  String get contactsLoadError => 'خطا در بارگذاری مخاطبین:';
+  String get importExportDirectionImport => 'واردات';
+
   @override
-  String get contactsEmptyTitle => 'هنوز مخاطبی ثبت نشده';
+  String get importExportStatusSuccess => 'موفق';
+
   @override
-  String get contactsEmptyMessage => 'هنوز مخاطبی برای این مشتری ثبت نشده است.';
+  String get importExportStatusFailed => 'ناموفق';
+
   @override
-  String get contactCreateTitle => 'افزودن مخاطب';
+  String get importExportPreviewBtn => 'پیش‌نمایش CSV';
+
   @override
-  String get contactEditTitle => 'ویرایش مخاطب';
+  String get importExportPreviewTitle => 'پیش‌نمایش CSV';
+
   @override
-  String get contactFirstName => 'نام';
-  @override
-  String get contactLastName => 'نام خانوادگی';
-  @override
-  String get contactEmail => 'ایمیل';
-  @override
-  String get contactPhone => 'تلفن';
-  @override
-  String get contactJobTitle => 'سمت';
-  @override
-  String get contactDepartment => 'دپارتمان';
-  @override
-  String get contactPrimary => 'مخاطب اصلی';
-  @override
-  String get contactPrimaryLabel => 'اصلی';
-  @override
-  String get contactNotes => 'یادداشت‌ها';
-  @override
-  String get contactDeleteTitle => 'حذف مخاطب';
-  @override
-  String get contactDeleteError => 'خطا در حذف مخاطب';
-  @override
-  String get interactionsSectionTitle => 'تاریخچه تعاملات';
-  @override
-  String get interactionAdd => 'افزودن';
-  @override
-  String get interactionAddTitle => 'افزودن تعامل';
-  @override
-  String get interactionType => 'نوع';
-  @override
-  String get interactionSubject => 'موضوع';
-  @override
-  String get interactionDescription => 'توضیحات';
-  @override
-  String get interactionCreateError => 'خطا در ایجاد تعامل';
-  @override
-  String get interactionDeleteError => 'خطا در حذف تعامل';
-  @override
-  String get interactionsLoadError => 'خطا در بارگذاری تعاملات:';
-  @override
-  String get interactionsEmptyTitle => 'هنوز تعاملی ثبت نشده';
-  @override
-  String get interactionsEmptyMessage => 'هنوز تعاملی برای این مخاطب ثبت نشده است.';
-  @override
-  String get saveButton => 'ذخیره';
-  @override
-  String get unknownError => 'خطای ناشناخته رخ داد.';
+  String get dashboardImportExport => 'واردات / صادرات';
 }

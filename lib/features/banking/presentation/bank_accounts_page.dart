@@ -3,9 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../../../shared/extensions/menu_button.dart';
 import '../../../shared/widgets/app_empty_state.dart';
-import '../../../shared/widgets/app_error_state.dart';
 import '../../../shared/widgets/app_loading_state.dart';
+import '../../../shared/widgets/app_error_state.dart';
 import '../domain/bank_account.dart';
 import '../domain/bank_account_status.dart';
 import '../domain/bank_account_type.dart';
@@ -28,6 +29,7 @@ class _BankAccountsPageState extends ConsumerState<BankAccountsPage> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: context.menuButton,
         title: Text(l10n.bankAccountsPageTitle),
         actions: [
           IconButton(

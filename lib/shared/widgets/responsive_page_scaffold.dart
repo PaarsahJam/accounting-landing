@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// A standard page scaffold with an AppBar and a safely padded body.
-///
-/// Use [floatingActionButton] for page-level primary actions.
-/// Use [actions] for AppBar icon buttons.
+import '../extensions/responsive_breakpoint.dart';
+import 'app_shell.dart';
+
 class ResponsivePageScaffold extends StatelessWidget {
   const ResponsivePageScaffold({
     super.key,
@@ -13,6 +12,7 @@ class ResponsivePageScaffold extends StatelessWidget {
     this.padding = const EdgeInsets.all(16),
     this.floatingActionButton,
     this.bottomNavigationBar,
+    this.leading,
   });
 
   final String title;
@@ -21,11 +21,23 @@ class ResponsivePageScaffold extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final Widget? floatingActionButton;
   final Widget? bottomNavigationBar;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
+    final showMenu = context.isPhone && leading == null;
     return Scaffold(
-      appBar: AppBar(title: Text(title), actions: actions),
+      appBar: AppBar(
+        leading: showMenu
+            ? IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () => AppShell.openDrawer(context),
+                tooltip: 'Menu',
+              )
+            : leading,
+        title: Text(title),
+        actions: actions,
+      ),
       floatingActionButton: floatingActionButton,
       bottomNavigationBar: bottomNavigationBar,
       body: SafeArea(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../l10n/app_localizations_en.dart';
+import '../../../shared/extensions/menu_button.dart';
 import '../domain/customer.dart';
 import '../domain/customers_controller.dart';
 
@@ -215,6 +216,7 @@ class _CustomersPageState extends ConsumerState<CustomersPage> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: context.menuButton,
         title: Text(l10n.customersPageTitle),
         actions: [
           IconButton(

@@ -58,7 +58,41 @@ import '../../features/crm/presentation/contacts_page.dart';
 import '../../features/crm/presentation/crm_dashboard_page.dart';
 import '../../features/crm/presentation/crm_tasks_page.dart';
 import '../../features/crm/presentation/pipeline_page.dart';
+import '../../shared/widgets/app_shell.dart';
+import '../../shared/widgets/page_transition.dart';
 import '../../l10n/app_localizations.dart';
+
+GoRoute _r(
+  String path, {
+  required Widget child,
+  String? name,
+}) {
+  return GoRoute(
+    name: name,
+    path: path,
+    pageBuilder: (context, state) => CustomTransitionPage(
+      key: state.pageKey,
+      child: child,
+      transitionsBuilder: PageTransition.slideUpTransition,
+    ),
+  );
+}
+
+GoRoute _rBuilder(
+  String path, {
+  required Widget Function(BuildContext, GoRouterState) builder,
+  String? name,
+}) {
+  return GoRoute(
+    name: name,
+    path: path,
+    pageBuilder: (context, state) => CustomTransitionPage(
+      key: state.pageKey,
+      child: builder(context, state),
+      transitionsBuilder: PageTransition.slideUpTransition,
+    ),
+  );
+}
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final auth = ref.watch(authProvider);
@@ -78,7 +112,6 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       if (!isLoggedIn && !goingToLogin) return '/login';
       if (isLoggedIn && goingToLogin) return '/dashboard';
 
-      // Company selection guard – only when logged in
       if (isLoggedIn) {
         final hasCompany = companyAsync.maybeWhen(
           data: (c) => c != null,
@@ -92,295 +125,133 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       return null;
     },
     routes: [
-      GoRoute(
-        name: 'company-select',
-        path: '/company/select',
-        builder: (c, s) => const CompanySelectionPage(),
+      _r('/company/select', child: const CompanySelectionPage()),
+      _r('/login', child: const LoginPage()),
+      _r('/signup', child: const SignupPage()),
+      _r('/search', child: const GlobalSearchPage()),
+      ShellRoute(
+        builder: (context, state, child) => AppShell(child: child),
+        routes: [
+          _r('/dashboard', child: const DashboardPage()),
+          _r('/invoices', child: const InvoicesPage()),
+          _r('/customers', child: const CustomersPage()),
+          _r('/vendors', child: const VendorsPage()),
+          _r('/expenses', child: const ExpensesPage()),
+          _r('/reports', child: const FinancialReportsPage()),
+          _r('/general-ledger', child: const GeneralLedgerPage()),
+          _r('/inventory', child: const InventoryPage()),
+          _rBuilder(
+            '/inventory/stock-ledger/:productId',
+            builder: (context, state) {
+              final product = state.extra as Product?;
+              if (product == null) return const InventoryPage();
+              return StockLedgerPage(product: product);
+            },
+          ),
+          _r('/inventory/adjustments', child: const StockAdjustmentPage()),
+          _r('/inventory/valuation', child: const InventoryValuationPage()),
+          _r('/stock-transfers', child: const StockTransfersPage()),
+          _r('/purchase-orders', child: const PurchaseOrdersPage()),
+          _rBuilder(
+            '/vendor-bills/:id',
+            builder: (context, state) {
+              final bill = state.extra as VendorBill?;
+              if (bill == null) return const VendorBillsPage();
+              return VendorBillDetailPage(bill: bill);
+            },
+          ),
+          _r('/vendor-bills', child: const VendorBillsPage()),
+          _rBuilder(
+            '/sales-invoices/:id',
+            builder: (context, state) {
+              final invoice = state.extra as SalesInvoice?;
+              if (invoice == null) return const SalesInvoicesPage();
+              return SalesInvoiceDetailPage(invoice: invoice);
+            },
+          ),
+          _r('/sales-invoices', child: const SalesInvoicesPage()),
+          _r('/customer-payments', child: const CustomerPaymentsPage()),
+          _r('/customer-statements', child: const CustomerStatementsPage()),
+          _rBuilder(
+            '/customer-payments/:id',
+            builder: (context, state) {
+              final payment = state.extra as CustomerPayment?;
+              if (payment == null) return const CustomerPaymentsPage();
+              return CustomerPaymentDetailPage(payment: payment);
+            },
+          ),
+          _r('/vendor-payments', child: const VendorPaymentsPage()),
+          _r('/vendor-statements', child: const VendorStatementsPage()),
+          _rBuilder(
+            '/vendor-payments/:id',
+            builder: (context, state) {
+              final payment = state.extra as VendorPayment?;
+              if (payment == null) return const VendorPaymentsPage();
+              return VendorPaymentDetailPage(payment: payment);
+            },
+          ),
+          _rBuilder(
+            '/journal-preview/:documentType/:documentId',
+            builder: (context, state) {
+              final documentType = state.pathParameters['documentType'];
+              final documentId = state.pathParameters['documentId'];
+              if (documentType == null || documentId == null) {
+                return const DashboardPage();
+              }
+              return JournalPreviewPage(
+                documentType: documentType,
+                documentId: documentId,
+              );
+            },
+          ),
+          _r('/journal-explorer', child: const JournalExplorerPage()),
+          _rBuilder(
+            '/journal-explorer/:id',
+            builder: (context, state) {
+              final entry = state.extra as JournalEntry?;
+              if (entry == null) return const JournalExplorerPage();
+              return JournalEntryDetailPage(entry: entry);
+            },
+          ),
+          _r('/bank-reconciliation', child: const BankReconciliationPage()),
+          _r('/bank-statements', child: const BankStatementsPage()),
+          _rBuilder(
+            '/bank-statements/:id/reconcile',
+            builder: (context, state) {
+              final stmt = state.extra as BankStatement?;
+              if (stmt == null) return const BankStatementsPage();
+              return BankReconciliationDetailPage(statement: stmt);
+            },
+          ),
+          _r('/bank-accounts', child: const BankAccountsPage()),
+          _rBuilder(
+            '/bank-accounts/:id/transactions',
+            builder: (context, state) {
+              final account = state.extra as BankAccount?;
+              if (account == null) return const BankAccountsPage();
+              return BankTransactionsPage(account: account);
+            },
+          ),
+          _r('/settings', child: const SettingsPage()),
+          _r('/tags', child: const TagsPage()),
+          _r('/user-roles', child: const UserRolesPage()),
+          _r('/currencies', child: const CurrenciesPage()),
+          _r('/recurring-transactions', child: const RecurringTransactionsPage()),
+          _r('/fixed-assets', child: const FixedAssetsPage()),
+          _r('/import-export', child: const ImportExportPage()),
+          _rBuilder(
+            '/crm/contacts/:customerId',
+            builder: (context, state) {
+              final customerId = state.pathParameters['customerId'] ?? '';
+              return ContactsPage(customerId: customerId);
+            },
+          ),
+          _r('/crm/tasks', child: const CrmTasksPage()),
+          _r('/crm/pipeline', child: const PipelinePage()),
+          _r('/crm/dashboard', child: const CrmDashboardPage()),
+          ...pluginRouteList.map((pr) => pr.toGoRoute()),
+        ],
       ),
-      GoRoute(
-        name: 'login',
-        path: '/login',
-        builder: (c, s) => const LoginPage(),
-      ),
-      GoRoute(
-        name: 'signup',
-        path: '/signup',
-        builder: (c, s) => const SignupPage(),
-      ),
-      GoRoute(
-        name: 'dashboard',
-        path: '/dashboard',
-        builder: (c, s) => const DashboardPage(),
-      ),
-      GoRoute(
-        name: 'invoices',
-        path: '/invoices',
-        builder: (c, s) => const InvoicesPage(),
-      ),
-      GoRoute(
-        name: 'expenses',
-        path: '/expenses',
-        builder: (c, s) => const ExpensesPage(),
-      ),
-      GoRoute(
-        name: 'reports',
-        path: '/reports',
-        builder: (c, s) => const FinancialReportsPage(),
-      ),
-      GoRoute(
-        name: 'customers',
-        path: '/customers',
-        builder: (c, s) => const CustomersPage(),
-      ),
-      GoRoute(
-        name: 'vendors',
-        path: '/vendors',
-        builder: (c, s) => const VendorsPage(),
-      ),
-      GoRoute(
-        name: 'general-ledger',
-        path: '/general-ledger',
-        builder: (c, s) => const GeneralLedgerPage(),
-      ),
-      GoRoute(
-        name: 'inventory',
-        path: '/inventory',
-        builder: (c, s) => const InventoryPage(),
-      ),
-      GoRoute(
-        name: 'stock-ledger',
-        path: '/inventory/stock-ledger/:productId',
-        builder: (context, state) {
-          final product = state.extra as Product?;
-          if (product == null) {
-            return const InventoryPage();
-          }
-          return StockLedgerPage(product: product);
-        },
-      ),
-      GoRoute(
-        name: 'stock-adjustments',
-        path: '/inventory/adjustments',
-        builder: (c, s) => const StockAdjustmentPage(),
-      ),
-      GoRoute(
-        name: 'inventory-valuation',
-        path: '/inventory/valuation',
-        builder: (c, s) => const InventoryValuationPage(),
-      ),
-      GoRoute(
-        name: 'stock-transfers',
-        path: '/stock-transfers',
-        builder: (c, s) => const StockTransfersPage(),
-      ),
-      GoRoute(
-        name: 'purchase-orders',
-        path: '/purchase-orders',
-        builder: (c, s) => const PurchaseOrdersPage(),
-      ),
-      GoRoute(
-        name: 'vendor-bills',
-        path: '/vendor-bills',
-        builder: (c, s) => const VendorBillsPage(),
-      ),
-      GoRoute(
-        name: 'vendor-bill-detail',
-        path: '/vendor-bills/:id',
-        builder: (context, state) {
-          final bill = state.extra as VendorBill?;
-          if (bill == null) {
-            return const VendorBillsPage();
-          }
-          return VendorBillDetailPage(bill: bill);
-        },
-      ),
-      GoRoute(
-        name: 'sales-invoices',
-        path: '/sales-invoices',
-        builder: (c, s) => const SalesInvoicesPage(),
-      ),
-      GoRoute(
-        name: 'sales-invoice-detail',
-        path: '/sales-invoices/:id',
-        builder: (context, state) {
-          final invoice = state.extra as SalesInvoice?;
-          if (invoice == null) {
-            return const SalesInvoicesPage();
-          }
-          return SalesInvoiceDetailPage(invoice: invoice);
-        },
-      ),
-      GoRoute(
-        name: 'customer-payments',
-        path: '/customer-payments',
-        builder: (c, s) => const CustomerPaymentsPage(),
-      ),
-      GoRoute(
-        name: 'customer-statements',
-        path: '/customer-statements',
-        builder: (c, s) => const CustomerStatementsPage(),
-      ),
-      GoRoute(
-        name: 'customer-payment-detail',
-        path: '/customer-payments/:id',
-        builder: (context, state) {
-          final payment = state.extra as CustomerPayment?;
-          if (payment == null) {
-            return const CustomerPaymentsPage();
-          }
-          return CustomerPaymentDetailPage(payment: payment);
-        },
-      ),
-      GoRoute(
-        name: 'vendor-payments',
-        path: '/vendor-payments',
-        builder: (c, s) => const VendorPaymentsPage(),
-      ),
-      GoRoute(
-        name: 'vendor-statements',
-        path: '/vendor-statements',
-        builder: (c, s) => const VendorStatementsPage(),
-      ),
-      GoRoute(
-        name: 'vendor-payment-detail',
-        path: '/vendor-payments/:id',
-        builder: (context, state) {
-          final payment = state.extra as VendorPayment?;
-          if (payment == null) {
-            return const VendorPaymentsPage();
-          }
-          return VendorPaymentDetailPage(payment: payment);
-        },
-      ),
-      GoRoute(
-        name: 'journal-preview',
-        path: '/journal-preview/:documentType/:documentId',
-        builder: (context, state) {
-          final documentType = state.pathParameters['documentType'];
-          final documentId = state.pathParameters['documentId'];
-          if (documentType == null || documentId == null) {
-            return const DashboardPage();
-          }
-          return JournalPreviewPage(
-            documentType: documentType,
-            documentId: documentId,
-          );
-        },
-      ),
-      GoRoute(
-        name: 'journal-explorer',
-        path: '/journal-explorer',
-        builder: (c, s) => const JournalExplorerPage(),
-      ),
-      GoRoute(
-        name: 'journal-entry-detail',
-        path: '/journal-explorer/:id',
-        builder: (context, state) {
-          final entry = state.extra as JournalEntry?;
-          if (entry == null) {
-            return const JournalExplorerPage();
-          }
-          return JournalEntryDetailPage(entry: entry);
-        },
-      ),
-      GoRoute(
-        name: 'bank-reconciliation',
-        path: '/bank-reconciliation',
-        builder: (c, s) => const BankReconciliationPage(),
-      ),
-      GoRoute(
-        name: 'bank-statements',
-        path: '/bank-statements',
-        builder: (c, s) => const BankStatementsPage(),
-      ),
-      GoRoute(
-        name: 'bank-statement-reconcile',
-        path: '/bank-statements/:id/reconcile',
-        builder: (context, state) {
-          final stmt = state.extra as BankStatement?;
-          if (stmt == null) {
-            return const BankStatementsPage();
-          }
-          return BankReconciliationDetailPage(statement: stmt);
-        },
-      ),
-      GoRoute(
-        name: 'bank-accounts',
-        path: '/bank-accounts',
-        builder: (c, s) => const BankAccountsPage(),
-      ),
-      GoRoute(
-        name: 'bank-account-transactions',
-        path: '/bank-accounts/:id/transactions',
-        builder: (context, state) {
-          final account = state.extra as BankAccount?;
-          if (account == null) {
-            return const BankAccountsPage();
-          }
-          return BankTransactionsPage(account: account);
-        },
-      ),
-      GoRoute(
-        name: 'settings',
-        path: '/settings',
-        builder: (c, s) => const SettingsPage(),
-      ),
-      GoRoute(
-        name: 'global-search',
-        path: '/search',
-        builder: (c, s) => const GlobalSearchPage(),
-      ),
-      GoRoute(name: 'tags', path: '/tags', builder: (c, s) => const TagsPage()),
-      GoRoute(
-        name: 'user-roles',
-        path: '/user-roles',
-        builder: (c, s) => const UserRolesPage(),
-      ),
-      GoRoute(
-        name: 'currencies',
-        path: '/currencies',
-        builder: (c, s) => const CurrenciesPage(),
-      ),
-      GoRoute(
-        name: 'recurring-transactions',
-        path: '/recurring-transactions',
-        builder: (c, s) => const RecurringTransactionsPage(),
-      ),
-      GoRoute(
-        name: 'fixed-assets',
-        path: '/fixed-assets',
-        builder: (c, s) => const FixedAssetsPage(),
-      ),
-      GoRoute(
-        name: 'import-export',
-        path: '/import-export',
-        builder: (c, s) => const ImportExportPage(),
-      ),
-      GoRoute(
-        name: 'crm-contacts',
-        path: '/crm/contacts/:customerId',
-        builder: (context, state) {
-          final customerId = state.pathParameters['customerId'] ?? '';
-          return ContactsPage(customerId: customerId);
-        },
-      ),
-      GoRoute(
-        name: 'crm-tasks',
-        path: '/crm/tasks',
-        builder: (c, s) => const CrmTasksPage(),
-      ),
-      GoRoute(
-        name: 'crm-pipeline',
-        path: '/crm/pipeline',
-        builder: (c, s) => const PipelinePage(),
-      ),
-      GoRoute(
-        name: 'crm-dashboard',
-        path: '/crm/dashboard',
-        builder: (c, s) => const CrmDashboardPage(),
-      ),
-      // Plugin-injected routes — registered by PluginRegistrar
-      ...pluginRouteList.map((pr) => pr.toGoRoute()),
     ],
     errorBuilder: (context, state) {
       final l10n = AppLocalizations.of(context)!;
