@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/company/company_controller.dart';
 import '../../core/company/presentation/company_selection_page.dart';
+import '../../core/plugin/plugin_providers.dart';
 import '../../features/auth/presentation/login_page.dart';
 import '../../features/auth/presentation/signup_page.dart';
 import '../../features/dashboard/presentation/dashboard_page.dart';
@@ -62,6 +63,7 @@ import '../../l10n/app_localizations.dart';
 final appRouterProvider = Provider<GoRouter>((ref) {
   final auth = ref.watch(authProvider);
   final companyAsync = ref.watch(currentCompanyProvider);
+  final pluginRouteList = ref.watch(pluginRoutesProvider);
 
   return GoRouter(
     initialLocation: '/dashboard',
@@ -377,6 +379,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/crm/dashboard',
         builder: (c, s) => const CrmDashboardPage(),
       ),
+      // Plugin-injected routes — registered by PluginRegistrar
+      ...pluginRouteList.map((pr) => pr.toGoRoute()),
     ],
     errorBuilder: (context, state) {
       final l10n = AppLocalizations.of(context)!;

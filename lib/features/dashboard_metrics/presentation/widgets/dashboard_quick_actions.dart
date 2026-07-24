@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/plugin/plugin_providers.dart';
 import '../../../../l10n/app_localizations.dart';
 
-class DashboardQuickActions extends StatelessWidget {
+class DashboardQuickActions extends ConsumerWidget {
   const DashboardQuickActions({super.key, required this.l10n});
 
   final AppLocalizations l10n;
 
   @override
-  Widget build(BuildContext context) {
-    final actions = [
+  Widget build(BuildContext context, WidgetRef ref) {
+    final pluginActions = ref.watch(pluginActionsProvider);
+
+    final builtinActions = [
       _QuickAction(
         title: l10n.dashboardCreateSalesInvoice,
         icon: Icons.receipt_long,
@@ -88,14 +92,23 @@ class DashboardQuickActions extends StatelessWidget {
       ),
     ];
 
+    final allActions = [
+      ...builtinActions,
+      ...pluginActions.map((pa) => _QuickAction(
+            title: pa.label,
+            icon: pa.icon,
+            route: pa.route,
+          )),
+    ];
+
     return SizedBox(
       height: 120,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: actions.length,
+        itemCount: allActions.length,
         separatorBuilder: (_, _) => const SizedBox(width: 12),
         itemBuilder: (context, index) {
-          final action = actions[index];
+          final action = allActions[index];
           return Semantics(
             label: action.title,
             button: true,
