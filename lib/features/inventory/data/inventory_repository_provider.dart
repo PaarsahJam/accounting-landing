@@ -1,10 +1,13 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'drift_product_repository.dart';
 import 'inventory_repository.dart';
 
 part 'inventory_repository_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 InventoryRepository inventoryRepository(Ref ref) {
-  return MockInventoryRepository();
+  final repo = DriftProductRepository();
+  ref.onDispose(() => repo.close());
+  return repo;
 }

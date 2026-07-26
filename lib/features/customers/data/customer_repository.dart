@@ -33,53 +33,66 @@ class MockCustomerRepository implements CustomerRepository {
       notes: 'Settlement expected next week',
       version: 1,
     ),
+    const Customer(
+      id: 'CUST-1003',
+      name: 'Ben Carter',
+      company: 'Maple Leaf Trading',
+      email: 'ben@mapleleaf.com',
+      phone: '+1 416 555 0102',
+      outstandingBalance: 875000,
+      status: 'Active',
+      notes: '',
+      version: 1,
+    ),
+    const Customer(
+      id: 'CUST-1004',
+      name: 'Clara Wanjiku',
+      company: 'Savannah Imports',
+      email: 'clara@savannah.co.ke',
+      phone: '+254 712 345 678',
+      outstandingBalance: 3200000,
+      status: 'Active',
+      notes: 'Quarterly review required',
+      version: 1,
+    ),
   ];
 
   @override
   Future<AppResult<List<Customer>>> fetchCustomers() async {
-    try {
-      await Future<void>.delayed(const Duration(milliseconds: 300));
-      return AppResult.success(List<Customer>.from(_customers));
-    } catch (error) {
-      return AppResult.failure(UnknownFailure(message: error.toString()));
-    }
+    await Future<void>.delayed(const Duration(milliseconds: 250));
+    return AppResult.success(List.unmodifiable(_customers));
   }
 
   @override
   Future<AppResult<Customer>> createCustomer(Customer customer) async {
-    try {
-      await Future<void>.delayed(const Duration(milliseconds: 250));
-      _customers.add(customer);
-      return AppResult.success(customer);
-    } catch (error) {
-      return AppResult.failure(UnknownFailure(message: error.toString()));
-    }
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    _customers.add(customer);
+    return AppResult.success(customer);
   }
 
   @override
   Future<AppResult<Customer>> updateCustomer(Customer customer) async {
-    try {
-      await Future<void>.delayed(const Duration(milliseconds: 250));
-      final index = _customers.indexWhere((item) => item.id == customer.id);
-      if (index >= 0) {
-        _customers[index] = customer;
-      } else {
-        _customers.add(customer);
-      }
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    final index = _customers.indexWhere((item) => item.id == customer.id);
+    if (index >= 0) {
+      _customers[index] = customer;
       return AppResult.success(customer);
-    } catch (error) {
-      return AppResult.failure(UnknownFailure(message: error.toString()));
     }
+    return AppResult.failure(
+      const UnknownFailure(message: 'Customer not found'),
+    );
   }
 
   @override
   Future<AppResult<void>> deleteCustomer(String id) async {
-    try {
-      await Future<void>.delayed(const Duration(milliseconds: 250));
-      _customers.removeWhere((item) => item.id == id);
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    final index = _customers.indexWhere((item) => item.id == id);
+    if (index >= 0) {
+      _customers.removeAt(index);
       return AppResult.success(null);
-    } catch (error) {
-      return AppResult.failure(UnknownFailure(message: error.toString()));
     }
+    return AppResult.failure(
+      const UnknownFailure(message: 'Customer not found'),
+    );
   }
 }

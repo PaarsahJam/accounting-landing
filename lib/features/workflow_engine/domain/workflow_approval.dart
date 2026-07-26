@@ -22,7 +22,21 @@ class WorkflowApproval {
     );
   }
 
-  bool get isFulfilled => currentApprovals.length >= requiredApprovalsCount;
+  /// Returns `true` when the required number of **distinct** approvers have
+  /// each submitted an [ApprovalDecision.approved] decision.
+  ///
+  /// Counting by unique [WorkflowApprovalEntry.approverId] prevents a single
+  /// approver from voting multiple times to satisfy a multi-approval
+  /// requirement (e.g. requiring 2 approvers but the same manager approves
+  /// twice would incorrectly fulfill a count of 2 without this guard).
+  bool get isFulfilled {
+    final uniqueApproverIds = currentApprovals
+        .where((entry) => entry.decision == ApprovalDecision.approved)
+        .map((entry) => entry.approverId)
+        .toSet();
+    return uniqueApproverIds.length >= requiredApprovalsCount;
+  }
+
   bool get hasRejections =>
       currentApprovals.any((a) => a.decision == ApprovalDecision.rejected);
 

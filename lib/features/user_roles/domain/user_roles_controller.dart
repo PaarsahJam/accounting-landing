@@ -44,6 +44,17 @@ class UsersController extends _$UsersController {
   }
 
   Future<AppResult<AppUser>?> createUser(AppUser user) async {
+    // Enforce permission before mutating state.
+    if (!ref.read(hasPermissionProvider(Permission.manageUsers))) {
+      AppLogger.warning(
+        'Unauthorized: createUser called without manageUsers permission.',
+      );
+      return AppResult.failure(
+        const ValidationFailure(
+          message: 'You do not have permission to create users.',
+        ),
+      );
+    }
     try {
       final repo = ref.read(userRepositoryProvider);
       final result = await repo.createUser(user);
@@ -62,6 +73,13 @@ class UsersController extends _$UsersController {
   }
 
   Future<bool> assignRole(String userId, String roleId) async {
+    // Enforce permission before mutating state.
+    if (!ref.read(hasPermissionProvider(Permission.manageUsers))) {
+      AppLogger.warning(
+        'Unauthorized: assignRole called without manageUsers permission.',
+      );
+      return false;
+    }
     try {
       final repo = ref.read(userRepositoryProvider);
       final result = await repo.assignRole(userId, roleId);
@@ -79,6 +97,13 @@ class UsersController extends _$UsersController {
   }
 
   Future<bool> deactivateUser(String userId) async {
+    // Enforce permission before mutating state.
+    if (!ref.read(hasPermissionProvider(Permission.manageUsers))) {
+      AppLogger.warning(
+        'Unauthorized: deactivateUser called without manageUsers permission.',
+      );
+      return false;
+    }
     try {
       final repo = ref.read(userRepositoryProvider);
       final result = await repo.deactivateUser(userId);

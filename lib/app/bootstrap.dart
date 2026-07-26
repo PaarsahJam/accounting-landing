@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/backup/backup_repository.dart';
 import '../core/backup/backup_service.dart';
-import '../core/company/company_controller.dart';
+import '../core/logging/app_logger.dart';
 import '../app/app.dart';
 
 class Bootstrap extends StatefulWidget {
@@ -23,13 +22,13 @@ class _BootstrapState extends State<Bootstrap> {
   }
 
   Future<void> _init() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    // Trigger company loading before the app tree mounts
-    // so the router redirect guard has data on first frame.
-    final container = ProviderContainer();
-    container.read(companyListProvider);
-    container.dispose();
-    // Check for pending restore on startup
+    // WidgetsFlutterBinding.ensureInitialized() is now in main() where it
+    // belongs. Calling it here was a no-op at best and architecturally wrong.
+    //
+    // The previous ProviderContainer warm-up call was also removed: it created
+    // a throwaway container independent of the app's ProviderScope, discarded
+    // the result immediately on dispose, and achieved nothing.  The router's
+    // redirect guard handles loading states correctly without pre-warming.
     await _checkRestore();
     if (!mounted) return;
     setState(() => _ready = true);
@@ -48,14 +47,15 @@ class _BootstrapState extends State<Bootstrap> {
           _restoreMessage =
               'Restore completed with ${report.errors.length} error(s)';
         } else {
-          _restoreMessage =
-              'Restored ${report.restoredSections} section(s)';
+          _restoreMessage = 'Restored ${report.restoredSections} section(s)';
         }
-        await storage.deleteBackup(
-            BackupService.defaultBackupFilename);
+        await storage.deleteBackup(BackupService.defaultBackupFilename);
       }
-    } catch (_) {
-      // Silently skip restore failures on startup
+    } catch (e) {
+      // Log the failure so it appears in debug output / crash reporters.
+      // Do not rethrow — a restore failure must not prevent app startup.
+      AppLogger.warning('Restore check failed on startup', error: e);
+      _restoreMessage = 'Startup restore check failed';
     }
   }
 

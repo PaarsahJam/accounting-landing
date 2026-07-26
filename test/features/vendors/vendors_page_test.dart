@@ -1,3 +1,5 @@
+import 'package:accounting_app/features/vendors/data/vendor_repository.dart';
+import 'package:accounting_app/features/vendors/data/vendor_repository_provider.dart';
 import 'package:accounting_app/features/vendors/presentation/vendors_page.dart';
 import 'package:accounting_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,9 @@ void main() {
   testWidgets('vendors page renders vendor entries', (tester) async {
     await tester.pumpWidget(
       ProviderScope(
+        overrides: [
+          vendorRepositoryProvider.overrideWithValue(MockVendorRepository()),
+        ],
         child: MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,

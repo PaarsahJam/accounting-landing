@@ -26,7 +26,7 @@ final class InventoryRepositoryProvider
         argument: null,
         retry: null,
         name: r'inventoryRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -55,4 +55,4 @@ final class InventoryRepositoryProvider
 }
 
 String _$inventoryRepositoryHash() =>
-    r'1379ccf1b83a7057e4666821fe07166fcf3e9391';
+    r'9ca8820f1bad57e0ca14895311d2550d5c49b2c1';

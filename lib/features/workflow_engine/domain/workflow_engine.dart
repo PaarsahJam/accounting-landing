@@ -177,8 +177,48 @@ class WorkflowEngine {
     required String approverId,
     required String approverName,
     required ApprovalDecision decision,
+    /// The role IDs held by the caller at the time of the approval request.
+    /// When non-empty and the workflow approval specifies [WorkflowApproval.approverRoles],
+    /// the caller must hold at least one of those roles.  Pass an empty list
+    /// from legacy call sites to preserve backwards-compatible behaviour until
+    /// role context is threaded through all callers.
+    List<String> callerRoleIds = const [],
     String? note,
   }) async {
+    final approval = instance.approval;
+
+    // ── Guard 1: prevent the same approver from voting more than once ────────
+    // Without this check a single manager could approve twice to satisfy a
+    // requiredApprovalsCount of 2, bypassing the multi-approver requirement.
+    final alreadyVoted = approval.currentApprovals
+        .any((entry) => entry.approverId == approverId);
+    if (alreadyVoted) {
+      return AppResult.failure(
+        ValidationFailure(
+          message: 'Approver "$approverId" has already submitted a decision '
+              'on this workflow instance.',
+        ),
+      );
+    }
+
+    // ── Guard 2: enforce approverRoles membership when roles are specified ───
+    // approverRoles is set on concrete workflow registrations (invoice, payment,
+    // vendor-bill).  If the list is non-empty, the caller must hold at least one
+    // of the required roles.  An empty callerRoleIds list bypasses the check so
+    // that existing call sites that have not yet been updated continue to work.
+    if (approval.approverRoles.isNotEmpty && callerRoleIds.isNotEmpty) {
+      final isAuthorised =
+          approval.approverRoles.any(callerRoleIds.contains);
+      if (!isAuthorised) {
+        return AppResult.failure(
+          ValidationFailure(
+            message: 'Caller does not hold any of the required approver roles: '
+                '${approval.approverRoles.join(', ')}.',
+          ),
+        );
+      }
+    }
+
     final entry = WorkflowApprovalEntry(
       approverId: approverId,
       approverName: approverName,
@@ -187,8 +227,8 @@ class WorkflowEngine {
       decidedAt: DateTime.now(),
     );
 
-    final updatedApproval = instance.approval.copyWith(
-      currentApprovals: [...instance.approval.currentApprovals, entry],
+    final updatedApproval = approval.copyWith(
+      currentApprovals: [...approval.currentApprovals, entry],
     );
 
     return AppResult.success(
