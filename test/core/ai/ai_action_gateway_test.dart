@@ -5,7 +5,6 @@ import 'package:accounting_app/core/errors/app_result.dart';
 import 'package:accounting_app/features/audit_trail/data/audit_trail_repository.dart';
 import 'package:accounting_app/features/audit_trail/domain/audit_action.dart';
 import 'package:accounting_app/features/audit_trail/domain/audit_entity_type.dart';
-import 'package:accounting_app/features/audit_trail/domain/audit_entry.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -59,7 +58,7 @@ void main() {
       final confirmed = ConfirmedAction<String>(
         actionType: AiActionType.draftCreate,
         description: 'Create invoice for Acme Corp',
-        action: _successAction,
+        action: _successAction.call,
         entityType: AuditEntityType.salesInvoice,
         entityId: 'SI-TEST-001',
         entityLabel: 'Test Invoice',
@@ -83,7 +82,7 @@ void main() {
       final confirmed = ConfirmedAction<String>(
         actionType: AiActionType.draftUpdate,
         description: 'Update vendor bill',
-        action: _failureAction,
+        action: _failureAction.call,
       );
 
       final result = await gateway.executeConfirmed(confirmed);
@@ -96,7 +95,7 @@ void main() {
       final confirmed = ConfirmedAction<String>(
         actionType: AiActionType.draftDelete,
         description: 'Delete obsolete record',
-        action: _throwAction,
+        action: _throwAction.call,
       );
 
       final result = await gateway.executeConfirmed(confirmed);

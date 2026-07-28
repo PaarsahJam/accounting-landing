@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../lib/features/notifications/data/notification_repository.dart';
-import '../../../lib/features/notifications/domain/app_notification.dart';
-import '../../../lib/features/notifications/domain/notification_channel.dart';
-import '../../../lib/features/notifications/domain/notification_preference.dart';
-import '../../../lib/features/notifications/domain/notification_severity.dart';
-import '../../../lib/features/notifications/domain/notification_type.dart';
-import '../../../lib/features/notifications/generators/notification_generators.dart';
-import '../../../lib/features/notifications/services/notification_service.dart';
+import 'package:accounting_app/features/notifications/data/notification_repository.dart';
+import 'package:accounting_app/features/notifications/domain/app_notification.dart';
+import 'package:accounting_app/features/notifications/domain/notification_channel.dart';
+import 'package:accounting_app/features/notifications/domain/notification_preference.dart';
+import 'package:accounting_app/features/notifications/domain/notification_severity.dart';
+import 'package:accounting_app/features/notifications/domain/notification_type.dart';
+import 'package:accounting_app/features/notifications/generators/notification_generators.dart';
+import 'package:accounting_app/features/notifications/services/notification_service.dart';
 
 void main() {
   group('AppNotification', () {

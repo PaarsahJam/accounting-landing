@@ -56,7 +56,7 @@ class ProductsTable extends Table {
 @DriftDatabase(tables: [CustomersTable, VendorsTable, ProductsTable])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
-  AppDatabase.withExecutor(QueryExecutor executor) : super(executor);
+  AppDatabase.withExecutor(super.executor);
 
   @override
   int get schemaVersion => 3;

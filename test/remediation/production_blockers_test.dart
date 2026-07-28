@@ -11,7 +11,6 @@
 //   • Fake helpers defined locally — no production-mock import
 //   • tearDown/addTearDown disposes every container
 
-import 'dart:async';
 
 import 'package:accounting_app/core/api/auth_token_storage.dart';
 import 'package:accounting_app/core/api/auth_token_storage_provider.dart';
@@ -27,7 +26,6 @@ import 'package:accounting_app/features/auth/domain/auth_notifier.dart';
 import 'package:accounting_app/features/user_roles/data/user_repository.dart';
 import 'package:accounting_app/features/user_roles/data/user_repository_provider.dart';
 import 'package:accounting_app/features/user_roles/domain/app_user.dart';
-import 'package:accounting_app/features/user_roles/domain/permission.dart';
 import 'package:accounting_app/features/user_roles/domain/user_roles_controller.dart';
 import 'package:accounting_app/features/workflow_engine/domain/workflow_approval.dart';
 import 'package:accounting_app/features/workflow_engine/domain/workflow_definition.dart';
@@ -39,6 +37,7 @@ import 'package:accounting_app/features/workflow_engine/domain/workflow_transiti
 import 'package:accounting_app/features/workflow_engine/domain/workflow_trigger.dart';
 import 'package:accounting_app/shared/models/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -58,47 +57,47 @@ class _InMemorySecureStorage extends FlutterSecureStorage {
   Future<void> write({
     required String key,
     required String? value,
-    IOSOptions? iOptions,
+    AppleOptions? iOptions,
     AndroidOptions? aOptions,
     LinuxOptions? lOptions,
     WebOptions? webOptions,
     WindowsOptions? wOptions,
-    MacOsOptions? mOptions,
+    AppleOptions? mOptions,
   }) async =>
       value == null ? _store.remove(key) : _store[key] = value;
 
   @override
   Future<String?> read({
     required String key,
-    IOSOptions? iOptions,
+    AppleOptions? iOptions,
     AndroidOptions? aOptions,
     LinuxOptions? lOptions,
     WebOptions? webOptions,
     WindowsOptions? wOptions,
-    MacOsOptions? mOptions,
+    AppleOptions? mOptions,
   }) async =>
       _store[key];
 
   @override
   Future<void> delete({
     required String key,
-    IOSOptions? iOptions,
+    AppleOptions? iOptions,
     AndroidOptions? aOptions,
     LinuxOptions? lOptions,
     WebOptions? webOptions,
     WindowsOptions? wOptions,
-    MacOsOptions? mOptions,
+    AppleOptions? mOptions,
   }) async =>
       _store.remove(key);
 
   @override
   Future<void> deleteAll({
-    IOSOptions? iOptions,
+    AppleOptions? iOptions,
     AndroidOptions? aOptions,
     LinuxOptions? lOptions,
     WebOptions? webOptions,
     WindowsOptions? wOptions,
-    MacOsOptions? mOptions,
+    AppleOptions? mOptions,
   }) async =>
       _store.clear();
 }
@@ -119,16 +118,12 @@ class _RecordingTokenStorage extends AuthTokenStorage {
   }
 }
 
-/// [MockAuthRepository] variant that allows a pre-seeded [User] to be
-/// returned by [currentUser].  Used in C-1 to verify the notifier reads from
-/// the injected repository and not from a hardcoded internal instance.
-extension _SeedableRepo on MockAuthRepository {
-  // ignore: invalid_use_of_visible_for_testing_member — test helper only
-  void seedUser(User user) => _internalSeed(user);
-}
-
-/// Package-private extension target on [MockAuthRepository].  Dart does not
-/// support overriding instance fields externally, so we subclass instead.
+/// [MockAuthRepository] variant that returns a pre-seeded [User] from
+/// [currentUser].  Used in C-1 to verify the notifier reads from the injected
+/// repository and not from a hardcoded internal instance.
+///
+/// Dart does not support overriding instance fields externally, so we subclass
+/// rather than patch the mock in place.
 class _SeededAuthRepository extends MockAuthRepository {
   _SeededAuthRepository(this._seed);
 
@@ -265,7 +260,7 @@ void main() {
         );
         addTearDown(container.dispose);
 
-        container.listen(authProvider, (_, __) {});
+        container.listen(authProvider, (_, _) {});
         final user = await container.read(authProvider.future);
 
         expect(
@@ -288,7 +283,7 @@ void main() {
           ],
         );
         addTearDown(container.dispose);
-        container.listen(currentCompanyProvider, (_, __) {});
+        container.listen(currentCompanyProvider, (_, _) {});
         await expectLater(
           container.read(currentCompanyProvider.future),
           completes,
@@ -311,7 +306,7 @@ void main() {
       );
       addTearDown(container.dispose);
 
-      container.listen(authProvider, (_, __) {});
+      container.listen(authProvider, (_, _) {});
       final notifier = container.read(authProvider.notifier);
       await notifier.login(email: 'u@example.com', password: 'pw');
       expect(
@@ -334,7 +329,7 @@ void main() {
       final container = _makeContainer();
       addTearDown(container.dispose);
 
-      container.listen(authProvider, (_, __) {});
+      container.listen(authProvider, (_, _) {});
       final notifier = container.read(authProvider.notifier);
       await notifier.login(email: 'u@example.com', password: 'pw');
       expect(container.read(authProvider).value, isNotNull);
@@ -353,8 +348,8 @@ void main() {
         final container = _makeContainer();
         addTearDown(container.dispose);
 
-        container.listen(authProvider, (_, __) {});
-        container.listen(currentCompanyProvider, (_, __) {});
+        container.listen(authProvider, (_, _) {});
+        container.listen(currentCompanyProvider, (_, _) {});
 
         final notifier = container.read(authProvider.notifier);
         await notifier.login(email: 'u@example.com', password: 'pw');
@@ -398,7 +393,7 @@ void main() {
     );
 
     /// Builds a container where [currentUser] resolves to [caller].
-    ProviderContainer _containerForCaller(AppUser caller) {
+    ProviderContainer containerForCaller(AppUser caller) {
       return ProviderContainer(
         overrides: [
           authRepositoryProvider.overrideWithValue(MockAuthRepository()),
@@ -410,10 +405,10 @@ void main() {
       );
     }
 
-    Future<void> _warmUp(ProviderContainer c) async {
-      c.listen(usersControllerProvider, (_, __) {});
-      c.listen(currentUserControllerProvider, (_, __) {});
-      c.listen(rolesControllerProvider, (_, __) {});
+    Future<void> warmUp(ProviderContainer c) async {
+      c.listen(usersControllerProvider, (_, _) {});
+      c.listen(currentUserControllerProvider, (_, _) {});
+      c.listen(rolesControllerProvider, (_, _) {});
       // Wait for all three async providers to resolve.
       await c.read(usersControllerProvider.future);
       await c.read(currentUserControllerProvider.future);
@@ -422,9 +417,9 @@ void main() {
 
     test('assignRole returns false for Accountant (lacks manageUsers)',
         () async {
-      final container = _containerForCaller(accountant);
+      final container = containerForCaller(accountant);
       addTearDown(container.dispose);
-      await _warmUp(container);
+      await warmUp(container);
 
       final result = await container
           .read(usersControllerProvider.notifier)
@@ -434,9 +429,9 @@ void main() {
     });
 
     test('deactivateUser returns false for Accountant', () async {
-      final container = _containerForCaller(accountant);
+      final container = containerForCaller(accountant);
       addTearDown(container.dispose);
-      await _warmUp(container);
+      await warmUp(container);
 
       final result = await container
           .read(usersControllerProvider.notifier)
@@ -446,9 +441,9 @@ void main() {
     });
 
     test('createUser returns a failure result for Accountant', () async {
-      final container = _containerForCaller(accountant);
+      final container = containerForCaller(accountant);
       addTearDown(container.dispose);
-      await _warmUp(container);
+      await warmUp(container);
 
       final result = await container
           .read(usersControllerProvider.notifier)
@@ -472,9 +467,9 @@ void main() {
     });
 
     test('assignRole succeeds for Administrator', () async {
-      final container = _containerForCaller(admin);
+      final container = containerForCaller(admin);
       addTearDown(container.dispose);
-      await _warmUp(container);
+      await warmUp(container);
 
       final result = await container
           .read(usersControllerProvider.notifier)
@@ -484,9 +479,9 @@ void main() {
     });
 
     test('state is NOT mutated when assignRole is denied', () async {
-      final container = _containerForCaller(accountant);
+      final container = containerForCaller(accountant);
       addTearDown(container.dispose);
-      await _warmUp(container);
+      await warmUp(container);
 
       final before = List<AppUser>.from(
         container.read(usersControllerProvider).value!,

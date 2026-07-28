@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 
 import 'app/bootstrap.dart';
 import 'core/company/company_provider.dart';
@@ -19,9 +20,9 @@ void main() {
   // the app works without a live backend.  In release builds no overrides are
   // registered; attempting to use an unoverridden provider would throw
   // UnimplementedError immediately, forcing the real backend to be wired.
-  final overrides = kReleaseMode
-      ? const []
-      : [
+  final List<Override> overrides = kReleaseMode
+      ? const <Override>[]
+      : <Override>[
           authRepositoryProvider.overrideWithValue(MockAuthRepository()),
           companyRepositoryProvider.overrideWithValue(MockCompanyRepository()),
           userRepositoryProvider.overrideWithValue(MockUserRepository()),

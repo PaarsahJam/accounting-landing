@@ -43,7 +43,7 @@ class ApiClient {
           // ignore: avoid_print — debug-only logging behind env flag
           logPrint: (o) => print('[DIO] $o'),
         ),
-      if (extraInterceptors != null) ...?extraInterceptors,
+      ...?extraInterceptors,
     ]);
     return dio;
   }

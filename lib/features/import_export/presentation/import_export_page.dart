@@ -136,7 +136,7 @@ class _SelectorPanel extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           DropdownButtonFormField<ExportEntityType>(
-            value: selected,
+            initialValue: selected,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
               isDense: true,

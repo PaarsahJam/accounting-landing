@@ -1,6 +1,5 @@
 import 'package:accounting_app/core/ai/ai_action_gateway.dart';
 import 'package:accounting_app/core/ai/ai_context_collector.dart';
-import 'package:accounting_app/core/ai/ai_provider.dart';
 import 'package:accounting_app/core/ai/providers/fake_ai_provider.dart';
 import 'package:accounting_app/core/ai/use_cases/ai_summarize.dart';
 import 'package:accounting_app/features/audit_trail/data/audit_trail_repository.dart';

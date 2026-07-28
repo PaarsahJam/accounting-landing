@@ -29,7 +29,7 @@ void main() {
     );
   });
 
-  EmailMessage _testMessage({String? id, String? subject}) {
+  EmailMessage testMessage({String? id, String? subject}) {
     return EmailMessage(
       id: id ?? 'test-email',
       to: EmailAddress(address: 'alice@acme.com'),
@@ -40,7 +40,7 @@ void main() {
 
   group('sendWithTracking', () {
     test('returns success result from repository', () async {
-      final msg = _testMessage();
+      final msg = testMessage();
       final result = await service.sendWithTracking(msg);
 
       expect(result.isSuccess, isTrue);
@@ -48,7 +48,7 @@ void main() {
     });
 
     test('creates audit entry on success', () async {
-      final msg = _testMessage(subject: 'Invoice INV-001');
+      final msg = testMessage(subject: 'Invoice INV-001');
       await service.sendWithTracking(msg);
 
       final entries = (await auditRepo.fetchEntries()).data ?? [];
@@ -71,7 +71,7 @@ void main() {
         performedBy: 'test-service',
       );
 
-      final msg = _testMessage();
+      final msg = testMessage();
       await localService.sendWithTracking(msg);
 
       final entries = (await auditRepo.fetchEntries()).data ?? [];
@@ -84,7 +84,7 @@ void main() {
     });
 
     test('creates notification on success', () async {
-      final msg = _testMessage(subject: 'Invoice INV-001');
+      final msg = testMessage(subject: 'Invoice INV-001');
       await service.sendWithTracking(msg);
 
       final notifs = (await notificationRepo.fetchNotifications()).data ?? [];
@@ -105,7 +105,7 @@ void main() {
         performedBy: 'test-service',
       );
 
-      final msg = _testMessage(subject: 'Invoice INV-001');
+      final msg = testMessage(subject: 'Invoice INV-001');
       await localService.sendWithTracking(msg);
 
       final notifs = (await notificationRepo.fetchNotifications()).data ?? [];
@@ -118,7 +118,7 @@ void main() {
     });
 
     test('updates message status to sent on success', () async {
-      final msg = _testMessage();
+      final msg = testMessage();
       final result = await service.sendWithTracking(msg);
 
       expect(result.data!.status, equals(EmailStatus.sent));

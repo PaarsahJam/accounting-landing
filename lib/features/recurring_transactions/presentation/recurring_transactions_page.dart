@@ -309,7 +309,7 @@ class _CreateEditDialogState extends State<_CreateEditDialog> {
                 ),
                 const SizedBox(height: 12),
                 DropdownButtonFormField<RecurrenceFrequency>(
-                  value: _frequency,
+                  initialValue: _frequency,
                   decoration: InputDecoration(
                     labelText: l10n.recurringTransactionFrequency,
                   ),

@@ -7,9 +7,7 @@ import 'package:accounting_app/features/audit_trail/data/audit_trail_repository.
 import 'package:accounting_app/features/audit_trail/data/audit_trail_repository_provider.dart';
 import 'package:accounting_app/features/document_processing/data/document_processing_repository.dart';
 import 'package:accounting_app/features/document_processing/data/document_processing_repository_provider.dart';
-import 'package:accounting_app/features/document_processing/domain/document_processing_controller.dart';
 import 'package:accounting_app/features/attachments/ocr/domain/document_classification.dart';
-import 'package:accounting_app/features/document_processing/data/document_processing_repository.dart';
 import 'package:accounting_app/features/document_processing/domain/document_processing_job.dart';
 import 'package:accounting_app/features/document_processing/domain/review_decision.dart';
 import 'package:accounting_app/features/document_processing/presentation/document_processing_queue_page.dart';
@@ -94,7 +92,7 @@ void main() {
   });
 
   group('DocumentReviewPage', () {
-    DocumentProcessingJob _awaitingJob() => DocumentProcessingJob(
+    DocumentProcessingJob awaitingJob() => DocumentProcessingJob(
           id: 'DPJ-TEST-001',
           attachmentId: 'ATT-2026-0004',
           step: ProcessingStep.awaitingReview,
@@ -107,7 +105,7 @@ void main() {
         );
 
     testWidgets('shows job id and attachment id', (tester) async {
-      await tester.pumpWidget(_wrap(DocumentReviewPage(job: _awaitingJob())));
+      await tester.pumpWidget(_wrap(DocumentReviewPage(job: awaitingJob())));
       await tester.pumpAndSettle();
 
       expect(find.text('DPJ-TEST-001'), findsOneWidget);
@@ -116,7 +114,7 @@ void main() {
 
     testWidgets('shows Approve and Reject buttons for awaitingReview job',
         (tester) async {
-      await tester.pumpWidget(_wrap(DocumentReviewPage(job: _awaitingJob())));
+      await tester.pumpWidget(_wrap(DocumentReviewPage(job: awaitingJob())));
       await tester.pumpAndSettle();
 
       expect(find.text('Approve'), findsOneWidget);
@@ -162,7 +160,7 @@ void main() {
     });
 
     testWidgets('tapping Reject opens dialog', (tester) async {
-      await tester.pumpWidget(_wrap(DocumentReviewPage(job: _awaitingJob())));
+      await tester.pumpWidget(_wrap(DocumentReviewPage(job: awaitingJob())));
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('Reject'));
@@ -173,7 +171,7 @@ void main() {
     });
 
     testWidgets('reject dialog Cancel dismisses without action', (tester) async {
-      await tester.pumpWidget(_wrap(DocumentReviewPage(job: _awaitingJob())));
+      await tester.pumpWidget(_wrap(DocumentReviewPage(job: awaitingJob())));
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('Reject'));

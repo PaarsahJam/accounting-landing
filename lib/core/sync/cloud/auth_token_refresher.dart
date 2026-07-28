@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 
 import '../../api/api_client.dart';
 import '../../api/api_config.dart';
-import '../../api/api_error_mapper.dart';
 import '../../api/auth_token_storage.dart';
 import '../../logging/app_logger.dart';
 
@@ -105,7 +104,7 @@ class AuthTokenRefresher extends Interceptor {
         retryOptions.headers['Authorization'] = 'Bearer $newToken';
         try {
           final response =
-              await _apiClient!.fetch<void>(retryOptions);
+              await _apiClient.fetch<void>(retryOptions);
           return handler.resolve(response);
         } on DioException catch (retryErr) {
           // Retry itself failed — fall through to forward the original error.

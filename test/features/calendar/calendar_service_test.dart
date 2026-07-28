@@ -228,7 +228,6 @@ LeadOpportunity _makeLead(String id, DateTime date) => LeadOpportunity(
       createdAt: DateTime(2026, 7, 23),
     );
 
-final _today = DateTime(2026, 7, 23);
 final _feb01 = DateTime(2026, 2, 1);
 final _feb05 = DateTime(2026, 2, 5);
 final _feb09 = DateTime(2026, 2, 9);

@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../lib/features/crm/data/crm_repository.dart';
-import '../../../lib/features/crm/data/crm_repository_provider.dart';
-import '../../../lib/features/crm/domain/crm_task.dart';
-import '../../../lib/features/crm/domain/crm_tasks_controller.dart';
+import 'package:accounting_app/features/crm/data/crm_repository.dart';
+import 'package:accounting_app/features/crm/data/crm_repository_provider.dart';
+import 'package:accounting_app/features/crm/domain/crm_task.dart';
+import 'package:accounting_app/features/crm/domain/crm_tasks_controller.dart';
 
 void main() {
   late MockCrmRepository repository;

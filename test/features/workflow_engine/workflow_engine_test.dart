@@ -1,23 +1,23 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../lib/features/audit_trail/domain/audit_action.dart';
-import '../../../lib/features/audit_trail/domain/audit_entity_type.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_action.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_approval.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_audit_helper.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_condition.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_definition.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_engine.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_instance.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_registry.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_state.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_transition.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_transition_record.dart';
-import '../../../lib/features/workflow_engine/domain/workflow_trigger.dart';
-import '../../../lib/features/workflow_engine/registration/document_workflow.dart';
-import '../../../lib/features/workflow_engine/registration/invoice_workflow.dart';
-import '../../../lib/features/workflow_engine/registration/payment_workflow.dart';
-import '../../../lib/features/workflow_engine/registration/vendor_bill_workflow.dart';
+import 'package:accounting_app/features/audit_trail/domain/audit_action.dart';
+import 'package:accounting_app/features/audit_trail/domain/audit_entity_type.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_action.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_approval.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_audit_helper.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_condition.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_definition.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_engine.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_instance.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_registry.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_state.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_transition.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_transition_record.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_trigger.dart';
+import 'package:accounting_app/features/workflow_engine/registration/document_workflow.dart';
+import 'package:accounting_app/features/workflow_engine/registration/invoice_workflow.dart';
+import 'package:accounting_app/features/workflow_engine/registration/payment_workflow.dart';
+import 'package:accounting_app/features/workflow_engine/registration/vendor_bill_workflow.dart';
 
 void main() {
   group('WorkflowState', () {

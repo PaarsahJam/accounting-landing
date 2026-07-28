@@ -263,7 +263,7 @@ void main() {
 
       final result = await service.createFinancialDocument(
         job,
-        createDocument: (_, __) async => AppResult.success('DOC-001'),
+        createDocument: (_, _) async => AppResult.success('DOC-001'),
       );
 
       expect(result.isSuccess, isFalse);
@@ -284,7 +284,7 @@ void main() {
 
       final result = await service.createFinancialDocument(
         forcedJob,
-        createDocument: (_, __) async => AppResult.success('DOC-001'),
+        createDocument: (_, _) async => AppResult.success('DOC-001'),
       );
 
       expect(result.isSuccess, isFalse);
@@ -407,15 +407,12 @@ void main() {
       // Attempting to create after rejection must fail
       final createResult = await service.createFinancialDocument(
         reviewResult.data!,
-        createDocument: (_, __) async => AppResult.success('SHOULD-NOT-EXIST'),
+        createDocument: (_, _) async => AppResult.success('SHOULD-NOT-EXIST'),
       );
       expect(createResult.isSuccess, isFalse);
     });
 
     test('fetchPendingReview returns only awaitingReview jobs', () async {
-      final repo = MockDocumentProcessingRepository();
-      final service = _makeService(repo: repo);
-
       // Use a fresh repo with no seed — create jobs manually
       final freshRepo = MockDocumentProcessingRepository();
       // Clear seeded jobs by fetching and approving them all
@@ -426,7 +423,7 @@ void main() {
 
       final freshService = _makeService(repo: freshRepo);
       final j1 = await freshService.startProcessing('ATT-001');
-      final j2 = await freshService.startProcessing('ATT-002');
+      await freshService.startProcessing('ATT-002');
 
       await freshService.runPipeline(j1.data!);
       // j2 stays at uploaded
