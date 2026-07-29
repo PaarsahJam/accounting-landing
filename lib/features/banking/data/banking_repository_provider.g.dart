@@ -26,7 +26,7 @@ final class BankingRepositoryProvider
         argument: null,
         retry: null,
         name: r'bankingRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -54,4 +54,4 @@ final class BankingRepositoryProvider
   }
 }
 
-String _$bankingRepositoryHash() => r'eb90229323450e3f1a5802d66676ec31fa2585f0';
+String _$bankingRepositoryHash() => r'c3020b1a03ab2dfe276d87cbd24bc5f6209f4a69';

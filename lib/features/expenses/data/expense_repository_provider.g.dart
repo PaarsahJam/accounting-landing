@@ -26,7 +26,7 @@ final class ExpenseRepositoryProvider
         argument: null,
         retry: null,
         name: r'expenseRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -54,4 +54,4 @@ final class ExpenseRepositoryProvider
   }
 }
 
-String _$expenseRepositoryHash() => r'2d9eb24a7be9e3a9b700111e9d0c8046ac885936';
+String _$expenseRepositoryHash() => r'2ae2f0f989d35d0a1af1e2524d11c5f51d454930';

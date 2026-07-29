@@ -26,7 +26,7 @@ final class PurchaseOrdersRepositoryProvider
         argument: null,
         retry: null,
         name: r'purchaseOrdersRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -55,4 +55,4 @@ final class PurchaseOrdersRepositoryProvider
 }
 
 String _$purchaseOrdersRepositoryHash() =>
-    r'416a6ab5994712cc993f15c83952dc67cbad8c3d';
+    r'606b98097c19b6f2bf4859350f7196d2b8e783ac';

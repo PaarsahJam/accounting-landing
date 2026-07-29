@@ -61,13 +61,220 @@ class ProductsTable extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DriftDatabase(tables: [CustomersTable, VendorsTable, ProductsTable])
+// ── Sales Invoices ──────────────────────────────────────────────────────────
+
+class SalesInvoiceTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get customerId => text()();
+  TextColumn get customerName => text()();
+  TextColumn get reference => text()();
+  TextColumn get title => text()();
+  TextColumn get notes => text()();
+  DateTimeColumn get invoiceDate => dateTime()();
+  DateTimeColumn get dueDate => dateTime()();
+  TextColumn get statusId => text()();
+  TextColumn get statusLabel => text()();
+  TextColumn get statusColor => text()();
+  RealColumn get subtotal => real()();
+  RealColumn get tax => real()();
+  RealColumn get total => real()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+class SalesInvoiceLineTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get invoiceId => text()();
+  TextColumn get description => text()();
+  RealColumn get quantity => real()();
+  RealColumn get unitPrice => real()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+// ── Vendor Bills ────────────────────────────────────────────────────────────
+
+class VendorBillTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get vendorId => text()();
+  TextColumn get purchaseOrderId => text()();
+  TextColumn get goodsReceiptId => text()();
+  TextColumn get reference => text()();
+  TextColumn get title => text()();
+  TextColumn get notes => text()();
+  DateTimeColumn get billDate => dateTime()();
+  DateTimeColumn get dueDate => dateTime()();
+  TextColumn get statusId => text()();
+  TextColumn get statusLabel => text()();
+  TextColumn get statusColor => text()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+class VendorBillLineTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get billId => text()();
+  TextColumn get description => text()();
+  RealColumn get quantity => real()();
+  RealColumn get unitPrice => real()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+// ── Purchase Orders ─────────────────────────────────────────────────────────
+
+class PurchaseOrderTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get vendorId => text()();
+  TextColumn get reference => text()();
+  TextColumn get title => text()();
+  TextColumn get notes => text()();
+  DateTimeColumn get orderDate => dateTime()();
+  DateTimeColumn get expectedDate => dateTime()();
+  TextColumn get statusId => text()();
+  TextColumn get statusLabel => text()();
+  TextColumn get statusColor => text()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+class PurchaseOrderLineTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get purchaseOrderId => text()();
+  TextColumn get description => text()();
+  RealColumn get quantity => real()();
+  RealColumn get unitPrice => real()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+// ── Expenses ────────────────────────────────────────────────────────────────
+
+class ExpenseTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get merchant => text()();
+  RealColumn get amount => real()();
+  TextColumn get categoryId => text()();
+  TextColumn get paymentMethodId => text()();
+  DateTimeColumn get occurredAt => dateTime()();
+  TextColumn get description => text()();
+  TextColumn get attachmentIds => text()();
+  TextColumn get status => text()();
+  TextColumn get businessId => text()();
+  DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get updatedAt => dateTime()();
+  TextColumn get createdBy => text()();
+  TextColumn get updatedBy => text()();
+  BoolColumn get isDeleted => boolean()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+// ── Banking ─────────────────────────────────────────────────────────────────
+
+class BankAccountTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get name => text()();
+  TextColumn get accountNumber => text()();
+  TextColumn get accountType => text()();
+  TextColumn get currency => text()();
+  RealColumn get currentBalance => real()();
+  TextColumn get status => text()();
+  DateTimeColumn get createdAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+class BankTransactionTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get accountId => text()();
+  DateTimeColumn get date => dateTime()();
+  RealColumn get amount => real()();
+  TextColumn get transactionType => text()();
+  TextColumn get reference => text()();
+  TextColumn get description => text()();
+  RealColumn get runningBalance => real()();
+  DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get updatedAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+// ── Bank Statements ─────────────────────────────────────────────────────────
+
+class BankStatementTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get bankAccountId => text()();
+  TextColumn get bankAccountName => text()();
+  DateTimeColumn get periodStart => dateTime()();
+  DateTimeColumn get periodEnd => dateTime()();
+  RealColumn get openingBalance => real()();
+  RealColumn get closingBalance => real()();
+  TextColumn get status => text()();
+  DateTimeColumn get importedAt => dateTime()();
+  DateTimeColumn? get reconciledAt => dateTime().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+class BankStatementTransactionTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get companyId => text()();
+  TextColumn get statementId => text()();
+  DateTimeColumn get date => dateTime()();
+  RealColumn get amount => real()();
+  TextColumn get description => text()();
+  TextColumn get reference => text()();
+  BoolColumn get isMatched => boolean()();
+  TextColumn? get matchedErpEntryId => text().nullable()();
+  TextColumn? get notes => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DriftDatabase(tables: [
+  CustomersTable,
+  VendorsTable,
+  ProductsTable,
+  SalesInvoiceTable,
+  SalesInvoiceLineTable,
+  VendorBillTable,
+  VendorBillLineTable,
+  PurchaseOrderTable,
+  PurchaseOrderLineTable,
+  ExpenseTable,
+  BankAccountTable,
+  BankTransactionTable,
+  BankStatementTable,
+  BankStatementTransactionTable,
+])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
   AppDatabase.withExecutor(super.executor);
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration {

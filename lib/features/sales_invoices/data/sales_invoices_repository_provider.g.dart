@@ -26,7 +26,7 @@ final class SalesInvoicesRepositoryProvider
         argument: null,
         retry: null,
         name: r'salesInvoicesRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -55,4 +55,4 @@ final class SalesInvoicesRepositoryProvider
 }
 
 String _$salesInvoicesRepositoryHash() =>
-    r'3889d87365a6b8d99cb1e74a498a25bbb219c8fa';
+    r'6c828ecf6dae168e6812c7064d2172dbc0e17523';

@@ -26,7 +26,7 @@ final class VendorBillsRepositoryProvider
         argument: null,
         retry: null,
         name: r'vendorBillsRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -55,4 +55,4 @@ final class VendorBillsRepositoryProvider
 }
 
 String _$vendorBillsRepositoryHash() =>
-    r'acbac8f00f4fd08b231d4690431f59a3e12d1164';
+    r'b76f8eb0a00387ef405e30de369d0b57b7c89d67';

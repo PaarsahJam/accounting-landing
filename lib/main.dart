@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
@@ -16,17 +15,16 @@ void main() {
   // rather than inside Bootstrap.initState() which runs too late.
   WidgetsFlutterBinding.ensureInitialized();
 
-  // In debug/profile builds, provide the in-memory mock implementations so
-  // the app works without a live backend.  In release builds no overrides are
-  // registered; attempting to use an unoverridden provider would throw
-  // UnimplementedError immediately, forcing the real backend to be wired.
-  final List<Override> overrides = kReleaseMode
-      ? const <Override>[]
-      : <Override>[
-          authRepositoryProvider.overrideWithValue(MockAuthRepository()),
-          companyRepositoryProvider.overrideWithValue(MockCompanyRepository()),
-          userRepositoryProvider.overrideWithValue(MockUserRepository()),
-        ];
+  // Features that do not yet have a remote REST API are routed to local Drift
+  // database repositories (the default in their respective providers).  The
+  // providers below still rely on in-memory mocks because no Drift-backed
+  // equivalent exists for them yet; they are overridden in every build mode
+  // so the app never crashes with UnimplementedError in release builds.
+  final overrides = <Override>[
+    authRepositoryProvider.overrideWithValue(MockAuthRepository()),
+    companyRepositoryProvider.overrideWithValue(MockCompanyRepository()),
+    userRepositoryProvider.overrideWithValue(MockUserRepository()),
+  ];
 
   runApp(ProviderScope(overrides: overrides, child: const Bootstrap()));
 }

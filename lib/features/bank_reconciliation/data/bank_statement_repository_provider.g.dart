@@ -26,7 +26,7 @@ final class BankStatementRepositoryProvider
         argument: null,
         retry: null,
         name: r'bankStatementRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -55,4 +55,4 @@ final class BankStatementRepositoryProvider
 }
 
 String _$bankStatementRepositoryHash() =>
-    r'c0a92074ee8b14bc208d21c83b3581c69724e0fc';
+    r'0b40eb1cc92a817a57c3021768cceb36bfd5ba16';
