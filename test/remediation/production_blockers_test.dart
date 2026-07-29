@@ -149,6 +149,15 @@ class _SingleCurrentUserRepo extends MockUserRepository {
       AppResult.success(_current);
 }
 
+/// [MockUserRepository] variant whose [currentUser] resolves to null — i.e. no
+/// authenticated caller. Used to prove authorization gates fail closed when the
+/// caller identity is missing.
+class _NoCurrentUserRepo extends MockUserRepository {
+  @override
+  Future<AppResult<AppUser?>> currentUser() async =>
+      AppResult.success(null);
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Container factory
 // ─────────────────────────────────────────────────────────────────────────────
@@ -890,6 +899,139 @@ void main() {
 
       expect(updated.approval.currentApprovals, hasLength(1));
       expect(updated.approval.isFulfilled, isTrue);
+    });
+  });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // C-7 · WorkflowInstanceController enforces authorization (fails closed)
+  // ──────────────────────────────────────────────────────────────────────────
+  //
+  // Every state-mutating entry point (executeTransition, createAndSaveInstance,
+  // addApproval) must deny a caller with no authenticated user. Because all
+  // built-in privileged roles hold postJournal, the way to be *denied* is to
+  // have no current user at all — so these tests inject _NoCurrentUserRepo and
+  // assert the gate throws a typed AuthorizationFailure before any state change.
+  // A manager (holds postJournal) is used to prove authorized callers still
+  // succeed and that denial is not a blanket lock-out.
+  group('C-7 · WorkflowInstanceController enforces authorization', () {
+    const manager = AppUser(
+      id: 'USR-0002',
+      name: 'Mike Manager',
+      email: 'mike@example.com',
+      roleId: 'role-manager',
+    );
+
+    /// Container whose current user resolves to null — no authenticated caller.
+    ProviderContainer unauthenticatedContainer() {
+      final container = ProviderContainer(
+        overrides: [
+          authRepositoryProvider.overrideWithValue(MockAuthRepository()),
+          companyRepositoryProvider.overrideWithValue(MockCompanyRepository()),
+          userRepositoryProvider.overrideWithValue(_NoCurrentUserRepo()),
+          workflowRepositoryProvider
+              .overrideWithValue(MockWorkflowRepository()),
+        ],
+      );
+      addTearDown(container.dispose);
+      return container;
+    }
+
+    /// Container whose current user is an authorized [manager].
+    ProviderContainer authorizedContainer() {
+      final container = ProviderContainer(
+        overrides: [
+          authRepositoryProvider.overrideWithValue(MockAuthRepository()),
+          companyRepositoryProvider.overrideWithValue(MockCompanyRepository()),
+          userRepositoryProvider
+              .overrideWithValue(_SingleCurrentUserRepo(manager)),
+          workflowRepositoryProvider
+              .overrideWithValue(MockWorkflowRepository()),
+        ],
+      );
+      addTearDown(container.dispose);
+      return container;
+    }
+
+    Future<void> warmUp(ProviderContainer c) async {
+      c.listen(workflowInstanceControllerProvider, (_, _) {});
+      c.listen(currentUserControllerProvider, (_, _) {});
+      c.listen(rolesControllerProvider, (_, _) {});
+      await c.read(workflowInstanceControllerProvider.future);
+      await c.read(currentUserControllerProvider.future);
+      await c.read(rolesControllerProvider.future);
+    }
+
+    test('executeTransition is denied when no user is authenticated', () async {
+      final container = unauthenticatedContainer();
+      await warmUp(container);
+      final notifier =
+          container.read(workflowInstanceControllerProvider.notifier);
+
+      await expectLater(
+        notifier.executeTransition(
+          instance: _buildInstance(definitionId: 'test_wf'),
+          transitionId: 'approve',
+          performedBy: 'anonymous',
+        ),
+        throwsA(isA<AuthorizationFailure>()),
+      );
+    });
+
+    test('createAndSaveInstance is denied when no user is authenticated',
+        () async {
+      final container = unauthenticatedContainer();
+      await warmUp(container);
+      final notifier =
+          container.read(workflowInstanceControllerProvider.notifier);
+
+      await expectLater(
+        notifier.createAndSaveInstance(
+          definitionId: 'test_wf',
+          entityId: 'doc-001',
+          entityType: AuditEntityType.salesInvoice,
+        ),
+        throwsA(isA<AuthorizationFailure>()),
+      );
+    });
+
+    test('addApproval is denied when no user is authenticated', () async {
+      final container = unauthenticatedContainer();
+      await warmUp(container);
+      final notifier =
+          container.read(workflowInstanceControllerProvider.notifier);
+
+      await expectLater(
+        notifier.addApproval(
+          instance: _buildInstance(
+            definitionId: 'test_wf',
+            requiredApprovals: 1,
+            approverRoles: const ['role-manager'],
+          ),
+          approverId: 'anonymous',
+          approverName: 'Anonymous',
+          decision: ApprovalDecision.approved,
+        ),
+        throwsA(isA<AuthorizationFailure>()),
+      );
+    });
+
+    test('executeTransition succeeds for an authorized caller', () async {
+      // Register the workflow so the engine can resolve the 'approve'
+      // transition (draft → approved) for the authorized caller.
+      _buildTestRegistry(definitionId: 'test_wf', requiredApprovals: 1);
+      final container = authorizedContainer();
+      await warmUp(container);
+      final notifier =
+          container.read(workflowInstanceControllerProvider.notifier);
+
+      final result = await notifier.executeTransition(
+        instance: _buildInstance(definitionId: 'test_wf', requiredApprovals: 1),
+        transitionId: 'approve',
+        performedBy: 'USR-0002',
+      );
+
+      expect(result.succeeded, isTrue);
+      expect(result.instance.currentStateId, equals('approved'));
     });
   });
 }

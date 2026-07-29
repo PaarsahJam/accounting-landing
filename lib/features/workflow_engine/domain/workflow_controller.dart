@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../audit_trail/domain/audit_entity_type.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../../user_roles/domain/user_roles_controller.dart';
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
@@ -53,6 +55,13 @@ class WorkflowInstanceController extends _$WorkflowInstanceController {
     String? note,
     Map<String, dynamic>? contextOverride,
   }) async {
+    // Authorization gate: only callers holding postJournal may advance a
+    // workflow. Fails closed — an unauthenticated caller (null current user)
+    // has no permission, so requirePermission throws AuthorizationFailure.
+    ref.requirePermission(
+      Permission.postJournal,
+      action: 'execute this workflow transition',
+    );
     final result = await _engine.transition(
       instance: instance,
       transitionId: transitionId,
@@ -93,6 +102,11 @@ class WorkflowInstanceController extends _$WorkflowInstanceController {
     required AuditEntityType entityType,
     Map<String, dynamic> context = const {},
   }) async {
+    // Authorization gate: creating a workflow instance starts a mutation path.
+    ref.requirePermission(
+      Permission.postJournal,
+      action: 'start this workflow',
+    );
     final instance = await _engine.createInstance(
       definitionId: definitionId,
       entityId: entityId,
@@ -116,10 +130,21 @@ class WorkflowInstanceController extends _$WorkflowInstanceController {
     required ApprovalDecision decision,
     String? note,
   }) async {
-    // Route through the engine so its approverRoles guard is enforced. The
+    // Authorization gate (fail closed): recording an approval mutates workflow
+    // state, so require the postJournal permission first. This denies callers
+    // with no authenticated user *before* any role IDs are forwarded — the
+    // engine's approverRoles guard bypasses an empty callerRoleIds list, so we
+    // must not rely on forwarding alone to keep unauthenticated callers out.
+    ref.requirePermission(
+      Permission.postJournal,
+      action: 'approve this workflow',
+    );
+
+    // Route through the engine so its approverRoles guard is also enforced. The
     // caller's role IDs are read from the current signed-in user; passing them
     // in prevents a user without an approver role from recording an approval
-    // even if the UI approval control is bypassed.
+    // even if the UI approval control is bypassed. The gate above guarantees a
+    // non-null current user here, so callerRoleIds is never empty.
     final currentUser = ref.read(currentUserControllerProvider).value;
     final callerRoleIds =
         currentUser == null ? const <String>[] : [currentUser.roleId];
