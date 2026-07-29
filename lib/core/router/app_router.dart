@@ -48,7 +48,13 @@ import '../../features/bank_reconciliation/domain/bank_statement.dart';
 import '../../features/bank_reconciliation/presentation/bank_statements_page.dart';
 import '../../features/bank_reconciliation/presentation/bank_reconciliation_detail_page.dart';
 import '../../features/global_search/presentation/global_search_page.dart';
+import '../../features/analytics/presentation/analytics_page.dart';
+import '../../features/audit_trail/presentation/audit_trail_page.dart';
+import '../../features/fiscal_periods/presentation/fiscal_years_page.dart';
+import '../../features/fiscal_periods/presentation/fiscal_periods_page.dart';
+import '../../features/fiscal_periods/presentation/year_end_closing_page.dart';
 import '../../features/multi_currency/presentation/currencies_page.dart';
+import '../../features/notifications/presentation/notification_list_page.dart';
 import '../../features/fixed_assets/presentation/fixed_assets_page.dart';
 import '../../features/import_export/presentation/import_export_page.dart';
 import '../../features/recurring_transactions/presentation/recurring_transactions_page.dart';
@@ -235,6 +241,18 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               return BankTransactionsPage(account: account);
             },
           ),
+          _r('/analytics', child: const AnalyticsPage()),
+          _r('/audit-trail', child: const AuditTrailPage()),
+          _r('/fiscal-years', child: const FiscalYearsPage()),
+          _rBuilder(
+            '/fiscal-periods/:yearId',
+            builder: (context, state) {
+              final yearId = int.tryParse(state.pathParameters['yearId'] ?? '') ?? 0;
+              return FiscalPeriodsPage(fiscalYearId: yearId);
+            },
+          ),
+          _r('/notifications', child: const NotificationListPage()),
+          _r('/year-end-closing', child: const YearEndClosingPage()),
           _r('/settings', child: const SettingsPage()),
           _r('/tags', child: const TagsPage()),
           _r('/user-roles', child: const UserRolesPage()),

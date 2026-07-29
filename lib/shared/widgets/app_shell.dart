@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../features/notifications/presentation/notification_bell.dart';
 import '../extensions/responsive_breakpoint.dart';
 import 'offline_banner.dart';
 
@@ -75,6 +76,18 @@ const _primaryDestinations = [
     route: '/reports',
     subRoutes: ['/reports', '/general-ledger', '/journal-explorer'],
   ),
+  NavDestination(
+    label: 'Analytics',
+    icon: Icons.analytics_outlined,
+    activeIcon: Icons.analytics,
+    route: '/analytics',
+  ),
+  NavDestination(
+    label: 'Notifications',
+    icon: Icons.notifications_outlined,
+    activeIcon: Icons.notifications,
+    route: '/notifications',
+  ),
 ];
 
 const _drawerSections = [
@@ -105,6 +118,9 @@ const _drawerSections = [
     title: 'System',
     items: [
       NavDestination(label: 'Settings', icon: Icons.settings_outlined, activeIcon: Icons.settings, route: '/settings'),
+      NavDestination(label: 'Fiscal Periods', icon: Icons.calendar_month_outlined, activeIcon: Icons.calendar_month, route: '/fiscal-years'),
+      NavDestination(label: 'Audit Trail', icon: Icons.history_outlined, activeIcon: Icons.history, route: '/audit-trail'),
+      NavDestination(label: 'Analytics', icon: Icons.analytics_outlined, activeIcon: Icons.analytics, route: '/analytics'),
       NavDestination(label: 'Tags', icon: Icons.label_outline, activeIcon: Icons.label, route: '/tags'),
       NavDestination(label: 'User Roles', icon: Icons.shield_outlined, activeIcon: Icons.shield, route: '/user-roles'),
       NavDestination(label: 'Currencies', icon: Icons.attach_money_outlined, activeIcon: Icons.attach_money, route: '/currencies'),
@@ -153,6 +169,7 @@ class _AppShellState extends ConsumerState<AppShell> {
         sections: _drawerSections,
         activeIndex: activeIndex,
       ),
+      appBar: useRail ? _GlobalAppBar() : null,
       body: Column(
         children: [
           const OfflineBanner(),
@@ -313,6 +330,31 @@ class _AppDrawer extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: const Text('Accounting'),
+      leading: Builder(
+        builder: (context) => IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () => Scaffold.of(context).openDrawer(),
+        ),
+      ),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.search),
+          onPressed: () => context.push('/search'),
+        ),
+        const NotificationBell(),
+      ],
     );
   }
 }
