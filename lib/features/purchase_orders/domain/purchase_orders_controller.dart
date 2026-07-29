@@ -4,6 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/purchase_orders_repository.dart';
 import '../data/purchase_orders_repository_provider.dart';
 import 'purchase_order.dart';
@@ -26,6 +28,7 @@ class PurchaseOrdersController extends _$PurchaseOrdersController {
   }
 
   Future<void> createPurchaseOrder(PurchaseOrder order) async {
+    ref.requirePermission(Permission.editPurchaseOrders, action: 'create purchase orders');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.createPurchaseOrder(order);
@@ -41,6 +44,7 @@ class PurchaseOrdersController extends _$PurchaseOrdersController {
   }
 
   Future<void> updatePurchaseOrder(PurchaseOrder order) async {
+    ref.requirePermission(Permission.editPurchaseOrders, action: 'update purchase orders');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.updatePurchaseOrder(order);
@@ -59,6 +63,7 @@ class PurchaseOrdersController extends _$PurchaseOrdersController {
   }
 
   Future<void> deletePurchaseOrder(String id) async {
+    ref.requirePermission(Permission.deletePurchaseOrders, action: 'delete purchase orders');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.deletePurchaseOrder(id);

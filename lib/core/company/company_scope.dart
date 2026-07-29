@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../errors/app_failure.dart';
 import 'company.dart';
 import 'company_controller.dart';
 
@@ -12,8 +13,21 @@ extension CompanyContext on Ref {
     return asyncCompany.asData?.value;
   }
 
-  /// Returns the current company ID. Returns empty string if not loaded.
-  String get companyId => currentCompany?.id ?? '';
+  /// Returns the current company ID, or `null` when no company is loaded.
+  /// Callers must treat a `null` result as fail-closed — do NOT fall back to
+  /// an empty string or default tenant.
+  String? get companyId => currentCompany?.id;
+
+  /// Returns the non-blank company ID, or throws [TenantContextFailure] when
+  /// no company is active. Use in repository / data-layer code that must
+  /// never proceed without a tenant context.
+  String get requireCompanyId {
+    final id = companyId;
+    if (id == null || id.isEmpty) {
+      throw const TenantContextFailure();
+    }
+    return id;
+  }
 }
 
 /// Mixin for repositories that need company-scoped data.
@@ -22,12 +36,13 @@ extension CompanyContext on Ref {
 /// ```dart
 /// class MyRepository with CompanyScopeMixin {
 ///   Future<AppResult<List<Item>>> fetchItems() async {
-///     return _fetchWithCompany(
-///       (companyId) => _doFetch(companyId),
-///     );
+///     return withCompany((companyId) => _doFetch(companyId));
 ///   }
 /// }
 /// ```
+///
+/// **Important:** [withCompany] throws [TenantContextFailure] when no company
+/// ID has been set — it never falls back to an empty string or default tenant.
 mixin CompanyScopeMixin {
   String? _companyId;
 
@@ -35,13 +50,26 @@ mixin CompanyScopeMixin {
 
   String? get companyId => _companyId;
 
-  /// Wraps a fetch call with company ID context.
-  /// If [_companyId] is null, the call is made without company scoping.
+  /// Returns the resolved company ID or throws [TenantContextFailure] when no
+  /// company is set. Use in repository methods that must never leak across
+  /// tenants.
+  String get requireCompanyId {
+    final id = _companyId;
+    if (id == null || id.isEmpty) {
+      throw const TenantContextFailure();
+    }
+    return id;
+  }
+
+  /// Executes [callback] with the current company ID.
+  ///
+  /// Throws [TenantContextFailure] when no company ID is configured — the
+  /// callback is never invoked with an empty string or null.
   Future<T> withCompany<T>(Future<T> Function(String companyId) callback,
       {String? fallbackCompanyId}) async {
     final id = _companyId ?? fallbackCompanyId;
-    if (id == null) {
-      return callback('');
+    if (id == null || id.isEmpty) {
+      throw const TenantContextFailure();
     }
     return callback(id);
   }

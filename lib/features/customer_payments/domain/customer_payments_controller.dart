@@ -4,6 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/customer_payments_repository.dart';
 import '../data/customer_payments_repository_provider.dart';
 import 'customer_payment.dart';
@@ -26,6 +28,7 @@ class CustomerPaymentsController extends _$CustomerPaymentsController {
   }
 
   Future<void> createCustomerPayment(CustomerPayment payment) async {
+    ref.requirePermission(Permission.editPayments, action: 'create customer payments');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.createCustomerPayment(payment);
@@ -41,6 +44,7 @@ class CustomerPaymentsController extends _$CustomerPaymentsController {
   }
 
   Future<void> updateCustomerPayment(CustomerPayment payment) async {
+    ref.requirePermission(Permission.editPayments, action: 'update customer payments');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.updateCustomerPayment(payment);
@@ -59,6 +63,7 @@ class CustomerPaymentsController extends _$CustomerPaymentsController {
   }
 
   Future<void> deleteCustomerPayment(String id) async {
+    ref.requirePermission(Permission.editPayments, action: 'delete customer payments');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.deleteCustomerPayment(id);

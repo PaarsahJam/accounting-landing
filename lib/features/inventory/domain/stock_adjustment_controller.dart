@@ -4,6 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/inventory_repository.dart';
 import '../data/inventory_repository_provider.dart';
 import 'stock_adjustment.dart';
@@ -26,6 +28,7 @@ class StockAdjustmentController extends _$StockAdjustmentController {
   }
 
   Future<void> createAdjustment(StockAdjustment adjustment) async {
+    ref.requirePermission(Permission.adjustStock, action: 'create stock adjustments');
     try {
       final result = await _repository.createAdjustment(adjustment);
       if (!result.isSuccess) {

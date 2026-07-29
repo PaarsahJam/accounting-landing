@@ -5,6 +5,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../core/errors/app_failure.dart';
 import '../../../core/errors/app_result.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/stock_transfer_repository_provider.dart';
 import '../domain/create_transfer_request.dart';
 import '../domain/stock_transfer_record.dart';
@@ -27,6 +29,11 @@ class StockTransfersController extends _$StockTransfersController {
   Future<AppResult<StockTransferRecord>?> createTransfer(
     CreateTransferRequest request,
   ) async {
+    final denied = ref.checkPermission(Permission.adjustStock, action: 'create stock transfers');
+    if (denied != null) {
+      AppLogger.warning('Unauthorized: create stock transfer denied');
+      return AppResult.failure(denied);
+    }
     try {
       final repository = ref.read(stockTransferRepositoryProvider);
       final result = await repository.createTransfer(request);
@@ -48,6 +55,12 @@ class StockTransfersController extends _$StockTransfersController {
   }
 
   Future<void> completeTransfer(String id) async {
+    final denied = ref.checkPermission(Permission.adjustStock, action: 'complete stock transfers');
+    if (denied != null) {
+      AppLogger.warning('Unauthorized: complete stock transfer denied');
+      state = AsyncValue.error(denied, StackTrace.current);
+      return;
+    }
     try {
       final repository = ref.read(stockTransferRepositoryProvider);
       final result = await repository.completeTransfer(id);
@@ -66,6 +79,12 @@ class StockTransfersController extends _$StockTransfersController {
   }
 
   Future<void> cancelTransfer(String id) async {
+    final denied = ref.checkPermission(Permission.adjustStock, action: 'cancel stock transfers');
+    if (denied != null) {
+      AppLogger.warning('Unauthorized: cancel stock transfer denied');
+      state = AsyncValue.error(denied, StackTrace.current);
+      return;
+    }
     try {
       final repository = ref.read(stockTransferRepositoryProvider);
       final result = await repository.cancelTransfer(id);

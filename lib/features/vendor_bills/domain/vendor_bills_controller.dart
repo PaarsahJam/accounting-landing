@@ -4,6 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/vendor_bills_repository.dart';
 import '../data/vendor_bills_repository_provider.dart';
 import 'vendor_bill.dart';
@@ -26,6 +28,7 @@ class VendorBillsController extends _$VendorBillsController {
   }
 
   Future<void> createVendorBill(VendorBill bill) async {
+    ref.requirePermission(Permission.editVendorBills, action: 'create vendor bills');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.createVendorBill(bill);
@@ -41,6 +44,7 @@ class VendorBillsController extends _$VendorBillsController {
   }
 
   Future<void> updateVendorBill(VendorBill bill) async {
+    ref.requirePermission(Permission.editVendorBills, action: 'update vendor bills');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.updateVendorBill(bill);
@@ -59,6 +63,7 @@ class VendorBillsController extends _$VendorBillsController {
   }
 
   Future<void> deleteVendorBill(String id) async {
+    ref.requirePermission(Permission.deleteVendorBills, action: 'delete vendor bills');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.deleteVendorBill(id);

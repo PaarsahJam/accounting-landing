@@ -4,6 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/invoice_repository.dart';
 import '../data/invoice_repository_provider.dart';
 import 'invoice.dart';
@@ -26,6 +28,7 @@ class InvoicesController extends _$InvoicesController {
   }
 
   Future<void> createInvoice(Invoice invoice) async {
+    ref.requirePermission(Permission.editSalesInvoices, action: 'create sales invoices');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.createInvoice(invoice);
@@ -41,6 +44,7 @@ class InvoicesController extends _$InvoicesController {
   }
 
   Future<void> updateInvoice(Invoice invoice) async {
+    ref.requirePermission(Permission.editSalesInvoices, action: 'update sales invoices');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.updateInvoice(invoice);
@@ -59,6 +63,7 @@ class InvoicesController extends _$InvoicesController {
   }
 
   Future<void> deleteInvoice(String id) async {
+    ref.requirePermission(Permission.deleteSalesInvoices, action: 'delete sales invoices');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.deleteInvoice(id);

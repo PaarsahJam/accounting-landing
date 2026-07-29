@@ -4,6 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/purchase_orders_repository.dart';
 import '../data/purchase_orders_repository_provider.dart';
 import 'goods_receipt.dart';
@@ -26,6 +28,7 @@ class GoodsReceiptsController extends _$GoodsReceiptsController {
   }
 
   Future<void> createGoodsReceipt(GoodsReceipt receipt) async {
+    ref.requirePermission(Permission.editInventory, action: 'create goods receipts');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.createGoodsReceipt(receipt);
@@ -41,6 +44,7 @@ class GoodsReceiptsController extends _$GoodsReceiptsController {
   }
 
   Future<void> updateGoodsReceipt(GoodsReceipt receipt) async {
+    ref.requirePermission(Permission.editInventory, action: 'update goods receipts');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.updateGoodsReceipt(receipt);

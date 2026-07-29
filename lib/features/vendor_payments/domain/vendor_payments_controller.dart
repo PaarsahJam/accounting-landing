@@ -4,6 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/vendor_payments_repository.dart';
 import '../data/vendor_payments_repository_provider.dart';
 import 'vendor_payment.dart';
@@ -26,6 +28,7 @@ class VendorPaymentsController extends _$VendorPaymentsController {
   }
 
   Future<void> createVendorPayment(VendorPayment payment) async {
+    ref.requirePermission(Permission.editPayments, action: 'create vendor payments');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.createVendorPayment(payment);
@@ -41,6 +44,7 @@ class VendorPaymentsController extends _$VendorPaymentsController {
   }
 
   Future<void> updateVendorPayment(VendorPayment payment) async {
+    ref.requirePermission(Permission.editPayments, action: 'update vendor payments');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.updateVendorPayment(payment);
@@ -59,6 +63,7 @@ class VendorPaymentsController extends _$VendorPaymentsController {
   }
 
   Future<void> deleteVendorPayment(String id) async {
+    ref.requirePermission(Permission.editPayments, action: 'delete vendor payments');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.deleteVendorPayment(id);

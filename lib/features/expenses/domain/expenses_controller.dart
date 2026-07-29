@@ -2,6 +2,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/expense_repository.dart';
 import '../data/expense_repository_provider.dart';
 import 'expense.dart';
@@ -24,6 +26,7 @@ class ExpensesController extends _$ExpensesController {
   }
 
   Future<void> createExpense(Expense expense) async {
+    ref.requirePermission(Permission.editVendorBills, action: 'create expenses');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.createExpense(expense);
@@ -39,6 +42,7 @@ class ExpensesController extends _$ExpensesController {
   }
 
   Future<void> updateExpense(Expense expense) async {
+    ref.requirePermission(Permission.editVendorBills, action: 'update expenses');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.updateExpense(expense);
@@ -57,6 +61,7 @@ class ExpensesController extends _$ExpensesController {
   }
 
   Future<void> deleteExpense(String id) async {
+    ref.requirePermission(Permission.editVendorBills, action: 'delete expenses');
     state = const AsyncValue.loading();
     try {
       final result = await _repository.deleteExpense(id);
