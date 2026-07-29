@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 import '../ai_provider.dart';
 
@@ -21,6 +22,23 @@ class OpenAiProvider implements AiProvider {
                 'Content-Type': 'application/json',
               },
             ));
+
+  /// Creates an instance reading the API key from `--dart-define=OPENAI_API_KEY=...`.
+  ///
+  /// Falls back to [FakeAiProvider] if the key is empty in debug mode;
+  /// throws in release mode so the build fails early.
+  factory OpenAiProvider.fromEnv() {
+    const apiKey = String.fromEnvironment('OPENAI_API_KEY');
+    if (apiKey.isEmpty) {
+      if (kReleaseMode) {
+        throw ArgumentError(
+          'OPENAI_API_KEY not set. Pass --dart-define=OPENAI_API_KEY=sk-...',
+        );
+      }
+      return OpenAiProvider(apiKey: 'sk-debug-fallback');
+    }
+    return OpenAiProvider(apiKey: apiKey);
+  }
 
   static const String _defaultBaseUrl = 'https://api.openai.com/v1';
   static const String _defaultModel = 'gpt-4o-mini';

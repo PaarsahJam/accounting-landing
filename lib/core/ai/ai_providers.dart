@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../features/audit_trail/data/audit_trail_repository_provider.dart';
@@ -5,13 +6,19 @@ import 'ai_action_gateway.dart';
 import 'ai_context_collector.dart';
 import 'ai_provider.dart';
 import 'providers/fake_ai_provider.dart';
+import 'providers/openai_provider.dart';
 import 'use_cases/ai_draft_action.dart';
 import 'use_cases/ai_summarize.dart';
 
 part 'ai_providers.g.dart';
 
 @Riverpod(keepAlive: true)
-AiProvider aiProvider(Ref ref) => FakeAiProvider();
+AiProvider aiProvider(Ref ref) {
+  if (kReleaseMode) {
+    return OpenAiProvider.fromEnv();
+  }
+  return FakeAiProvider();
+}
 
 @Riverpod(keepAlive: true)
 AiActionGateway aiActionGateway(Ref ref) {

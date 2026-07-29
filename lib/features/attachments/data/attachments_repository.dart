@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import '../../../core/errors/app_failure.dart';
 import '../../../core/errors/app_result.dart';
 import '../../../features/audit_trail/data/audit_trail_repository.dart';
@@ -13,6 +15,12 @@ abstract class AttachmentsRepository {
     required String entityType,
     required String entityId,
   });
+
+  /// Returns a single attachment by id.
+  Future<AppResult<Attachment>> getAttachment(String id);
+
+  /// Downloads the raw bytes of an attachment for processing.
+  Future<AppResult<Uint8List>> downloadAttachment(String id);
 
   /// Adds attachment metadata. No real file upload.
   Future<AppResult<Attachment>> addAttachment(Attachment attachment);
@@ -120,6 +128,27 @@ class MockAttachmentsRepository implements AttachmentsRepository {
             .toList()
           ..sort((a, b) => b.uploadedAt.compareTo(a.uploadedAt));
     return AppResult.success(List.unmodifiable(result));
+  }
+
+  @override
+  Future<AppResult<Attachment>> getAttachment(String id) async {
+    await Future<void>.delayed(const Duration(milliseconds: 50));
+    try {
+      final attachment = _attachments.firstWhere((a) => a.id == id);
+      return AppResult.success(attachment);
+    } catch (_) {
+      return AppResult.failure(
+        UnknownFailure(message: 'Attachment not found: $id'),
+      );
+    }
+  }
+
+  @override
+  Future<AppResult<Uint8List>> downloadAttachment(String id) async {
+    await Future<void>.delayed(const Duration(milliseconds: 100));
+    return AppResult.success(Uint8List.fromList([
+      0xFF, 0xD8, 0xFF, 0xE0, // JPEG SOI + APP0
+    ]));
   }
 
   @override

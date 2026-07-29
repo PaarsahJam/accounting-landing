@@ -1,15 +1,19 @@
+import 'dart:io';
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'backup_importer.dart';
 import 'backup_package.dart';
-import 'backup_repository.dart';
 import 'backup_service.dart';
+import 'file_system_backup_storage.dart';
 
 part 'backup_controller.g.dart';
 
 @riverpod
 BackupService backupService(Ref ref) {
-  final storage = MemoryBackupStorage();
+  final storage = FileSystemBackupStorage(
+    directoryPath: '${Directory.systemTemp.path}/accounting_backups',
+  );
   return BackupService(storage: storage);
 }
 

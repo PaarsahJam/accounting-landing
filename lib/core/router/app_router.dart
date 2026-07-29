@@ -6,7 +6,7 @@ import '../../core/company/presentation/company_selection_page.dart';
 import '../../core/plugin/plugin_providers.dart';
 import '../../features/auth/presentation/login_page.dart';
 import '../../features/auth/presentation/signup_page.dart';
-import '../../features/dashboard/presentation/dashboard_page.dart';
+import '../../features/dashboard_metrics/presentation/dashboard_page.dart';
 import '../../features/auth/domain/auth_notifier.dart';
 import '../../features/invoicing/presentation/invoices_page.dart';
 import '../../features/expenses/presentation/expenses_page.dart';

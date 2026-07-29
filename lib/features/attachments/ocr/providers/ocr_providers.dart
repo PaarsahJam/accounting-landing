@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
 import '../../../attachments/data/attachments_repository_provider.dart';
 import '../data/ocr_repository.dart';
+import '../data/real_ocr_repository.dart';
 import '../domain/ocr_controller.dart';
 import '../domain/ocr_result.dart';
 import '../services/ocr_mapper.dart';
@@ -11,9 +13,11 @@ import '../services/ocr_pipeline.dart';
 export '../domain/ocr_controller.dart' show OcrController;
 
 final ocrRepositoryProvider = Provider<OcrRepository>((ref) {
-  return MockOcrRepository(
-    attachmentsRepository: ref.watch(attachmentsRepositoryProvider),
-  );
+  final attachmentsRepo = ref.watch(attachmentsRepositoryProvider);
+  if (kReleaseMode) {
+    return RealOcrRepository(attachmentsRepository: attachmentsRepo);
+  }
+  return MockOcrRepository(attachmentsRepository: attachmentsRepo);
 });
 
 final ocrPipelineProvider = Provider<OcrPipeline>((ref) {

@@ -1,4 +1,4 @@
-import 'package:accounting_app/features/dashboard/presentation/dashboard_page.dart';
+import 'package:accounting_app/features/dashboard_metrics/presentation/dashboard_page.dart';
 import 'package:accounting_app/features/dashboard_metrics/data/financial_dashboard_repository.dart';
 import 'package:accounting_app/features/dashboard_metrics/data/financial_dashboard_repository_provider.dart';
 import 'package:accounting_app/l10n/app_localizations.dart';
