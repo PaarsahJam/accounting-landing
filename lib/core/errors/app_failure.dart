@@ -16,8 +16,7 @@ class ValidationFailure extends AppFailure {
 /// match `isA<ValidationFailure>()` keep working, while a distinct type allows
 /// callers to detect authorization denials specifically.
 class AuthorizationFailure extends ValidationFailure {
-  const AuthorizationFailure({required String message})
-      : super(message: message);
+  const AuthorizationFailure({required super.message});
 }
 
 /// Raised when a tenant-scoped operation is attempted without an active company
@@ -28,8 +27,8 @@ class AuthorizationFailure extends ValidationFailure {
 /// across tenants.
 class TenantContextFailure extends ValidationFailure {
   const TenantContextFailure({
-    String message = 'No active company selected for this operation.',
-  }) : super(message: message);
+    super.message = 'No active company selected for this operation.',
+  });
 }
 
 class NetworkFailure extends AppFailure {

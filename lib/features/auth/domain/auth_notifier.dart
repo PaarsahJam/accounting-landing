@@ -45,21 +45,22 @@ class AuthNotifier extends _$AuthNotifier {
   }
 
   Future<void> logout() async {
+    state = const AsyncValue.loading();
     final result = await _repo.logout();
-    if (!result.isSuccess) {
-      AppLogger.warning('Failed to logout', error: result.error);
-      return;
+
+    if (result.isSuccess) {
+      // 1. Wipe all persisted auth tokens so they cannot be reused across
+      //    process restarts or by a different user on the same device.
+      await ref.read(authTokenStorageProvider).clearAll();
+
+      // 2. Reset company context so the next user always starts from a clean
+      //    company selection rather than inheriting the previous session's
+      //    active company.
+      ref.invalidate(currentCompanyProvider);
+
+      state = const AsyncValue.data(null);
+    } else {
+      state = AsyncValue.error(result.error!, StackTrace.current);
     }
-
-    // 1. Wipe all persisted auth tokens so they cannot be reused across
-    //    process restarts or by a different user on the same device.
-    await ref.read(authTokenStorageProvider).clearAll();
-
-    // 2. Reset company context so the next user always starts from a clean
-    //    company selection rather than inheriting the previous session's
-    //    active company.
-    ref.invalidate(currentCompanyProvider);
-
-    state = const AsyncValue.data(null);
   }
 }
