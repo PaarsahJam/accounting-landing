@@ -4,6 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../errors/app_failure.dart';
 import '../logging/app_logger.dart';
+import '../../features/user_roles/domain/authorization.dart';
+import '../../features/user_roles/domain/permission.dart';
 import 'company.dart';
 import 'company_provider.dart';
 import 'company_repository.dart';
@@ -31,6 +33,16 @@ class CurrentCompany extends _$CurrentCompany {
   }
 
   Future<void> switchTo(String companyId) async {
+    // Enforce permission before switching the active company. Company
+    // switching is an administrative action gated on manageSettings.
+    final denied = ref.checkPermission(
+      Permission.manageSettings,
+      action: 'switch companies',
+    );
+    if (denied != null) {
+      state = AsyncValue.error(denied, StackTrace.current);
+      return;
+    }
     try {
       final result = await _repository.fetchCompany(companyId);
       if (!result.isSuccess) {

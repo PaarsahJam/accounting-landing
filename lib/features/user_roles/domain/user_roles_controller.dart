@@ -7,6 +7,7 @@ import '../../../core/errors/app_result.dart';
 import '../../../core/logging/app_logger.dart';
 import '../data/user_repository_provider.dart';
 import '../domain/app_user.dart';
+import '../domain/authorization.dart';
 import '../domain/permission.dart';
 import '../domain/permission_service.dart';
 
@@ -45,16 +46,9 @@ class UsersController extends _$UsersController {
 
   Future<AppResult<AppUser>?> createUser(AppUser user) async {
     // Enforce permission before mutating state.
-    if (!ref.read(hasPermissionProvider(Permission.manageUsers))) {
-      AppLogger.warning(
-        'Unauthorized: createUser called without manageUsers permission.',
-      );
-      return AppResult.failure(
-        const ValidationFailure(
-          message: 'You do not have permission to create users.',
-        ),
-      );
-    }
+    final denied =
+        ref.checkPermission(Permission.manageUsers, action: 'create users');
+    if (denied != null) return AppResult.failure(denied);
     try {
       final repo = ref.read(userRepositoryProvider);
       final result = await repo.createUser(user);
@@ -74,10 +68,8 @@ class UsersController extends _$UsersController {
 
   Future<bool> assignRole(String userId, String roleId) async {
     // Enforce permission before mutating state.
-    if (!ref.read(hasPermissionProvider(Permission.manageUsers))) {
-      AppLogger.warning(
-        'Unauthorized: assignRole called without manageUsers permission.',
-      );
+    if (ref.checkPermission(Permission.manageUsers, action: 'assign roles') !=
+        null) {
       return false;
     }
     try {
@@ -98,10 +90,9 @@ class UsersController extends _$UsersController {
 
   Future<bool> deactivateUser(String userId) async {
     // Enforce permission before mutating state.
-    if (!ref.read(hasPermissionProvider(Permission.manageUsers))) {
-      AppLogger.warning(
-        'Unauthorized: deactivateUser called without manageUsers permission.',
-      );
+    if (ref.checkPermission(Permission.manageUsers,
+            action: 'deactivate users') !=
+        null) {
       return false;
     }
     try {

@@ -11,6 +11,15 @@ class ValidationFailure extends AppFailure {
   const ValidationFailure({required String message}) : super(message);
 }
 
+/// Raised when the current user lacks the permission required to perform an
+/// action. Extends [ValidationFailure] so existing call sites and tests that
+/// match `isA<ValidationFailure>()` keep working, while a distinct type allows
+/// callers to detect authorization denials specifically.
+class AuthorizationFailure extends ValidationFailure {
+  const AuthorizationFailure({required String message})
+      : super(message: message);
+}
+
 class NetworkFailure extends AppFailure {
   const NetworkFailure({required String message}) : super(message);
 }

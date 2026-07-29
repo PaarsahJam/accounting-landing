@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../audit_trail/domain/audit_entity_type.dart';
+import '../../user_roles/domain/user_roles_controller.dart';
 import '../../../core/errors/app_failure.dart';
 import '../../../core/logging/app_logger.dart';
 import '../data/workflow_repository.dart';
@@ -115,24 +116,39 @@ class WorkflowInstanceController extends _$WorkflowInstanceController {
     required ApprovalDecision decision,
     String? note,
   }) async {
-    final result = await _repository.addApprovalEntry(
-      instanceId: instance.id,
+    // Route through the engine so its approverRoles guard is enforced. The
+    // caller's role IDs are read from the current signed-in user; passing them
+    // in prevents a user without an approver role from recording an approval
+    // even if the UI approval control is bypassed.
+    final currentUser = ref.read(currentUserControllerProvider).value;
+    final callerRoleIds =
+        currentUser == null ? const <String>[] : [currentUser.roleId];
+
+    final engineResult = await _engine.addApproval(
+      instance: instance,
       approverId: approverId,
       approverName: approverName,
       decision: decision,
+      callerRoleIds: callerRoleIds,
       note: note,
     );
-    if (!result.isSuccess) {
-      throw result.error ??
+    if (!engineResult.isSuccess) {
+      throw engineResult.error ??
           const UnknownFailure(message: 'Failed to add approval');
+    }
+
+    final saveResult = await _repository.saveInstance(engineResult.data!);
+    if (!saveResult.isSuccess) {
+      throw saveResult.error ??
+          const UnknownFailure(message: 'Failed to persist approval');
     }
     final current = state.asData?.value ?? <WorkflowInstance>[];
     state = AsyncValue.data(
       current
-          .map((i) => i.id == result.data!.id ? result.data! : i)
+          .map((i) => i.id == saveResult.data!.id ? saveResult.data! : i)
           .toList(),
     );
-    return result.data!;
+    return saveResult.data!;
   }
 
   Future<void> refresh() async {

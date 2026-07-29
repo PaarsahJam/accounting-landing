@@ -7,6 +7,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../core/errors/app_failure.dart';
 import '../../../core/errors/app_result.dart';
 import '../../../core/logging/app_logger.dart';
+import '../../user_roles/domain/authorization.dart';
+import '../../user_roles/domain/permission.dart';
 import '../data/import_export_repository_provider.dart';
 import 'import_export_job.dart';
 
@@ -30,6 +32,9 @@ class ImportExportController extends _$ImportExportController {
   Future<AppResult<ImportExportJob>?> exportCsv(
     ExportEntityType entityType,
   ) async {
+    final denied =
+        ref.checkPermission(Permission.manageSettings, action: 'export data');
+    if (denied != null) return AppResult.failure(denied);
     try {
       final repo = ref.read(importExportRepositoryProvider);
       final result = await repo.exportCsv(entityType);
@@ -49,6 +54,9 @@ class ImportExportController extends _$ImportExportController {
   Future<AppResult<ImportExportJob>?> importCsv(
     ExportEntityType entityType,
   ) async {
+    final denied =
+        ref.checkPermission(Permission.manageSettings, action: 'import data');
+    if (denied != null) return AppResult.failure(denied);
     try {
       final repo = ref.read(importExportRepositoryProvider);
       final result = await repo.importCsv(entityType);

@@ -27,7 +27,10 @@ import 'package:accounting_app/features/user_roles/data/user_repository.dart';
 import 'package:accounting_app/features/user_roles/data/user_repository_provider.dart';
 import 'package:accounting_app/features/user_roles/domain/app_user.dart';
 import 'package:accounting_app/features/user_roles/domain/user_roles_controller.dart';
+import 'package:accounting_app/features/workflow_engine/data/workflow_repository.dart';
+import 'package:accounting_app/features/workflow_engine/data/workflow_repository_provider.dart';
 import 'package:accounting_app/features/workflow_engine/domain/workflow_approval.dart';
+import 'package:accounting_app/features/workflow_engine/domain/workflow_controller.dart';
 import 'package:accounting_app/features/workflow_engine/domain/workflow_definition.dart';
 import 'package:accounting_app/features/workflow_engine/domain/workflow_engine.dart';
 import 'package:accounting_app/features/workflow_engine/domain/workflow_instance.dart';
@@ -730,6 +733,163 @@ void main() {
         reason: 'Two distinct approvers with approved decisions should '
             'fulfill a count of 2.',
       );
+    });
+  });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // C-5 · CompanyController.switchTo enforces manageSettings
+  // ──────────────────────────────────────────────────────────────────────────
+  group('C-5 · CurrentCompany.switchTo enforces manageSettings', () {
+    const accountant = AppUser(
+      id: 'USR-0003',
+      name: 'Carol Accountant',
+      email: 'carol@example.com',
+      roleId: 'role-accountant',
+    );
+    const admin = AppUser(
+      id: 'USR-0001',
+      name: 'Alice Admin',
+      email: 'alice@example.com',
+      roleId: 'role-admin',
+    );
+
+    ProviderContainer containerForCaller(AppUser caller) {
+      final container = ProviderContainer(
+        overrides: [
+          authRepositoryProvider.overrideWithValue(MockAuthRepository()),
+          companyRepositoryProvider.overrideWithValue(MockCompanyRepository()),
+          userRepositoryProvider
+              .overrideWithValue(_SingleCurrentUserRepo(caller)),
+        ],
+      );
+      addTearDown(container.dispose);
+      return container;
+    }
+
+    Future<void> warmUp(ProviderContainer c) async {
+      c.listen(currentCompanyProvider, (_, _) {});
+      c.listen(currentUserControllerProvider, (_, _) {});
+      c.listen(rolesControllerProvider, (_, _) {});
+      await c.read(currentCompanyProvider.future);
+      await c.read(currentUserControllerProvider.future);
+      await c.read(rolesControllerProvider.future);
+    }
+
+    test('switchTo is denied for a caller without manageSettings', () async {
+      final container = containerForCaller(accountant);
+      await warmUp(container);
+
+      await container.read(currentCompanyProvider.notifier).switchTo('comp-2');
+
+      final state = container.read(currentCompanyProvider);
+      expect(
+        state,
+        isA<AsyncError<Object?>>(),
+        reason: 'An unauthorized company switch must surface a typed error, '
+            'not silently succeed.',
+      );
+      expect((state as AsyncError).error, isA<AuthorizationFailure>());
+    });
+
+    test('switchTo succeeds for an Administrator', () async {
+      final container = containerForCaller(admin);
+      await warmUp(container);
+
+      await container.read(currentCompanyProvider.notifier).switchTo('comp-2');
+
+      final state = container.read(currentCompanyProvider);
+      expect(state, isA<AsyncData<Object?>>());
+      expect(state.value?.id, equals('comp-2'));
+    });
+  });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // C-6 · WorkflowInstanceController.addApproval forwards caller roles
+  // ──────────────────────────────────────────────────────────────────────────
+  group('C-6 · WorkflowInstanceController forwards caller roles to engine', () {
+    const accountant = AppUser(
+      id: 'USR-0003',
+      name: 'Carol Accountant',
+      email: 'carol@example.com',
+      roleId: 'role-accountant',
+    );
+    const manager = AppUser(
+      id: 'USR-0002',
+      name: 'Mike Manager',
+      email: 'mike@example.com',
+      roleId: 'role-manager',
+    );
+
+    ProviderContainer containerForCaller(AppUser caller) {
+      final container = ProviderContainer(
+        overrides: [
+          authRepositoryProvider.overrideWithValue(MockAuthRepository()),
+          companyRepositoryProvider.overrideWithValue(MockCompanyRepository()),
+          userRepositoryProvider
+              .overrideWithValue(_SingleCurrentUserRepo(caller)),
+          workflowRepositoryProvider
+              .overrideWithValue(MockWorkflowRepository()),
+        ],
+      );
+      addTearDown(container.dispose);
+      return container;
+    }
+
+    Future<void> warmUp(ProviderContainer c) async {
+      c.listen(workflowInstanceControllerProvider, (_, _) {});
+      c.listen(currentUserControllerProvider, (_, _) {});
+      c.listen(rolesControllerProvider, (_, _) {});
+      await c.read(workflowInstanceControllerProvider.future);
+      await c.read(currentUserControllerProvider.future);
+      await c.read(rolesControllerProvider.future);
+    }
+
+    // Approval requires a caller holding 'role-manager'.
+    WorkflowInstance instanceRequiringManager() => _buildInstance(
+          definitionId: 'test_wf',
+          requiredApprovals: 1,
+          approverRoles: const ['role-manager'],
+        );
+
+    test(
+      'addApproval is rejected when the caller lacks an approver role',
+      () async {
+        final container = containerForCaller(accountant);
+        await warmUp(container);
+        final notifier =
+            container.read(workflowInstanceControllerProvider.notifier);
+
+        // The controller must forward callerRoleIds; the engine then rejects
+        // an accountant trying to approve a manager-only workflow. Without the
+        // forwarding fix this call would succeed (privilege escalation).
+        await expectLater(
+          notifier.addApproval(
+            instance: instanceRequiringManager(),
+            approverId: 'USR-0003',
+            approverName: 'Carol Accountant',
+            decision: ApprovalDecision.approved,
+          ),
+          throwsA(isA<ValidationFailure>()),
+        );
+      },
+    );
+
+    test('addApproval succeeds when the caller holds an approver role',
+        () async {
+      final container = containerForCaller(manager);
+      await warmUp(container);
+      final notifier =
+          container.read(workflowInstanceControllerProvider.notifier);
+
+      final updated = await notifier.addApproval(
+        instance: instanceRequiringManager(),
+        approverId: 'USR-0002',
+        approverName: 'Mike Manager',
+        decision: ApprovalDecision.approved,
+      );
+
+      expect(updated.approval.currentApprovals, hasLength(1));
+      expect(updated.approval.isFulfilled, isTrue);
     });
   });
 }
