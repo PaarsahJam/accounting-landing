@@ -1,3 +1,4 @@
+import '../../../core/company/company_id_resolver.dart';
 import '../../../core/database/app_database.dart';
 import '../../../core/database/product_dao.dart';
 import '../../../core/errors/app_failure.dart';
@@ -15,20 +16,37 @@ import '../domain/unit_of_measure.dart';
 import '../domain/warehouse.dart';
 import 'inventory_repository.dart';
 
+/// Tenant-scoped Drift implementation of [InventoryRepository] for the product
+/// catalogue. See [DriftCustomerRepository] for the resolver / fail-closed
+/// contract.
+///
+/// NOTE: only the product-catalogue methods (fetch/create/update/delete
+/// products) are persisted in Drift and therefore tenant-scoped here. The
+/// remaining inventory methods still delegate to [MockInventoryRepository] and
+/// are NOT yet tenant-aware — see [_mockDelegate].
 class DriftProductRepository implements InventoryRepository {
   final AppDatabase _database;
+  final CompanyIdResolver _companyId;
   late final ProductDao _dao;
   final InventoryRepository _mockDelegate = MockInventoryRepository();
 
-  DriftProductRepository({AppDatabase? database})
-      : _database = database ?? AppDatabase() {
+  DriftProductRepository({
+    AppDatabase? database,
+    CompanyIdResolver? companyId,
+  })  : _database = database ?? AppDatabase(),
+        _companyId = companyId ?? (() => null) {
     _dao = ProductDao(_database);
   }
 
+  AppResult<T> _noTenant<T>() =>
+      AppResult<T>.failure(const TenantContextFailure());
+
   @override
   Future<AppResult<List<Product>>> fetchProducts() async {
+    final companyId = normalizeCompanyId(_companyId());
+    if (companyId == null) return _noTenant();
     try {
-      final entries = await _dao.getAllProducts();
+      final entries = await _dao.getAllProducts(companyId);
       return AppResult.success(entries.map(_toDomain).toList());
     } catch (error) {
       return AppResult.failure(UnknownFailure(message: error.toString()));
@@ -37,9 +55,10 @@ class DriftProductRepository implements InventoryRepository {
 
   @override
   Future<AppResult<Product>> createProduct(Product product) async {
+    final companyId = normalizeCompanyId(_companyId());
+    if (companyId == null) return _noTenant();
     try {
-      final companion = _toCompanion(product);
-      await _dao.insertProduct(companion);
+      await _dao.insertProduct(_toCompanion(product, companyId));
       return AppResult.success(product);
     } catch (error) {
       return AppResult.failure(UnknownFailure(message: error.toString()));
@@ -48,9 +67,10 @@ class DriftProductRepository implements InventoryRepository {
 
   @override
   Future<AppResult<Product>> updateProduct(Product product) async {
+    final companyId = normalizeCompanyId(_companyId());
+    if (companyId == null) return _noTenant();
     try {
-      final companion = _toCompanion(product);
-      await _dao.updateProduct(companion);
+      await _dao.updateProduct(_toCompanion(product, companyId), companyId);
       return AppResult.success(product);
     } catch (error) {
       return AppResult.failure(UnknownFailure(message: error.toString()));
@@ -59,8 +79,10 @@ class DriftProductRepository implements InventoryRepository {
 
   @override
   Future<AppResult<void>> deleteProduct(String id) async {
+    final companyId = normalizeCompanyId(_companyId());
+    if (companyId == null) return _noTenant();
     try {
-      await _dao.deleteProduct(id);
+      await _dao.deleteProduct(id, companyId);
       return AppResult.success(null);
     } catch (error) {
       return AppResult.failure(UnknownFailure(message: error.toString()));
@@ -139,9 +161,10 @@ class DriftProductRepository implements InventoryRepository {
     );
   }
 
-  ProductsTableCompanion _toCompanion(Product product) {
+  ProductsTableCompanion _toCompanion(Product product, String companyId) {
     return ProductsTableCompanion.insert(
       id: product.id,
+      companyId: companyId,
       sku: product.sku,
       name: product.name,
       description: product.description,

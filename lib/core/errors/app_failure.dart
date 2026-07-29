@@ -20,6 +20,18 @@ class AuthorizationFailure extends ValidationFailure {
       : super(message: message);
 }
 
+/// Raised when a tenant-scoped operation is attempted without an active company
+/// (tenant) context. Extends [ValidationFailure] so existing call sites and
+/// tests that match `isA<ValidationFailure>()` keep working, while a distinct
+/// type lets callers detect a missing tenant specifically. Tenant-scoped
+/// repositories fail closed with this rather than reading or mutating data
+/// across tenants.
+class TenantContextFailure extends ValidationFailure {
+  const TenantContextFailure({
+    String message = 'No active company selected for this operation.',
+  }) : super(message: message);
+}
+
 class NetworkFailure extends AppFailure {
   const NetworkFailure({required String message}) : super(message);
 }

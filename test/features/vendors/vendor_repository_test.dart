@@ -1,5 +1,6 @@
 import 'package:accounting_app/core/database/app_database.dart';
 import 'package:accounting_app/core/database/vendor_dao.dart';
+import 'package:accounting_app/core/errors/app_failure.dart';
 import 'package:accounting_app/core/errors/app_result.dart';
 import 'package:accounting_app/features/vendors/data/drift_vendor_repository.dart';
 import 'package:accounting_app/features/vendors/data/vendor_repository.dart';
@@ -8,6 +9,23 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  const companyA = 'comp-1';
+  const companyB = 'comp-2';
+
+  Vendor vendor(String id, {String companyName = 'Test Company'}) => Vendor(
+        id: id,
+        companyName: companyName,
+        contactName: 'John Doe',
+        email: 'john@test.com',
+        phone: '+1 555 0001',
+        address: '123 Test St',
+        taxIdentifier: 'TX-001',
+        notes: 'Test vendor',
+        isActive: true,
+        createdAt: DateTime(2026, 1, 1),
+        updatedAt: DateTime(2026, 1, 1),
+      );
+
   group('MockVendorRepository', () {
     late VendorRepository repository;
 
@@ -28,13 +46,15 @@ void main() {
     });
   });
 
-  group('DriftVendorRepository', () {
+  group('DriftVendorRepository (company-scoped)', () {
     late AppDatabase database;
     late DriftVendorRepository repository;
 
     setUp(() {
-      database = AppDatabase.withExecutor(NativeDatabase.memory());
-      repository = DriftVendorRepository(database: database);
+      database =
+          AppDatabase.withExecutor(NativeDatabase.memory());
+      repository =
+          DriftVendorRepository(database: database, companyId: () => companyA);
     });
 
     tearDown(() async {
@@ -49,21 +69,7 @@ void main() {
     });
 
     test('createVendor inserts and returns the vendor', () async {
-      final vendor = Vendor(
-        id: 'VEN-2001',
-        companyName: 'Test Company',
-        contactName: 'John Doe',
-        email: 'john@test.com',
-        phone: '+1 555 0001',
-        address: '123 Test St',
-        taxIdentifier: 'TX-001',
-        notes: 'Test vendor',
-        isActive: true,
-        createdAt: DateTime(2026, 1, 1),
-        updatedAt: DateTime(2026, 1, 1),
-      );
-
-      final createResult = await repository.createVendor(vendor);
+      final createResult = await repository.createVendor(vendor('VEN-2001'));
       expect(createResult.isSuccess, isTrue);
 
       final fetchResult = await repository.fetchVendors();
@@ -71,26 +77,13 @@ void main() {
       expect(fetchResult.data!.first.id, 'VEN-2001');
       expect(fetchResult.data!.first.companyName, 'Test Company');
       expect(fetchResult.data!.first.isActive, isTrue);
-      expect(fetchResult.data!.first.createdAt, vendor.createdAt);
+      expect(fetchResult.data!.first.createdAt, DateTime(2026, 1, 1));
     });
 
     test('updateVendor modifies an existing vendor', () async {
-      final vendor = Vendor(
-        id: 'VEN-2002',
-        companyName: 'Original Co',
-        contactName: 'Jane Smith',
-        email: 'jane@original.com',
-        phone: '+1 555 0002',
-        address: '456 Oak Ave',
-        taxIdentifier: 'TX-002',
-        notes: 'Original',
-        isActive: true,
-        createdAt: DateTime(2026, 2, 1),
-        updatedAt: DateTime(2026, 2, 1),
-      );
-      await repository.createVendor(vendor);
+      await repository.createVendor(vendor('VEN-2002', companyName: 'Original'));
 
-      final updated = vendor.copyWith(
+      final updated = vendor('VEN-2002').copyWith(
         companyName: 'Updated Co',
         isActive: false,
         updatedAt: DateTime(2026, 3, 1),
@@ -105,20 +98,7 @@ void main() {
     });
 
     test('deleteVendor removes a vendor', () async {
-      final vendor = Vendor(
-        id: 'VEN-2003',
-        companyName: 'Delete Me',
-        contactName: 'Bob',
-        email: 'bob@delete.com',
-        phone: '+1 555 0003',
-        address: '789 Pine Rd',
-        taxIdentifier: 'TX-003',
-        notes: '',
-        isActive: true,
-        createdAt: DateTime(2026, 3, 1),
-        updatedAt: DateTime(2026, 3, 1),
-      );
-      await repository.createVendor(vendor);
+      await repository.createVendor(vendor('VEN-2003'));
 
       final deleteResult = await repository.deleteVendor('VEN-2003');
       expect(deleteResult.isSuccess, isTrue);
@@ -127,10 +107,12 @@ void main() {
       expect(fetchResult.data, isEmpty);
     });
 
-    test('getVendorById returns the correct vendor', () async {
+    test('getVendorById returns the correct vendor within the company',
+        () async {
       final dao = VendorDao(database);
       await dao.insertVendor(VendorsTableCompanion.insert(
         id: 'VEN-2004',
+        companyId: companyA,
         companyName: 'Single Co',
         contactName: 'Alice',
         email: 'alice@single.com',
@@ -143,25 +125,22 @@ void main() {
         updatedAt: DateTime(2026, 4, 1),
       ));
 
-      final entries = await dao.getAllVendors();
-      expect(entries.length, 1);
-      expect(entries.first.id, 'VEN-2004');
-      expect(entries.first.companyName, 'Single Co');
-      expect(entries.first.isActive, isTrue);
+      final entry = await dao.getVendorById('VEN-2004', companyA);
+      expect(entry, isNotNull);
+      expect(entry!.id, 'VEN-2004');
+      expect(entry.companyName, 'Single Co');
+      expect(entry.companyId, companyA);
     });
 
     test('domain mapping round-trips correctly', () async {
       final now = DateTime(2026, 6, 15, 10, 30, 0);
-      final original = Vendor(
-        id: 'VEN-3001',
-        companyName: 'Round Trip Co',
+      final original = vendor('VEN-3001', companyName: 'Round Trip Co').copyWith(
         contactName: 'Charlie',
         email: 'charlie@roundtrip.com',
         phone: '+1 555 3001',
         address: '999 Main St',
         taxIdentifier: 'TX-3001',
         notes: 'Round-trip test',
-        isActive: true,
         createdAt: now,
         updatedAt: now,
       );
@@ -181,6 +160,88 @@ void main() {
       expect(roundTripped.isActive, original.isActive);
       expect(roundTripped.createdAt, original.createdAt);
       expect(roundTripped.updatedAt, original.updatedAt);
+    });
+  });
+
+  group('DriftVendorRepository tenant isolation', () {
+    late AppDatabase database;
+    late DriftVendorRepository repoA;
+    late DriftVendorRepository repoB;
+
+    setUp(() {
+      database = AppDatabase.withExecutor(NativeDatabase.memory());
+      repoA =
+          DriftVendorRepository(database: database, companyId: () => companyA);
+      repoB =
+          DriftVendorRepository(database: database, companyId: () => companyB);
+    });
+
+    tearDown(() async {
+      await repoA.close();
+    });
+
+    test('reads only return records for the active company', () async {
+      await repoA.createVendor(vendor('VEN-A1'));
+      await repoB.createVendor(vendor('VEN-B1'));
+
+      expect((await repoA.fetchVendors()).data!.map((v) => v.id), ['VEN-A1']);
+      expect((await repoB.fetchVendors()).data!.map((v) => v.id), ['VEN-B1']);
+    });
+
+    test('writes persist the active company id', () async {
+      await repoA.createVendor(vendor('VEN-A2'));
+
+      final dao = VendorDao(database);
+      final row = await dao.getVendorById('VEN-A2', companyA);
+      expect(row!.companyId, companyA);
+      expect(await dao.getVendorById('VEN-A2', companyB), isNull);
+    });
+
+    test('cross-tenant update does not touch another company row', () async {
+      await repoA.createVendor(vendor('VEN-SHARED', companyName: 'Owned by A'));
+
+      final result = await repoB
+          .updateVendor(vendor('VEN-SHARED', companyName: 'Hijacked by B'));
+      expect(result.isSuccess, isTrue);
+
+      expect((await repoA.fetchVendors()).data!.single.companyName, 'Owned by A');
+      expect((await repoB.fetchVendors()).data, isEmpty);
+    });
+
+    test('cross-tenant delete does not remove another company row', () async {
+      await repoA.createVendor(vendor('VEN-DEL'));
+
+      expect((await repoB.deleteVendor('VEN-DEL')).isSuccess, isTrue);
+      expect((await repoA.fetchVendors()).data!.single.id, 'VEN-DEL');
+    });
+  });
+
+  group('DriftVendorRepository fails closed without a company', () {
+    late AppDatabase database;
+    late DriftVendorRepository repository;
+
+    setUp(() {
+      database = AppDatabase.withExecutor(NativeDatabase.memory());
+      repository = DriftVendorRepository(database: database);
+    });
+
+    tearDown(() async {
+      await repository.close();
+    });
+
+    test('fetchVendors fails closed with TenantContextFailure', () async {
+      final result = await repository.fetchVendors();
+      expect(result.isSuccess, isFalse);
+      expect(result.error, isA<TenantContextFailure>());
+    });
+
+    test('createVendor fails closed and persists nothing', () async {
+      final result = await repository.createVendor(vendor('VEN-NONE'));
+      expect(result.error, isA<TenantContextFailure>());
+
+      final dao = VendorDao(database);
+      expect(await dao.getAllVendors('comp-1'), isEmpty);
+      expect(await dao.getAllVendors('comp-2'), isEmpty);
     });
   });
 }

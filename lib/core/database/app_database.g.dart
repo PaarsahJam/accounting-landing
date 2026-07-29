@@ -18,6 +18,17 @@ class $CustomersTableTable extends CustomersTable
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _companyIdMeta = const VerificationMeta(
+    'companyId',
+  );
+  @override
+  late final GeneratedColumn<String> companyId = GeneratedColumn<String>(
+    'company_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
@@ -88,6 +99,7 @@ class $CustomersTableTable extends CustomersTable
   @override
   List<GeneratedColumn> get $columns => [
     id,
+    companyId,
     name,
     company,
     email,
@@ -112,6 +124,14 @@ class $CustomersTableTable extends CustomersTable
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     } else if (isInserting) {
       context.missing(_idMeta);
+    }
+    if (data.containsKey('company_id')) {
+      context.handle(
+        _companyIdMeta,
+        companyId.isAcceptableOrUnknown(data['company_id']!, _companyIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_companyIdMeta);
     }
     if (data.containsKey('name')) {
       context.handle(
@@ -185,6 +205,10 @@ class $CustomersTableTable extends CustomersTable
         DriftSqlType.string,
         data['${effectivePrefix}id'],
       )!,
+      companyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}company_id'],
+      )!,
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
@@ -225,6 +249,7 @@ class $CustomersTableTable extends CustomersTable
 class CustomersTableData extends DataClass
     implements Insertable<CustomersTableData> {
   final String id;
+  final String companyId;
   final String name;
   final String company;
   final String email;
@@ -234,6 +259,7 @@ class CustomersTableData extends DataClass
   final String notes;
   const CustomersTableData({
     required this.id,
+    required this.companyId,
     required this.name,
     required this.company,
     required this.email,
@@ -246,6 +272,7 @@ class CustomersTableData extends DataClass
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
+    map['company_id'] = Variable<String>(companyId);
     map['name'] = Variable<String>(name);
     map['company'] = Variable<String>(company);
     map['email'] = Variable<String>(email);
@@ -259,6 +286,7 @@ class CustomersTableData extends DataClass
   CustomersTableCompanion toCompanion(bool nullToAbsent) {
     return CustomersTableCompanion(
       id: Value(id),
+      companyId: Value(companyId),
       name: Value(name),
       company: Value(company),
       email: Value(email),
@@ -276,6 +304,7 @@ class CustomersTableData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return CustomersTableData(
       id: serializer.fromJson<String>(json['id']),
+      companyId: serializer.fromJson<String>(json['companyId']),
       name: serializer.fromJson<String>(json['name']),
       company: serializer.fromJson<String>(json['company']),
       email: serializer.fromJson<String>(json['email']),
@@ -292,6 +321,7 @@ class CustomersTableData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
+      'companyId': serializer.toJson<String>(companyId),
       'name': serializer.toJson<String>(name),
       'company': serializer.toJson<String>(company),
       'email': serializer.toJson<String>(email),
@@ -304,6 +334,7 @@ class CustomersTableData extends DataClass
 
   CustomersTableData copyWith({
     String? id,
+    String? companyId,
     String? name,
     String? company,
     String? email,
@@ -313,6 +344,7 @@ class CustomersTableData extends DataClass
     String? notes,
   }) => CustomersTableData(
     id: id ?? this.id,
+    companyId: companyId ?? this.companyId,
     name: name ?? this.name,
     company: company ?? this.company,
     email: email ?? this.email,
@@ -324,6 +356,7 @@ class CustomersTableData extends DataClass
   CustomersTableData copyWithCompanion(CustomersTableCompanion data) {
     return CustomersTableData(
       id: data.id.present ? data.id.value : this.id,
+      companyId: data.companyId.present ? data.companyId.value : this.companyId,
       name: data.name.present ? data.name.value : this.name,
       company: data.company.present ? data.company.value : this.company,
       email: data.email.present ? data.email.value : this.email,
@@ -340,6 +373,7 @@ class CustomersTableData extends DataClass
   String toString() {
     return (StringBuffer('CustomersTableData(')
           ..write('id: $id, ')
+          ..write('companyId: $companyId, ')
           ..write('name: $name, ')
           ..write('company: $company, ')
           ..write('email: $email, ')
@@ -354,6 +388,7 @@ class CustomersTableData extends DataClass
   @override
   int get hashCode => Object.hash(
     id,
+    companyId,
     name,
     company,
     email,
@@ -367,6 +402,7 @@ class CustomersTableData extends DataClass
       identical(this, other) ||
       (other is CustomersTableData &&
           other.id == this.id &&
+          other.companyId == this.companyId &&
           other.name == this.name &&
           other.company == this.company &&
           other.email == this.email &&
@@ -378,6 +414,7 @@ class CustomersTableData extends DataClass
 
 class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
   final Value<String> id;
+  final Value<String> companyId;
   final Value<String> name;
   final Value<String> company;
   final Value<String> email;
@@ -388,6 +425,7 @@ class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
   final Value<int> rowid;
   const CustomersTableCompanion({
     this.id = const Value.absent(),
+    this.companyId = const Value.absent(),
     this.name = const Value.absent(),
     this.company = const Value.absent(),
     this.email = const Value.absent(),
@@ -399,6 +437,7 @@ class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
   });
   CustomersTableCompanion.insert({
     required String id,
+    required String companyId,
     required String name,
     required String company,
     required String email,
@@ -408,6 +447,7 @@ class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
     required String notes,
     this.rowid = const Value.absent(),
   }) : id = Value(id),
+       companyId = Value(companyId),
        name = Value(name),
        company = Value(company),
        email = Value(email),
@@ -417,6 +457,7 @@ class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
        notes = Value(notes);
   static Insertable<CustomersTableData> custom({
     Expression<String>? id,
+    Expression<String>? companyId,
     Expression<String>? name,
     Expression<String>? company,
     Expression<String>? email,
@@ -428,6 +469,7 @@ class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
+      if (companyId != null) 'company_id': companyId,
       if (name != null) 'name': name,
       if (company != null) 'company': company,
       if (email != null) 'email': email,
@@ -441,6 +483,7 @@ class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
 
   CustomersTableCompanion copyWith({
     Value<String>? id,
+    Value<String>? companyId,
     Value<String>? name,
     Value<String>? company,
     Value<String>? email,
@@ -452,6 +495,7 @@ class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
   }) {
     return CustomersTableCompanion(
       id: id ?? this.id,
+      companyId: companyId ?? this.companyId,
       name: name ?? this.name,
       company: company ?? this.company,
       email: email ?? this.email,
@@ -468,6 +512,9 @@ class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
     final map = <String, Expression>{};
     if (id.present) {
       map['id'] = Variable<String>(id.value);
+    }
+    if (companyId.present) {
+      map['company_id'] = Variable<String>(companyId.value);
     }
     if (name.present) {
       map['name'] = Variable<String>(name.value);
@@ -500,6 +547,7 @@ class CustomersTableCompanion extends UpdateCompanion<CustomersTableData> {
   String toString() {
     return (StringBuffer('CustomersTableCompanion(')
           ..write('id: $id, ')
+          ..write('companyId: $companyId, ')
           ..write('name: $name, ')
           ..write('company: $company, ')
           ..write('email: $email, ')
@@ -523,6 +571,17 @@ class $VendorsTableTable extends VendorsTable
   @override
   late final GeneratedColumn<String> id = GeneratedColumn<String>(
     'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _companyIdMeta = const VerificationMeta(
+    'companyId',
+  );
+  @override
+  late final GeneratedColumn<String> companyId = GeneratedColumn<String>(
+    'company_id',
     aliasedName,
     false,
     type: DriftSqlType.string,
@@ -638,6 +697,7 @@ class $VendorsTableTable extends VendorsTable
   @override
   List<GeneratedColumn> get $columns => [
     id,
+    companyId,
     companyName,
     contactName,
     email,
@@ -665,6 +725,14 @@ class $VendorsTableTable extends VendorsTable
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     } else if (isInserting) {
       context.missing(_idMeta);
+    }
+    if (data.containsKey('company_id')) {
+      context.handle(
+        _companyIdMeta,
+        companyId.isAcceptableOrUnknown(data['company_id']!, _companyIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_companyIdMeta);
     }
     if (data.containsKey('company_name')) {
       context.handle(
@@ -768,6 +836,10 @@ class $VendorsTableTable extends VendorsTable
         DriftSqlType.string,
         data['${effectivePrefix}id'],
       )!,
+      companyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}company_id'],
+      )!,
       companyName: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}company_name'],
@@ -820,6 +892,7 @@ class $VendorsTableTable extends VendorsTable
 class VendorsTableData extends DataClass
     implements Insertable<VendorsTableData> {
   final String id;
+  final String companyId;
   final String companyName;
   final String contactName;
   final String email;
@@ -832,6 +905,7 @@ class VendorsTableData extends DataClass
   final DateTime updatedAt;
   const VendorsTableData({
     required this.id,
+    required this.companyId,
     required this.companyName,
     required this.contactName,
     required this.email,
@@ -847,6 +921,7 @@ class VendorsTableData extends DataClass
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
+    map['company_id'] = Variable<String>(companyId);
     map['company_name'] = Variable<String>(companyName);
     map['contact_name'] = Variable<String>(contactName);
     map['email'] = Variable<String>(email);
@@ -863,6 +938,7 @@ class VendorsTableData extends DataClass
   VendorsTableCompanion toCompanion(bool nullToAbsent) {
     return VendorsTableCompanion(
       id: Value(id),
+      companyId: Value(companyId),
       companyName: Value(companyName),
       contactName: Value(contactName),
       email: Value(email),
@@ -883,6 +959,7 @@ class VendorsTableData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return VendorsTableData(
       id: serializer.fromJson<String>(json['id']),
+      companyId: serializer.fromJson<String>(json['companyId']),
       companyName: serializer.fromJson<String>(json['companyName']),
       contactName: serializer.fromJson<String>(json['contactName']),
       email: serializer.fromJson<String>(json['email']),
@@ -900,6 +977,7 @@ class VendorsTableData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
+      'companyId': serializer.toJson<String>(companyId),
       'companyName': serializer.toJson<String>(companyName),
       'contactName': serializer.toJson<String>(contactName),
       'email': serializer.toJson<String>(email),
@@ -915,6 +993,7 @@ class VendorsTableData extends DataClass
 
   VendorsTableData copyWith({
     String? id,
+    String? companyId,
     String? companyName,
     String? contactName,
     String? email,
@@ -927,6 +1006,7 @@ class VendorsTableData extends DataClass
     DateTime? updatedAt,
   }) => VendorsTableData(
     id: id ?? this.id,
+    companyId: companyId ?? this.companyId,
     companyName: companyName ?? this.companyName,
     contactName: contactName ?? this.contactName,
     email: email ?? this.email,
@@ -941,6 +1021,7 @@ class VendorsTableData extends DataClass
   VendorsTableData copyWithCompanion(VendorsTableCompanion data) {
     return VendorsTableData(
       id: data.id.present ? data.id.value : this.id,
+      companyId: data.companyId.present ? data.companyId.value : this.companyId,
       companyName: data.companyName.present
           ? data.companyName.value
           : this.companyName,
@@ -964,6 +1045,7 @@ class VendorsTableData extends DataClass
   String toString() {
     return (StringBuffer('VendorsTableData(')
           ..write('id: $id, ')
+          ..write('companyId: $companyId, ')
           ..write('companyName: $companyName, ')
           ..write('contactName: $contactName, ')
           ..write('email: $email, ')
@@ -981,6 +1063,7 @@ class VendorsTableData extends DataClass
   @override
   int get hashCode => Object.hash(
     id,
+    companyId,
     companyName,
     contactName,
     email,
@@ -997,6 +1080,7 @@ class VendorsTableData extends DataClass
       identical(this, other) ||
       (other is VendorsTableData &&
           other.id == this.id &&
+          other.companyId == this.companyId &&
           other.companyName == this.companyName &&
           other.contactName == this.contactName &&
           other.email == this.email &&
@@ -1011,6 +1095,7 @@ class VendorsTableData extends DataClass
 
 class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
   final Value<String> id;
+  final Value<String> companyId;
   final Value<String> companyName;
   final Value<String> contactName;
   final Value<String> email;
@@ -1024,6 +1109,7 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
   final Value<int> rowid;
   const VendorsTableCompanion({
     this.id = const Value.absent(),
+    this.companyId = const Value.absent(),
     this.companyName = const Value.absent(),
     this.contactName = const Value.absent(),
     this.email = const Value.absent(),
@@ -1038,6 +1124,7 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
   });
   VendorsTableCompanion.insert({
     required String id,
+    required String companyId,
     required String companyName,
     required String contactName,
     required String email,
@@ -1050,6 +1137,7 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
     required DateTime updatedAt,
     this.rowid = const Value.absent(),
   }) : id = Value(id),
+       companyId = Value(companyId),
        companyName = Value(companyName),
        contactName = Value(contactName),
        email = Value(email),
@@ -1062,6 +1150,7 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
        updatedAt = Value(updatedAt);
   static Insertable<VendorsTableData> custom({
     Expression<String>? id,
+    Expression<String>? companyId,
     Expression<String>? companyName,
     Expression<String>? contactName,
     Expression<String>? email,
@@ -1076,6 +1165,7 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
+      if (companyId != null) 'company_id': companyId,
       if (companyName != null) 'company_name': companyName,
       if (contactName != null) 'contact_name': contactName,
       if (email != null) 'email': email,
@@ -1092,6 +1182,7 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
 
   VendorsTableCompanion copyWith({
     Value<String>? id,
+    Value<String>? companyId,
     Value<String>? companyName,
     Value<String>? contactName,
     Value<String>? email,
@@ -1106,6 +1197,7 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
   }) {
     return VendorsTableCompanion(
       id: id ?? this.id,
+      companyId: companyId ?? this.companyId,
       companyName: companyName ?? this.companyName,
       contactName: contactName ?? this.contactName,
       email: email ?? this.email,
@@ -1125,6 +1217,9 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
     final map = <String, Expression>{};
     if (id.present) {
       map['id'] = Variable<String>(id.value);
+    }
+    if (companyId.present) {
+      map['company_id'] = Variable<String>(companyId.value);
     }
     if (companyName.present) {
       map['company_name'] = Variable<String>(companyName.value);
@@ -1166,6 +1261,7 @@ class VendorsTableCompanion extends UpdateCompanion<VendorsTableData> {
   String toString() {
     return (StringBuffer('VendorsTableCompanion(')
           ..write('id: $id, ')
+          ..write('companyId: $companyId, ')
           ..write('companyName: $companyName, ')
           ..write('contactName: $contactName, ')
           ..write('email: $email, ')
@@ -1192,6 +1288,17 @@ class $ProductsTableTable extends ProductsTable
   @override
   late final GeneratedColumn<String> id = GeneratedColumn<String>(
     'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _companyIdMeta = const VerificationMeta(
+    'companyId',
+  );
+  @override
+  late final GeneratedColumn<String> companyId = GeneratedColumn<String>(
+    'company_id',
     aliasedName,
     false,
     type: DriftSqlType.string,
@@ -1281,6 +1388,7 @@ class $ProductsTableTable extends ProductsTable
   @override
   List<GeneratedColumn> get $columns => [
     id,
+    companyId,
     sku,
     name,
     description,
@@ -1306,6 +1414,14 @@ class $ProductsTableTable extends ProductsTable
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     } else if (isInserting) {
       context.missing(_idMeta);
+    }
+    if (data.containsKey('company_id')) {
+      context.handle(
+        _companyIdMeta,
+        companyId.isAcceptableOrUnknown(data['company_id']!, _companyIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_companyIdMeta);
     }
     if (data.containsKey('sku')) {
       context.handle(
@@ -1390,6 +1506,10 @@ class $ProductsTableTable extends ProductsTable
         DriftSqlType.string,
         data['${effectivePrefix}id'],
       )!,
+      companyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}company_id'],
+      )!,
       sku: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}sku'],
@@ -1434,6 +1554,7 @@ class $ProductsTableTable extends ProductsTable
 class ProductsTableData extends DataClass
     implements Insertable<ProductsTableData> {
   final String id;
+  final String companyId;
   final String sku;
   final String name;
   final String description;
@@ -1444,6 +1565,7 @@ class ProductsTableData extends DataClass
   final bool active;
   const ProductsTableData({
     required this.id,
+    required this.companyId,
     required this.sku,
     required this.name,
     required this.description,
@@ -1457,6 +1579,7 @@ class ProductsTableData extends DataClass
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
+    map['company_id'] = Variable<String>(companyId);
     map['sku'] = Variable<String>(sku);
     map['name'] = Variable<String>(name);
     map['description'] = Variable<String>(description);
@@ -1471,6 +1594,7 @@ class ProductsTableData extends DataClass
   ProductsTableCompanion toCompanion(bool nullToAbsent) {
     return ProductsTableCompanion(
       id: Value(id),
+      companyId: Value(companyId),
       sku: Value(sku),
       name: Value(name),
       description: Value(description),
@@ -1489,6 +1613,7 @@ class ProductsTableData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return ProductsTableData(
       id: serializer.fromJson<String>(json['id']),
+      companyId: serializer.fromJson<String>(json['companyId']),
       sku: serializer.fromJson<String>(json['sku']),
       name: serializer.fromJson<String>(json['name']),
       description: serializer.fromJson<String>(json['description']),
@@ -1504,6 +1629,7 @@ class ProductsTableData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
+      'companyId': serializer.toJson<String>(companyId),
       'sku': serializer.toJson<String>(sku),
       'name': serializer.toJson<String>(name),
       'description': serializer.toJson<String>(description),
@@ -1517,6 +1643,7 @@ class ProductsTableData extends DataClass
 
   ProductsTableData copyWith({
     String? id,
+    String? companyId,
     String? sku,
     String? name,
     String? description,
@@ -1527,6 +1654,7 @@ class ProductsTableData extends DataClass
     bool? active,
   }) => ProductsTableData(
     id: id ?? this.id,
+    companyId: companyId ?? this.companyId,
     sku: sku ?? this.sku,
     name: name ?? this.name,
     description: description ?? this.description,
@@ -1539,6 +1667,7 @@ class ProductsTableData extends DataClass
   ProductsTableData copyWithCompanion(ProductsTableCompanion data) {
     return ProductsTableData(
       id: data.id.present ? data.id.value : this.id,
+      companyId: data.companyId.present ? data.companyId.value : this.companyId,
       sku: data.sku.present ? data.sku.value : this.sku,
       name: data.name.present ? data.name.value : this.name,
       description: data.description.present
@@ -1560,6 +1689,7 @@ class ProductsTableData extends DataClass
   String toString() {
     return (StringBuffer('ProductsTableData(')
           ..write('id: $id, ')
+          ..write('companyId: $companyId, ')
           ..write('sku: $sku, ')
           ..write('name: $name, ')
           ..write('description: $description, ')
@@ -1575,6 +1705,7 @@ class ProductsTableData extends DataClass
   @override
   int get hashCode => Object.hash(
     id,
+    companyId,
     sku,
     name,
     description,
@@ -1589,6 +1720,7 @@ class ProductsTableData extends DataClass
       identical(this, other) ||
       (other is ProductsTableData &&
           other.id == this.id &&
+          other.companyId == this.companyId &&
           other.sku == this.sku &&
           other.name == this.name &&
           other.description == this.description &&
@@ -1601,6 +1733,7 @@ class ProductsTableData extends DataClass
 
 class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   final Value<String> id;
+  final Value<String> companyId;
   final Value<String> sku;
   final Value<String> name;
   final Value<String> description;
@@ -1612,6 +1745,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   final Value<int> rowid;
   const ProductsTableCompanion({
     this.id = const Value.absent(),
+    this.companyId = const Value.absent(),
     this.sku = const Value.absent(),
     this.name = const Value.absent(),
     this.description = const Value.absent(),
@@ -1624,6 +1758,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   });
   ProductsTableCompanion.insert({
     required String id,
+    required String companyId,
     required String sku,
     required String name,
     required String description,
@@ -1634,6 +1769,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
     required bool active,
     this.rowid = const Value.absent(),
   }) : id = Value(id),
+       companyId = Value(companyId),
        sku = Value(sku),
        name = Value(name),
        description = Value(description),
@@ -1644,6 +1780,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
        active = Value(active);
   static Insertable<ProductsTableData> custom({
     Expression<String>? id,
+    Expression<String>? companyId,
     Expression<String>? sku,
     Expression<String>? name,
     Expression<String>? description,
@@ -1656,6 +1793,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
+      if (companyId != null) 'company_id': companyId,
       if (sku != null) 'sku': sku,
       if (name != null) 'name': name,
       if (description != null) 'description': description,
@@ -1670,6 +1808,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
 
   ProductsTableCompanion copyWith({
     Value<String>? id,
+    Value<String>? companyId,
     Value<String>? sku,
     Value<String>? name,
     Value<String>? description,
@@ -1682,6 +1821,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   }) {
     return ProductsTableCompanion(
       id: id ?? this.id,
+      companyId: companyId ?? this.companyId,
       sku: sku ?? this.sku,
       name: name ?? this.name,
       description: description ?? this.description,
@@ -1699,6 +1839,9 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
     final map = <String, Expression>{};
     if (id.present) {
       map['id'] = Variable<String>(id.value);
+    }
+    if (companyId.present) {
+      map['company_id'] = Variable<String>(companyId.value);
     }
     if (sku.present) {
       map['sku'] = Variable<String>(sku.value);
@@ -1734,6 +1877,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   String toString() {
     return (StringBuffer('ProductsTableCompanion(')
           ..write('id: $id, ')
+          ..write('companyId: $companyId, ')
           ..write('sku: $sku, ')
           ..write('name: $name, ')
           ..write('description: $description, ')
@@ -1768,6 +1912,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
 typedef $$CustomersTableTableCreateCompanionBuilder =
     CustomersTableCompanion Function({
       required String id,
+      required String companyId,
       required String name,
       required String company,
       required String email,
@@ -1780,6 +1925,7 @@ typedef $$CustomersTableTableCreateCompanionBuilder =
 typedef $$CustomersTableTableUpdateCompanionBuilder =
     CustomersTableCompanion Function({
       Value<String> id,
+      Value<String> companyId,
       Value<String> name,
       Value<String> company,
       Value<String> email,
@@ -1801,6 +1947,11 @@ class $$CustomersTableTableFilterComposer
   });
   ColumnFilters<String> get id => $composableBuilder(
     column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get companyId => $composableBuilder(
+    column: $table.companyId,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -1854,6 +2005,11 @@ class $$CustomersTableTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<String> get companyId => $composableBuilder(
+    column: $table.companyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<String> get name => $composableBuilder(
     column: $table.name,
     builder: (column) => ColumnOrderings(column),
@@ -1901,6 +2057,9 @@ class $$CustomersTableTableAnnotationComposer
   });
   GeneratedColumn<String> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get companyId =>
+      $composableBuilder(column: $table.companyId, builder: (column) => column);
 
   GeneratedColumn<String> get name =>
       $composableBuilder(column: $table.name, builder: (column) => column);
@@ -1964,6 +2123,7 @@ class $$CustomersTableTableTableManager
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
+                Value<String> companyId = const Value.absent(),
                 Value<String> name = const Value.absent(),
                 Value<String> company = const Value.absent(),
                 Value<String> email = const Value.absent(),
@@ -1974,6 +2134,7 @@ class $$CustomersTableTableTableManager
                 Value<int> rowid = const Value.absent(),
               }) => CustomersTableCompanion(
                 id: id,
+                companyId: companyId,
                 name: name,
                 company: company,
                 email: email,
@@ -1986,6 +2147,7 @@ class $$CustomersTableTableTableManager
           createCompanionCallback:
               ({
                 required String id,
+                required String companyId,
                 required String name,
                 required String company,
                 required String email,
@@ -1996,6 +2158,7 @@ class $$CustomersTableTableTableManager
                 Value<int> rowid = const Value.absent(),
               }) => CustomersTableCompanion.insert(
                 id: id,
+                companyId: companyId,
                 name: name,
                 company: company,
                 email: email,
@@ -2033,6 +2196,7 @@ typedef $$CustomersTableTableProcessedTableManager =
 typedef $$VendorsTableTableCreateCompanionBuilder =
     VendorsTableCompanion Function({
       required String id,
+      required String companyId,
       required String companyName,
       required String contactName,
       required String email,
@@ -2048,6 +2212,7 @@ typedef $$VendorsTableTableCreateCompanionBuilder =
 typedef $$VendorsTableTableUpdateCompanionBuilder =
     VendorsTableCompanion Function({
       Value<String> id,
+      Value<String> companyId,
       Value<String> companyName,
       Value<String> contactName,
       Value<String> email,
@@ -2072,6 +2237,11 @@ class $$VendorsTableTableFilterComposer
   });
   ColumnFilters<String> get id => $composableBuilder(
     column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get companyId => $composableBuilder(
+    column: $table.companyId,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -2140,6 +2310,11 @@ class $$VendorsTableTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<String> get companyId => $composableBuilder(
+    column: $table.companyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<String> get companyName => $composableBuilder(
     column: $table.companyName,
     builder: (column) => ColumnOrderings(column),
@@ -2202,6 +2377,9 @@ class $$VendorsTableTableAnnotationComposer
   });
   GeneratedColumn<String> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get companyId =>
+      $composableBuilder(column: $table.companyId, builder: (column) => column);
 
   GeneratedColumn<String> get companyName => $composableBuilder(
     column: $table.companyName,
@@ -2272,6 +2450,7 @@ class $$VendorsTableTableTableManager
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
+                Value<String> companyId = const Value.absent(),
                 Value<String> companyName = const Value.absent(),
                 Value<String> contactName = const Value.absent(),
                 Value<String> email = const Value.absent(),
@@ -2285,6 +2464,7 @@ class $$VendorsTableTableTableManager
                 Value<int> rowid = const Value.absent(),
               }) => VendorsTableCompanion(
                 id: id,
+                companyId: companyId,
                 companyName: companyName,
                 contactName: contactName,
                 email: email,
@@ -2300,6 +2480,7 @@ class $$VendorsTableTableTableManager
           createCompanionCallback:
               ({
                 required String id,
+                required String companyId,
                 required String companyName,
                 required String contactName,
                 required String email,
@@ -2313,6 +2494,7 @@ class $$VendorsTableTableTableManager
                 Value<int> rowid = const Value.absent(),
               }) => VendorsTableCompanion.insert(
                 id: id,
+                companyId: companyId,
                 companyName: companyName,
                 contactName: contactName,
                 email: email,
@@ -2353,6 +2535,7 @@ typedef $$VendorsTableTableProcessedTableManager =
 typedef $$ProductsTableTableCreateCompanionBuilder =
     ProductsTableCompanion Function({
       required String id,
+      required String companyId,
       required String sku,
       required String name,
       required String description,
@@ -2366,6 +2549,7 @@ typedef $$ProductsTableTableCreateCompanionBuilder =
 typedef $$ProductsTableTableUpdateCompanionBuilder =
     ProductsTableCompanion Function({
       Value<String> id,
+      Value<String> companyId,
       Value<String> sku,
       Value<String> name,
       Value<String> description,
@@ -2388,6 +2572,11 @@ class $$ProductsTableTableFilterComposer
   });
   ColumnFilters<String> get id => $composableBuilder(
     column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get companyId => $composableBuilder(
+    column: $table.companyId,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -2446,6 +2635,11 @@ class $$ProductsTableTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<String> get companyId => $composableBuilder(
+    column: $table.companyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<String> get sku => $composableBuilder(
     column: $table.sku,
     builder: (column) => ColumnOrderings(column),
@@ -2498,6 +2692,9 @@ class $$ProductsTableTableAnnotationComposer
   });
   GeneratedColumn<String> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get companyId =>
+      $composableBuilder(column: $table.companyId, builder: (column) => column);
 
   GeneratedColumn<String> get sku =>
       $composableBuilder(column: $table.sku, builder: (column) => column);
@@ -2566,6 +2763,7 @@ class $$ProductsTableTableTableManager
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
+                Value<String> companyId = const Value.absent(),
                 Value<String> sku = const Value.absent(),
                 Value<String> name = const Value.absent(),
                 Value<String> description = const Value.absent(),
@@ -2577,6 +2775,7 @@ class $$ProductsTableTableTableManager
                 Value<int> rowid = const Value.absent(),
               }) => ProductsTableCompanion(
                 id: id,
+                companyId: companyId,
                 sku: sku,
                 name: name,
                 description: description,
@@ -2590,6 +2789,7 @@ class $$ProductsTableTableTableManager
           createCompanionCallback:
               ({
                 required String id,
+                required String companyId,
                 required String sku,
                 required String name,
                 required String description,
@@ -2601,6 +2801,7 @@ class $$ProductsTableTableTableManager
                 Value<int> rowid = const Value.absent(),
               }) => ProductsTableCompanion.insert(
                 id: id,
+                companyId: companyId,
                 sku: sku,
                 name: name,
                 description: description,

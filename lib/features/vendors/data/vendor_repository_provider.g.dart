@@ -53,4 +53,4 @@ final class VendorRepositoryProvider
   }
 }
 
-String _$vendorRepositoryHash() => r'4474bec80c716e568c4cf2d8c27dffd985de3f5f';
+String _$vendorRepositoryHash() => r'a022f1e378c2340f04010c66325a7fdad8059ec0';

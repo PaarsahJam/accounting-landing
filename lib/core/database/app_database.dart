@@ -7,8 +7,14 @@ import 'package:path_provider/path_provider.dart';
 
 part 'app_database.g.dart';
 
+/// Company (tenant) id assigned to rows that existed before multi-tenancy was
+/// introduced. Legacy single-tenant data is backfilled to this company on
+/// upgrade so it stays visible under one tenant rather than being orphaned.
+const String kLegacyCompanyId = 'comp-1';
+
 class CustomersTable extends Table {
   TextColumn get id => text()();
+  TextColumn get companyId => text()();
   TextColumn get name => text()();
   TextColumn get company => text()();
   TextColumn get email => text()();
@@ -23,6 +29,7 @@ class CustomersTable extends Table {
 
 class VendorsTable extends Table {
   TextColumn get id => text()();
+  TextColumn get companyId => text()();
   TextColumn get companyName => text()();
   TextColumn get contactName => text()();
   TextColumn get email => text()();
@@ -40,6 +47,7 @@ class VendorsTable extends Table {
 
 class ProductsTable extends Table {
   TextColumn get id => text()();
+  TextColumn get companyId => text()();
   TextColumn get sku => text()();
   TextColumn get name => text()();
   TextColumn get description => text()();
@@ -59,7 +67,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.withExecutor(super.executor);
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration {
@@ -68,7 +76,25 @@ class AppDatabase extends _$AppDatabase {
         await m.createAll();
       },
       onUpgrade: (m, from, to) async {
+        // Additive: create any tables introduced since the installed version.
         await m.createAll();
+        if (from < 4) {
+          // Multi-tenancy: add company_id to the tenant-scoped tables and
+          // backfill pre-existing (single-tenant) rows to the legacy company so
+          // that data stays visible under one tenant instead of being orphaned.
+          // Fresh installs get the column from createAll (NOT NULL, no default),
+          // which forces every new write to stamp company_id explicitly.
+          for (final table in const [
+            'customers_table',
+            'vendors_table',
+            'products_table',
+          ]) {
+            await customStatement(
+              "ALTER TABLE $table ADD COLUMN company_id TEXT NOT NULL "
+              "DEFAULT '$kLegacyCompanyId'",
+            );
+          }
+        }
       },
     );
   }

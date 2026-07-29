@@ -8,6 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  const companyA = 'comp-1';
+
   group('CustomersController', () {
     late ProviderContainer container;
     late AppDatabase database;
@@ -17,7 +19,10 @@ void main() {
       container = ProviderContainer(
         overrides: [
           customerRepositoryProvider.overrideWithValue(
-            DriftCustomerRepository(database: database),
+            DriftCustomerRepository(
+              database: database,
+              companyId: () => companyA,
+            ),
           ),
         ],
       );
@@ -32,6 +37,7 @@ void main() {
       final dao = CustomerDao(database);
       await dao.insertCustomer(CustomersTableCompanion.insert(
         id: 'CUST-1001',
+        companyId: companyA,
         name: 'Ava Rahimi',
         company: 'Northstar Co.',
         email: 'ava@northstar.co',
