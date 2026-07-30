@@ -656,6 +656,16 @@
   "searchGroupFiscalPeriods": "Fiscal Periods",
   "searchPageTitle": "Global Search",
 
+  "themeModeLabel": "Theme",
+  "themeModeSystem": "System",
+  "themeModeLight": "Light",
+  "themeModeDark": "Dark",
+  "confirmPassword": "Confirm Password",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "createCompany": "Create Company",
+  "companyLegalName": "Legal Name",
+  "companyTaxId": "Tax ID",
+
   "tagsPageTitle": "Tags",
   "tagsSectionTitle": "Tags",
   "tagName": "Tag name",

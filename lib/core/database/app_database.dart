@@ -253,6 +253,46 @@ class BankStatementTransactionTable extends Table {
   Set<Column> get primaryKey => {id};
 }
 
+// ── Users (local auth) ──────────────────────────────────────────────────────
+
+class UsersTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get name => text()();
+  TextColumn get email => text().unique()();
+  TextColumn get passwordHash => text()();
+  DateTimeColumn get createdAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+class UserSessionTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get userId => text()();
+  TextColumn get token => text()();
+  DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get expiresAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+// ── Companies (local persistence) ───────────────────────────────────────────
+
+class CompaniesTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get name => text()();
+  TextColumn? get legalName => text().nullable()();
+  TextColumn? get taxId => text().nullable()();
+  TextColumn? get currency => text().nullable()();
+  TextColumn? get fiscalYearStartMonth => text().nullable()();
+  BoolColumn get isActive => boolean()();
+  DateTimeColumn get createdAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
 @DriftDatabase(tables: [
   CustomersTable,
   VendorsTable,
@@ -268,13 +308,16 @@ class BankStatementTransactionTable extends Table {
   BankTransactionTable,
   BankStatementTable,
   BankStatementTransactionTable,
+  UsersTable,
+  UserSessionTable,
+  CompaniesTable,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
   AppDatabase.withExecutor(super.executor);
 
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   @override
   MigrationStrategy get migration {
@@ -285,7 +328,7 @@ class AppDatabase extends _$AppDatabase {
       onUpgrade: (m, from, to) async {
         // Additive: create any tables introduced since the installed version.
         await m.createAll();
-        if (from < 4) {
+        if (from < 4 && from >= 1) {
           // Multi-tenancy: add company_id to the tenant-scoped tables and
           // backfill pre-existing (single-tenant) rows to the legacy company so
           // that data stays visible under one tenant instead of being orphaned.

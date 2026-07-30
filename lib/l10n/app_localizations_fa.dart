@@ -1942,6 +1942,33 @@ class AppLocalizationsFa extends AppLocalizations {
   String get searchPageTitle => 'جستجوی سراسری';
 
   @override
+  String get themeModeLabel => 'پوسته';
+
+  @override
+  String get themeModeSystem => 'سیستم';
+
+  @override
+  String get themeModeLight => 'روشن';
+
+  @override
+  String get themeModeDark => 'تاریک';
+
+  @override
+  String get confirmPassword => 'تکرار رمز عبور';
+
+  @override
+  String get passwordsDoNotMatch => 'رمز عبور همخوانی ندارد';
+
+  @override
+  String get createCompany => 'ایجاد شرکت';
+
+  @override
+  String get companyLegalName => 'نام حقوقی';
+
+  @override
+  String get companyTaxId => 'شناسه مالیاتی';
+
+  @override
   String get tagsPageTitle => 'برچسب‌ها';
 
   @override

@@ -33,7 +33,7 @@ final class CurrentCompanyProvider
   CurrentCompany create() => CurrentCompany();
 }
 
-String _$currentCompanyHash() => r'6d5c36874946435508d4cca11528e4bacc225a54';
+String _$currentCompanyHash() => r'1e2a117f02f59ca12e8d413254775069db7a0fb4';
 
 abstract class _$CurrentCompany extends $AsyncNotifier<Company?> {
   FutureOr<Company?> build();

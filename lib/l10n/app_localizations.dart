@@ -3884,6 +3884,33 @@ abstract class AppLocalizations {
   /// **'جستجوی سراسری'**
   String get searchPageTitle;
 
+  /// No description provided for @themeModeLabel.
+  String get themeModeLabel;
+
+  /// No description provided for @themeModeSystem.
+  String get themeModeSystem;
+
+  /// No description provided for @themeModeLight.
+  String get themeModeLight;
+
+  /// No description provided for @themeModeDark.
+  String get themeModeDark;
+
+  /// No description provided for @confirmPassword.
+  String get confirmPassword;
+
+  /// No description provided for @passwordsDoNotMatch.
+  String get passwordsDoNotMatch;
+
+  /// No description provided for @createCompany.
+  String get createCompany;
+
+  /// No description provided for @companyLegalName.
+  String get companyLegalName;
+
+  /// No description provided for @companyTaxId.
+  String get companyTaxId;
+
   /// No description provided for @tagsPageTitle.
   ///
   /// In fa, this message translates to:

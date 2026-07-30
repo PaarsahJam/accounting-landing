@@ -9,11 +9,17 @@ abstract class AuthRepository {
     required String email,
     required String password,
   });
+
+  Future<AppResult<User?>> register({
+    required String name,
+    required String email,
+    required String password,
+  });
+
   Future<AppResult<void>> logout();
   Future<AppResult<User?>> currentUser();
 }
 
-/// A simple mock implementation used until a real backend is available.
 class MockAuthRepository implements AuthRepository {
   User? _user;
 
@@ -25,6 +31,21 @@ class MockAuthRepository implements AuthRepository {
     try {
       await Future.delayed(const Duration(milliseconds: 500));
       _user = User(id: '1', name: 'Demo User', email: email);
+      return AppResult.success(_user);
+    } catch (error) {
+      return AppResult.failure(UnknownFailure(message: error.toString()));
+    }
+  }
+
+  @override
+  Future<AppResult<User?>> register({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      await Future.delayed(const Duration(milliseconds: 500));
+      _user = User(id: '1', name: name, email: email);
       return AppResult.success(_user);
     } catch (error) {
       return AppResult.failure(UnknownFailure(message: error.toString()));

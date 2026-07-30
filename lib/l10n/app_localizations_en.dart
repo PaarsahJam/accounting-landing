@@ -1948,6 +1948,33 @@ class AppLocalizationsEn extends AppLocalizations {
   String get searchPageTitle => 'Global Search';
 
   @override
+  String get themeModeLabel => 'Theme';
+
+  @override
+  String get themeModeSystem => 'System';
+
+  @override
+  String get themeModeLight => 'Light';
+
+  @override
+  String get themeModeDark => 'Dark';
+
+  @override
+  String get confirmPassword => 'Confirm Password';
+
+  @override
+  String get passwordsDoNotMatch => 'Passwords do not match';
+
+  @override
+  String get createCompany => 'Create Company';
+
+  @override
+  String get companyLegalName => 'Legal Name';
+
+  @override
+  String get companyTaxId => 'Tax ID';
+
+  @override
   String get tagsPageTitle => 'Tags';
 
   @override

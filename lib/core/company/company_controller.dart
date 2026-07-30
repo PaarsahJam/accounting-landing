@@ -32,9 +32,21 @@ class CurrentCompany extends _$CurrentCompany {
     return null;
   }
 
+  Future<void> createCompany(Company company) async {
+    try {
+      final result = await _repository.createCompany(company);
+      if (!result.isSuccess) {
+        throw result.error ??
+            const UnknownFailure(message: 'Failed to create company');
+      }
+      state = AsyncValue.data(result.data);
+    } catch (e, st) {
+      AppLogger.warning('Failed to create company', error: e);
+      state = AsyncValue.error(e, st);
+    }
+  }
+
   Future<void> switchTo(String companyId) async {
-    // Enforce permission before switching the active company. Company
-    // switching is an administrative action gated on manageSettings.
     final denied = ref.checkPermission(
       Permission.manageSettings,
       action: 'switch companies',

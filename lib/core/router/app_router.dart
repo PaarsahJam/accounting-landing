@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/company/company_controller.dart';
+import '../../core/company/presentation/company_form_page.dart';
 import '../../core/company/presentation/company_selection_page.dart';
 import '../../core/plugin/plugin_providers.dart';
 import '../../features/auth/presentation/login_page.dart';
@@ -144,6 +145,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     },
     routes: [
       _r('/company/select', child: const CompanySelectionPage()),
+      _r('/company/create', child: const CompanyFormPage()),
       _r('/login', child: const LoginPage()),
       _r('/signup', child: const SignupPage()),
       _r('/search', child: const GlobalSearchPage()),

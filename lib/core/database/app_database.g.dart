@@ -8957,6 +8957,1257 @@ class BankStatementTransactionTableCompanion
   }
 }
 
+class $UsersTableTable extends UsersTable
+    with TableInfo<$UsersTableTable, UsersTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UsersTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _emailMeta = const VerificationMeta('email');
+  @override
+  late final GeneratedColumn<String> email = GeneratedColumn<String>(
+    'email',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
+  );
+  static const VerificationMeta _passwordHashMeta = const VerificationMeta(
+    'passwordHash',
+  );
+  @override
+  late final GeneratedColumn<String> passwordHash = GeneratedColumn<String>(
+    'password_hash',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    name,
+    email,
+    passwordHash,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'users_table';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UsersTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('email')) {
+      context.handle(
+        _emailMeta,
+        email.isAcceptableOrUnknown(data['email']!, _emailMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_emailMeta);
+    }
+    if (data.containsKey('password_hash')) {
+      context.handle(
+        _passwordHashMeta,
+        passwordHash.isAcceptableOrUnknown(
+          data['password_hash']!,
+          _passwordHashMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_passwordHashMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UsersTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UsersTableData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      email: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}email'],
+      )!,
+      passwordHash: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}password_hash'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $UsersTableTable createAlias(String alias) {
+    return $UsersTableTable(attachedDatabase, alias);
+  }
+}
+
+class UsersTableData extends DataClass implements Insertable<UsersTableData> {
+  final String id;
+  final String name;
+  final String email;
+  final String passwordHash;
+  final DateTime createdAt;
+  const UsersTableData({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.passwordHash,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['name'] = Variable<String>(name);
+    map['email'] = Variable<String>(email);
+    map['password_hash'] = Variable<String>(passwordHash);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  UsersTableCompanion toCompanion(bool nullToAbsent) {
+    return UsersTableCompanion(
+      id: Value(id),
+      name: Value(name),
+      email: Value(email),
+      passwordHash: Value(passwordHash),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory UsersTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UsersTableData(
+      id: serializer.fromJson<String>(json['id']),
+      name: serializer.fromJson<String>(json['name']),
+      email: serializer.fromJson<String>(json['email']),
+      passwordHash: serializer.fromJson<String>(json['passwordHash']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'name': serializer.toJson<String>(name),
+      'email': serializer.toJson<String>(email),
+      'passwordHash': serializer.toJson<String>(passwordHash),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  UsersTableData copyWith({
+    String? id,
+    String? name,
+    String? email,
+    String? passwordHash,
+    DateTime? createdAt,
+  }) => UsersTableData(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    email: email ?? this.email,
+    passwordHash: passwordHash ?? this.passwordHash,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  UsersTableData copyWithCompanion(UsersTableCompanion data) {
+    return UsersTableData(
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      email: data.email.present ? data.email.value : this.email,
+      passwordHash: data.passwordHash.present
+          ? data.passwordHash.value
+          : this.passwordHash,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UsersTableData(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('email: $email, ')
+          ..write('passwordHash: $passwordHash, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, name, email, passwordHash, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UsersTableData &&
+          other.id == this.id &&
+          other.name == this.name &&
+          other.email == this.email &&
+          other.passwordHash == this.passwordHash &&
+          other.createdAt == this.createdAt);
+}
+
+class UsersTableCompanion extends UpdateCompanion<UsersTableData> {
+  final Value<String> id;
+  final Value<String> name;
+  final Value<String> email;
+  final Value<String> passwordHash;
+  final Value<DateTime> createdAt;
+  final Value<int> rowid;
+  const UsersTableCompanion({
+    this.id = const Value.absent(),
+    this.name = const Value.absent(),
+    this.email = const Value.absent(),
+    this.passwordHash = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  UsersTableCompanion.insert({
+    required String id,
+    required String name,
+    required String email,
+    required String passwordHash,
+    required DateTime createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       name = Value(name),
+       email = Value(email),
+       passwordHash = Value(passwordHash),
+       createdAt = Value(createdAt);
+  static Insertable<UsersTableData> custom({
+    Expression<String>? id,
+    Expression<String>? name,
+    Expression<String>? email,
+    Expression<String>? passwordHash,
+    Expression<DateTime>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (name != null) 'name': name,
+      if (email != null) 'email': email,
+      if (passwordHash != null) 'password_hash': passwordHash,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  UsersTableCompanion copyWith({
+    Value<String>? id,
+    Value<String>? name,
+    Value<String>? email,
+    Value<String>? passwordHash,
+    Value<DateTime>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return UsersTableCompanion(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      passwordHash: passwordHash ?? this.passwordHash,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (email.present) {
+      map['email'] = Variable<String>(email.value);
+    }
+    if (passwordHash.present) {
+      map['password_hash'] = Variable<String>(passwordHash.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UsersTableCompanion(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('email: $email, ')
+          ..write('passwordHash: $passwordHash, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $UserSessionTableTable extends UserSessionTable
+    with TableInfo<$UserSessionTableTable, UserSessionTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UserSessionTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _userIdMeta = const VerificationMeta('userId');
+  @override
+  late final GeneratedColumn<String> userId = GeneratedColumn<String>(
+    'user_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _tokenMeta = const VerificationMeta('token');
+  @override
+  late final GeneratedColumn<String> token = GeneratedColumn<String>(
+    'token',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _expiresAtMeta = const VerificationMeta(
+    'expiresAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> expiresAt = GeneratedColumn<DateTime>(
+    'expires_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    userId,
+    token,
+    createdAt,
+    expiresAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'user_session_table';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UserSessionTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('user_id')) {
+      context.handle(
+        _userIdMeta,
+        userId.isAcceptableOrUnknown(data['user_id']!, _userIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_userIdMeta);
+    }
+    if (data.containsKey('token')) {
+      context.handle(
+        _tokenMeta,
+        token.isAcceptableOrUnknown(data['token']!, _tokenMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_tokenMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('expires_at')) {
+      context.handle(
+        _expiresAtMeta,
+        expiresAt.isAcceptableOrUnknown(data['expires_at']!, _expiresAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_expiresAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UserSessionTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UserSessionTableData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      userId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}user_id'],
+      )!,
+      token: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}token'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      expiresAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}expires_at'],
+      )!,
+    );
+  }
+
+  @override
+  $UserSessionTableTable createAlias(String alias) {
+    return $UserSessionTableTable(attachedDatabase, alias);
+  }
+}
+
+class UserSessionTableData extends DataClass
+    implements Insertable<UserSessionTableData> {
+  final String id;
+  final String userId;
+  final String token;
+  final DateTime createdAt;
+  final DateTime expiresAt;
+  const UserSessionTableData({
+    required this.id,
+    required this.userId,
+    required this.token,
+    required this.createdAt,
+    required this.expiresAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['user_id'] = Variable<String>(userId);
+    map['token'] = Variable<String>(token);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['expires_at'] = Variable<DateTime>(expiresAt);
+    return map;
+  }
+
+  UserSessionTableCompanion toCompanion(bool nullToAbsent) {
+    return UserSessionTableCompanion(
+      id: Value(id),
+      userId: Value(userId),
+      token: Value(token),
+      createdAt: Value(createdAt),
+      expiresAt: Value(expiresAt),
+    );
+  }
+
+  factory UserSessionTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UserSessionTableData(
+      id: serializer.fromJson<String>(json['id']),
+      userId: serializer.fromJson<String>(json['userId']),
+      token: serializer.fromJson<String>(json['token']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      expiresAt: serializer.fromJson<DateTime>(json['expiresAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'userId': serializer.toJson<String>(userId),
+      'token': serializer.toJson<String>(token),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'expiresAt': serializer.toJson<DateTime>(expiresAt),
+    };
+  }
+
+  UserSessionTableData copyWith({
+    String? id,
+    String? userId,
+    String? token,
+    DateTime? createdAt,
+    DateTime? expiresAt,
+  }) => UserSessionTableData(
+    id: id ?? this.id,
+    userId: userId ?? this.userId,
+    token: token ?? this.token,
+    createdAt: createdAt ?? this.createdAt,
+    expiresAt: expiresAt ?? this.expiresAt,
+  );
+  UserSessionTableData copyWithCompanion(UserSessionTableCompanion data) {
+    return UserSessionTableData(
+      id: data.id.present ? data.id.value : this.id,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      token: data.token.present ? data.token.value : this.token,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      expiresAt: data.expiresAt.present ? data.expiresAt.value : this.expiresAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserSessionTableData(')
+          ..write('id: $id, ')
+          ..write('userId: $userId, ')
+          ..write('token: $token, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('expiresAt: $expiresAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, userId, token, createdAt, expiresAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UserSessionTableData &&
+          other.id == this.id &&
+          other.userId == this.userId &&
+          other.token == this.token &&
+          other.createdAt == this.createdAt &&
+          other.expiresAt == this.expiresAt);
+}
+
+class UserSessionTableCompanion extends UpdateCompanion<UserSessionTableData> {
+  final Value<String> id;
+  final Value<String> userId;
+  final Value<String> token;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> expiresAt;
+  final Value<int> rowid;
+  const UserSessionTableCompanion({
+    this.id = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.token = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.expiresAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  UserSessionTableCompanion.insert({
+    required String id,
+    required String userId,
+    required String token,
+    required DateTime createdAt,
+    required DateTime expiresAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       userId = Value(userId),
+       token = Value(token),
+       createdAt = Value(createdAt),
+       expiresAt = Value(expiresAt);
+  static Insertable<UserSessionTableData> custom({
+    Expression<String>? id,
+    Expression<String>? userId,
+    Expression<String>? token,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? expiresAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (userId != null) 'user_id': userId,
+      if (token != null) 'token': token,
+      if (createdAt != null) 'created_at': createdAt,
+      if (expiresAt != null) 'expires_at': expiresAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  UserSessionTableCompanion copyWith({
+    Value<String>? id,
+    Value<String>? userId,
+    Value<String>? token,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? expiresAt,
+    Value<int>? rowid,
+  }) {
+    return UserSessionTableCompanion(
+      id: id ?? this.id,
+      userId: userId ?? this.userId,
+      token: token ?? this.token,
+      createdAt: createdAt ?? this.createdAt,
+      expiresAt: expiresAt ?? this.expiresAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (userId.present) {
+      map['user_id'] = Variable<String>(userId.value);
+    }
+    if (token.present) {
+      map['token'] = Variable<String>(token.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (expiresAt.present) {
+      map['expires_at'] = Variable<DateTime>(expiresAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserSessionTableCompanion(')
+          ..write('id: $id, ')
+          ..write('userId: $userId, ')
+          ..write('token: $token, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('expiresAt: $expiresAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $CompaniesTableTable extends CompaniesTable
+    with TableInfo<$CompaniesTableTable, CompaniesTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CompaniesTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _legalNameMeta = const VerificationMeta(
+    'legalName',
+  );
+  @override
+  late final GeneratedColumn<String> legalName = GeneratedColumn<String>(
+    'legal_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _taxIdMeta = const VerificationMeta('taxId');
+  @override
+  late final GeneratedColumn<String> taxId = GeneratedColumn<String>(
+    'tax_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _currencyMeta = const VerificationMeta(
+    'currency',
+  );
+  @override
+  late final GeneratedColumn<String> currency = GeneratedColumn<String>(
+    'currency',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _fiscalYearStartMonthMeta =
+      const VerificationMeta('fiscalYearStartMonth');
+  @override
+  late final GeneratedColumn<String> fiscalYearStartMonth =
+      GeneratedColumn<String>(
+        'fiscal_year_start_month',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _isActiveMeta = const VerificationMeta(
+    'isActive',
+  );
+  @override
+  late final GeneratedColumn<bool> isActive = GeneratedColumn<bool>(
+    'is_active',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_active" IN (0, 1))',
+    ),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    name,
+    legalName,
+    taxId,
+    currency,
+    fiscalYearStartMonth,
+    isActive,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'companies_table';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CompaniesTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('legal_name')) {
+      context.handle(
+        _legalNameMeta,
+        legalName.isAcceptableOrUnknown(data['legal_name']!, _legalNameMeta),
+      );
+    }
+    if (data.containsKey('tax_id')) {
+      context.handle(
+        _taxIdMeta,
+        taxId.isAcceptableOrUnknown(data['tax_id']!, _taxIdMeta),
+      );
+    }
+    if (data.containsKey('currency')) {
+      context.handle(
+        _currencyMeta,
+        currency.isAcceptableOrUnknown(data['currency']!, _currencyMeta),
+      );
+    }
+    if (data.containsKey('fiscal_year_start_month')) {
+      context.handle(
+        _fiscalYearStartMonthMeta,
+        fiscalYearStartMonth.isAcceptableOrUnknown(
+          data['fiscal_year_start_month']!,
+          _fiscalYearStartMonthMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_active')) {
+      context.handle(
+        _isActiveMeta,
+        isActive.isAcceptableOrUnknown(data['is_active']!, _isActiveMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_isActiveMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  CompaniesTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CompaniesTableData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      legalName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}legal_name'],
+      ),
+      taxId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tax_id'],
+      ),
+      currency: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}currency'],
+      ),
+      fiscalYearStartMonth: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}fiscal_year_start_month'],
+      ),
+      isActive: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_active'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $CompaniesTableTable createAlias(String alias) {
+    return $CompaniesTableTable(attachedDatabase, alias);
+  }
+}
+
+class CompaniesTableData extends DataClass
+    implements Insertable<CompaniesTableData> {
+  final String id;
+  final String name;
+  final String? legalName;
+  final String? taxId;
+  final String? currency;
+  final String? fiscalYearStartMonth;
+  final bool isActive;
+  final DateTime createdAt;
+  const CompaniesTableData({
+    required this.id,
+    required this.name,
+    this.legalName,
+    this.taxId,
+    this.currency,
+    this.fiscalYearStartMonth,
+    required this.isActive,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['name'] = Variable<String>(name);
+    if (!nullToAbsent || legalName != null) {
+      map['legal_name'] = Variable<String>(legalName);
+    }
+    if (!nullToAbsent || taxId != null) {
+      map['tax_id'] = Variable<String>(taxId);
+    }
+    if (!nullToAbsent || currency != null) {
+      map['currency'] = Variable<String>(currency);
+    }
+    if (!nullToAbsent || fiscalYearStartMonth != null) {
+      map['fiscal_year_start_month'] = Variable<String>(fiscalYearStartMonth);
+    }
+    map['is_active'] = Variable<bool>(isActive);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  CompaniesTableCompanion toCompanion(bool nullToAbsent) {
+    return CompaniesTableCompanion(
+      id: Value(id),
+      name: Value(name),
+      legalName: legalName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(legalName),
+      taxId: taxId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxId),
+      currency: currency == null && nullToAbsent
+          ? const Value.absent()
+          : Value(currency),
+      fiscalYearStartMonth: fiscalYearStartMonth == null && nullToAbsent
+          ? const Value.absent()
+          : Value(fiscalYearStartMonth),
+      isActive: Value(isActive),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory CompaniesTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CompaniesTableData(
+      id: serializer.fromJson<String>(json['id']),
+      name: serializer.fromJson<String>(json['name']),
+      legalName: serializer.fromJson<String?>(json['legalName']),
+      taxId: serializer.fromJson<String?>(json['taxId']),
+      currency: serializer.fromJson<String?>(json['currency']),
+      fiscalYearStartMonth: serializer.fromJson<String?>(
+        json['fiscalYearStartMonth'],
+      ),
+      isActive: serializer.fromJson<bool>(json['isActive']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'name': serializer.toJson<String>(name),
+      'legalName': serializer.toJson<String?>(legalName),
+      'taxId': serializer.toJson<String?>(taxId),
+      'currency': serializer.toJson<String?>(currency),
+      'fiscalYearStartMonth': serializer.toJson<String?>(fiscalYearStartMonth),
+      'isActive': serializer.toJson<bool>(isActive),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  CompaniesTableData copyWith({
+    String? id,
+    String? name,
+    Value<String?> legalName = const Value.absent(),
+    Value<String?> taxId = const Value.absent(),
+    Value<String?> currency = const Value.absent(),
+    Value<String?> fiscalYearStartMonth = const Value.absent(),
+    bool? isActive,
+    DateTime? createdAt,
+  }) => CompaniesTableData(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    legalName: legalName.present ? legalName.value : this.legalName,
+    taxId: taxId.present ? taxId.value : this.taxId,
+    currency: currency.present ? currency.value : this.currency,
+    fiscalYearStartMonth: fiscalYearStartMonth.present
+        ? fiscalYearStartMonth.value
+        : this.fiscalYearStartMonth,
+    isActive: isActive ?? this.isActive,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  CompaniesTableData copyWithCompanion(CompaniesTableCompanion data) {
+    return CompaniesTableData(
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      legalName: data.legalName.present ? data.legalName.value : this.legalName,
+      taxId: data.taxId.present ? data.taxId.value : this.taxId,
+      currency: data.currency.present ? data.currency.value : this.currency,
+      fiscalYearStartMonth: data.fiscalYearStartMonth.present
+          ? data.fiscalYearStartMonth.value
+          : this.fiscalYearStartMonth,
+      isActive: data.isActive.present ? data.isActive.value : this.isActive,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompaniesTableData(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('legalName: $legalName, ')
+          ..write('taxId: $taxId, ')
+          ..write('currency: $currency, ')
+          ..write('fiscalYearStartMonth: $fiscalYearStartMonth, ')
+          ..write('isActive: $isActive, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    name,
+    legalName,
+    taxId,
+    currency,
+    fiscalYearStartMonth,
+    isActive,
+    createdAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CompaniesTableData &&
+          other.id == this.id &&
+          other.name == this.name &&
+          other.legalName == this.legalName &&
+          other.taxId == this.taxId &&
+          other.currency == this.currency &&
+          other.fiscalYearStartMonth == this.fiscalYearStartMonth &&
+          other.isActive == this.isActive &&
+          other.createdAt == this.createdAt);
+}
+
+class CompaniesTableCompanion extends UpdateCompanion<CompaniesTableData> {
+  final Value<String> id;
+  final Value<String> name;
+  final Value<String?> legalName;
+  final Value<String?> taxId;
+  final Value<String?> currency;
+  final Value<String?> fiscalYearStartMonth;
+  final Value<bool> isActive;
+  final Value<DateTime> createdAt;
+  final Value<int> rowid;
+  const CompaniesTableCompanion({
+    this.id = const Value.absent(),
+    this.name = const Value.absent(),
+    this.legalName = const Value.absent(),
+    this.taxId = const Value.absent(),
+    this.currency = const Value.absent(),
+    this.fiscalYearStartMonth = const Value.absent(),
+    this.isActive = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CompaniesTableCompanion.insert({
+    required String id,
+    required String name,
+    this.legalName = const Value.absent(),
+    this.taxId = const Value.absent(),
+    this.currency = const Value.absent(),
+    this.fiscalYearStartMonth = const Value.absent(),
+    required bool isActive,
+    required DateTime createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       name = Value(name),
+       isActive = Value(isActive),
+       createdAt = Value(createdAt);
+  static Insertable<CompaniesTableData> custom({
+    Expression<String>? id,
+    Expression<String>? name,
+    Expression<String>? legalName,
+    Expression<String>? taxId,
+    Expression<String>? currency,
+    Expression<String>? fiscalYearStartMonth,
+    Expression<bool>? isActive,
+    Expression<DateTime>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (name != null) 'name': name,
+      if (legalName != null) 'legal_name': legalName,
+      if (taxId != null) 'tax_id': taxId,
+      if (currency != null) 'currency': currency,
+      if (fiscalYearStartMonth != null)
+        'fiscal_year_start_month': fiscalYearStartMonth,
+      if (isActive != null) 'is_active': isActive,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CompaniesTableCompanion copyWith({
+    Value<String>? id,
+    Value<String>? name,
+    Value<String?>? legalName,
+    Value<String?>? taxId,
+    Value<String?>? currency,
+    Value<String?>? fiscalYearStartMonth,
+    Value<bool>? isActive,
+    Value<DateTime>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return CompaniesTableCompanion(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      legalName: legalName ?? this.legalName,
+      taxId: taxId ?? this.taxId,
+      currency: currency ?? this.currency,
+      fiscalYearStartMonth: fiscalYearStartMonth ?? this.fiscalYearStartMonth,
+      isActive: isActive ?? this.isActive,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (legalName.present) {
+      map['legal_name'] = Variable<String>(legalName.value);
+    }
+    if (taxId.present) {
+      map['tax_id'] = Variable<String>(taxId.value);
+    }
+    if (currency.present) {
+      map['currency'] = Variable<String>(currency.value);
+    }
+    if (fiscalYearStartMonth.present) {
+      map['fiscal_year_start_month'] = Variable<String>(
+        fiscalYearStartMonth.value,
+      );
+    }
+    if (isActive.present) {
+      map['is_active'] = Variable<bool>(isActive.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompaniesTableCompanion(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('legalName: $legalName, ')
+          ..write('taxId: $taxId, ')
+          ..write('currency: $currency, ')
+          ..write('fiscalYearStartMonth: $fiscalYearStartMonth, ')
+          ..write('isActive: $isActive, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -8986,6 +10237,11 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $BankStatementTableTable(this);
   late final $BankStatementTransactionTableTable bankStatementTransactionTable =
       $BankStatementTransactionTableTable(this);
+  late final $UsersTableTable usersTable = $UsersTableTable(this);
+  late final $UserSessionTableTable userSessionTable = $UserSessionTableTable(
+    this,
+  );
+  late final $CompaniesTableTable companiesTable = $CompaniesTableTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -9005,6 +10261,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     bankTransactionTable,
     bankStatementTable,
     bankStatementTransactionTable,
+    usersTable,
+    userSessionTable,
+    companiesTable,
   ];
 }
 
@@ -13481,6 +14740,683 @@ typedef $$BankStatementTransactionTableTableProcessedTableManager =
       BankStatementTransactionTableData,
       PrefetchHooks Function()
     >;
+typedef $$UsersTableTableCreateCompanionBuilder =
+    UsersTableCompanion Function({
+      required String id,
+      required String name,
+      required String email,
+      required String passwordHash,
+      required DateTime createdAt,
+      Value<int> rowid,
+    });
+typedef $$UsersTableTableUpdateCompanionBuilder =
+    UsersTableCompanion Function({
+      Value<String> id,
+      Value<String> name,
+      Value<String> email,
+      Value<String> passwordHash,
+      Value<DateTime> createdAt,
+      Value<int> rowid,
+    });
+
+class $$UsersTableTableFilterComposer
+    extends Composer<_$AppDatabase, $UsersTableTable> {
+  $$UsersTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get email => $composableBuilder(
+    column: $table.email,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get passwordHash => $composableBuilder(
+    column: $table.passwordHash,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UsersTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $UsersTableTable> {
+  $$UsersTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get email => $composableBuilder(
+    column: $table.email,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get passwordHash => $composableBuilder(
+    column: $table.passwordHash,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UsersTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $UsersTableTable> {
+  $$UsersTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get email =>
+      $composableBuilder(column: $table.email, builder: (column) => column);
+
+  GeneratedColumn<String> get passwordHash => $composableBuilder(
+    column: $table.passwordHash,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$UsersTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $UsersTableTable,
+          UsersTableData,
+          $$UsersTableTableFilterComposer,
+          $$UsersTableTableOrderingComposer,
+          $$UsersTableTableAnnotationComposer,
+          $$UsersTableTableCreateCompanionBuilder,
+          $$UsersTableTableUpdateCompanionBuilder,
+          (
+            UsersTableData,
+            BaseReferences<_$AppDatabase, $UsersTableTable, UsersTableData>,
+          ),
+          UsersTableData,
+          PrefetchHooks Function()
+        > {
+  $$UsersTableTableTableManager(_$AppDatabase db, $UsersTableTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$UsersTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UsersTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UsersTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String> email = const Value.absent(),
+                Value<String> passwordHash = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => UsersTableCompanion(
+                id: id,
+                name: name,
+                email: email,
+                passwordHash: passwordHash,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String name,
+                required String email,
+                required String passwordHash,
+                required DateTime createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => UsersTableCompanion.insert(
+                id: id,
+                name: name,
+                email: email,
+                passwordHash: passwordHash,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UsersTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $UsersTableTable,
+      UsersTableData,
+      $$UsersTableTableFilterComposer,
+      $$UsersTableTableOrderingComposer,
+      $$UsersTableTableAnnotationComposer,
+      $$UsersTableTableCreateCompanionBuilder,
+      $$UsersTableTableUpdateCompanionBuilder,
+      (
+        UsersTableData,
+        BaseReferences<_$AppDatabase, $UsersTableTable, UsersTableData>,
+      ),
+      UsersTableData,
+      PrefetchHooks Function()
+    >;
+typedef $$UserSessionTableTableCreateCompanionBuilder =
+    UserSessionTableCompanion Function({
+      required String id,
+      required String userId,
+      required String token,
+      required DateTime createdAt,
+      required DateTime expiresAt,
+      Value<int> rowid,
+    });
+typedef $$UserSessionTableTableUpdateCompanionBuilder =
+    UserSessionTableCompanion Function({
+      Value<String> id,
+      Value<String> userId,
+      Value<String> token,
+      Value<DateTime> createdAt,
+      Value<DateTime> expiresAt,
+      Value<int> rowid,
+    });
+
+class $$UserSessionTableTableFilterComposer
+    extends Composer<_$AppDatabase, $UserSessionTableTable> {
+  $$UserSessionTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get token => $composableBuilder(
+    column: $table.token,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get expiresAt => $composableBuilder(
+    column: $table.expiresAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UserSessionTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $UserSessionTableTable> {
+  $$UserSessionTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get token => $composableBuilder(
+    column: $table.token,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get expiresAt => $composableBuilder(
+    column: $table.expiresAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UserSessionTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $UserSessionTableTable> {
+  $$UserSessionTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<String> get token =>
+      $composableBuilder(column: $table.token, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get expiresAt =>
+      $composableBuilder(column: $table.expiresAt, builder: (column) => column);
+}
+
+class $$UserSessionTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $UserSessionTableTable,
+          UserSessionTableData,
+          $$UserSessionTableTableFilterComposer,
+          $$UserSessionTableTableOrderingComposer,
+          $$UserSessionTableTableAnnotationComposer,
+          $$UserSessionTableTableCreateCompanionBuilder,
+          $$UserSessionTableTableUpdateCompanionBuilder,
+          (
+            UserSessionTableData,
+            BaseReferences<
+              _$AppDatabase,
+              $UserSessionTableTable,
+              UserSessionTableData
+            >,
+          ),
+          UserSessionTableData,
+          PrefetchHooks Function()
+        > {
+  $$UserSessionTableTableTableManager(
+    _$AppDatabase db,
+    $UserSessionTableTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$UserSessionTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UserSessionTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UserSessionTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> userId = const Value.absent(),
+                Value<String> token = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> expiresAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => UserSessionTableCompanion(
+                id: id,
+                userId: userId,
+                token: token,
+                createdAt: createdAt,
+                expiresAt: expiresAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String userId,
+                required String token,
+                required DateTime createdAt,
+                required DateTime expiresAt,
+                Value<int> rowid = const Value.absent(),
+              }) => UserSessionTableCompanion.insert(
+                id: id,
+                userId: userId,
+                token: token,
+                createdAt: createdAt,
+                expiresAt: expiresAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UserSessionTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $UserSessionTableTable,
+      UserSessionTableData,
+      $$UserSessionTableTableFilterComposer,
+      $$UserSessionTableTableOrderingComposer,
+      $$UserSessionTableTableAnnotationComposer,
+      $$UserSessionTableTableCreateCompanionBuilder,
+      $$UserSessionTableTableUpdateCompanionBuilder,
+      (
+        UserSessionTableData,
+        BaseReferences<
+          _$AppDatabase,
+          $UserSessionTableTable,
+          UserSessionTableData
+        >,
+      ),
+      UserSessionTableData,
+      PrefetchHooks Function()
+    >;
+typedef $$CompaniesTableTableCreateCompanionBuilder =
+    CompaniesTableCompanion Function({
+      required String id,
+      required String name,
+      Value<String?> legalName,
+      Value<String?> taxId,
+      Value<String?> currency,
+      Value<String?> fiscalYearStartMonth,
+      required bool isActive,
+      required DateTime createdAt,
+      Value<int> rowid,
+    });
+typedef $$CompaniesTableTableUpdateCompanionBuilder =
+    CompaniesTableCompanion Function({
+      Value<String> id,
+      Value<String> name,
+      Value<String?> legalName,
+      Value<String?> taxId,
+      Value<String?> currency,
+      Value<String?> fiscalYearStartMonth,
+      Value<bool> isActive,
+      Value<DateTime> createdAt,
+      Value<int> rowid,
+    });
+
+class $$CompaniesTableTableFilterComposer
+    extends Composer<_$AppDatabase, $CompaniesTableTable> {
+  $$CompaniesTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get legalName => $composableBuilder(
+    column: $table.legalName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get taxId => $composableBuilder(
+    column: $table.taxId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get currency => $composableBuilder(
+    column: $table.currency,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get fiscalYearStartMonth => $composableBuilder(
+    column: $table.fiscalYearStartMonth,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isActive => $composableBuilder(
+    column: $table.isActive,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$CompaniesTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $CompaniesTableTable> {
+  $$CompaniesTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get legalName => $composableBuilder(
+    column: $table.legalName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get taxId => $composableBuilder(
+    column: $table.taxId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get currency => $composableBuilder(
+    column: $table.currency,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get fiscalYearStartMonth => $composableBuilder(
+    column: $table.fiscalYearStartMonth,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isActive => $composableBuilder(
+    column: $table.isActive,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$CompaniesTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CompaniesTableTable> {
+  $$CompaniesTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get legalName =>
+      $composableBuilder(column: $table.legalName, builder: (column) => column);
+
+  GeneratedColumn<String> get taxId =>
+      $composableBuilder(column: $table.taxId, builder: (column) => column);
+
+  GeneratedColumn<String> get currency =>
+      $composableBuilder(column: $table.currency, builder: (column) => column);
+
+  GeneratedColumn<String> get fiscalYearStartMonth => $composableBuilder(
+    column: $table.fiscalYearStartMonth,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isActive =>
+      $composableBuilder(column: $table.isActive, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$CompaniesTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $CompaniesTableTable,
+          CompaniesTableData,
+          $$CompaniesTableTableFilterComposer,
+          $$CompaniesTableTableOrderingComposer,
+          $$CompaniesTableTableAnnotationComposer,
+          $$CompaniesTableTableCreateCompanionBuilder,
+          $$CompaniesTableTableUpdateCompanionBuilder,
+          (
+            CompaniesTableData,
+            BaseReferences<
+              _$AppDatabase,
+              $CompaniesTableTable,
+              CompaniesTableData
+            >,
+          ),
+          CompaniesTableData,
+          PrefetchHooks Function()
+        > {
+  $$CompaniesTableTableTableManager(
+    _$AppDatabase db,
+    $CompaniesTableTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CompaniesTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CompaniesTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CompaniesTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String?> legalName = const Value.absent(),
+                Value<String?> taxId = const Value.absent(),
+                Value<String?> currency = const Value.absent(),
+                Value<String?> fiscalYearStartMonth = const Value.absent(),
+                Value<bool> isActive = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CompaniesTableCompanion(
+                id: id,
+                name: name,
+                legalName: legalName,
+                taxId: taxId,
+                currency: currency,
+                fiscalYearStartMonth: fiscalYearStartMonth,
+                isActive: isActive,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String name,
+                Value<String?> legalName = const Value.absent(),
+                Value<String?> taxId = const Value.absent(),
+                Value<String?> currency = const Value.absent(),
+                Value<String?> fiscalYearStartMonth = const Value.absent(),
+                required bool isActive,
+                required DateTime createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => CompaniesTableCompanion.insert(
+                id: id,
+                name: name,
+                legalName: legalName,
+                taxId: taxId,
+                currency: currency,
+                fiscalYearStartMonth: fiscalYearStartMonth,
+                isActive: isActive,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$CompaniesTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $CompaniesTableTable,
+      CompaniesTableData,
+      $$CompaniesTableTableFilterComposer,
+      $$CompaniesTableTableOrderingComposer,
+      $$CompaniesTableTableAnnotationComposer,
+      $$CompaniesTableTableCreateCompanionBuilder,
+      $$CompaniesTableTableUpdateCompanionBuilder,
+      (
+        CompaniesTableData,
+        BaseReferences<_$AppDatabase, $CompaniesTableTable, CompaniesTableData>,
+      ),
+      CompaniesTableData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -13520,4 +15456,10 @@ class $AppDatabaseManager {
         _db,
         _db.bankStatementTransactionTable,
       );
+  $$UsersTableTableTableManager get usersTable =>
+      $$UsersTableTableTableManager(_db, _db.usersTable);
+  $$UserSessionTableTableTableManager get userSessionTable =>
+      $$UserSessionTableTableTableManager(_db, _db.userSessionTable);
+  $$CompaniesTableTableTableManager get companiesTable =>
+      $$CompaniesTableTableTableManager(_db, _db.companiesTable);
 }

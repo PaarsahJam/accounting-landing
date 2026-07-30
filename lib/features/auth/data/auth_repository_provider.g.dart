@@ -8,26 +8,13 @@ part of 'auth_repository_provider.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// Provides the active [AuthRepository] implementation.
-///
-/// Uses [MockAuthRepository] by default until a real backend is wired.
-/// Override at app startup for production use.
 
 @ProviderFor(authRepository)
 final authRepositoryProvider = AuthRepositoryProvider._();
 
-/// Provides the active [AuthRepository] implementation.
-///
-/// Uses [MockAuthRepository] by default until a real backend is wired.
-/// Override at app startup for production use.
-
 final class AuthRepositoryProvider
     extends $FunctionalProvider<AuthRepository, AuthRepository, AuthRepository>
     with $Provider<AuthRepository> {
-  /// Provides the active [AuthRepository] implementation.
-  ///
-  /// Uses [MockAuthRepository] by default until a real backend is wired.
-  /// Override at app startup for production use.
   AuthRepositoryProvider._()
     : super(
         from: null,
@@ -61,4 +48,4 @@ final class AuthRepositoryProvider
   }
 }
 
-String _$authRepositoryHash() => r'387b6e9a78d246a81ba25c340fe035788819ea94';
+String _$authRepositoryHash() => r'cf8c6d1823d1792fc8b972b6fdc6083abb140d5f';

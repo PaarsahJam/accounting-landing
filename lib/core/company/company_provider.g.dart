@@ -54,4 +54,4 @@ final class CompanyRepositoryProvider
   }
 }
 
-String _$companyRepositoryHash() => r'7927614b8a1b35abc4d79541b5039139b1d93f7d';
+String _$companyRepositoryHash() => r'4d5fe6a146cbd7475b3ca093ee33f1f87f1ca0db';

@@ -7,6 +7,8 @@ abstract class CompanyRepository {
 
   Future<AppResult<Company>> fetchCompany(String id);
 
+  Future<AppResult<Company>> createCompany(Company company);
+
   Future<AppResult<void>> saveActiveCompanyId(String companyId);
 
   Future<AppResult<String?>> getActiveCompanyId();
@@ -67,6 +69,20 @@ class MockCompanyRepository implements CompanyRepository {
         (c) => c.id == id,
         orElse: () => throw Exception('Company not found: $id'),
       );
+      return AppResult.success(company);
+    } catch (error) {
+      return AppResult.failure(
+        UnknownFailure(message: error.toString()),
+      );
+    }
+  }
+
+  @override
+  Future<AppResult<Company>> createCompany(Company company) async {
+    try {
+      await Future<void>.delayed(const Duration(milliseconds: 200));
+      _companies.add(company);
+      _activeCompanyId = company.id;
       return AppResult.success(company);
     } catch (error) {
       return AppResult.failure(

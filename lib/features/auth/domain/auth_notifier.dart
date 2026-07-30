@@ -18,9 +18,6 @@ class AuthNotifier extends _$AuthNotifier {
 
   @override
   FutureOr<User?> build() async {
-    // Repository is injected via authRepositoryProvider so that tests and
-    // main.dart can supply a mock or real implementation through
-    // ProviderScope overrides — never hardcoded here.
     _repo = ref.watch(authRepositoryProvider);
     final result = await _repo.currentUser();
     if (result.isSuccess) {
@@ -44,20 +41,35 @@ class AuthNotifier extends _$AuthNotifier {
     }
   }
 
+  Future<void> register({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
+    state = const AsyncValue.loading();
+    try {
+      final result = await _repo.register(
+        name: name,
+        email: email,
+        password: password,
+      );
+      if (!result.isSuccess) {
+        throw result.error ?? const UnknownFailure(message: 'Unknown error');
+      }
+      state = AsyncValue.data(result.data);
+    } catch (e, st) {
+      AppLogger.warning('Failed to register', error: e);
+      state = AsyncValue.error(e, st);
+    }
+  }
+
   Future<void> logout() async {
     state = const AsyncValue.loading();
     final result = await _repo.logout();
 
     if (result.isSuccess) {
-      // 1. Wipe all persisted auth tokens so they cannot be reused across
-      //    process restarts or by a different user on the same device.
       await ref.read(authTokenStorageProvider).clearAll();
-
-      // 2. Reset company context so the next user always starts from a clean
-      //    company selection rather than inheriting the previous session's
-      //    active company.
       ref.invalidate(currentCompanyProvider);
-
       state = const AsyncValue.data(null);
     } else {
       state = AsyncValue.error(result.error!, StackTrace.current);

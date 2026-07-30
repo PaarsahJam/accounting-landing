@@ -47,6 +47,9 @@ dependencies:
   # ML Kit — on-device OCR for document scanning
   google_mlkit_text_recognition: any
 
+  # Auth
+  crypto: any
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

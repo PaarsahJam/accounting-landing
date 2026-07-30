@@ -656,6 +656,16 @@
   "searchGroupFiscalPeriods": "دوره‌های مالی",
   "searchPageTitle": "جستجوی سراسری",
 
+  "themeModeLabel": "پوسته",
+  "themeModeSystem": "سیستم",
+  "themeModeLight": "روشن",
+  "themeModeDark": "تاریک",
+  "confirmPassword": "تکرار رمز عبور",
+  "passwordsDoNotMatch": "رمز عبور همخوانی ندارد",
+  "createCompany": "ایجاد شرکت",
+  "companyLegalName": "نام حقوقی",
+  "companyTaxId": "شناسه مالیاتی",
+
   "tagsPageTitle": "برچسب‌ها",
   "tagsSectionTitle": "برچسب‌ها",
   "tagName": "نام برچسب",
