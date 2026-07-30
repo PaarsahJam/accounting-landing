@@ -38,7 +38,7 @@ final class StockAdjustmentControllerProvider
 }
 
 String _$stockAdjustmentControllerHash() =>
-    r'7acae6583596425737e4d5d9eb60967ca78cdf90';
+    r'62365f12a17ba8095e8bcca4178f1d6ec8d10027';
 
 abstract class _$StockAdjustmentController
     extends $AsyncNotifier<List<StockAdjustment>> {

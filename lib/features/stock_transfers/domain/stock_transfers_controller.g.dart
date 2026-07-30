@@ -38,7 +38,7 @@ final class StockTransfersControllerProvider
 }
 
 String _$stockTransfersControllerHash() =>
-    r'ab7747f2c7687376624a12fc7bae9254d0052c75';
+    r'b0eacbc714c72e091b7e9ced52a7e035e8601a9f';
 
 abstract class _$StockTransfersController
     extends $AsyncNotifier<List<StockTransferRecord>> {

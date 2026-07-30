@@ -34,7 +34,7 @@ final class ExpensesControllerProvider
 }
 
 String _$expensesControllerHash() =>
-    r'450697c1043a8a82a25d692d0701c5ee1a78e487';
+    r'4c6e34e8ac9c1f6ca677aac2a5290e68fa145323';
 
 abstract class _$ExpensesController extends $AsyncNotifier<List<Expense>> {
   FutureOr<List<Expense>> build();

@@ -67,7 +67,9 @@ import '../../features/document_processing/presentation/document_review_page.dar
 import '../../features/crm/presentation/crm_dashboard_page.dart';
 import '../../features/crm/presentation/crm_tasks_page.dart';
 import '../../features/crm/presentation/pipeline_page.dart';
+import '../../features/purchase_orders/domain/purchase_order.dart';
 import '../../features/purchase_orders/presentation/goods_receipts_page.dart';
+import '../../features/purchase_orders/presentation/purchase_order_detail_page.dart';
 import '../../features/backup/presentation/backup_page.dart';
 import '../../features/calendar/presentation/calendar_page.dart';
 import '../../features/email/presentation/email_page.dart';
@@ -167,6 +169,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           _r('/inventory/adjustments', child: const StockAdjustmentPage()),
           _r('/inventory/valuation', child: const InventoryValuationPage()),
           _r('/stock-transfers', child: const StockTransfersPage()),
+          _rBuilder(
+            '/purchase-orders/:id',
+            builder: (context, state) {
+              final order = state.extra as PurchaseOrder?;
+              if (order == null) return const PurchaseOrdersPage();
+              return PurchaseOrderDetailPage(order: order);
+            },
+          ),
           _r('/purchase-orders', child: const PurchaseOrdersPage()),
           _rBuilder(
             '/vendor-bills/:id',

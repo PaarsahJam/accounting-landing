@@ -48,7 +48,7 @@ final class AiProviderProvider
   }
 }
 
-String _$aiProviderHash() => r'6b74d8be562164ff9523ac07056c1455f2a0869d';
+String _$aiProviderHash() => r'cfea0cdf3a772fd1fe7715d4adfe2bfc38ee7589';
 
 @ProviderFor(aiActionGateway)
 final aiActionGatewayProvider = AiActionGatewayProvider._();

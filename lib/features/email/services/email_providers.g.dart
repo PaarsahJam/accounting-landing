@@ -48,7 +48,7 @@ final class EmailProviderProvider
   }
 }
 
-String _$emailProviderHash() => r'0963bf7be401039c84013a3d56441e55a2151c48';
+String _$emailProviderHash() => r'd88a9183f7d7e3d57d7529af688b61be6a729799';
 
 @ProviderFor(emailRepository)
 final emailRepositoryProvider = EmailRepositoryProvider._();

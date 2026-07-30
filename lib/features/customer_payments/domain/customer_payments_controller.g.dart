@@ -39,7 +39,7 @@ final class CustomerPaymentsControllerProvider
 }
 
 String _$customerPaymentsControllerHash() =>
-    r'cb6d457389530bba886c6316007d31163f17f6e5';
+    r'428446646ff1f593be235744ea89835303faee31';
 
 abstract class _$CustomerPaymentsController
     extends $AsyncNotifier<List<CustomerPayment>> {

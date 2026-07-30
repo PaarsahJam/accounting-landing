@@ -48,7 +48,7 @@ final class BackupServiceProvider
   }
 }
 
-String _$backupServiceHash() => r'25807cefa5fecc04d721d716a31a0fe4d69c0cf3';
+String _$backupServiceHash() => r'aa53b2595b5fcfc87bde81d8dc140cbc111e37c9';
 
 @ProviderFor(BackupController)
 final backupControllerProvider = BackupControllerProvider._();

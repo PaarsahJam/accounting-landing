@@ -35,7 +35,7 @@ final class GoodsReceiptsControllerProvider
 }
 
 String _$goodsReceiptsControllerHash() =>
-    r'ba2d8ee00c98907de1b2a4075649874844a34eab';
+    r'1eefceee209e27c58a4d0ba446385398980d6383';
 
 abstract class _$GoodsReceiptsController
     extends $AsyncNotifier<List<GoodsReceipt>> {

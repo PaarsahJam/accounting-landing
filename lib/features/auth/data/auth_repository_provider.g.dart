@@ -10,33 +10,24 @@ part of 'auth_repository_provider.dart';
 // ignore_for_file: type=lint, type=warning
 /// Provides the active [AuthRepository] implementation.
 ///
-/// In debug/test builds this is overridden with [MockAuthRepository] via
-/// `ProviderScope(overrides: [...])` in `main.dart`.  In production builds
-/// the provider body is never reached because the override is always present;
-/// the [UnimplementedError] acts as a compile-time safeguard against
-/// accidentally shipping a build that forgot to wire the real backend.
+/// Uses [MockAuthRepository] by default until a real backend is wired.
+/// Override at app startup for production use.
 
 @ProviderFor(authRepository)
 final authRepositoryProvider = AuthRepositoryProvider._();
 
 /// Provides the active [AuthRepository] implementation.
 ///
-/// In debug/test builds this is overridden with [MockAuthRepository] via
-/// `ProviderScope(overrides: [...])` in `main.dart`.  In production builds
-/// the provider body is never reached because the override is always present;
-/// the [UnimplementedError] acts as a compile-time safeguard against
-/// accidentally shipping a build that forgot to wire the real backend.
+/// Uses [MockAuthRepository] by default until a real backend is wired.
+/// Override at app startup for production use.
 
 final class AuthRepositoryProvider
     extends $FunctionalProvider<AuthRepository, AuthRepository, AuthRepository>
     with $Provider<AuthRepository> {
   /// Provides the active [AuthRepository] implementation.
   ///
-  /// In debug/test builds this is overridden with [MockAuthRepository] via
-  /// `ProviderScope(overrides: [...])` in `main.dart`.  In production builds
-  /// the provider body is never reached because the override is always present;
-  /// the [UnimplementedError] acts as a compile-time safeguard against
-  /// accidentally shipping a build that forgot to wire the real backend.
+  /// Uses [MockAuthRepository] by default until a real backend is wired.
+  /// Override at app startup for production use.
   AuthRepositoryProvider._()
     : super(
         from: null,
@@ -70,4 +61,4 @@ final class AuthRepositoryProvider
   }
 }
 
-String _$authRepositoryHash() => r'f31522efb0e3c8cae08bf1e2b493eb4542c503a5';
+String _$authRepositoryHash() => r'387b6e9a78d246a81ba25c340fe035788819ea94';

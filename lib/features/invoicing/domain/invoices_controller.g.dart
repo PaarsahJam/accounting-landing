@@ -34,7 +34,7 @@ final class InvoicesControllerProvider
 }
 
 String _$invoicesControllerHash() =>
-    r'3044c2fbce0c979d57b0526aa6861df4a288749b';
+    r'1d4d1440b1dc3819b8f86193632de8499ff8c32e';
 
 abstract class _$InvoicesController extends $AsyncNotifier<List<Invoice>> {
   FutureOr<List<Invoice>> build();

@@ -413,6 +413,10 @@ class _PurchaseOrdersPageState extends ConsumerState<PurchaseOrdersPage> {
                       child: ListTile(
                         title: Text('${order.reference} • ${order.title}'),
                         subtitle: Text('${order.vendorId} • ${order.notes}'),
+                        onTap: () => context.push(
+                          '/purchase-orders/${order.id}',
+                          extra: order,
+                        ),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [

@@ -34,7 +34,7 @@ final class VendorBillsControllerProvider
 }
 
 String _$vendorBillsControllerHash() =>
-    r'49a47a8547ac5eee418055633636cb031611166c';
+    r'eac29f5fe634d5063d6b7b4072f3026d75f0fa32';
 
 abstract class _$VendorBillsController
     extends $AsyncNotifier<List<VendorBill>> {
