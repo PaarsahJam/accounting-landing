@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../shared/widgets/section_header.dart';
+import '../../attachments/presentation/entity_attachments_view.dart';
+import '../../comments/presentation/entity_comments_view.dart';
 import '../domain/vendor_bill.dart';
 
 class VendorBillDetailPage extends ConsumerWidget {
@@ -47,6 +50,20 @@ class VendorBillDetailPage extends ConsumerWidget {
                   subtitle: Text('${line.quantity} × ${line.unitPrice}'),
                 ),
               ),
+            ),
+            const SizedBox(height: 24),
+            SectionHeader(title: 'Attachments'),
+            const SizedBox(height: 8),
+            EntityAttachmentsView(
+              entityType: 'vendorBill',
+              entityId: bill.id,
+            ),
+            const SizedBox(height: 24),
+            SectionHeader(title: 'Comments'),
+            const SizedBox(height: 8),
+            EntityCommentsView(
+              entityType: 'vendorBill',
+              entityId: bill.id,
             ),
           ],
         ),

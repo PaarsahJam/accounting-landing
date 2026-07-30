@@ -67,6 +67,13 @@ import '../../features/document_processing/presentation/document_review_page.dar
 import '../../features/crm/presentation/crm_dashboard_page.dart';
 import '../../features/crm/presentation/crm_tasks_page.dart';
 import '../../features/crm/presentation/pipeline_page.dart';
+import '../../features/purchase_orders/presentation/goods_receipts_page.dart';
+import '../../features/backup/presentation/backup_page.dart';
+import '../../features/calendar/presentation/calendar_page.dart';
+import '../../features/email/presentation/email_page.dart';
+import '../../features/sync/presentation/sync_status_page.dart';
+import '../../features/ai_assistant/presentation/ai_assistant_page.dart';
+import '../../features/approvals/presentation/approvals_page.dart';
 import '../../shared/widgets/app_shell.dart';
 import '../../shared/widgets/page_transition.dart';
 import '../../l10n/app_localizations.dart';
@@ -279,6 +286,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               return DocumentReviewPage(job: job);
             },
           ),
+          _r('/goods-receipts', child: const GoodsReceiptsPage()),
+          _r('/backup', child: const BackupPage()),
+          _r('/calendar', child: const CalendarPage()),
+          _r('/email', child: const EmailPage()),
+          _r('/sync-status', child: const SyncStatusPage()),
+          _r('/ai-assistant', child: const AiAssistantPage()),
+          _r('/approvals', child: const ApprovalsPage()),
           ...pluginRouteList.map((pr) => pr.toGoRoute()),
         ],
       ),
