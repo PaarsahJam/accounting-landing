@@ -1,3 +1,5 @@
+import 'package:accounting_app/features/expenses/data/expense_repository.dart';
+import 'package:accounting_app/features/expenses/data/expense_repository_provider.dart';
 import 'package:accounting_app/features/expenses/presentation/expenses_page.dart';
 import 'package:accounting_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,11 @@ void main() {
   testWidgets('expenses page renders expense entries', (tester) async {
     await tester.pumpWidget(
       ProviderScope(
+        overrides: [
+          expenseRepositoryProvider.overrideWithValue(
+            MockExpenseRepository(),
+          ),
+        ],
         child: MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,

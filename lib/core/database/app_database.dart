@@ -313,7 +313,12 @@ class CompaniesTable extends Table {
   CompaniesTable,
 ])
 class AppDatabase extends _$AppDatabase {
-  AppDatabase() : super(_openConnection());
+  AppDatabase._() : super(_openConnection());
+
+  static AppDatabase? _instance;
+
+  factory AppDatabase() => _instance ??= AppDatabase._();
+
   AppDatabase.withExecutor(super.executor);
 
   @override

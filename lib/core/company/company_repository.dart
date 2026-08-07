@@ -51,9 +51,7 @@ class MockCompanyRepository implements CompanyRepository {
   Future<AppResult<List<Company>>> fetchCompanies() async {
     try {
       await Future<void>.delayed(const Duration(milliseconds: 200));
-      return AppResult.success(
-        _companies.where((c) => c.isActive).toList(),
-      );
+      return AppResult.success(List<Company>.from(_companies));
     } catch (error) {
       return AppResult.failure(
         UnknownFailure(message: error.toString()),

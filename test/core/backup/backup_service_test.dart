@@ -3,6 +3,7 @@ import 'package:accounting_app/core/backup/backup_manifest.dart';
 import 'package:accounting_app/core/backup/backup_package.dart';
 import 'package:accounting_app/core/backup/backup_repository.dart';
 import 'package:accounting_app/core/backup/backup_service.dart';
+import 'package:accounting_app/core/backup/backup_validator.dart';
 import 'package:accounting_app/core/company/company_repository.dart';
 import 'package:accounting_app/features/settings/data/settings_repository.dart';
 
@@ -90,7 +91,7 @@ void main() {
       );
       expect(
         () => service.restore(backup),
-        throwsA(isA<Exception>()),
+        throwsA(isA<BackupException>()),
       );
     });
   });

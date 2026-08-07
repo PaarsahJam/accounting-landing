@@ -36,9 +36,10 @@ void main() {
       addTearDown(container.dispose);
 
       final items = await container
-          .read(pipelineControllerProvider(stage: PipelineStage.lead).future);
+          .read(pipelineControllerProvider(stage: PipelineStage.qualified)
+              .future);
       expect(items, isNotEmpty);
-      expect(items.every((o) => o.stage == PipelineStage.lead), true);
+      expect(items.every((o) => o.stage == PipelineStage.qualified), true);
     });
 
     test('updateStage moves opportunity to next stage', () async {
@@ -48,6 +49,7 @@ void main() {
         ],
       );
       addTearDown(container.dispose);
+      container.listen(pipelineControllerProvider(), (_, _) {});
 
       final current =
           (await container.read(pipelineControllerProvider().future))
@@ -70,6 +72,7 @@ void main() {
         ],
       );
       addTearDown(container.dispose);
+      container.listen(pipelineControllerProvider(), (_, _) {});
 
       final newOpp = LeadOpportunity(
         id: 'opp5',

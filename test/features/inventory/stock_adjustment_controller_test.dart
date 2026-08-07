@@ -2,8 +2,18 @@ import 'package:accounting_app/features/inventory/data/inventory_repository.dart
 import 'package:accounting_app/features/inventory/data/inventory_repository_provider.dart';
 import 'package:accounting_app/features/inventory/domain/stock_adjustment.dart';
 import 'package:accounting_app/features/inventory/domain/stock_adjustment_controller.dart';
+import 'package:accounting_app/features/user_roles/domain/user_roles_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+/// Loads the signed-in user and built-in roles so the controller-level
+/// permission check in [StockAdjustmentController.createAdjustment] passes.
+Future<void> loadAuthContext(ProviderContainer container) async {
+  container.listen(currentUserControllerProvider, (_, _) {});
+  container.listen(rolesControllerProvider, (_, _) {});
+  await container.read(currentUserControllerProvider.future);
+  await container.read(rolesControllerProvider.future);
+}
 
 void main() {
   group('StockAdjustmentController', () {
@@ -33,6 +43,7 @@ void main() {
 
     test('createAdjustment prepends to state', () async {
       container.listen(stockAdjustmentControllerProvider, (_, _) {});
+      await loadAuthContext(container);
       final notifier = container.read(
         stockAdjustmentControllerProvider.notifier,
       );

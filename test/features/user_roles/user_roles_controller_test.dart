@@ -11,6 +11,15 @@ ProviderContainer _makeContainer() => ProviderContainer(
   overrides: [userRepositoryProvider.overrideWithValue(MockUserRepository())],
 );
 
+/// Loads the signed-in user and built-in roles so the controller-level
+/// permission checks in [UsersController] pass.
+Future<void> loadAuthContext(ProviderContainer container) async {
+  container.listen(currentUserControllerProvider, (_, _) {});
+  container.listen(rolesControllerProvider, (_, _) {});
+  await container.read(currentUserControllerProvider.future);
+  await container.read(rolesControllerProvider.future);
+}
+
 void main() {
   group('PermissionService', () {
     const svc = PermissionService();
@@ -162,6 +171,7 @@ void main() {
 
     test('createUser appends user to state', () async {
       container.listen(usersControllerProvider, (_, _) {});
+      await loadAuthContext(container);
       final notifier = container.read(usersControllerProvider.notifier);
       final initial = await notifier.future;
       final before = initial.length;
@@ -182,6 +192,7 @@ void main() {
 
     test('assignRole updates role in state', () async {
       container.listen(usersControllerProvider, (_, _) {});
+      await loadAuthContext(container);
       final notifier = container.read(usersControllerProvider.notifier);
       await notifier.future;
 
@@ -195,6 +206,7 @@ void main() {
 
     test('deactivateUser marks user inactive in state', () async {
       container.listen(usersControllerProvider, (_, _) {});
+      await loadAuthContext(container);
       final notifier = container.read(usersControllerProvider.notifier);
       await notifier.future;
 

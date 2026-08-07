@@ -33,6 +33,7 @@ void main() {
         ],
       );
       addTearDown(container.dispose);
+      container.listen(crmTasksControllerProvider(), (_, _) {});
 
       final notifier = container.read(crmTasksControllerProvider().notifier);
       final newTask = CrmTask(
@@ -61,6 +62,7 @@ void main() {
         ],
       );
       addTearDown(container.dispose);
+      container.listen(crmTasksControllerProvider(), (_, _) {});
 
       final notifier = container.read(crmTasksControllerProvider().notifier);
       final current = (await container.read(crmTasksControllerProvider().future))
@@ -80,6 +82,7 @@ void main() {
         ],
       );
       addTearDown(container.dispose);
+      container.listen(crmTasksControllerProvider(), (_, _) {});
 
       final notifier = container.read(crmTasksControllerProvider().notifier);
       await notifier.deleteTask('TSK-001');

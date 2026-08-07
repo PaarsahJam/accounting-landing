@@ -61,7 +61,7 @@ void main() {
     });
 
     test('fetchCompany returns correct company', () async {
-      final result = await repo.fetchCompany('c1');
+      final result = await repo.fetchCompany('comp-1');
       expect(result.isSuccess, true);
       expect(result.data!.name, 'NorthStar Solutions');
     });
@@ -78,10 +78,10 @@ void main() {
     });
 
     test('save and get active company id round-trips', () async {
-      final saveResult = await repo.saveActiveCompanyId('c2');
+      final saveResult = await repo.saveActiveCompanyId('comp-2');
       expect(saveResult.isSuccess, true);
       final getResult = await repo.getActiveCompanyId();
-      expect(getResult.data, 'c2');
+      expect(getResult.data, 'comp-2');
     });
   });
 }

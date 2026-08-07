@@ -3885,30 +3885,57 @@ abstract class AppLocalizations {
   String get searchPageTitle;
 
   /// No description provided for @themeModeLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'پوسته'**
   String get themeModeLabel;
 
   /// No description provided for @themeModeSystem.
+  ///
+  /// In fa, this message translates to:
+  /// **'سیستم'**
   String get themeModeSystem;
 
   /// No description provided for @themeModeLight.
+  ///
+  /// In fa, this message translates to:
+  /// **'روشن'**
   String get themeModeLight;
 
   /// No description provided for @themeModeDark.
+  ///
+  /// In fa, this message translates to:
+  /// **'تاریک'**
   String get themeModeDark;
 
   /// No description provided for @confirmPassword.
+  ///
+  /// In fa, this message translates to:
+  /// **'تکرار رمز عبور'**
   String get confirmPassword;
 
   /// No description provided for @passwordsDoNotMatch.
+  ///
+  /// In fa, this message translates to:
+  /// **'رمز عبور همخوانی ندارد'**
   String get passwordsDoNotMatch;
 
   /// No description provided for @createCompany.
+  ///
+  /// In fa, this message translates to:
+  /// **'ایجاد شرکت'**
   String get createCompany;
 
   /// No description provided for @companyLegalName.
+  ///
+  /// In fa, this message translates to:
+  /// **'نام حقوقی'**
   String get companyLegalName;
 
   /// No description provided for @companyTaxId.
+  ///
+  /// In fa, this message translates to:
+  /// **'شناسه مالیاتی'**
   String get companyTaxId;
 
   /// No description provided for @tagsPageTitle.

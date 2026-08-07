@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:accounting_app/core/api/api_interceptors.dart';
 import 'package:accounting_app/core/api/auth_token_storage.dart';
+import 'package:accounting_app/core/errors/app_failure.dart';
 
 class FakeTokenStorage extends AuthTokenStorage {
   FakeTokenStorage({String? token}) : _token = token;
@@ -13,6 +14,15 @@ class FakeTokenStorage extends AuthTokenStorage {
   Future<String?> get accessToken async => _token;
 
   void setToken(String? token) => _token = token;
+}
+
+class _RecordingErrorHandler extends ErrorInterceptorHandler {
+  DioException? rejected;
+
+  @override
+  void reject(DioException error, [bool callFollowingErrorInterceptor = false]) {
+    rejected = error;
+  }
 }
 
 void main() {
@@ -73,14 +83,16 @@ void main() {
         ),
       );
 
-      final handler = ErrorInterceptorHandler();
+      final handler = _RecordingErrorHandler();
       interceptor.onError(err, handler);
 
-      // handler.reject is called synchronously; the rejected error
-      // is a new DioException with an AppFailure in [error].
-      // We verify no crash and that the mapping was applied
-      // (assertion is via api_error_mapper_test.dart).
-      expect(err.type, DioExceptionType.badResponse);
+      expect(handler.rejected, isNotNull);
+      expect(handler.rejected!.type, DioExceptionType.badResponse);
+      expect(handler.rejected!.requestOptions.path, '/test');
+      // The mapped AppFailure (message extracted from the response body)
+      // is attached to the rejected DioException.
+      expect(handler.rejected!.error, isA<AppFailure>());
+      expect((handler.rejected!.error! as AppFailure).message, 'bad input');
     });
   });
 }

@@ -6,6 +6,7 @@ import 'package:accounting_app/features/stock_transfers/data/stock_transfer_repo
 import 'package:accounting_app/features/stock_transfers/data/stock_transfer_repository_provider.dart';
 import 'package:accounting_app/features/stock_transfers/domain/create_transfer_request.dart';
 import 'package:accounting_app/features/stock_transfers/domain/stock_transfers_controller.dart';
+import 'package:accounting_app/features/user_roles/domain/user_roles_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -24,6 +25,15 @@ ProviderContainer _makeContainer() {
       ),
     ],
   );
+}
+
+/// Loads the signed-in user and built-in roles so the controller-level
+/// permission check in [StockTransfersController.createTransfer] passes.
+Future<void> loadAuthContext(ProviderContainer container) async {
+  container.listen(currentUserControllerProvider, (_, _) {});
+  container.listen(rolesControllerProvider, (_, _) {});
+  await container.read(currentUserControllerProvider.future);
+  await container.read(rolesControllerProvider.future);
 }
 
 void main() {
@@ -45,6 +55,7 @@ void main() {
 
     test('createTransfer prepends to state on success', () async {
       container.listen(stockTransfersControllerProvider, (_, _) {});
+      await loadAuthContext(container);
       final notifier = container.read(
         stockTransfersControllerProvider.notifier,
       );

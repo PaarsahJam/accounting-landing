@@ -7,6 +7,9 @@ class FiscalPeriodRepository extends StateNotifier<List<FiscalPeriod>> {
   FiscalPeriodRepository() : super([]);
 
   Future<void> load() async {
+    // Defer to the next microtask so the provider is not modified while the
+    // widget tree is still building (Riverpod disallows in-build mutation).
+    await Future<void>.delayed(Duration.zero);
     // Simulate fetching data from a database.
     state = [
       FiscalPeriod(
