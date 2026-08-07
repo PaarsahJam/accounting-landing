@@ -89,7 +89,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get invoiceDeleteAction => 'Delete';
 
   @override
-  String get invoiceCurrencyUnit => 'IRR';
+  String get invoiceCurrencyUnit => '\$';
 
   @override
   String get refresh => 'Refresh';
@@ -1214,7 +1214,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get vendorSave => 'Save';
 
   @override
-  String get currencyUnit => 'IRR';
+  String get currencyUnit => '\$';
 
   @override
   String get bankReconciliationPageTitle => 'Bank Reconciliation';

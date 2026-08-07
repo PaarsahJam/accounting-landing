@@ -89,7 +89,7 @@ class AppLocalizationsHy extends AppLocalizations {
   String get invoiceDeleteAction => 'Ջնջել';
 
   @override
-  String get invoiceCurrencyUnit => 'րիալ';
+  String get invoiceCurrencyUnit => '֏';
 
   @override
   String get refresh => 'Թարմացնել';
@@ -1229,7 +1229,7 @@ class AppLocalizationsHy extends AppLocalizations {
   String get vendorSave => 'Պահպանել';
 
   @override
-  String get currencyUnit => 'րիալ';
+  String get currencyUnit => '֏';
 
   @override
   String get bankReconciliationPageTitle => 'Բանկային համադրում';
