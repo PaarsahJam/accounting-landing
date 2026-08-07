@@ -138,7 +138,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         );
         final goingToCompanySelect =
             state.matchedLocation == '/company/select';
-        if (!hasCompany && !goingToCompanySelect) return '/company/select';
+        final goingToCompanyCreate =
+            state.matchedLocation == '/company/create';
+        if (!hasCompany && !goingToCompanySelect && !goingToCompanyCreate) {
+          return '/company/select';
+        }
         if (hasCompany && goingToCompanySelect) return '/dashboard';
       }
       return null;
