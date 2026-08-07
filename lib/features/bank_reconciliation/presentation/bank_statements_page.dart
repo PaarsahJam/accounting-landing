@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -74,8 +75,11 @@ class _BankStatementCard extends StatelessWidget {
     }
   }
 
-  String _formatDate(DateTime date) =>
-      '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+  String _formatDate(BuildContext context, DateTime date) =>
+      AppFormatters.formatIsoDate(
+        date,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +112,7 @@ class _BankStatementCard extends StatelessWidget {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          '${_formatDate(statement.periodStart)} – ${_formatDate(statement.periodEnd)}',
+                          '${_formatDate(context, statement.periodStart)} – ${_formatDate(context, statement.periodEnd)}',
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),

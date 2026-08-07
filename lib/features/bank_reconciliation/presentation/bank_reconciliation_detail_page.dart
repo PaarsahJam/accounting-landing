@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_error_state.dart';
 import '../../../shared/widgets/app_loading_state.dart';
@@ -292,8 +293,11 @@ class _TransactionPanel extends StatelessWidget {
   final WidgetRef ref;
   final AppLocalizations l10n;
 
-  String _formatDate(DateTime date) =>
-      '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+  String _formatDate(BuildContext context, DateTime date) =>
+      AppFormatters.formatIsoDate(
+        date,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -327,7 +331,7 @@ class _TransactionPanel extends StatelessWidget {
           ),
           title: Text(txn.description, style: theme.textTheme.bodySmall),
           subtitle: Text(
-            '${txn.reference} · ${_formatDate(txn.date)}',
+            '${txn.reference} · ${_formatDate(context, txn.date)}',
             style: theme.textTheme.labelSmall?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),

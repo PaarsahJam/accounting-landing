@@ -1,8 +1,8 @@
 // lib/features/audit_trail/presentation/widgets/audit_entry_tile.dart
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
+import '../../../../core/utils/app_formatters.dart';
 import '../../domain/audit_action.dart';
 import '../../domain/audit_entry.dart';
 
@@ -14,8 +14,6 @@ class AuditEntryTile extends StatelessWidget {
   const AuditEntryTile({super.key, required this.entry});
 
   final AuditEntry entry;
-
-  static final _dateFormat = DateFormat('d MMM yyyy, HH:mm');
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +64,10 @@ class AuditEntryTile extends StatelessWidget {
                 const SizedBox(height: 2),
                 // Timestamp
                 Text(
-                  _dateFormat.format(entry.performedAt.toLocal()),
+                  AppFormatters.formatDateTime(
+                    entry.performedAt.toLocal(),
+                    locale: Localizations.localeOf(context).languageCode,
+                  ),
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: Colors.grey,
                     fontSize: 11,

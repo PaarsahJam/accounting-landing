@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -91,8 +92,11 @@ class _RecurringTransactionTile extends StatelessWidget {
   final WidgetRef ref;
   final VoidCallback onEdit;
 
-  String _formatDate(DateTime d) =>
-      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
+  String _formatDate(BuildContext context, DateTime d) =>
+      AppFormatters.formatIsoDate(
+        d,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +132,7 @@ class _RecurringTransactionTile extends StatelessWidget {
         ],
       ),
       subtitle: Text(
-        '${l10n.recurringTransactionNextRun}: ${_formatDate(transaction.nextRun)}'
+        '${l10n.recurringTransactionNextRun}: ${_formatDate(context, transaction.nextRun)}'
         '  •  ${transaction.sourceDocumentType}',
       ),
       trailing: _TileActions(

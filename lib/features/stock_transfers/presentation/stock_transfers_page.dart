@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -34,8 +35,10 @@ class _StockTransfersPageState extends ConsumerState<StockTransfersPage> {
     super.dispose();
   }
 
-  String _formatDate(DateTime d) =>
-      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
+  String _formatDate(DateTime d) => AppFormatters.formatIsoDate(
+        d,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 
   Future<void> _showCreateDialog() async {
     final l10n = AppLocalizations.of(context)!;

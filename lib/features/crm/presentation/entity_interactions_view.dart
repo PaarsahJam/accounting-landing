@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -219,9 +220,9 @@ class EntityInteractionsView extends ConsumerWidget {
     );
   }
 
-  String _formatDateTime(BuildContext context, DateTime dt) {
-    return '${dt.year}-${_pad(dt.month)}-${_pad(dt.day)} ${_pad(dt.hour)}:${_pad(dt.minute)}';
-  }
-
-  String _pad(int n) => n.toString().padLeft(2, '0');
+  String _formatDateTime(BuildContext context, DateTime dt) =>
+      AppFormatters.formatIsoDateTime(
+        dt,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../domain/attachment.dart';
 import '../domain/attachment_file_type.dart';
@@ -33,9 +34,6 @@ class AttachmentTile extends ConsumerWidget {
         return Icons.attach_file;
     }
   }
-
-  String _formatDate(DateTime d) =>
-      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
 
   Future<void> _showRenameDialog(
     BuildContext context,
@@ -175,7 +173,7 @@ class AttachmentTile extends ConsumerWidget {
         overflow: TextOverflow.ellipsis,
       ),
       subtitle: Text(
-        '${attachment.formattedSize} · ${_formatDate(attachment.uploadedAt)} · ${attachment.uploadedBy}'
+        '${attachment.formattedSize} · ${AppFormatters.formatIsoDate(attachment.uploadedAt, locale: Localizations.localeOf(context).languageCode)} · ${attachment.uploadedBy}'
         '${attachment.notes.isNotEmpty ? '\n${attachment.notes}' : ''}',
         style: theme.textTheme.labelSmall?.copyWith(
           color: theme.colorScheme.onSurfaceVariant,

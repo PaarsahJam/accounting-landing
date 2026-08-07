@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_loading_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -186,7 +187,6 @@ class _TaskCard extends ConsumerWidget {
     final isOverdue = task.status != TaskStatus.completed &&
         task.status != TaskStatus.cancelled &&
         task.dueDate.isBefore(DateTime.now());
-    final dateFormat = DateFormat('yyyy-MM-dd');
 
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -210,7 +210,10 @@ class _TaskCard extends ConsumerWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  dateFormat.format(task.dueDate),
+                  AppFormatters.formatIsoDate(
+                    task.dueDate,
+                    locale: Localizations.localeOf(context).languageCode,
+                  ),
                   style: TextStyle(
                     fontSize: 12,
                     color: isOverdue ? Colors.red : null,
@@ -283,7 +286,9 @@ class _TaskCard extends ConsumerWidget {
             const SizedBox(height: 16),
             Text('Status: ${task.status.name}'),
             Text('Priority: ${task.priority.name}'),
-            Text('Due: ${DateFormat('yyyy-MM-dd').format(task.dueDate)}'),
+            Text(
+              'Due: ${AppFormatters.formatIsoDate(task.dueDate, locale: Localizations.localeOf(ctx).languageCode)}',
+            ),
             Text('Assigned to: ${task.assignedTo}'),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -227,8 +228,11 @@ class _AdjustmentCard extends StatelessWidget {
   final StockAdjustment adjustment;
   final AppLocalizations l10n;
 
-  String _formatDate(DateTime d) =>
-      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
+  String _formatDate(BuildContext context, DateTime d) =>
+      AppFormatters.formatIsoDate(
+        d,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -272,7 +276,7 @@ class _AdjustmentCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    '${_formatDate(adjustment.adjustmentDate)} · ${adjustment.createdBy}',
+                    '${_formatDate(context, adjustment.adjustmentDate)} · ${adjustment.createdBy}',
                     style: theme.textTheme.labelSmall?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),

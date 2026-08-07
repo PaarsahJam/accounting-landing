@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../domain/comment.dart';
 import '../domain/comments_controller.dart';
@@ -12,9 +13,11 @@ class CommentTile extends ConsumerWidget {
   final Comment comment;
   final CommentsParams params;
 
-  String _formatDate(DateTime d) =>
-      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')} '
-      '${d.hour.toString().padLeft(2, '0')}:${d.minute.toString().padLeft(2, '0')}';
+  String _formatDate(BuildContext context, DateTime d) =>
+      AppFormatters.formatIsoDateTime(
+        d,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 
   Future<void> _showEditDialog(
     BuildContext context,
@@ -134,7 +137,7 @@ class CommentTile extends ConsumerWidget {
                       ),
                     ),
                     Text(
-                      _formatDate(comment.createdAt),
+                      _formatDate(context, comment.createdAt),
                       style: theme.textTheme.labelSmall?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
                       ),

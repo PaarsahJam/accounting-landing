@@ -1,5 +1,6 @@
 import 'package:accounting_app/core/errors/app_failure.dart';
 import 'package:accounting_app/core/errors/app_result.dart';
+import 'package:accounting_app/core/l10n/locale_setting_provider.dart';
 import 'package:accounting_app/features/sales_invoices/domain/sales_invoice.dart';
 import 'package:accounting_app/features/customers/domain/customer.dart';
 import 'package:accounting_app/features/email/services/email_providers.dart';
@@ -45,6 +46,7 @@ class EmailController extends _$EmailController {
         invoice: invoice,
         subjectTemplate: subjectTemplate,
         bodyTemplate: bodyTemplate,
+        locale: ref.read(localeSettingProvider).languageCode,
       );
 
       final result = await service.sendWithTracking(message);

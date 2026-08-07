@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_loading_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -74,7 +75,6 @@ class _PipelineView extends ConsumerWidget {
     }
 
     final currencyFormat = NumberFormat('#,###', 'fa');
-    final dateFormat = DateFormat('yyyy-MM-dd');
 
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -141,7 +141,11 @@ class _PipelineView extends ConsumerWidget {
                           ),
                           const SizedBox(width: 12),
                           Text(
-                            dateFormat.format(opp.expectedCloseDate),
+                            AppFormatters.formatIsoDate(
+                              opp.expectedCloseDate,
+                              locale:
+                                  Localizations.localeOf(context).languageCode,
+                            ),
                             style: const TextStyle(
                               fontSize: 12,
                               color: Colors.grey,

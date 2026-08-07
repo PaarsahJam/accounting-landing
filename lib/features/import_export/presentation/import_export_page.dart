@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -193,11 +194,11 @@ class _JobTile extends StatelessWidget {
   final AppLocalizations l10n;
   final WidgetRef ref;
 
-  String _formatDate(DateTime d) =>
-      '${d.year}-${d.month.toString().padLeft(2, '0')}-'
-      '${d.day.toString().padLeft(2, '0')} '
-      '${d.hour.toString().padLeft(2, '0')}:'
-      '${d.minute.toString().padLeft(2, '0')}';
+  String _formatDate(BuildContext context, DateTime d) =>
+      AppFormatters.formatIsoDateTime(
+        d,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -225,7 +226,7 @@ class _JobTile extends StatelessWidget {
         ],
       ),
       subtitle: Text(
-        '${_formatDate(job.performedAt)}  •  '
+        '${_formatDate(context, job.performedAt)}  •  '
         '${job.rowCount} ${l10n.importExportRows}',
       ),
       trailing: isExport && job.csvPreview != null

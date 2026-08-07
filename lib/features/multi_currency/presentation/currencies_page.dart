@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -155,8 +156,11 @@ class _RatesTab extends StatelessWidget {
   final AppLocalizations l10n;
   final WidgetRef ref;
 
-  String _formatDate(DateTime d) =>
-      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
+  String _formatDate(BuildContext context, DateTime d) =>
+      AppFormatters.formatIsoDate(
+        d,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 
   Future<void> _showEditDialog(BuildContext context, ExchangeRate rate) async {
     final ctrl = TextEditingController(text: rate.rate.toString());
@@ -236,7 +240,7 @@ class _RatesTab extends StatelessWidget {
                 style: const TextStyle(fontWeight: FontWeight.w600),
               ),
               subtitle: Text(
-                '${l10n.currencyRateValue}: ${rate.rate}  •  ${_formatDate(rate.effectiveDate)}',
+                '${l10n.currencyRateValue}: ${rate.rate}  •  ${_formatDate(context, rate.effectiveDate)}',
               ),
               trailing: IconButton(
                 icon: const Icon(Icons.edit_outlined, size: 18),

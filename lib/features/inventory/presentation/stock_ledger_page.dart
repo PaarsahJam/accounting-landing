@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/app_formatters.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -214,8 +215,11 @@ class _LedgerEntryTile extends StatelessWidget {
     }
   }
 
-  String _formatDate(DateTime date) =>
-      '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+  String _formatDate(BuildContext context, DateTime date) =>
+      AppFormatters.formatIsoDate(
+        date,
+        locale: Localizations.localeOf(context).languageCode,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -240,7 +244,7 @@ class _LedgerEntryTile extends StatelessWidget {
       ),
       title: Text(entry.description, style: theme.textTheme.bodySmall),
       subtitle: Text(
-        '${entry.movementType.label} · ${_formatDate(entry.date)} · Ref: ${entry.reference}',
+        '${entry.movementType.label} · ${_formatDate(context, entry.date)} · Ref: ${entry.reference}',
         style: theme.textTheme.labelSmall?.copyWith(
           color: theme.colorScheme.onSurfaceVariant,
         ),

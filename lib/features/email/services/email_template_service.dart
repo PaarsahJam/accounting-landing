@@ -1,3 +1,4 @@
+import 'package:accounting_app/core/utils/app_formatters.dart';
 import 'package:accounting_app/features/sales_invoices/domain/sales_invoice.dart';
 
 import '../domain/email_address.dart';
@@ -23,11 +24,12 @@ class EmailTemplateService {
     required SalesInvoice invoice,
     required String subjectTemplate,
     required String bodyTemplate,
+    String? locale,
     EmailAddress? fromAddress,
     List<EmailAttachment>? attachments,
   }) {
-    final subject = _fillInvoiceTemplate(subjectTemplate, invoice);
-    final body = _fillInvoiceTemplate(bodyTemplate, invoice);
+    final subject = _fillInvoiceTemplate(subjectTemplate, invoice, locale);
+    final body = _fillInvoiceTemplate(bodyTemplate, invoice, locale);
 
     return EmailMessage(
       id: id,
@@ -41,17 +43,20 @@ class EmailTemplateService {
     );
   }
 
-  String _fillInvoiceTemplate(String template, SalesInvoice invoice) {
+  String _fillInvoiceTemplate(
+    String template,
+    SalesInvoice invoice,
+    String? locale,
+  ) {
     return template
         .replaceAll('{customerName}', invoice.customerName)
         .replaceAll('{reference}', invoice.reference)
         .replaceAll('{total}', invoice.total.toStringAsFixed(2))
-        .replaceAll('{dueDate}', _formatDate(invoice.dueDate))
-        .replaceAll('{invoiceDate}', _formatDate(invoice.invoiceDate))
+        .replaceAll('{dueDate}', _formatDate(invoice.dueDate, locale))
+        .replaceAll('{invoiceDate}', _formatDate(invoice.invoiceDate, locale))
         .replaceAll('{title}', invoice.title);
   }
 
-  String _formatDate(DateTime date) {
-    return '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
-  }
+  String _formatDate(DateTime date, String? locale) =>
+      AppFormatters.formatIsoDate(date, locale: locale);
 }
