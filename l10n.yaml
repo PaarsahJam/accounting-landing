@@ -5,3 +5,4 @@ output-class: AppLocalizations
 preferred-supported-locales:
   - fa
   - en
+  - hy

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../core/l10n/locale_setting_provider.dart';
 import '../core/router/app_router.dart';
 import '../core/theme/app_theme.dart';
 import '../core/theme/theme_mode_provider.dart';
@@ -15,13 +16,14 @@ class App extends ConsumerWidget {
     final router = ref.watch(appRouterProvider);
     final l10n = AppLocalizations.of(context);
     final themeMode = ref.watch(themeModeSettingProvider);
+    final locale = ref.watch(localeSettingProvider);
 
     return MaterialApp.router(
       title: l10n?.appTitle ?? 'Accounting',
       routerConfig: router,
       debugShowCheckedModeBanner: false,
-      locale: const Locale('fa'),
-      supportedLocales: const [Locale('fa'), Locale('en')],
+      locale: locale,
+      supportedLocales: LocaleSetting.supportedLocales,
       localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

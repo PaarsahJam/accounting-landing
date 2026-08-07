@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/l10n/locale_setting_provider.dart';
 import '../../features/notifications/presentation/notification_bell.dart';
+import '../../l10n/app_localizations.dart';
 import '../extensions/responsive_breakpoint.dart';
 import 'offline_banner.dart';
 
@@ -266,7 +268,7 @@ class _BottomNavBar extends StatelessWidget {
   }
 }
 
-class _AppDrawer extends StatelessWidget {
+class _AppDrawer extends ConsumerWidget {
   const _AppDrawer({
     required this.primaryDestinations,
     required this.sections,
@@ -278,8 +280,10 @@ class _AppDrawer extends StatelessWidget {
   final int activeIndex;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
+    final locale = ref.watch(localeSettingProvider);
     return Drawer(
       child: SafeArea(
         child: ListView(
@@ -294,6 +298,34 @@ class _AppDrawer extends StatelessWidget {
                 ),
               ),
             ),
+            ListTile(
+              leading: const Icon(Icons.language),
+              title: Text(l10n?.language ?? 'Language'),
+              trailing: DropdownButton<Locale>(
+                value: locale,
+                underline: const SizedBox(),
+                items: const [
+                  DropdownMenuItem(
+                    value: Locale('en'),
+                    child: Text('English'),
+                  ),
+                  DropdownMenuItem(
+                    value: Locale('fa'),
+                    child: Text('فارسی'),
+                  ),
+                  DropdownMenuItem(
+                    value: Locale('hy'),
+                    child: Text('Հայերեն'),
+                  ),
+                ],
+                onChanged: (loc) {
+                  if (loc != null) {
+                    ref.read(localeSettingProvider.notifier).setLocale(loc);
+                  }
+                },
+              ),
+            ),
+            const Divider(),
             for (final dest in primaryDestinations)
               ListTile(
                 leading: Icon(
@@ -346,12 +378,14 @@ class _AppDrawer extends StatelessWidget {
   }
 }
 
-class _GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
+class _GlobalAppBar extends ConsumerWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final locale = ref.watch(localeSettingProvider);
+    final l10n = AppLocalizations.of(context);
     return AppBar(
       title: const Text('Accounting'),
       leading: Builder(
@@ -361,6 +395,19 @@ class _GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
+        PopupMenuButton<Locale>(
+          icon: const Icon(Icons.language),
+          tooltip: l10n?.language ?? 'Language',
+          initialValue: locale,
+          onSelected: (loc) {
+            ref.read(localeSettingProvider.notifier).setLocale(loc);
+          },
+          itemBuilder: (context) => const [
+            PopupMenuItem(value: Locale('en'), child: Text('English')),
+            PopupMenuItem(value: Locale('fa'), child: Text('فارسی')),
+            PopupMenuItem(value: Locale('hy'), child: Text('Հայերեն')),
+          ],
+        ),
         IconButton(
           icon: const Icon(Icons.search),
           onPressed: () => context.push('/search'),

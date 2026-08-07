@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/l10n/locale_setting_provider.dart';
 import '../../../core/theme/theme_mode_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_error_state.dart';
@@ -17,6 +18,7 @@ class SettingsPage extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
     final settingsAsync = ref.watch(settingsControllerProvider);
     final themeMode = ref.watch(themeModeSettingProvider);
+    final locale = ref.watch(localeSettingProvider);
 
     return ResponsivePageScaffold(
       title: l10n.settingsPageTitle,
@@ -27,6 +29,35 @@ class SettingsPage extends ConsumerWidget {
         data: (settings) {
           return ListView(
             children: [
+              ListTile(
+                title: Text(l10n.language),
+                trailing: DropdownButton<Locale>(
+                  value: locale,
+                  underline: const SizedBox(),
+                  items: const [
+                    DropdownMenuItem(
+                      value: Locale('en'),
+                      child: Text('English'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('fa'),
+                      child: Text('فارسی'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('hy'),
+                      child: Text('Հայերեն'),
+                    ),
+                  ],
+                  onChanged: (loc) {
+                    if (loc != null) {
+                      ref
+                          .read(localeSettingProvider.notifier)
+                          .setLocale(loc);
+                    }
+                  },
+                ),
+              ),
+              const Divider(),
               ListTile(
                 title: Text(l10n.themeModeLabel),
                 trailing: DropdownButton<ThemeMode>(

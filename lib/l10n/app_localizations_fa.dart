@@ -1942,6 +1942,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get searchPageTitle => 'جستجوی سراسری';
 
   @override
+  String get language => 'زبان';
+
+  @override
   String get themeModeLabel => 'پوسته';
 
   @override

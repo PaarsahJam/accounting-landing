@@ -7,6 +7,7 @@ import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
 import 'app_localizations_fa.dart';
+import 'app_localizations_hy.dart';
 
 // ignore_for_file: type=lint
 
@@ -96,6 +97,7 @@ abstract class AppLocalizations {
   static const List<Locale> supportedLocales = <Locale>[
     Locale('fa'),
     Locale('en'),
+    Locale('hy'),
   ];
 
   /// No description provided for @appTitle.
@@ -3884,6 +3886,12 @@ abstract class AppLocalizations {
   /// **'جستجوی سراسری'**
   String get searchPageTitle;
 
+  /// No description provided for @language.
+  ///
+  /// In fa, this message translates to:
+  /// **'زبان'**
+  String get language;
+
   /// No description provided for @themeModeLabel.
   ///
   /// In fa, this message translates to:
@@ -5078,7 +5086,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en', 'fa'].contains(locale.languageCode);
+      <String>['en', 'fa', 'hy'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -5091,6 +5099,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsEn();
     case 'fa':
       return AppLocalizationsFa();
+    case 'hy':
+      return AppLocalizationsHy();
   }
 
   throw FlutterError(

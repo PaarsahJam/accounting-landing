@@ -1948,6 +1948,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get searchPageTitle => 'Global Search';
 
   @override
+  String get language => 'Language';
+
+  @override
   String get themeModeLabel => 'Theme';
 
   @override
