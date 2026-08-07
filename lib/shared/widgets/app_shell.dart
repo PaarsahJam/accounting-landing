@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/l10n/locale_setting_provider.dart';
+import '../../core/theme/theme_mode_provider.dart';
 import '../../features/notifications/presentation/notification_bell.dart';
 import '../../l10n/app_localizations.dart';
 import '../extensions/responsive_breakpoint.dart';
@@ -284,6 +285,7 @@ class _AppDrawer extends ConsumerWidget {
     final cs = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeSettingProvider);
+    final themeMode = ref.watch(themeModeSettingProvider);
     return Drawer(
       child: SafeArea(
         child: ListView(
@@ -321,6 +323,41 @@ class _AppDrawer extends ConsumerWidget {
                 onChanged: (loc) {
                   if (loc != null) {
                     ref.read(localeSettingProvider.notifier).setLocale(loc);
+                  }
+                },
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                switch (themeMode) {
+                  ThemeMode.light => Icons.light_mode_outlined,
+                  ThemeMode.dark => Icons.dark_mode_outlined,
+                  ThemeMode.system => Icons.brightness_auto_outlined,
+                },
+              ),
+              title: Text(l10n?.themeModeLabel ?? 'Theme'),
+              trailing: DropdownButton<ThemeMode>(
+                value: themeMode,
+                underline: const SizedBox(),
+                items: [
+                  DropdownMenuItem(
+                    value: ThemeMode.system,
+                    child: Text(l10n?.themeModeSystem ?? 'System'),
+                  ),
+                  DropdownMenuItem(
+                    value: ThemeMode.light,
+                    child: Text(l10n?.themeModeLight ?? 'Light'),
+                  ),
+                  DropdownMenuItem(
+                    value: ThemeMode.dark,
+                    child: Text(l10n?.themeModeDark ?? 'Dark'),
+                  ),
+                ],
+                onChanged: (mode) {
+                  if (mode != null) {
+                    ref
+                        .read(themeModeSettingProvider.notifier)
+                        .setThemeMode(mode);
                   }
                 },
               ),
@@ -385,6 +422,7 @@ class _GlobalAppBar extends ConsumerWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(localeSettingProvider);
+    final themeMode = ref.watch(themeModeSettingProvider);
     final l10n = AppLocalizations.of(context);
     return AppBar(
       title: const Text('Accounting'),
@@ -395,6 +433,34 @@ class _GlobalAppBar extends ConsumerWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
+        PopupMenuButton<ThemeMode>(
+          icon: Icon(
+            switch (themeMode) {
+              ThemeMode.light => Icons.light_mode_outlined,
+              ThemeMode.dark => Icons.dark_mode_outlined,
+              ThemeMode.system => Icons.brightness_auto_outlined,
+            },
+          ),
+          tooltip: l10n?.themeModeLabel ?? 'Theme',
+          initialValue: themeMode,
+          onSelected: (mode) {
+            ref.read(themeModeSettingProvider.notifier).setThemeMode(mode);
+          },
+          itemBuilder: (context) => [
+            PopupMenuItem(
+              value: ThemeMode.system,
+              child: Text(l10n?.themeModeSystem ?? 'System'),
+            ),
+            PopupMenuItem(
+              value: ThemeMode.light,
+              child: Text(l10n?.themeModeLight ?? 'Light'),
+            ),
+            PopupMenuItem(
+              value: ThemeMode.dark,
+              child: Text(l10n?.themeModeDark ?? 'Dark'),
+            ),
+          ],
+        ),
         PopupMenuButton<Locale>(
           icon: const Icon(Icons.language),
           tooltip: l10n?.language ?? 'Language',

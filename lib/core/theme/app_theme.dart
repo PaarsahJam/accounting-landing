@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const _primary = Color(0xFF0A74FF);
 
-  static ThemeData lightTheme(TextTheme textTheme) {
+  static TextTheme _textTheme(Brightness brightness) {
+    return GoogleFonts.vazirmatnTextTheme(
+      brightness == Brightness.dark
+          ? ThemeData.dark().textTheme
+          : ThemeData.light().textTheme,
+    );
+  }
+
+  static ThemeData lightTheme() {
     final cs = ColorScheme.fromSeed(
       seedColor: _primary,
       brightness: Brightness.light,
@@ -11,7 +20,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: cs,
-      textTheme: textTheme,
+      textTheme: _textTheme(Brightness.light),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       appBarTheme: AppBarTheme(
         elevation: 0,
@@ -37,7 +46,7 @@ class AppTheme {
     );
   }
 
-  static ThemeData darkTheme(TextTheme textTheme) {
+  static ThemeData darkTheme() {
     final cs = ColorScheme.fromSeed(
       seedColor: _primary,
       brightness: Brightness.dark,
@@ -45,7 +54,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: cs,
-      textTheme: textTheme,
+      textTheme: _textTheme(Brightness.dark),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       appBarTheme: AppBarTheme(
         elevation: 0,
