@@ -856,5 +856,18 @@
   "docReviewDecisionBy": "Վերանայվել է",
   "docReviewDecisionNote": "Նշում",
   "docReviewJournalPreviewTitle": "Մատյանային գրանցման նախադիտում",
-  "docReviewPostAndCreate": "Փակցնել և ստեղծել"
+  "docReviewPostAndCreate": "Փակցնել և ստեղծել",
+  "aiAssistantTitle": "ԱԻ Օգնական",
+  "aiAssistantEmptyMessage": "Հարցրեք ձեր բիզնեսի մասին — եկամուտ, դրամարկղ, հաշիվ-ապրանքագրեր, հաճախորդներ կամ խնդրեք գործողության առաջարկ։",
+  "aiAssistantHint": "Հարցրեք ձեր բիզնեսի մասին…",
+  "aiAssistantSend": "Ուղարկել",
+  "aiAssistantError": "Ներեցեք, չկարողացա պատասխանել։ Փորձեք կրկին։",
+  "aiAssistantYou": "Դուք",
+  "aiAssistantAssistant": "Օգնական",
+  "aiAssistantThinking": "Մտածում եմ…",
+  "aiAssistantConfirmTitle": "Հաստատել ԱԻ գործողությունը",
+  "aiAssistantConfirmBody": "Այս առաջարկը պահանջում է ձեր հաստատումը և կգրանցվի աուդիտի մատյանում՝\n\n{description}",
+  "aiAssistantConfirmAction": "Հաստատել և գրանցել",
+  "aiAssistantActionLogged": "ԱԻ գործողությունը հաստատվել և գրանցվել է աուդիտի մատյանում։",
+  "aiAssistantActionFailed": "ԱԻ գործողությունը հնարավոր չեղավ կատարել։"
 }

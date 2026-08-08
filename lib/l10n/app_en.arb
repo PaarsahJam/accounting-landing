@@ -921,6 +921,18 @@
   "docReviewDecisionBy": "Reviewed by",
   "docReviewDecisionNote": "Note",
   "docReviewJournalPreviewTitle": "Journal Entry Preview",
-  "docReviewPostAndCreate": "Post & Create"
-
+  "docReviewPostAndCreate": "Post & Create",
+  "aiAssistantTitle": "AI Assistant",
+  "aiAssistantEmptyMessage": "Ask about your business — revenue, cash, invoices, customers, or ask me to draft an action.",
+  "aiAssistantHint": "Ask anything about your business…",
+  "aiAssistantSend": "Send",
+  "aiAssistantError": "Sorry, I couldn't process that. Please try again.",
+  "aiAssistantYou": "You",
+  "aiAssistantAssistant": "Assistant",
+  "aiAssistantThinking": "Thinking…",
+  "aiAssistantConfirmTitle": "Confirm AI Action",
+  "aiAssistantConfirmBody": "This suggestion requires your confirmation and will be recorded in the audit trail:\n\n{description}",
+  "aiAssistantConfirmAction": "Confirm & Log",
+  "aiAssistantActionLogged": "AI action confirmed and recorded in the audit trail.",
+  "aiAssistantActionFailed": "The AI action could not be executed."
 }

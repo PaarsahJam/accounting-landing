@@ -140,6 +140,47 @@ final class AiContextCollectorProvider
 String _$aiContextCollectorHash() =>
     r'9c6e7f05c8ddce8ba43c381f70b680aa3e73e90c';
 
+@ProviderFor(aiLiveContext)
+final aiLiveContextProvider = AiLiveContextProvider._();
+
+final class AiLiveContextProvider
+    extends $FunctionalProvider<AiLiveContext, AiLiveContext, AiLiveContext>
+    with $Provider<AiLiveContext> {
+  AiLiveContextProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'aiLiveContextProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$aiLiveContextHash();
+
+  @$internal
+  @override
+  $ProviderElement<AiLiveContext> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  AiLiveContext create(Ref ref) {
+    return aiLiveContext(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(AiLiveContext value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<AiLiveContext>(value),
+    );
+  }
+}
+
+String _$aiLiveContextHash() => r'7074c0c68d7a08fae79adc8e65432284d7e422b9';
+
 @ProviderFor(aiSummarize)
 final aiSummarizeProvider = AiSummarizeProvider._();
 

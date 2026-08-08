@@ -33,7 +33,7 @@ final class EmailControllerProvider
   EmailController create() => EmailController();
 }
 
-String _$emailControllerHash() => r'5f7d237cc422a646f77cab9665531bd9c156b355';
+String _$emailControllerHash() => r'734113868c0cf583ef8c56c926c45137f5f6c202';
 
 abstract class _$EmailController extends $AsyncNotifier<List<EmailMessage>> {
   FutureOr<List<EmailMessage>> build();

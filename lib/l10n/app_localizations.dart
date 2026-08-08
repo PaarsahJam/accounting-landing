@@ -5073,6 +5073,84 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'ثبت و ایجاد'**
   String get docReviewPostAndCreate;
+
+  /// No description provided for @aiAssistantTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دستیار هوشمند'**
+  String get aiAssistantTitle;
+
+  /// No description provided for @aiAssistantEmptyMessage.
+  ///
+  /// In fa, this message translates to:
+  /// **'درباره کسب‌وکارتان بپرسید — درآمد، نقدینگی، فاکتورها، مشتریان، یا بخواهید یک اقدام پیشنهاد دهم.'**
+  String get aiAssistantEmptyMessage;
+
+  /// No description provided for @aiAssistantHint.
+  ///
+  /// In fa, this message translates to:
+  /// **'هر سوالی درباره کسب‌وکارتان بپرسید…'**
+  String get aiAssistantHint;
+
+  /// No description provided for @aiAssistantSend.
+  ///
+  /// In fa, this message translates to:
+  /// **'ارسال'**
+  String get aiAssistantSend;
+
+  /// No description provided for @aiAssistantError.
+  ///
+  /// In fa, this message translates to:
+  /// **'متأسفم، نتوانستم پاسخ دهم. لطفاً دوباره تلاش کنید.'**
+  String get aiAssistantError;
+
+  /// No description provided for @aiAssistantYou.
+  ///
+  /// In fa, this message translates to:
+  /// **'شما'**
+  String get aiAssistantYou;
+
+  /// No description provided for @aiAssistantAssistant.
+  ///
+  /// In fa, this message translates to:
+  /// **'دستیار'**
+  String get aiAssistantAssistant;
+
+  /// No description provided for @aiAssistantThinking.
+  ///
+  /// In fa, this message translates to:
+  /// **'در حال فکر کردن…'**
+  String get aiAssistantThinking;
+
+  /// No description provided for @aiAssistantConfirmTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأیید اقدام هوشمند'**
+  String get aiAssistantConfirmTitle;
+
+  /// No description provided for @aiAssistantConfirmBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'این پیشنهاد نیاز به تأیید شما دارد و در گزارش حسابرسی ثبت می‌شود:\n\n{description}'**
+  String aiAssistantConfirmBody(Object description);
+
+  /// No description provided for @aiAssistantConfirmAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأیید و ثبت'**
+  String get aiAssistantConfirmAction;
+
+  /// No description provided for @aiAssistantActionLogged.
+  ///
+  /// In fa, this message translates to:
+  /// **'اقدام هوشمند تأیید و در گزارش حسابرسی ثبت شد.'**
+  String get aiAssistantActionLogged;
+
+  /// No description provided for @aiAssistantActionFailed.
+  ///
+  /// In fa, this message translates to:
+  /// **'اقدام هوشمند قابل اجرا نبود.'**
+  String get aiAssistantActionFailed;
 }
 
 class _AppLocalizationsDelegate

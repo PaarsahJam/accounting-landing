@@ -2546,4 +2546,48 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get docReviewPostAndCreate => 'ثبت و ایجاد';
+
+  @override
+  String get aiAssistantTitle => 'دستیار هوشمند';
+
+  @override
+  String get aiAssistantEmptyMessage =>
+      'درباره کسب‌وکارتان بپرسید — درآمد، نقدینگی، فاکتورها، مشتریان، یا بخواهید یک اقدام پیشنهاد دهم.';
+
+  @override
+  String get aiAssistantHint => 'هر سوالی درباره کسب‌وکارتان بپرسید…';
+
+  @override
+  String get aiAssistantSend => 'ارسال';
+
+  @override
+  String get aiAssistantError =>
+      'متأسفم، نتوانستم پاسخ دهم. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get aiAssistantYou => 'شما';
+
+  @override
+  String get aiAssistantAssistant => 'دستیار';
+
+  @override
+  String get aiAssistantThinking => 'در حال فکر کردن…';
+
+  @override
+  String get aiAssistantConfirmTitle => 'تأیید اقدام هوشمند';
+
+  @override
+  String aiAssistantConfirmBody(Object description) {
+    return 'این پیشنهاد نیاز به تأیید شما دارد و در گزارش حسابرسی ثبت می‌شود:\n\n$description';
+  }
+
+  @override
+  String get aiAssistantConfirmAction => 'تأیید و ثبت';
+
+  @override
+  String get aiAssistantActionLogged =>
+      'اقدام هوشمند تأیید و در گزارش حسابرسی ثبت شد.';
+
+  @override
+  String get aiAssistantActionFailed => 'اقدام هوشمند قابل اجرا نبود.';
 }

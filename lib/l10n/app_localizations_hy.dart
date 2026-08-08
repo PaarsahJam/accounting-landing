@@ -2572,4 +2572,48 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get docReviewPostAndCreate => 'Փակցնել և ստեղծել';
+
+  @override
+  String get aiAssistantTitle => 'ԱԻ Օգնական';
+
+  @override
+  String get aiAssistantEmptyMessage =>
+      'Հարցրեք ձեր բիզնեսի մասին — եկամուտ, դրամարկղ, հաշիվ-ապրանքագրեր, հաճախորդներ կամ խնդրեք գործողության առաջարկ։';
+
+  @override
+  String get aiAssistantHint => 'Հարցրեք ձեր բիզնեսի մասին…';
+
+  @override
+  String get aiAssistantSend => 'Ուղարկել';
+
+  @override
+  String get aiAssistantError => 'Ներեցեք, չկարողացա պատասխանել։ Փորձեք կրկին։';
+
+  @override
+  String get aiAssistantYou => 'Դուք';
+
+  @override
+  String get aiAssistantAssistant => 'Օգնական';
+
+  @override
+  String get aiAssistantThinking => 'Մտածում եմ…';
+
+  @override
+  String get aiAssistantConfirmTitle => 'Հաստատել ԱԻ գործողությունը';
+
+  @override
+  String aiAssistantConfirmBody(Object description) {
+    return 'Այս առաջարկը պահանջում է ձեր հաստատումը և կգրանցվի աուդիտի մատյանում՝\n\n$description';
+  }
+
+  @override
+  String get aiAssistantConfirmAction => 'Հաստատել և գրանցել';
+
+  @override
+  String get aiAssistantActionLogged =>
+      'ԱԻ գործողությունը հաստատվել և գրանցվել է աուդիտի մատյանում։';
+
+  @override
+  String get aiAssistantActionFailed =>
+      'ԱԻ գործողությունը հնարավոր չեղավ կատարել։';
 }

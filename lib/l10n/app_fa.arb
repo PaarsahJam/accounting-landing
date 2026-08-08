@@ -876,6 +876,18 @@
   "docReviewDecisionBy": "بررسیشده توسط",
   "docReviewDecisionNote": "یادداشت",
   "docReviewJournalPreviewTitle": "پیشنمایش سند حسابداری",
-  "docReviewPostAndCreate": "ثبت و ایجاد"
-
+  "docReviewPostAndCreate": "ثبت و ایجاد",
+  "aiAssistantTitle": "دستیار هوشمند",
+  "aiAssistantEmptyMessage": "درباره کسب‌وکارتان بپرسید — درآمد، نقدینگی، فاکتورها، مشتریان، یا بخواهید یک اقدام پیشنهاد دهم.",
+  "aiAssistantHint": "هر سوالی درباره کسب‌وکارتان بپرسید…",
+  "aiAssistantSend": "ارسال",
+  "aiAssistantError": "متأسفم، نتوانستم پاسخ دهم. لطفاً دوباره تلاش کنید.",
+  "aiAssistantYou": "شما",
+  "aiAssistantAssistant": "دستیار",
+  "aiAssistantThinking": "در حال فکر کردن…",
+  "aiAssistantConfirmTitle": "تأیید اقدام هوشمند",
+  "aiAssistantConfirmBody": "این پیشنهاد نیاز به تأیید شما دارد و در گزارش حسابرسی ثبت می‌شود:\n\n{description}",
+  "aiAssistantConfirmAction": "تأیید و ثبت",
+  "aiAssistantActionLogged": "اقدام هوشمند تأیید و در گزارش حسابرسی ثبت شد.",
+  "aiAssistantActionFailed": "اقدام هوشمند قابل اجرا نبود."
 }

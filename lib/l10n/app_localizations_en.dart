@@ -2555,4 +2555,48 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get docReviewPostAndCreate => 'Post & Create';
+
+  @override
+  String get aiAssistantTitle => 'AI Assistant';
+
+  @override
+  String get aiAssistantEmptyMessage =>
+      'Ask about your business — revenue, cash, invoices, customers, or ask me to draft an action.';
+
+  @override
+  String get aiAssistantHint => 'Ask anything about your business…';
+
+  @override
+  String get aiAssistantSend => 'Send';
+
+  @override
+  String get aiAssistantError =>
+      'Sorry, I couldn\'t process that. Please try again.';
+
+  @override
+  String get aiAssistantYou => 'You';
+
+  @override
+  String get aiAssistantAssistant => 'Assistant';
+
+  @override
+  String get aiAssistantThinking => 'Thinking…';
+
+  @override
+  String get aiAssistantConfirmTitle => 'Confirm AI Action';
+
+  @override
+  String aiAssistantConfirmBody(Object description) {
+    return 'This suggestion requires your confirmation and will be recorded in the audit trail:\n\n$description';
+  }
+
+  @override
+  String get aiAssistantConfirmAction => 'Confirm & Log';
+
+  @override
+  String get aiAssistantActionLogged =>
+      'AI action confirmed and recorded in the audit trail.';
+
+  @override
+  String get aiAssistantActionFailed => 'The AI action could not be executed.';
 }

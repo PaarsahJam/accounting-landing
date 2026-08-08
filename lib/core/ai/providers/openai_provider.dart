@@ -25,10 +25,15 @@ class OpenAiProvider implements AiProvider {
 
   /// Creates an instance reading the API key from `--dart-define=OPENAI_API_KEY=...`.
   ///
+  /// The base URL and model can be overridden with
+  /// `--dart-define=OPENAI_BASE_URL=...` and `--dart-define=OPENAI_MODEL=...`.
+  ///
   /// Falls back to [FakeAiProvider] if the key is empty in debug mode;
   /// throws in release mode so the build fails early.
   factory OpenAiProvider.fromEnv() {
     const apiKey = String.fromEnvironment('OPENAI_API_KEY');
+    const baseUrl = String.fromEnvironment('OPENAI_BASE_URL');
+    const model = String.fromEnvironment('OPENAI_MODEL');
     if (apiKey.isEmpty) {
       if (kReleaseMode) {
         throw ArgumentError(
@@ -37,7 +42,11 @@ class OpenAiProvider implements AiProvider {
       }
       return OpenAiProvider(apiKey: 'sk-debug-fallback');
     }
-    return OpenAiProvider(apiKey: apiKey);
+    return OpenAiProvider(
+      apiKey: apiKey,
+      baseUrl: baseUrl.isEmpty ? _defaultBaseUrl : baseUrl,
+      model: model.isEmpty ? _defaultModel : model,
+    );
   }
 
   static const String _defaultBaseUrl = 'https://api.openai.com/v1';
