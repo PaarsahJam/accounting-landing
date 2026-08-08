@@ -12,6 +12,7 @@ import '../../dashboard_metrics/presentation/widgets/activity_timeline.dart';
 import '../../dashboard_metrics/presentation/widgets/dashboard_metric_card.dart';
 import '../../dashboard_metrics/presentation/widgets/dashboard_quick_actions.dart';
 import '../../dashboard_metrics/presentation/widgets/monthly_bar_chart.dart';
+import '../../guidance/presentation/guidance_tour_keys.dart';
 
 class DashboardPage extends ConsumerWidget {
   const DashboardPage({super.key});
@@ -78,6 +79,7 @@ class DashboardPage extends ConsumerWidget {
                     SectionHeader(
                       title: l10n.dashboardOverview,
                       subtitle: l10n.dashboardFinancialSubtitle,
+                      key: GuidanceTourKeys.dashboardHeader,
                     ),
                     const SizedBox(height: 16),
                     DashboardQuickActions(l10n: l10n),
@@ -97,6 +99,7 @@ class DashboardPage extends ConsumerWidget {
                                   : double.infinity,
                               child: DashboardMetricCard(
                                 title: l10n.dashboardAccountsReceivable,
+                                key: GuidanceTourKeys.metricAccountsReceivable,
                                 icon: Icons.arrow_downward,
                                 accent: Colors.green,
                                 metrics: [
@@ -251,6 +254,7 @@ class DashboardPage extends ConsumerWidget {
                     ],
                     const SizedBox(height: 24),
                     Card(
+                      key: GuidanceTourKeys.profitOverview,
                       child: Padding(
                         padding: const EdgeInsets.all(16),
                         child: Column(

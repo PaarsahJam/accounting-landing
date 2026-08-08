@@ -2599,4 +2599,94 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aiAssistantActionFailed => 'The AI action could not be executed.';
+
+  @override
+  String get guidanceTourNext => 'Next';
+
+  @override
+  String get guidanceTourSkip => 'Skip';
+
+  @override
+  String get guidanceTourDone => 'Done';
+
+  @override
+  String guidanceTourStepCount(Object current, Object total) {
+    return 'Step $current of $total';
+  }
+
+  @override
+  String get guidanceWelcomeTitle => 'Welcome to your dashboard';
+
+  @override
+  String get guidanceWelcomeBody =>
+      'This is your financial command center. Everything you record — invoices, bills, payments, and inventory — shows up here.';
+
+  @override
+  String get guidanceQuickActionsTitle => 'Quick actions';
+
+  @override
+  String get guidanceQuickActionsBody =>
+      'Jump straight into common tasks, like creating a sales invoice, recording a payment, or viewing the journal.';
+
+  @override
+  String get guidanceMetricsTitle => 'Key metrics';
+
+  @override
+  String get guidanceMetricsBody =>
+      'Monitor accounts receivable, accounts payable, inventory, and cash at a glance.';
+
+  @override
+  String get guidancePerformanceTitle => 'Performance at a glance';
+
+  @override
+  String get guidancePerformanceBody =>
+      'Charts and the profit overview show your revenue, expenses, and profitability over time.';
+
+  @override
+  String get guidanceNavigationTitle => 'Main navigation';
+
+  @override
+  String get guidanceNavigationBody =>
+      'Use this bar to explore Sales, Purchasing, Banking, and Reports.';
+
+  @override
+  String get guidanceBankingTitle => 'Banking';
+
+  @override
+  String get guidanceBankingBody =>
+      'Manage bank accounts and reconcile statements from here.';
+
+  @override
+  String get guidanceReportsTitle => 'Reports';
+
+  @override
+  String get guidanceReportsBody =>
+      'Open financial reports, the general ledger, and the journal explorer here.';
+
+  @override
+  String get guidanceSearchTitle => 'Global search';
+
+  @override
+  String get guidanceSearchBody => 'Search the entire app from here.';
+
+  @override
+  String get guidanceLanguageTitle => 'Language & theme';
+
+  @override
+  String get guidanceLanguageBody =>
+      'Switch between فارسی, English, and Հայերեն, and change the light/dark theme.';
+
+  @override
+  String get guidanceNotificationsTitle => 'Notifications';
+
+  @override
+  String get guidanceNotificationsBody =>
+      'Notifications keep you up to date on overdue items and approvals.';
+
+  @override
+  String get guidanceReadyTitle => 'You\'re all set';
+
+  @override
+  String get guidanceReadyBody =>
+      'Whenever you need help, open the menu and choose AI Assistant — it can answer questions about your business. You\'re ready to get going!';
 }

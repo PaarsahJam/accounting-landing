@@ -4,6 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/l10n/locale_setting_provider.dart';
 import '../../core/theme/theme_mode_provider.dart';
+import '../../features/guidance/presentation/guidance_tour_keys.dart';
+import '../../features/guidance/presentation/guidance_tour_overlay.dart';
+import '../../features/guidance/presentation/guidance_tour_trigger.dart';
 import '../../features/notifications/presentation/notification_bell.dart';
 import '../../l10n/app_localizations.dart';
 import '../extensions/responsive_breakpoint.dart';
@@ -177,35 +180,42 @@ class _AppShellState extends ConsumerState<AppShell> {
     final activeIndex = _activeIndex(location);
     final useRail = ResponsiveBreakpoint(context).useNavigationRail;
 
-    return Scaffold(
-      key: _scaffoldKey,
-      drawer: useRail ? null : _AppDrawer(
-        primaryDestinations: _primaryDestinations,
-        sections: _drawerSections,
-        activeIndex: activeIndex,
-      ),
-      appBar: useRail ? _GlobalAppBar() : null,
-      body: Column(
-        children: [
-          const OfflineBanner(),
-          Expanded(
-            child: Row(
-              children: [
-                if (useRail)
-                  _NavigationRail(
-                    destinations: _primaryDestinations,
-                    activeIndex: activeIndex,
-                  ),
-                Expanded(child: widget.child),
-              ],
-            ),
+    return Stack(
+      children: [
+        Scaffold(
+          key: _scaffoldKey,
+          drawer: useRail ? null : _AppDrawer(
+            primaryDestinations: _primaryDestinations,
+            sections: _drawerSections,
+            activeIndex: activeIndex,
           ),
-        ],
-      ),
-      bottomNavigationBar: useRail ? null : _BottomNavBar(
-        destinations: _primaryDestinations,
-        activeIndex: activeIndex,
-      ),
+          appBar: useRail ? _GlobalAppBar() : null,
+          body: Column(
+            children: [
+              const OfflineBanner(),
+              Expanded(
+                child: Row(
+                  children: [
+                    if (useRail)
+                      _NavigationRail(
+                        destinations: _primaryDestinations,
+                        activeIndex: activeIndex,
+                      ),
+                    Expanded(
+                      child: GuidanceTourTrigger(child: widget.child),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          bottomNavigationBar: useRail ? null : _BottomNavBar(
+            destinations: _primaryDestinations,
+            activeIndex: activeIndex,
+          ),
+        ),
+        const GuidanceTourOverlay(),
+      ],
     );
   }
 }
@@ -232,8 +242,14 @@ class _NavigationRail extends StatelessWidget {
       destinations: destinations.map((d) {
         final sel = destinations.indexOf(d) == activeIndex;
         return NavigationRailDestination(
-          icon: Icon(d.icon),
-          selectedIcon: Icon(d.activeIcon),
+          icon: KeyedSubtree(
+            key: GuidanceTourKeys.forRoute(d.route),
+            child: Icon(d.icon),
+          ),
+          selectedIcon: KeyedSubtree(
+            key: GuidanceTourKeys.forRoute(d.route),
+            child: Icon(d.activeIcon),
+          ),
           label: Text(d.label),
           indicatorColor: sel ? cs.primaryContainer : null,
         );
@@ -260,8 +276,14 @@ class _BottomNavBar extends StatelessWidget {
       },
       destinations: destinations.map((d) {
         return NavigationDestination(
-          icon: Icon(d.icon),
-          selectedIcon: Icon(d.activeIcon),
+          icon: KeyedSubtree(
+            key: GuidanceTourKeys.forRoute(d.route),
+            child: Icon(d.icon),
+          ),
+          selectedIcon: KeyedSubtree(
+            key: GuidanceTourKeys.forRoute(d.route),
+            child: Icon(d.activeIcon),
+          ),
           label: d.label,
         );
       }).toList(),
@@ -462,6 +484,7 @@ class _GlobalAppBar extends ConsumerWidget implements PreferredSizeWidget {
           ],
         ),
         PopupMenuButton<Locale>(
+          key: GuidanceTourKeys.languageButton,
           icon: const Icon(Icons.language),
           tooltip: l10n?.language ?? 'Language',
           initialValue: locale,
@@ -475,10 +498,11 @@ class _GlobalAppBar extends ConsumerWidget implements PreferredSizeWidget {
           ],
         ),
         IconButton(
+          key: GuidanceTourKeys.searchButton,
           icon: const Icon(Icons.search),
           onPressed: () => context.push('/search'),
         ),
-        const NotificationBell(),
+        NotificationBell(key: GuidanceTourKeys.notificationsBell),
       ],
     );
   }

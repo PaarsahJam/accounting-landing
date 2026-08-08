@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/plugin/plugin_providers.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../guidance/presentation/guidance_tour_keys.dart';
 
 class DashboardQuickActions extends ConsumerWidget {
   const DashboardQuickActions({super.key, required this.l10n});
@@ -16,6 +17,7 @@ class DashboardQuickActions extends ConsumerWidget {
 
     final builtinActions = [
       _QuickAction(
+        key: GuidanceTourKeys.quickActionSalesInvoice,
         title: l10n.dashboardCreateSalesInvoice,
         icon: Icons.receipt_long,
         route: '/sales-invoices',
@@ -113,6 +115,7 @@ class DashboardQuickActions extends ConsumerWidget {
             label: action.title,
             button: true,
             child: SizedBox(
+              key: action.key,
               width: 180,
               child: Card(
                 child: InkWell(
@@ -146,11 +149,13 @@ class DashboardQuickActions extends ConsumerWidget {
 
 class _QuickAction {
   const _QuickAction({
+    this.key,
     required this.title,
     required this.icon,
     required this.route,
   });
 
+  final GlobalKey? key;
   final String title;
   final IconData icon;
   final String route;

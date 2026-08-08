@@ -2590,4 +2590,94 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get aiAssistantActionFailed => 'اقدام هوشمند قابل اجرا نبود.';
+
+  @override
+  String get guidanceTourNext => 'بعدی';
+
+  @override
+  String get guidanceTourSkip => 'رد شدن';
+
+  @override
+  String get guidanceTourDone => 'تمام';
+
+  @override
+  String guidanceTourStepCount(Object current, Object total) {
+    return '$current از $total';
+  }
+
+  @override
+  String get guidanceWelcomeTitle => 'به داشبورد خوش آمدید';
+
+  @override
+  String get guidanceWelcomeBody =>
+      'این مرکز فرماندهی مالی شماست. هر آنچه ثبت کنید — فاکتور، قبض، پرداخت و موجودی — اینجا نمایش داده می‌شود.';
+
+  @override
+  String get guidanceQuickActionsTitle => 'دسترسی سریع';
+
+  @override
+  String get guidanceQuickActionsBody =>
+      'با این دکمه‌ها مستقیم به کارهای رایج بروید؛ مثل صدور فاکتور فروش، ثبت پرداخت یا مشاهده دفتر روزنامه.';
+
+  @override
+  String get guidanceMetricsTitle => 'شاخص‌های کلیدی';
+
+  @override
+  String get guidanceMetricsBody =>
+      'حساب‌های دریافتنی، حساب‌های پرداختنی، موجودی انبار و وجه نقد را در یک نگاه ببینید.';
+
+  @override
+  String get guidancePerformanceTitle => 'عملکرد';
+
+  @override
+  String get guidancePerformanceBody =>
+      'نمودارها و خلاصه سود، درآمد، هزینه و سودآوری شما را در طول زمان نشان می‌دهند.';
+
+  @override
+  String get guidanceNavigationTitle => 'ناوبری اصلی';
+
+  @override
+  String get guidanceNavigationBody =>
+      'از این نوار برای رفتن به بخش‌های فروش، خرید، بانکداری و گزارش‌ها استفاده کنید.';
+
+  @override
+  String get guidanceBankingTitle => 'بانکداری';
+
+  @override
+  String get guidanceBankingBody =>
+      'حساب‌های بانکی را مدیریت و صورت‌های بانکی را از اینجا تطبیق دهید.';
+
+  @override
+  String get guidanceReportsTitle => 'گزارش‌ها';
+
+  @override
+  String get guidanceReportsBody =>
+      'گزارش‌های مالی، دفتر کل و جست‌وجوی اسناد را از اینجا باز کنید.';
+
+  @override
+  String get guidanceSearchTitle => 'جست‌وجوی سراسری';
+
+  @override
+  String get guidanceSearchBody => 'از اینجا در کل برنامه جست‌وجو کنید.';
+
+  @override
+  String get guidanceLanguageTitle => 'زبان و ظاهر';
+
+  @override
+  String get guidanceLanguageBody =>
+      'بین فارسی، English و Հայերեն جابه‌جا شوید و حالت روشن/تاریک را تغییر دهید.';
+
+  @override
+  String get guidanceNotificationsTitle => 'اعلان‌ها';
+
+  @override
+  String get guidanceNotificationsBody =>
+      'اعلان‌ها شما را از اقلام معوق و تأییدیه‌ها به‌روز نگه می‌دارند.';
+
+  @override
+  String get guidanceReadyTitle => 'همه‌چیز آماده است';
+
+  @override
+  String get guidanceReadyBody =>
+      'هر وقت به کمک نیاز داشتید، منوی برنامه را باز و گزینه دستیار هوشمند (AI Assistant) را انتخاب کنید؛ درباره کسب‌وکارتان پاسخ می‌دهد. حالا آماده شروع هستید!';
 }

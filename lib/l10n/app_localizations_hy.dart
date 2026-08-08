@@ -2616,4 +2616,94 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get aiAssistantActionFailed =>
       'ԱԻ գործողությունը հնարավոր չեղավ կատարել։';
+
+  @override
+  String get guidanceTourNext => 'Հաջորդը';
+
+  @override
+  String get guidanceTourSkip => 'Բաց թողնել';
+
+  @override
+  String get guidanceTourDone => 'Ավարտել';
+
+  @override
+  String guidanceTourStepCount(Object current, Object total) {
+    return 'Քայլ $current՝ $total-ից';
+  }
+
+  @override
+  String get guidanceWelcomeTitle => 'Բարի գալուստ ձեր վահանակ';
+
+  @override
+  String get guidanceWelcomeBody =>
+      'Սա ձեր ֆինանսական հրամանատարական կենտրոնն է։ Այն ամենը, ինչ գրանցում եք՝ հաշիվ-ապրանքագրեր, վճարումներ և պաշարներ, ցուցադրվում է այստեղ։';
+
+  @override
+  String get guidanceQuickActionsTitle => 'Արագ գործողություններ';
+
+  @override
+  String get guidanceQuickActionsBody =>
+      'Անմիջապես անցեք սովորական գործողություններին՝ վաճառքի հաշիվ-ապրանքագիր ստեղծելը, վճարում գրանցելը կամ մատյանը դիտելը։';
+
+  @override
+  String get guidanceMetricsTitle => 'Հիմնական ցուցիչներ';
+
+  @override
+  String get guidanceMetricsBody =>
+      'Հետևեք դեբիտորական և կրեդիտորական պարտքերին, պաշարներին ու կանխիկ միջոցներին մի հայացքով։';
+
+  @override
+  String get guidancePerformanceTitle => 'Կատարողականը';
+
+  @override
+  String get guidancePerformanceBody =>
+      'Դիագրամներն ու շահույթի ամփոփումը ցույց են տալիս ձեր եկամուտը, ծախսերը և շահութաբերությունը ժամանակի ընթացքում։';
+
+  @override
+  String get guidanceNavigationTitle => 'Հիմնական նավիգացիա';
+
+  @override
+  String get guidanceNavigationBody =>
+      'Այս վահանակից ուսումնասիրեք Վաճառք, Գնում, Բանկային և Հաշվետվություններ բաժինները։';
+
+  @override
+  String get guidanceBankingTitle => 'Բանկային';
+
+  @override
+  String get guidanceBankingBody =>
+      'Կառավարեք բանկային հաշիվները և համադրեք քաղվածքները այստեղից։';
+
+  @override
+  String get guidanceReportsTitle => 'Հաշվետվություններ';
+
+  @override
+  String get guidanceReportsBody =>
+      'Այստեղից բացեք ֆինանսական հաշվետվությունները, գլխավոր մատյանը և մատյան որոնողը։';
+
+  @override
+  String get guidanceSearchTitle => 'Գլոբալ որոնում';
+
+  @override
+  String get guidanceSearchBody => 'Որոնեք ամբողջ հավելվածում այստեղից։';
+
+  @override
+  String get guidanceLanguageTitle => 'Լեզու և թեմա';
+
+  @override
+  String get guidanceLanguageBody =>
+      'Անցեք ֆարսի, անգլերենի կամ հայերենի միջև, և փոխեք բաց/մուգ թեման։';
+
+  @override
+  String get guidanceNotificationsTitle => 'Ծանուցումներ';
+
+  @override
+  String get guidanceNotificationsBody =>
+      'Ծանուցումները ձեզ տեղյակ են պահում ժամկետանց և հաստատման սպասող հարցերի մասին։';
+
+  @override
+  String get guidanceReadyTitle => 'Ամեն ինչ պատրաստ է';
+
+  @override
+  String get guidanceReadyBody =>
+      'Երբ օգնության կարիք ունենաք, բացեք մենյուն և ընտրեք AI Assistant-ը. այն կարող է պատասխանել ձեր բիզնեսի մասին հարցերին։ Այժմ պատրաստ եք սկսել։';
 }

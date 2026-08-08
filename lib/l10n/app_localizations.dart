@@ -5151,6 +5151,162 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'اقدام هوشمند قابل اجرا نبود.'**
   String get aiAssistantActionFailed;
+
+  /// No description provided for @guidanceTourNext.
+  ///
+  /// In fa, this message translates to:
+  /// **'بعدی'**
+  String get guidanceTourNext;
+
+  /// No description provided for @guidanceTourSkip.
+  ///
+  /// In fa, this message translates to:
+  /// **'رد شدن'**
+  String get guidanceTourSkip;
+
+  /// No description provided for @guidanceTourDone.
+  ///
+  /// In fa, this message translates to:
+  /// **'تمام'**
+  String get guidanceTourDone;
+
+  /// No description provided for @guidanceTourStepCount.
+  ///
+  /// In fa, this message translates to:
+  /// **'{current} از {total}'**
+  String guidanceTourStepCount(Object current, Object total);
+
+  /// No description provided for @guidanceWelcomeTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'به داشبورد خوش آمدید'**
+  String get guidanceWelcomeTitle;
+
+  /// No description provided for @guidanceWelcomeBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'این مرکز فرماندهی مالی شماست. هر آنچه ثبت کنید — فاکتور، قبض، پرداخت و موجودی — اینجا نمایش داده می‌شود.'**
+  String get guidanceWelcomeBody;
+
+  /// No description provided for @guidanceQuickActionsTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دسترسی سریع'**
+  String get guidanceQuickActionsTitle;
+
+  /// No description provided for @guidanceQuickActionsBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'با این دکمه‌ها مستقیم به کارهای رایج بروید؛ مثل صدور فاکتور فروش، ثبت پرداخت یا مشاهده دفتر روزنامه.'**
+  String get guidanceQuickActionsBody;
+
+  /// No description provided for @guidanceMetricsTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'شاخص‌های کلیدی'**
+  String get guidanceMetricsTitle;
+
+  /// No description provided for @guidanceMetricsBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'حساب‌های دریافتنی، حساب‌های پرداختنی، موجودی انبار و وجه نقد را در یک نگاه ببینید.'**
+  String get guidanceMetricsBody;
+
+  /// No description provided for @guidancePerformanceTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'عملکرد'**
+  String get guidancePerformanceTitle;
+
+  /// No description provided for @guidancePerformanceBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'نمودارها و خلاصه سود، درآمد، هزینه و سودآوری شما را در طول زمان نشان می‌دهند.'**
+  String get guidancePerformanceBody;
+
+  /// No description provided for @guidanceNavigationTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ناوبری اصلی'**
+  String get guidanceNavigationTitle;
+
+  /// No description provided for @guidanceNavigationBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'از این نوار برای رفتن به بخش‌های فروش، خرید، بانکداری و گزارش‌ها استفاده کنید.'**
+  String get guidanceNavigationBody;
+
+  /// No description provided for @guidanceBankingTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'بانکداری'**
+  String get guidanceBankingTitle;
+
+  /// No description provided for @guidanceBankingBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'حساب‌های بانکی را مدیریت و صورت‌های بانکی را از اینجا تطبیق دهید.'**
+  String get guidanceBankingBody;
+
+  /// No description provided for @guidanceReportsTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'گزارش‌ها'**
+  String get guidanceReportsTitle;
+
+  /// No description provided for @guidanceReportsBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'گزارش‌های مالی، دفتر کل و جست‌وجوی اسناد را از اینجا باز کنید.'**
+  String get guidanceReportsBody;
+
+  /// No description provided for @guidanceSearchTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'جست‌وجوی سراسری'**
+  String get guidanceSearchTitle;
+
+  /// No description provided for @guidanceSearchBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'از اینجا در کل برنامه جست‌وجو کنید.'**
+  String get guidanceSearchBody;
+
+  /// No description provided for @guidanceLanguageTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'زبان و ظاهر'**
+  String get guidanceLanguageTitle;
+
+  /// No description provided for @guidanceLanguageBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'بین فارسی، English و Հայերեն جابه‌جا شوید و حالت روشن/تاریک را تغییر دهید.'**
+  String get guidanceLanguageBody;
+
+  /// No description provided for @guidanceNotificationsTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'اعلان‌ها'**
+  String get guidanceNotificationsTitle;
+
+  /// No description provided for @guidanceNotificationsBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'اعلان‌ها شما را از اقلام معوق و تأییدیه‌ها به‌روز نگه می‌دارند.'**
+  String get guidanceNotificationsBody;
+
+  /// No description provided for @guidanceReadyTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'همه‌چیز آماده است'**
+  String get guidanceReadyTitle;
+
+  /// No description provided for @guidanceReadyBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'هر وقت به کمک نیاز داشتید، منوی برنامه را باز و گزینه دستیار هوشمند (AI Assistant) را انتخاب کنید؛ درباره کسب‌وکارتان پاسخ می‌دهد. حالا آماده شروع هستید!'**
+  String get guidanceReadyBody;
 }
 
 class _AppLocalizationsDelegate
