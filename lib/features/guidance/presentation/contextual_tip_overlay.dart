@@ -2,28 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../l10n/app_localizations.dart';
-import '../domain/guidance_tour.dart';
-import '../guidance_tour_provider.dart';
+import '../domain/contextual_tip.dart';
+import '../domain/contextual_tip_controller.dart';
+import '../guidance_tips_provider.dart';
 import 'guidance_bubble.dart';
 
-/// Full-screen overlay that dims the app, highlights the current tour target
-/// and shows a tooltip bubble with Next / Done / Skip controls.
+/// Full-screen overlay for the first-time contextual tips.
 ///
-/// It is rendered above the app shell (as a Stack sibling) so it can point at
-/// the navigation rail, the app bar and the page content at the same time.
-class GuidanceTourOverlay extends ConsumerStatefulWidget {
-  const GuidanceTourOverlay({super.key});
+/// Rendered above the app shell (as a Stack sibling) exactly like
+/// [GuidanceTourOverlay], it dims the app, highlights the target section and
+/// shows a "Got it" bubble. Dismissing a tip persists it so it never shows
+/// again for the same concept.
+class ContextualTipOverlay extends ConsumerStatefulWidget {
+  const ContextualTipOverlay({super.key});
 
   @override
-  ConsumerState<GuidanceTourOverlay> createState() =>
-      _GuidanceTourOverlayState();
+  ConsumerState<ContextualTipOverlay> createState() =>
+      _ContextualTipOverlayState();
 }
 
-class _GuidanceTourOverlayState extends ConsumerState<GuidanceTourOverlay> {
+class _ContextualTipOverlayState extends ConsumerState<ContextualTipOverlay> {
   final GlobalKey _bubbleKey = GlobalKey();
-  late final GuidanceTourController _controller;
+  late final ContextualTipController _controller;
 
-  GuidanceTourStep? _lastStep;
+  ContextualTip? _lastTip;
   Rect? _highlightRect;
   Size? _bubbleSize;
   Rect? _bubbleRect;
@@ -33,7 +35,7 @@ class _GuidanceTourOverlayState extends ConsumerState<GuidanceTourOverlay> {
   @override
   void initState() {
     super.initState();
-    _controller = ref.read(guidanceTourControllerProvider);
+    _controller = ref.read(contextualTipControllerProvider);
     _controller.addListener(_onControllerChanged);
   }
 
@@ -51,53 +53,37 @@ class _GuidanceTourOverlayState extends ConsumerState<GuidanceTourOverlay> {
 
   @override
   Widget build(BuildContext context) {
-    final controller = ref.watch(guidanceTourControllerProvider);
-    final step = controller.currentStep;
-    if (step == null) {
+    final controller = ref.watch(contextualTipControllerProvider);
+    final tip = controller.currentTip;
+    if (tip == null) {
       return const SizedBox.shrink();
     }
 
-    if (!identical(step, _lastStep)) {
-      _lastStep = step;
+    if (!identical(tip, _lastTip)) {
+      _lastTip = tip;
       _highlightRect = null;
       _bubbleSize = null;
       _bubbleRect = null;
       _arrowDirection = GuidanceArrowDirection.none;
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        _measureTarget(step);
+        _measureTarget(tip);
         _measureBubble();
       });
     }
 
     final l10n = AppLocalizations.of(context)!;
-    final scheme = Theme.of(context).colorScheme;
     final bubble = GuidanceBubble(
       key: _bubbleKey,
-      title: step.title,
-      body: step.body,
-      stepCountLabel: l10n.guidanceTourStepCount(
-        controller.currentIndex + 1,
-        controller.steps.length,
-      ),
+      title: tip.title,
+      body: tip.body,
       arrowDirection: _arrowDirection,
       arrowOffsetX: _arrowOffsetX,
       footer: Row(
         children: [
-          TextButton(
-            onPressed: _finish,
-            child: Text(
-              l10n.guidanceTourSkip,
-              style: TextStyle(color: scheme.onInverseSurface),
-            ),
-          ),
           const Spacer(),
           FilledButton(
-            onPressed: controller.isLast ? _finish : controller.next,
-            child: Text(
-              controller.isLast
-                  ? l10n.guidanceTourDone
-                  : l10n.guidanceTourNext,
-            ),
+            onPressed: _dismissCurrent,
+            child: Text(l10n.conceptHelpGotIt),
           ),
         ],
       ),
@@ -126,8 +112,8 @@ class _GuidanceTourOverlayState extends ConsumerState<GuidanceTourOverlay> {
     );
   }
 
-  Future<void> _measureTarget(GuidanceTourStep step) async {
-    final ctx = step.targetKey?.currentContext;
+  Future<void> _measureTarget(ContextualTip tip) async {
+    final ctx = tip.targetKey?.currentContext;
     if (ctx == null || !mounted) {
       _highlightRect = null;
       _computeLayout();
@@ -140,7 +126,7 @@ class _GuidanceTourOverlayState extends ConsumerState<GuidanceTourOverlay> {
         alignment: 0.5,
       );
     } catch (_) {
-      // Ignore: the target may live in a non-scrollable area (e.g. nav rail).
+      // Ignore: the target may live in a non-scrollable area.
     }
     if (!mounted) return;
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -155,18 +141,7 @@ class _GuidanceTourOverlayState extends ConsumerState<GuidanceTourOverlay> {
           render.size.width,
           render.size.height,
         );
-        final pad = step.highlightPadding;
-        final inflated = Rect.fromLTRB(
-          raw.left - pad.left,
-          raw.top - pad.top,
-          raw.right + pad.right,
-          raw.bottom + pad.bottom,
-        ).intersect(Offset.zero & screen);
-        if (inflated.width <= 0 || inflated.height <= 0) {
-          _highlightRect = null;
-        } else {
-          _highlightRect = inflated;
-        }
+        _highlightRect = raw.intersect(Offset.zero & screen);
       } else {
         _highlightRect = null;
       }
@@ -240,9 +215,11 @@ class _GuidanceTourOverlayState extends ConsumerState<GuidanceTourOverlay> {
     return Rect.fromLTWH(left, top, w, h);
   }
 
-  void _finish() {
-    ref.read(guidanceTourControllerProvider).stop();
-    markGuidanceTourSeen(ref);
+  void _dismissCurrent() {
+    final tip = _controller.currentTip;
+    if (tip != null) {
+      ref.read(dismissedTipsProvider.notifier).dismiss(tip.id);
+    }
+    _controller.next();
   }
 }
-

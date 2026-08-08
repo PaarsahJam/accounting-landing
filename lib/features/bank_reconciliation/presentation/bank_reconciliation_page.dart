@@ -5,6 +5,9 @@ import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
 import '../../../shared/widgets/app_loading_state.dart';
 import '../../../shared/widgets/responsive_page_scaffold.dart';
+import '../../guidance/domain/concept.dart';
+import '../../guidance/presentation/concept_help_button.dart';
+import '../../guidance/presentation/guidance_tour_keys.dart';
 import '../domain/bank_reconciliation_controller.dart';
 import '../domain/bank_reconciliation_models.dart';
 
@@ -19,6 +22,7 @@ class BankReconciliationPage extends ConsumerWidget {
 
     return ResponsivePageScaffold(
       title: l10n.bankReconciliationPageTitle,
+      titleKey: GuidanceTourKeys.bankReconciliationHeader,
       child: stateAsync.when(
         loading: () => const AppLoadingState(message: 'Loading reconciliation'),
         error: (error, stackTrace) => AppErrorState(
@@ -74,9 +78,19 @@ class BankReconciliationPage extends ConsumerWidget {
                         },
                       ),
                       const SizedBox(height: 16),
-                      Text(
-                        l10n.bankReconciliationSummary,
-                        style: Theme.of(context).textTheme.titleMedium,
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              l10n.bankReconciliationSummary,
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                          ),
+                          ConceptHelpButton(
+                            conceptId: ConceptIds.bankReconciliation,
+                            label: l10n.conceptHelpWhatDoesThisMean,
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 8),
                       Wrap(

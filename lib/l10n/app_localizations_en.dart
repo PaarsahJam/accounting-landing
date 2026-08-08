@@ -2689,4 +2689,45 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get guidanceReadyBody =>
       'Whenever you need help, open the menu and choose AI Assistant — it can answer questions about your business. You\'re ready to get going!';
+
+  @override
+  String get conceptHelpWhatDoesThisMean => 'What does this mean?';
+
+  @override
+  String get conceptHelpGotIt => 'Got it';
+
+  @override
+  String get conceptInvoiceTitle => 'Invoice';
+
+  @override
+  String get conceptInvoiceBody =>
+      'An invoice is a bill you send to a customer for goods or services you provided. It tells them what they owe you and when it\'s due.';
+
+  @override
+  String get conceptReceivableTitle => 'Accounts receivable';
+
+  @override
+  String get conceptReceivableBody =>
+      'Accounts receivable is the money customers still owe you for invoices you\'ve already sent. It shows what\'s coming in and helps you chase overdue payments.';
+
+  @override
+  String get conceptProfitTitle => 'Profit';
+
+  @override
+  String get conceptProfitBody =>
+      'Profit is what\'s left after you subtract your expenses from your revenue. Gross profit is before certain costs; net profit is your final bottom line.';
+
+  @override
+  String get conceptPaymentTitle => 'Payment';
+
+  @override
+  String get conceptPaymentBody =>
+      'A payment is money received from a customer or sent to a vendor to settle an invoice or bill. Recording it keeps your balances accurate.';
+
+  @override
+  String get conceptBankReconciliationTitle => 'Bank reconciliation';
+
+  @override
+  String get conceptBankReconciliationBody =>
+      'Bank reconciliation is comparing your recorded transactions with your actual bank statement to catch missing or mismatched transactions and confirm your balances are correct.';
 }

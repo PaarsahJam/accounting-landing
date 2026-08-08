@@ -7,6 +7,9 @@ import '../../../shared/widgets/app_error_state.dart';
 import '../../../shared/widgets/app_loading_state.dart';
 import '../../../shared/widgets/invoice_card.dart';
 import '../../../shared/widgets/invoice_empty_state.dart';
+import '../../guidance/domain/concept.dart';
+import '../../guidance/presentation/concept_help_button.dart';
+import '../../guidance/presentation/guidance_tour_keys.dart';
 import '../domain/invoice.dart';
 import '../domain/invoices_controller.dart';
 
@@ -204,8 +207,12 @@ class _InvoicesPageState extends ConsumerState<InvoicesPage> {
         },
         child: Scaffold(
           appBar: AppBar(
-            title: Text(l10n.invoicePageTitle),
+            title: Text(
+              l10n.invoicePageTitle,
+              key: GuidanceTourKeys.invoicesHeader,
+            ),
             actions: [
+              ConceptHelpButton(conceptId: ConceptIds.invoice),
               IconButton(
                 onPressed: () => _showInvoiceDialog(),
                 icon: const Icon(Icons.add),

@@ -7,12 +7,16 @@ class DashboardMetricCard extends StatelessWidget {
     required this.icon,
     required this.accent,
     required this.metrics,
+    this.trailing,
   });
 
   final String title;
   final IconData icon;
   final Color accent;
   final List<DashboardMetricRow> metrics;
+
+  /// Optional widget rendered at the end of the title row (e.g. a help button).
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +37,7 @@ class DashboardMetricCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
+                if (trailing != null) ?trailing,
               ],
             ),
             const SizedBox(height: 12),

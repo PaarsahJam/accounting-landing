@@ -12,6 +12,8 @@ import '../../dashboard_metrics/presentation/widgets/activity_timeline.dart';
 import '../../dashboard_metrics/presentation/widgets/dashboard_metric_card.dart';
 import '../../dashboard_metrics/presentation/widgets/dashboard_quick_actions.dart';
 import '../../dashboard_metrics/presentation/widgets/monthly_bar_chart.dart';
+import '../../guidance/domain/concept.dart';
+import '../../guidance/presentation/concept_help_button.dart';
 import '../../guidance/presentation/guidance_tour_keys.dart';
 
 class DashboardPage extends ConsumerWidget {
@@ -102,6 +104,9 @@ class DashboardPage extends ConsumerWidget {
                                 key: GuidanceTourKeys.metricAccountsReceivable,
                                 icon: Icons.arrow_downward,
                                 accent: Colors.green,
+                                trailing: ConceptHelpButton(
+                                  conceptId: ConceptIds.receivable,
+                                ),
                                 metrics: [
                                   DashboardMetricRow(
                                     label:
@@ -260,7 +265,20 @@ class DashboardPage extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SectionHeader(title: l10n.dashboardProfitOverview),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child: SectionHeader(
+                                    title: l10n.dashboardProfitOverview,
+                                  ),
+                                ),
+                                ConceptHelpButton(
+                                  conceptId: ConceptIds.profit,
+                                  label: l10n.conceptHelpWhatDoesThisMean,
+                                ),
+                              ],
+                            ),
                             const SizedBox(height: 16),
                             Wrap(
                               spacing: 24,

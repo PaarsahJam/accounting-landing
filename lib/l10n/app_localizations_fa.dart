@@ -2680,4 +2680,45 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get guidanceReadyBody =>
       'هر وقت به کمک نیاز داشتید، منوی برنامه را باز و گزینه دستیار هوشمند (AI Assistant) را انتخاب کنید؛ درباره کسب‌وکارتان پاسخ می‌دهد. حالا آماده شروع هستید!';
+
+  @override
+  String get conceptHelpWhatDoesThisMean => 'این یعنی چه؟';
+
+  @override
+  String get conceptHelpGotIt => 'فهمیدم';
+
+  @override
+  String get conceptInvoiceTitle => 'فاکتور';
+
+  @override
+  String get conceptInvoiceBody =>
+      'فاکتور، صورتحسابی است که برای کالاها یا خدماتی که ارائه کرده‌اید به مشتری می‌فرستید. در آن مشخص می‌شود مشتری چه مبلغی و تا چه تاریخی باید بپردازد.';
+
+  @override
+  String get conceptReceivableTitle => 'حساب‌های دریافتنی';
+
+  @override
+  String get conceptReceivableBody =>
+      'حساب‌های دریافتنی، پولی است که مشتریان شما برای فاکتورهای ارسال‌شده هنوز بدهکارند. نشان می‌دهد چه مبالغی در راه است و به شما کمک می‌کند پرداخت‌های معوق را پیگیری کنید.';
+
+  @override
+  String get conceptProfitTitle => 'سود';
+
+  @override
+  String get conceptProfitBody =>
+      'سود، پس از کسر هزینه‌ها از درآمد به دست می‌آید. سود ناخالص پیش از برخی هزینه‌ها و سود خالص نتیجه نهایی شماست.';
+
+  @override
+  String get conceptPaymentTitle => 'پرداخت';
+
+  @override
+  String get conceptPaymentBody =>
+      'پرداخت، پولی است که از مشتری دریافت (یا به تأمین‌کننده ارسال) می‌شود تا یک فاکتور یا صورتحساب تسویه شود. ثبت آن، مانده حساب‌ها را دقیق نگه می‌دارد.';
+
+  @override
+  String get conceptBankReconciliationTitle => 'تطبیق بانکی';
+
+  @override
+  String get conceptBankReconciliationBody =>
+      'تطبیق بانکی یعنی مقایسه تراکنش‌های ثبت‌شده شما با صورت‌وضعیت واقعی بانک تا تراکنش‌های ناقص یا ناهماهنگ پیدا شوند و صحت مانده حساب‌ها تأیید شود.';
 }

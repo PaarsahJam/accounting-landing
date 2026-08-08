@@ -5307,6 +5307,78 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'هر وقت به کمک نیاز داشتید، منوی برنامه را باز و گزینه دستیار هوشمند (AI Assistant) را انتخاب کنید؛ درباره کسب‌وکارتان پاسخ می‌دهد. حالا آماده شروع هستید!'**
   String get guidanceReadyBody;
+
+  /// No description provided for @conceptHelpWhatDoesThisMean.
+  ///
+  /// In fa, this message translates to:
+  /// **'این یعنی چه؟'**
+  String get conceptHelpWhatDoesThisMean;
+
+  /// No description provided for @conceptHelpGotIt.
+  ///
+  /// In fa, this message translates to:
+  /// **'فهمیدم'**
+  String get conceptHelpGotIt;
+
+  /// No description provided for @conceptInvoiceTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'فاکتور'**
+  String get conceptInvoiceTitle;
+
+  /// No description provided for @conceptInvoiceBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'فاکتور، صورتحسابی است که برای کالاها یا خدماتی که ارائه کرده‌اید به مشتری می‌فرستید. در آن مشخص می‌شود مشتری چه مبلغی و تا چه تاریخی باید بپردازد.'**
+  String get conceptInvoiceBody;
+
+  /// No description provided for @conceptReceivableTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'حساب‌های دریافتنی'**
+  String get conceptReceivableTitle;
+
+  /// No description provided for @conceptReceivableBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'حساب‌های دریافتنی، پولی است که مشتریان شما برای فاکتورهای ارسال‌شده هنوز بدهکارند. نشان می‌دهد چه مبالغی در راه است و به شما کمک می‌کند پرداخت‌های معوق را پیگیری کنید.'**
+  String get conceptReceivableBody;
+
+  /// No description provided for @conceptProfitTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'سود'**
+  String get conceptProfitTitle;
+
+  /// No description provided for @conceptProfitBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'سود، پس از کسر هزینه‌ها از درآمد به دست می‌آید. سود ناخالص پیش از برخی هزینه‌ها و سود خالص نتیجه نهایی شماست.'**
+  String get conceptProfitBody;
+
+  /// No description provided for @conceptPaymentTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'پرداخت'**
+  String get conceptPaymentTitle;
+
+  /// No description provided for @conceptPaymentBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'پرداخت، پولی است که از مشتری دریافت (یا به تأمین‌کننده ارسال) می‌شود تا یک فاکتور یا صورتحساب تسویه شود. ثبت آن، مانده حساب‌ها را دقیق نگه می‌دارد.'**
+  String get conceptPaymentBody;
+
+  /// No description provided for @conceptBankReconciliationTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تطبیق بانکی'**
+  String get conceptBankReconciliationTitle;
+
+  /// No description provided for @conceptBankReconciliationBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'تطبیق بانکی یعنی مقایسه تراکنش‌های ثبت‌شده شما با صورت‌وضعیت واقعی بانک تا تراکنش‌های ناقص یا ناهماهنگ پیدا شوند و صحت مانده حساب‌ها تأیید شود.'**
+  String get conceptBankReconciliationBody;
 }
 
 class _AppLocalizationsDelegate

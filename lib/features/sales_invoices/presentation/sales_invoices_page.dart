@@ -8,6 +8,9 @@ import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
 import '../../../shared/widgets/app_loading_state.dart';
 import '../../customers/domain/customer.dart';
+import '../../guidance/domain/concept.dart';
+import '../../guidance/presentation/concept_help_button.dart';
+import '../../guidance/presentation/guidance_tour_keys.dart';
 import '../data/sales_invoices_repository_provider.dart';
 import '../domain/sales_invoice.dart';
 import '../domain/sales_invoice_line.dart';
@@ -390,8 +393,12 @@ class _SalesInvoicesPageState extends ConsumerState<SalesInvoicesPage> {
     return Scaffold(
       appBar: AppBar(
         leading: context.menuButton,
-        title: Text(l10n.salesInvoicesPageTitle),
+        title: Text(
+          l10n.salesInvoicesPageTitle,
+          key: GuidanceTourKeys.salesInvoicesHeader,
+        ),
         actions: [
+          ConceptHelpButton(conceptId: ConceptIds.invoice),
           IconButton(
             onPressed: () => _showInvoiceDialog(),
             icon: const Icon(Icons.add_circle_outline),

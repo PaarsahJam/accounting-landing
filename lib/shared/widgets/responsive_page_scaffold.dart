@@ -7,6 +7,7 @@ class ResponsivePageScaffold extends StatelessWidget {
   const ResponsivePageScaffold({
     super.key,
     required this.title,
+    this.titleKey,
     this.actions,
     required this.child,
     this.padding = const EdgeInsets.all(16),
@@ -16,6 +17,7 @@ class ResponsivePageScaffold extends StatelessWidget {
   });
 
   final String title;
+  final GlobalKey? titleKey;
   final List<Widget>? actions;
   final Widget child;
   final EdgeInsetsGeometry padding;
@@ -35,7 +37,7 @@ class ResponsivePageScaffold extends StatelessWidget {
                 tooltip: 'Menu',
               )
             : leading,
-        title: Text(title),
+        title: Text(title, key: titleKey),
         actions: actions,
       ),
       floatingActionButton: floatingActionButton,

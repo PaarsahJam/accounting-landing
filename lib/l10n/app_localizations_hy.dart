@@ -2706,4 +2706,45 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get guidanceReadyBody =>
       'Երբ օգնության կարիք ունենաք, բացեք մենյուն և ընտրեք AI Assistant-ը. այն կարող է պատասխանել ձեր բիզնեսի մասին հարցերին։ Այժմ պատրաստ եք սկսել։';
+
+  @override
+  String get conceptHelpWhatDoesThisMean => 'Ի՞նչ է սա նշանակում';
+
+  @override
+  String get conceptHelpGotIt => 'Հասկացա';
+
+  @override
+  String get conceptInvoiceTitle => 'Հաշիվ-ապրանքագիր';
+
+  @override
+  String get conceptInvoiceBody =>
+      'Հաշիվ-ապրանքագիրը հաշիվ է, որը ուղարկում եք հաճախորդին մատուցած ապրանքների կամ ծառայությունների համար։ Այն ցույց է տալիս, թե ինչքան է նա պարտք և երբ է վճարման ժամկետը։';
+
+  @override
+  String get conceptReceivableTitle => 'Դեբիտորական պարտքեր';
+
+  @override
+  String get conceptReceivableBody =>
+      'Դեբիտորական պարտքերը այն գումարն է, որը հաճախորդները դեռ պարտք են արդեն ուղարկված հաշիվ-ապրանքագրերի համար։ Այն ցույց է տալիս, թե ինչ գումարներ են մուտք լինելու և օգնում է հետևել ժամկետանց վճարումներին։';
+
+  @override
+  String get conceptProfitTitle => 'Շահույթ';
+
+  @override
+  String get conceptProfitBody =>
+      'Շահույթը մնում է այն բանից հետո, երբ ծախսերը հանում եք եկամուտից։ Համախառն շահույթը որոշ ծախսերից առաջ է, իսկ զուտ շահույթը ձեր վերջնական արդյունքն է։';
+
+  @override
+  String get conceptPaymentTitle => 'Վճարում';
+
+  @override
+  String get conceptPaymentBody =>
+      'Վճարումը հաճախորդից ստացված (կամ մատակարարին ուղարկված) գումար է՝ հաշիվ-ապրանքագիրը կամ հաշիվը փակելու համար։ Այստեղ գրանցելը պահում է ձեր մնացորդները ճշգրիտ։';
+
+  @override
+  String get conceptBankReconciliationTitle => 'Բանկային համադրում';
+
+  @override
+  String get conceptBankReconciliationBody =>
+      'Բանկային համադրումը ձեր գրանցված գործարքների համեմատումն է իրական բանկային քաղվածքի հետ՝ հայտնաբերելու բաց թողած կամ չհամընկնող գործարքները և հաստատելու մնացորդների ճշգրտությունը։';
 }

@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/l10n/locale_setting_provider.dart';
 import '../../core/theme/theme_mode_provider.dart';
+import '../../features/guidance/presentation/contextual_tip_overlay.dart';
+import '../../features/guidance/presentation/contextual_tip_trigger.dart';
 import '../../features/guidance/presentation/guidance_tour_keys.dart';
 import '../../features/guidance/presentation/guidance_tour_overlay.dart';
 import '../../features/guidance/presentation/guidance_tour_trigger.dart';
@@ -202,7 +204,9 @@ class _AppShellState extends ConsumerState<AppShell> {
                         activeIndex: activeIndex,
                       ),
                     Expanded(
-                      child: GuidanceTourTrigger(child: widget.child),
+                      child: GuidanceTourTrigger(
+                        child: ContextualTipTrigger(child: widget.child),
+                      ),
                     ),
                   ],
                 ),
@@ -215,6 +219,7 @@ class _AppShellState extends ConsumerState<AppShell> {
           ),
         ),
         const GuidanceTourOverlay(),
+        const ContextualTipOverlay(),
       ],
     );
   }

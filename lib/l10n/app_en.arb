@@ -960,5 +960,17 @@
   "guidanceNotificationsTitle": "Notifications",
   "guidanceNotificationsBody": "Notifications keep you up to date on overdue items and approvals.",
   "guidanceReadyTitle": "You're all set",
-  "guidanceReadyBody": "Whenever you need help, open the menu and choose AI Assistant — it can answer questions about your business. You're ready to get going!"
+  "guidanceReadyBody": "Whenever you need help, open the menu and choose AI Assistant — it can answer questions about your business. You're ready to get going!",
+  "conceptHelpWhatDoesThisMean": "What does this mean?",
+  "conceptHelpGotIt": "Got it",
+  "conceptInvoiceTitle": "Invoice",
+  "conceptInvoiceBody": "An invoice is a bill you send to a customer for goods or services you provided. It tells them what they owe you and when it's due.",
+  "conceptReceivableTitle": "Accounts receivable",
+  "conceptReceivableBody": "Accounts receivable is the money customers still owe you for invoices you've already sent. It shows what's coming in and helps you chase overdue payments.",
+  "conceptProfitTitle": "Profit",
+  "conceptProfitBody": "Profit is what's left after you subtract your expenses from your revenue. Gross profit is before certain costs; net profit is your final bottom line.",
+  "conceptPaymentTitle": "Payment",
+  "conceptPaymentBody": "A payment is money received from a customer or sent to a vendor to settle an invoice or bill. Recording it keeps your balances accurate.",
+  "conceptBankReconciliationTitle": "Bank reconciliation",
+  "conceptBankReconciliationBody": "Bank reconciliation is comparing your recorded transactions with your actual bank statement to catch missing or mismatched transactions and confirm your balances are correct."
 }

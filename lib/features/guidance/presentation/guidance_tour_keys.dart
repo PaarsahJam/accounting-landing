@@ -13,6 +13,12 @@ class GuidanceTourKeys {
   static final metricAccountsReceivable = GlobalKey();
   static final profitOverview = GlobalKey();
 
+  static final salesInvoicesHeader = GlobalKey();
+  static final invoicesHeader = GlobalKey();
+  static final customerPaymentsHeader = GlobalKey();
+  static final vendorPaymentsHeader = GlobalKey();
+  static final bankReconciliationHeader = GlobalKey();
+
   static final navSales = GlobalKey();
   static final navBanking = GlobalKey();
   static final navReports = GlobalKey();
