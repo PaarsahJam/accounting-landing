@@ -2721,4 +2721,125 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get conceptBankReconciliationBody =>
       'تطبیق بانکی یعنی مقایسه تراکنش‌های ثبت‌شده شما با صورت‌وضعیت واقعی بانک تا تراکنش‌های ناقص یا ناهماهنگ پیدا شوند و صحت مانده حساب‌ها تأیید شود.';
+
+  @override
+  String get workflowCopilotTitle => 'دستیار گردش کار';
+
+  @override
+  String get workflowCopilotSubtitle =>
+      'کارهای راهنماشده که شما را قدم‌به‌قدم در فرایندهای رایج حسابداری همراهی می‌کنند.';
+
+  @override
+  String get workflowStartTask => 'شروع';
+
+  @override
+  String get workflowResumeTask => 'ادامه';
+
+  @override
+  String get workflowCompletedTaskLabel => 'تکمیل‌شده';
+
+  @override
+  String workflowStepsProgress(Object current, Object total) {
+    return '$current از $total مرحله';
+  }
+
+  @override
+  String get workflowWhyThisMatters => 'چرا این مرحله مهم است';
+
+  @override
+  String workflowStepCount(Object current, Object total) {
+    return 'مرحله $current از $total';
+  }
+
+  @override
+  String get workflowCancel => 'انصراف';
+
+  @override
+  String get workflowResumeLater => 'ادامه بعداً';
+
+  @override
+  String get workflowNext => 'بعدی';
+
+  @override
+  String get workflowFinish => 'پایان';
+
+  @override
+  String get workflowCreateInvoiceTaskTitle => 'ایجاد اولین فاکتور فروش';
+
+  @override
+  String get workflowCreateInvoiceTaskDescription =>
+      'یک فروش را به فاکتور رسمی تبدیل کنید و آن را به‌صورت یک دریافتنی ببینید.';
+
+  @override
+  String get workflowCreateInvoiceStep1Title => 'بخش فروش را باز کنید';
+
+  @override
+  String get workflowCreateInvoiceStep1Body =>
+      'اینجا جایی است که مبالغ بدهکاری مشتریان را ثبت می‌کنید. فاکتور، درخواست رسمی پرداخت است که همان دریافتنی‌ای را می‌سازد که برنامه برای شما پیگیری می‌کند.';
+
+  @override
+  String get workflowCreateInvoiceStep2Title => 'فاکتور جدید بسازید';
+
+  @override
+  String get workflowCreateInvoiceStep2Body =>
+      'دکمه «فاکتور جدید» فرمی را باز می‌کند که در آن مشتری و مبلغ را وارد می‌کنید. جزئیات را بعداً هم می‌توانید ویرایش کنید — با موارد ضروری شروع کنید.';
+
+  @override
+  String get workflowCreateInvoiceStep3Title => 'دریافتنی خود را تأیید کنید';
+
+  @override
+  String get workflowCreateInvoiceStep3Body =>
+      'در داشبورد، شاخص حساب‌های دریافتنی اکنون فاکتور شما را هم شامل می‌شود. این همان پولی است که کسب‌وکار شما طلبکار است و انتظار وصول آن را دارد.';
+
+  @override
+  String get workflowRecordPaymentTaskTitle => 'ثبت پرداخت مشتری';
+
+  @override
+  String get workflowRecordPaymentTaskDescription =>
+      'پول دریافتی را ثبت کنید تا مانده حساب‌ها دقیق و دریافتنی‌ها واقعی بمانند.';
+
+  @override
+  String get workflowRecordPaymentStep1Title => 'پرداخت‌های مشتری را باز کنید';
+
+  @override
+  String get workflowRecordPaymentStep1Body =>
+      'پرداخت‌ها بدهی مشتریان به شما را کاهش می‌دهند. ثبت آن‌ها در اینجا مانع می‌شود دریافتنی‌های شما بیشتر از واقعیت به نظر برسند.';
+
+  @override
+  String get workflowRecordPaymentStep2Title => 'پرداخت را ثبت کنید';
+
+  @override
+  String get workflowRecordPaymentStep2Body =>
+      'با دکمه ثبت، پول را به مشتری و فاکتور درست نسبت دهید. برنامه مانده فاکتور را برای شما به‌روز می‌کند.';
+
+  @override
+  String get workflowRecordPaymentStep3Title => 'مانده به‌روزشده را ببینید';
+
+  @override
+  String get workflowRecordPaymentStep3Body =>
+      'مجموع دریافتنی شما در داشبورد به‌اندازه مبلغ پرداختی کاهش می‌یابد — تصویری واقعی از آنچه هنوز بدهکارید.';
+
+  @override
+  String get workflowReviewReceivablesTaskTitle =>
+      'بررسی مشتریان بدهکار به شما';
+
+  @override
+  String get workflowReviewReceivablesTaskDescription =>
+      'حساب‌های دریافتنی خود را بشناسید و برنامه‌ریزی کنید با کدام مشتری پیگیری کنید.';
+
+  @override
+  String get workflowReviewReceivablesStep1Title =>
+      'گزارش‌های مالی خود را باز کنید';
+
+  @override
+  String get workflowReviewReceivablesStep1Body =>
+      'گزارش‌ها اعداد کسب‌وکار شما را در یک جا جمع می‌کنند. داده فروش و دریافتنی در اینجا نشان می‌دهد چه کسی چقدر به شما بدهکار است.';
+
+  @override
+  String get workflowReviewReceivablesStep2Title =>
+      'خلاصه دریافتنی را بررسی کنید';
+
+  @override
+  String get workflowReviewReceivablesStep2Body =>
+      'شاخص حساب‌های دریافتنی در داشبورد، تصویر را به مجموع معوق و تعداد سررسیدشده خلاصه می‌کند تا بدانید اول به کجا توجه کنید.';
 }

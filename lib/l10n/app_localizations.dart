@@ -5379,6 +5379,210 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'تطبیق بانکی یعنی مقایسه تراکنش‌های ثبت‌شده شما با صورت‌وضعیت واقعی بانک تا تراکنش‌های ناقص یا ناهماهنگ پیدا شوند و صحت مانده حساب‌ها تأیید شود.'**
   String get conceptBankReconciliationBody;
+
+  /// No description provided for @workflowCopilotTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دستیار گردش کار'**
+  String get workflowCopilotTitle;
+
+  /// No description provided for @workflowCopilotSubtitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'کارهای راهنماشده که شما را قدم‌به‌قدم در فرایندهای رایج حسابداری همراهی می‌کنند.'**
+  String get workflowCopilotSubtitle;
+
+  /// No description provided for @workflowStartTask.
+  ///
+  /// In fa, this message translates to:
+  /// **'شروع'**
+  String get workflowStartTask;
+
+  /// No description provided for @workflowResumeTask.
+  ///
+  /// In fa, this message translates to:
+  /// **'ادامه'**
+  String get workflowResumeTask;
+
+  /// No description provided for @workflowCompletedTaskLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'تکمیل‌شده'**
+  String get workflowCompletedTaskLabel;
+
+  /// No description provided for @workflowStepsProgress.
+  ///
+  /// In fa, this message translates to:
+  /// **'{current} از {total} مرحله'**
+  String workflowStepsProgress(Object current, Object total);
+
+  /// No description provided for @workflowWhyThisMatters.
+  ///
+  /// In fa, this message translates to:
+  /// **'چرا این مرحله مهم است'**
+  String get workflowWhyThisMatters;
+
+  /// No description provided for @workflowStepCount.
+  ///
+  /// In fa, this message translates to:
+  /// **'مرحله {current} از {total}'**
+  String workflowStepCount(Object current, Object total);
+
+  /// No description provided for @workflowCancel.
+  ///
+  /// In fa, this message translates to:
+  /// **'انصراف'**
+  String get workflowCancel;
+
+  /// No description provided for @workflowResumeLater.
+  ///
+  /// In fa, this message translates to:
+  /// **'ادامه بعداً'**
+  String get workflowResumeLater;
+
+  /// No description provided for @workflowNext.
+  ///
+  /// In fa, this message translates to:
+  /// **'بعدی'**
+  String get workflowNext;
+
+  /// No description provided for @workflowFinish.
+  ///
+  /// In fa, this message translates to:
+  /// **'پایان'**
+  String get workflowFinish;
+
+  /// No description provided for @workflowCreateInvoiceTaskTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ایجاد اولین فاکتور فروش'**
+  String get workflowCreateInvoiceTaskTitle;
+
+  /// No description provided for @workflowCreateInvoiceTaskDescription.
+  ///
+  /// In fa, this message translates to:
+  /// **'یک فروش را به فاکتور رسمی تبدیل کنید و آن را به‌صورت یک دریافتنی ببینید.'**
+  String get workflowCreateInvoiceTaskDescription;
+
+  /// No description provided for @workflowCreateInvoiceStep1Title.
+  ///
+  /// In fa, this message translates to:
+  /// **'بخش فروش را باز کنید'**
+  String get workflowCreateInvoiceStep1Title;
+
+  /// No description provided for @workflowCreateInvoiceStep1Body.
+  ///
+  /// In fa, this message translates to:
+  /// **'اینجا جایی است که مبالغ بدهکاری مشتریان را ثبت می‌کنید. فاکتور، درخواست رسمی پرداخت است که همان دریافتنی‌ای را می‌سازد که برنامه برای شما پیگیری می‌کند.'**
+  String get workflowCreateInvoiceStep1Body;
+
+  /// No description provided for @workflowCreateInvoiceStep2Title.
+  ///
+  /// In fa, this message translates to:
+  /// **'فاکتور جدید بسازید'**
+  String get workflowCreateInvoiceStep2Title;
+
+  /// No description provided for @workflowCreateInvoiceStep2Body.
+  ///
+  /// In fa, this message translates to:
+  /// **'دکمه «فاکتور جدید» فرمی را باز می‌کند که در آن مشتری و مبلغ را وارد می‌کنید. جزئیات را بعداً هم می‌توانید ویرایش کنید — با موارد ضروری شروع کنید.'**
+  String get workflowCreateInvoiceStep2Body;
+
+  /// No description provided for @workflowCreateInvoiceStep3Title.
+  ///
+  /// In fa, this message translates to:
+  /// **'دریافتنی خود را تأیید کنید'**
+  String get workflowCreateInvoiceStep3Title;
+
+  /// No description provided for @workflowCreateInvoiceStep3Body.
+  ///
+  /// In fa, this message translates to:
+  /// **'در داشبورد، شاخص حساب‌های دریافتنی اکنون فاکتور شما را هم شامل می‌شود. این همان پولی است که کسب‌وکار شما طلبکار است و انتظار وصول آن را دارد.'**
+  String get workflowCreateInvoiceStep3Body;
+
+  /// No description provided for @workflowRecordPaymentTaskTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'ثبت پرداخت مشتری'**
+  String get workflowRecordPaymentTaskTitle;
+
+  /// No description provided for @workflowRecordPaymentTaskDescription.
+  ///
+  /// In fa, this message translates to:
+  /// **'پول دریافتی را ثبت کنید تا مانده حساب‌ها دقیق و دریافتنی‌ها واقعی بمانند.'**
+  String get workflowRecordPaymentTaskDescription;
+
+  /// No description provided for @workflowRecordPaymentStep1Title.
+  ///
+  /// In fa, this message translates to:
+  /// **'پرداخت‌های مشتری را باز کنید'**
+  String get workflowRecordPaymentStep1Title;
+
+  /// No description provided for @workflowRecordPaymentStep1Body.
+  ///
+  /// In fa, this message translates to:
+  /// **'پرداخت‌ها بدهی مشتریان به شما را کاهش می‌دهند. ثبت آن‌ها در اینجا مانع می‌شود دریافتنی‌های شما بیشتر از واقعیت به نظر برسند.'**
+  String get workflowRecordPaymentStep1Body;
+
+  /// No description provided for @workflowRecordPaymentStep2Title.
+  ///
+  /// In fa, this message translates to:
+  /// **'پرداخت را ثبت کنید'**
+  String get workflowRecordPaymentStep2Title;
+
+  /// No description provided for @workflowRecordPaymentStep2Body.
+  ///
+  /// In fa, this message translates to:
+  /// **'با دکمه ثبت، پول را به مشتری و فاکتور درست نسبت دهید. برنامه مانده فاکتور را برای شما به‌روز می‌کند.'**
+  String get workflowRecordPaymentStep2Body;
+
+  /// No description provided for @workflowRecordPaymentStep3Title.
+  ///
+  /// In fa, this message translates to:
+  /// **'مانده به‌روزشده را ببینید'**
+  String get workflowRecordPaymentStep3Title;
+
+  /// No description provided for @workflowRecordPaymentStep3Body.
+  ///
+  /// In fa, this message translates to:
+  /// **'مجموع دریافتنی شما در داشبورد به‌اندازه مبلغ پرداختی کاهش می‌یابد — تصویری واقعی از آنچه هنوز بدهکارید.'**
+  String get workflowRecordPaymentStep3Body;
+
+  /// No description provided for @workflowReviewReceivablesTaskTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'بررسی مشتریان بدهکار به شما'**
+  String get workflowReviewReceivablesTaskTitle;
+
+  /// No description provided for @workflowReviewReceivablesTaskDescription.
+  ///
+  /// In fa, this message translates to:
+  /// **'حساب‌های دریافتنی خود را بشناسید و برنامه‌ریزی کنید با کدام مشتری پیگیری کنید.'**
+  String get workflowReviewReceivablesTaskDescription;
+
+  /// No description provided for @workflowReviewReceivablesStep1Title.
+  ///
+  /// In fa, this message translates to:
+  /// **'گزارش‌های مالی خود را باز کنید'**
+  String get workflowReviewReceivablesStep1Title;
+
+  /// No description provided for @workflowReviewReceivablesStep1Body.
+  ///
+  /// In fa, this message translates to:
+  /// **'گزارش‌ها اعداد کسب‌وکار شما را در یک جا جمع می‌کنند. داده فروش و دریافتنی در اینجا نشان می‌دهد چه کسی چقدر به شما بدهکار است.'**
+  String get workflowReviewReceivablesStep1Body;
+
+  /// No description provided for @workflowReviewReceivablesStep2Title.
+  ///
+  /// In fa, this message translates to:
+  /// **'خلاصه دریافتنی را بررسی کنید'**
+  String get workflowReviewReceivablesStep2Title;
+
+  /// No description provided for @workflowReviewReceivablesStep2Body.
+  ///
+  /// In fa, this message translates to:
+  /// **'شاخص حساب‌های دریافتنی در داشبورد، تصویر را به مجموع معوق و تعداد سررسیدشده خلاصه می‌کند تا بدانید اول به کجا توجه کنید.'**
+  String get workflowReviewReceivablesStep2Body;
 }
 
 class _AppLocalizationsDelegate

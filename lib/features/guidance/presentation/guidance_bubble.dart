@@ -16,6 +16,7 @@ class GuidanceBubble extends StatelessWidget {
     required this.body,
     required this.footer,
     this.stepCountLabel,
+    this.bodyLabel,
     this.arrowDirection = GuidanceArrowDirection.none,
     this.arrowOffsetX = 0,
     this.maxWidth = 380,
@@ -29,6 +30,9 @@ class GuidanceBubble extends StatelessWidget {
 
   /// Optional "Step X of Y" label shown above the title.
   final String? stepCountLabel;
+
+  /// Optional small heading rendered above [body] (e.g. "Why this matters").
+  final String? bodyLabel;
 
   final GuidanceArrowDirection arrowDirection;
   final double arrowOffsetX;
@@ -74,6 +78,15 @@ class GuidanceBubble extends StatelessWidget {
                       ),
                 ),
                 const SizedBox(height: 8),
+                if (bodyLabel != null) ...[
+                  Text(
+                    bodyLabel!,
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: scheme.onInverseSurface.withValues(alpha: 0.7),
+                        ),
+                  ),
+                  const SizedBox(height: 4),
+                ],
                 Text(
                   body,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(

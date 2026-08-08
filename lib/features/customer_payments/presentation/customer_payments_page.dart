@@ -9,6 +9,7 @@ import '../../../shared/widgets/app_loading_state.dart';
 import '../../guidance/domain/concept.dart';
 import '../../guidance/presentation/concept_help_button.dart';
 import '../../guidance/presentation/guidance_tour_keys.dart';
+import '../../workflows/presentation/workflow_keys.dart';
 import '../data/customer_payments_repository_provider.dart';
 import '../domain/customer_payment.dart';
 import '../domain/customer_payment_allocation.dart';
@@ -363,6 +364,7 @@ class _CustomerPaymentsPageState extends ConsumerState<CustomerPaymentsPage> {
         actions: [
           ConceptHelpButton(conceptId: ConceptIds.payment),
           IconButton(
+            key: WorkflowKeys.customerPaymentsAddButton,
             onPressed: () => _showPaymentDialog(),
             icon: const Icon(Icons.add_circle_outline),
             tooltip: l10n.customerPaymentAddTitle,

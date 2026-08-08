@@ -7,6 +7,7 @@ import '../../../shared/widgets/app_empty_state.dart';
 import '../../../shared/widgets/app_error_state.dart';
 import '../../../shared/widgets/app_loading_state.dart';
 import '../../../shared/widgets/responsive_page_scaffold.dart';
+import '../../workflows/presentation/workflow_keys.dart';
 import '../domain/financial_reports_controller.dart';
 import '../domain/financial_reports_models.dart';
 
@@ -20,6 +21,7 @@ class FinancialReportsPage extends ConsumerWidget {
 
     return ResponsivePageScaffold(
       title: l10n.financialReportsPageTitle,
+      titleKey: WorkflowKeys.financialReportsHeader,
       child: stateAsync.when(
         loading: () =>
             AppLoadingState(message: l10n.financialReportsLoadingMessage),

@@ -2747,4 +2747,126 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get conceptBankReconciliationBody =>
       'Բանկային համադրումը ձեր գրանցված գործարքների համեմատումն է իրական բանկային քաղվածքի հետ՝ հայտնաբերելու բաց թողած կամ չհամընկնող գործարքները և հաստատելու մնացորդների ճշգրտությունը։';
+
+  @override
+  String get workflowCopilotTitle => 'Աշխատանքային ուղեցույց';
+
+  @override
+  String get workflowCopilotSubtitle =>
+      'Ուղղորդվող առաջադրանքներ, որոնք քայլ առ քայլ անցկացնում են հաշվապահական սովորական գործողություններով։';
+
+  @override
+  String get workflowStartTask => 'Սկսել';
+
+  @override
+  String get workflowResumeTask => 'Շարունակել';
+
+  @override
+  String get workflowCompletedTaskLabel => 'Ավարտված';
+
+  @override
+  String workflowStepsProgress(Object current, Object total) {
+    return '$current՝ $total-ից քայլ';
+  }
+
+  @override
+  String get workflowWhyThisMatters => 'Ինչու է այս քայլը կարևոր';
+
+  @override
+  String workflowStepCount(Object current, Object total) {
+    return 'Քայլ $current՝ $total-ից';
+  }
+
+  @override
+  String get workflowCancel => 'Չեղարկել';
+
+  @override
+  String get workflowResumeLater => 'Շարունակել ավելի ուշ';
+
+  @override
+  String get workflowNext => 'Հաջորդը';
+
+  @override
+  String get workflowFinish => 'Ավարտել';
+
+  @override
+  String get workflowCreateInvoiceTaskTitle =>
+      'Ստեղծեք ձեր առաջին հաշիվ-ապրանքագիրը';
+
+  @override
+  String get workflowCreateInvoiceTaskDescription =>
+      'Վաճառքը վերածեք պաշտոնական հաշիվ-ապրանքագրի և հետևեք դրա վերածմանը դեբիտորական պարտքի։';
+
+  @override
+  String get workflowCreateInvoiceStep1Title => 'Բացեք վաճառքի մոդուլը';
+
+  @override
+  String get workflowCreateInvoiceStep1Body =>
+      'Այստեղ գրանցում եք, թե հաճախորդները ինչքան են պարտք։ Հաշիվ-ապրանքագիրը վճարման պաշտոնական հարցումն է, որը ստեղծում է այն դեբիտորական պարտքը, որին հետևում է հավելվածը։';
+
+  @override
+  String get workflowCreateInvoiceStep2Title => 'Սկսեք նոր հաշիվ-ապրանքագիր';
+
+  @override
+  String get workflowCreateInvoiceStep2Body =>
+      '«Նոր հաշիվ-ապրանքագիր» կոճակը բացում է ձևաթուղթ, որտեղ մուտքագրում եք հաճախորդին և գումարը։ Մանրամասները հետո կարող եք խմբագրել. սկսեք անհրաժեշտ տվյալներից։';
+
+  @override
+  String get workflowCreateInvoiceStep3Title => 'Հաստատեք դեբիտորական պարտքը';
+
+  @override
+  String get workflowCreateInvoiceStep3Body =>
+      'Վահանակում դեբիտորական պարտքերի ցուցիչն այժմ ներառում է ձեր հաշիվ-ապրանքագիրը։ Դա այն գումարն է, որին ձեր բիզնեսը ակնկալում է ստանալ։';
+
+  @override
+  String get workflowRecordPaymentTaskTitle => 'Գրանցեք հաճախորդի վճարումը';
+
+  @override
+  String get workflowRecordPaymentTaskDescription =>
+      'Գրանցեք ստացված գումարը, որպեսզի մնացորդները ճշգրիտ մնան։';
+
+  @override
+  String get workflowRecordPaymentStep1Title => 'Բացեք հաճախորդի վճարումները';
+
+  @override
+  String get workflowRecordPaymentStep1Body =>
+      'Վճարումները նվազեցնում են հաճախորդների պարտքը։ Այստեղ գրանցելը թույլ չի տալիս, որ ձեր դեբիտորական պարտքերն իրականությունից մեծ երևան։';
+
+  @override
+  String get workflowRecordPaymentStep2Title => 'Գրանցեք վճարումը';
+
+  @override
+  String get workflowRecordPaymentStep2Body =>
+      'Գրանցման կոճակով գումարը կապեք ճիշտ հաճախորդի և հաշիվ-ապրանքագրի հետ։ Հավելվածն ինքնաբերաբար թարմացնում է մնացորդը։';
+
+  @override
+  String get workflowRecordPaymentStep3Title => 'Տեսեք թարմացված մնացորդը';
+
+  @override
+  String get workflowRecordPaymentStep3Body =>
+      'Ձեր դեբիտորական պարտքերի գումարը վահանակում նվազում է վճարված չափով՝ իրական պատկերն այն մասին, թե ինչքան դեռ պարտք են։';
+
+  @override
+  String get workflowReviewReceivablesTaskTitle =>
+      'Ստուգեք, թե ովքեր են ձեզ պարտք';
+
+  @override
+  String get workflowReviewReceivablesTaskDescription =>
+      'Հասկացեք ձեր դեբիտորական պարտքերը և որոշեք, թե որ հաճախորդների հետ շփվել։';
+
+  @override
+  String get workflowReviewReceivablesStep1Title =>
+      'Բացեք ձեր ֆինանսական հաշվետվությունները';
+
+  @override
+  String get workflowReviewReceivablesStep1Body =>
+      'Հաշվետվությունները միավորում են ձեր բիզնեսի թվերը մեկ տեղում։ Վաճառքի և դեբիտորական տվյալները ցույց են տալիս, թե ով և ինչքան է ձեզ պարտք։';
+
+  @override
+  String get workflowReviewReceivablesStep2Title =>
+      'Ստուգեք դեբիտորական ամփոփումը';
+
+  @override
+  String get workflowReviewReceivablesStep2Body =>
+      'Դեբիտորական պարտքերի ցուցիչը վահանակում ամփոփում է ընդհանուր մնացորդն ու ժամկետանց գումարները, որպեսզի իմանաք, թե որտեղից սկսել։';
 }

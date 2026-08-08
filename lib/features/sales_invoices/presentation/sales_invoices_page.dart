@@ -11,6 +11,7 @@ import '../../customers/domain/customer.dart';
 import '../../guidance/domain/concept.dart';
 import '../../guidance/presentation/concept_help_button.dart';
 import '../../guidance/presentation/guidance_tour_keys.dart';
+import '../../workflows/presentation/workflow_keys.dart';
 import '../data/sales_invoices_repository_provider.dart';
 import '../domain/sales_invoice.dart';
 import '../domain/sales_invoice_line.dart';
@@ -400,6 +401,7 @@ class _SalesInvoicesPageState extends ConsumerState<SalesInvoicesPage> {
         actions: [
           ConceptHelpButton(conceptId: ConceptIds.invoice),
           IconButton(
+            key: WorkflowKeys.salesInvoicesAddButton,
             onPressed: () => _showInvoiceDialog(),
             icon: const Icon(Icons.add_circle_outline),
             tooltip: l10n.salesInvoiceAddTitle,

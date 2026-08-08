@@ -15,6 +15,7 @@ import '../../dashboard_metrics/presentation/widgets/monthly_bar_chart.dart';
 import '../../guidance/domain/concept.dart';
 import '../../guidance/presentation/concept_help_button.dart';
 import '../../guidance/presentation/guidance_tour_keys.dart';
+import '../../workflows/presentation/workflow_copilot_panel.dart';
 
 class DashboardPage extends ConsumerWidget {
   const DashboardPage({super.key});
@@ -85,6 +86,8 @@ class DashboardPage extends ConsumerWidget {
                     ),
                     const SizedBox(height: 16),
                     DashboardQuickActions(l10n: l10n),
+                    const SizedBox(height: 24),
+                    const WorkflowCopilotPanel(),
                     const SizedBox(height: 24),
                     LayoutBuilder(
                       builder: (context, constraints) {

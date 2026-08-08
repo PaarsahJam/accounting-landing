@@ -10,6 +10,8 @@ import '../../features/guidance/presentation/guidance_tour_keys.dart';
 import '../../features/guidance/presentation/guidance_tour_overlay.dart';
 import '../../features/guidance/presentation/guidance_tour_trigger.dart';
 import '../../features/notifications/presentation/notification_bell.dart';
+import '../../features/workflows/presentation/workflow_overlay.dart';
+import '../../features/workflows/presentation/workflow_trigger.dart';
 import '../../l10n/app_localizations.dart';
 import '../extensions/responsive_breakpoint.dart';
 import 'offline_banner.dart';
@@ -205,7 +207,9 @@ class _AppShellState extends ConsumerState<AppShell> {
                       ),
                     Expanded(
                       child: GuidanceTourTrigger(
-                        child: ContextualTipTrigger(child: widget.child),
+                        child: ContextualTipTrigger(
+                          child: WorkflowTrigger(child: widget.child),
+                        ),
                       ),
                     ),
                   ],
@@ -220,6 +224,7 @@ class _AppShellState extends ConsumerState<AppShell> {
         ),
         const GuidanceTourOverlay(),
         const ContextualTipOverlay(),
+        const WorkflowOverlay(),
       ],
     );
   }

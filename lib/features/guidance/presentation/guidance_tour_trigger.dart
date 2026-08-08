@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/extensions/responsive_breakpoint.dart';
+import '../../workflows/workflow_provider.dart';
 import '../guidance_tour_provider.dart';
 import 'guidance_tour_builder.dart';
 
@@ -21,9 +22,11 @@ class GuidanceTourTrigger extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final seenAsync = ref.watch(guidanceTourSeenProvider);
     final controller = ref.watch(guidanceTourControllerProvider);
+    final copilotVisible = ref.watch(workflowControllerProvider).isVisible;
     final location = GoRouterState.of(context).matchedLocation;
 
     if (!controller.isVisible &&
+        !copilotVisible &&
         location == '/dashboard' &&
         seenAsync.hasValue &&
         seenAsync.value == false) {
@@ -31,6 +34,7 @@ class GuidanceTourTrigger extends ConsumerWidget {
         if (!context.mounted) return;
         final current = ref.read(guidanceTourControllerProvider);
         if (current.isVisible) return;
+        if (ref.read(workflowControllerProvider).isVisible) return;
         final seen = ref.read(guidanceTourSeenProvider);
         if (!(seen.hasValue && seen.value == false)) return;
         if (GoRouterState.of(context).matchedLocation != '/dashboard') return;

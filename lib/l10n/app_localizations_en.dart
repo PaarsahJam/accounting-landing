@@ -2730,4 +2730,124 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get conceptBankReconciliationBody =>
       'Bank reconciliation is comparing your recorded transactions with your actual bank statement to catch missing or mismatched transactions and confirm your balances are correct.';
+
+  @override
+  String get workflowCopilotTitle => 'Workflow Copilot';
+
+  @override
+  String get workflowCopilotSubtitle =>
+      'Guided tasks that walk you through common accounting workflows, step by step.';
+
+  @override
+  String get workflowStartTask => 'Start';
+
+  @override
+  String get workflowResumeTask => 'Resume';
+
+  @override
+  String get workflowCompletedTaskLabel => 'Completed';
+
+  @override
+  String workflowStepsProgress(Object current, Object total) {
+    return '$current of $total steps';
+  }
+
+  @override
+  String get workflowWhyThisMatters => 'Why this matters';
+
+  @override
+  String workflowStepCount(Object current, Object total) {
+    return 'Step $current of $total';
+  }
+
+  @override
+  String get workflowCancel => 'Cancel';
+
+  @override
+  String get workflowResumeLater => 'Resume later';
+
+  @override
+  String get workflowNext => 'Next';
+
+  @override
+  String get workflowFinish => 'Finish';
+
+  @override
+  String get workflowCreateInvoiceTaskTitle => 'Create your first invoice';
+
+  @override
+  String get workflowCreateInvoiceTaskDescription =>
+      'Turn a sale into a formal invoice and watch it become a receivable.';
+
+  @override
+  String get workflowCreateInvoiceStep1Title => 'Open the sales module';
+
+  @override
+  String get workflowCreateInvoiceStep1Body =>
+      'This is where you record what customers owe you. An invoice is the formal request for payment that creates the receivable the app tracks for you.';
+
+  @override
+  String get workflowCreateInvoiceStep2Title => 'Start a new invoice';
+
+  @override
+  String get workflowCreateInvoiceStep2Body =>
+      'The New Invoice button opens a form where you enter who you billed and how much. You can edit the details later — start with the essentials.';
+
+  @override
+  String get workflowCreateInvoiceStep3Title => 'Confirm your receivable';
+
+  @override
+  String get workflowCreateInvoiceStep3Body =>
+      'Back on the dashboard, the accounts receivable metric now includes your invoice. That\'s the money your business is owed and expects to collect.';
+
+  @override
+  String get workflowRecordPaymentTaskTitle => 'Record a customer payment';
+
+  @override
+  String get workflowRecordPaymentTaskDescription =>
+      'Log money received so balances stay accurate and receivables reflect reality.';
+
+  @override
+  String get workflowRecordPaymentStep1Title => 'Open customer payments';
+
+  @override
+  String get workflowRecordPaymentStep1Body =>
+      'Payments reduce what customers owe you. Recording them here keeps your receivables from looking higher than they really are.';
+
+  @override
+  String get workflowRecordPaymentStep2Title => 'Log the payment';
+
+  @override
+  String get workflowRecordPaymentStep2Body =>
+      'Use the record button to match the money to the right customer and invoice. The app updates the invoice balance for you.';
+
+  @override
+  String get workflowRecordPaymentStep3Title => 'See the updated balance';
+
+  @override
+  String get workflowRecordPaymentStep3Body =>
+      'Your receivable total on the dashboard shrinks by what was paid — a true picture of what\'s still owed.';
+
+  @override
+  String get workflowReviewReceivablesTaskTitle => 'Review who owes you money';
+
+  @override
+  String get workflowReviewReceivablesTaskDescription =>
+      'Understand your accounts receivable and plan which customers to follow up with.';
+
+  @override
+  String get workflowReviewReceivablesStep1Title =>
+      'Open your financial reports';
+
+  @override
+  String get workflowReviewReceivablesStep1Body =>
+      'Reports consolidate your business\'s numbers in one place. The sales and receivables data here shows who owes you and how much.';
+
+  @override
+  String get workflowReviewReceivablesStep2Title =>
+      'Check the receivable summary';
+
+  @override
+  String get workflowReviewReceivablesStep2Body =>
+      'The accounts receivable metric on the dashboard condenses the picture into total outstanding and overdue amounts, so you know where to focus first.';
 }
