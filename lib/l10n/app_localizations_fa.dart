@@ -2842,4 +2842,70 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get workflowReviewReceivablesStep2Body =>
       'شاخص حساب‌های دریافتنی در داشبورد، تصویر را به مجموع معوق و تعداد سررسیدشده خلاصه می‌کند تا بدانید اول به کجا توجه کنید.';
+
+  @override
+  String get actionCopilotTitle => 'دستیار اقدام';
+
+  @override
+  String get actionCopilotSubtitle =>
+      'اقدامات حسابداری را برای بررسی شما پیش‌نویس می‌کند. تا تأیید شما هیچ‌چیز ذخیره نمی‌شود.';
+
+  @override
+  String get actionCopilotSuggestInvoice => 'پیشنهاد فاکتور';
+
+  @override
+  String get actionCopilotFinancialSummary => 'خلاصه مالی';
+
+  @override
+  String get actionCopilotNextBestAction => 'بهترین اقدام بعدی';
+
+  @override
+  String get actionCopilotDrafting => 'در حال نگارش…';
+
+  @override
+  String get actionCopilotReviewDraft => 'بررسی پیش‌نویس';
+
+  @override
+  String get actionCopilotEditDraft => 'ویرایش پیش‌نویس';
+
+  @override
+  String get actionCopilotSaveDraft => 'ذخیره پیش‌نویس';
+
+  @override
+  String get actionCopilotConfirmAndSave => 'تأیید و ذخیره';
+
+  @override
+  String get actionCopilotDiscard => 'انصراف';
+
+  @override
+  String get actionCopilotConfirmTitle => 'تأیید پیش‌نویس هوش مصنوعی';
+
+  @override
+  String actionCopilotConfirmBody(Object content) {
+    return 'این پیش‌نویس توسط دستیار هوش مصنوعی تولید شده است. برای ذخیره آن را تأیید کنید:\n\n$content';
+  }
+
+  @override
+  String actionCopilotFinancialConfirmBody(Object content) {
+    return 'این یک اقدام مالی است و در گزارش حسابرسی ثبت می‌شود. برای ادامه تأیید کنید:\n\n$content';
+  }
+
+  @override
+  String get actionCopilotSaved => 'پیش‌نویس تأیید و ذخیره شد.';
+
+  @override
+  String get actionCopilotError =>
+      'دستیار هوش مصنوعی در حال حاضر در دسترس نیست. پیش‌نویسی ایجاد نشد.';
+
+  @override
+  String get actionCopilotRetry => 'تلاش مجدد';
+
+  @override
+  String get actionCopilotEditHint => 'پیش از ذخیره، پیش‌نویس را ویرایش کنید.';
+
+  @override
+  String get actionCopilotConfirmLabel => 'تأیید';
+
+  @override
+  String get actionCopilotEditedLabel => 'ویرایش‌شده';
 }

@@ -5583,6 +5583,126 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'شاخص حساب‌های دریافتنی در داشبورد، تصویر را به مجموع معوق و تعداد سررسیدشده خلاصه می‌کند تا بدانید اول به کجا توجه کنید.'**
   String get workflowReviewReceivablesStep2Body;
+
+  /// No description provided for @actionCopilotTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'دستیار اقدام'**
+  String get actionCopilotTitle;
+
+  /// No description provided for @actionCopilotSubtitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'اقدامات حسابداری را برای بررسی شما پیش‌نویس می‌کند. تا تأیید شما هیچ‌چیز ذخیره نمی‌شود.'**
+  String get actionCopilotSubtitle;
+
+  /// No description provided for @actionCopilotSuggestInvoice.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیشنهاد فاکتور'**
+  String get actionCopilotSuggestInvoice;
+
+  /// No description provided for @actionCopilotFinancialSummary.
+  ///
+  /// In fa, this message translates to:
+  /// **'خلاصه مالی'**
+  String get actionCopilotFinancialSummary;
+
+  /// No description provided for @actionCopilotNextBestAction.
+  ///
+  /// In fa, this message translates to:
+  /// **'بهترین اقدام بعدی'**
+  String get actionCopilotNextBestAction;
+
+  /// No description provided for @actionCopilotDrafting.
+  ///
+  /// In fa, this message translates to:
+  /// **'در حال نگارش…'**
+  String get actionCopilotDrafting;
+
+  /// No description provided for @actionCopilotReviewDraft.
+  ///
+  /// In fa, this message translates to:
+  /// **'بررسی پیش‌نویس'**
+  String get actionCopilotReviewDraft;
+
+  /// No description provided for @actionCopilotEditDraft.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش پیش‌نویس'**
+  String get actionCopilotEditDraft;
+
+  /// No description provided for @actionCopilotSaveDraft.
+  ///
+  /// In fa, this message translates to:
+  /// **'ذخیره پیش‌نویس'**
+  String get actionCopilotSaveDraft;
+
+  /// No description provided for @actionCopilotConfirmAndSave.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأیید و ذخیره'**
+  String get actionCopilotConfirmAndSave;
+
+  /// No description provided for @actionCopilotDiscard.
+  ///
+  /// In fa, this message translates to:
+  /// **'انصراف'**
+  String get actionCopilotDiscard;
+
+  /// No description provided for @actionCopilotConfirmTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأیید پیش‌نویس هوش مصنوعی'**
+  String get actionCopilotConfirmTitle;
+
+  /// No description provided for @actionCopilotConfirmBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'این پیش‌نویس توسط دستیار هوش مصنوعی تولید شده است. برای ذخیره آن را تأیید کنید:\n\n{content}'**
+  String actionCopilotConfirmBody(Object content);
+
+  /// No description provided for @actionCopilotFinancialConfirmBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'این یک اقدام مالی است و در گزارش حسابرسی ثبت می‌شود. برای ادامه تأیید کنید:\n\n{content}'**
+  String actionCopilotFinancialConfirmBody(Object content);
+
+  /// No description provided for @actionCopilotSaved.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیش‌نویس تأیید و ذخیره شد.'**
+  String get actionCopilotSaved;
+
+  /// No description provided for @actionCopilotError.
+  ///
+  /// In fa, this message translates to:
+  /// **'دستیار هوش مصنوعی در حال حاضر در دسترس نیست. پیش‌نویسی ایجاد نشد.'**
+  String get actionCopilotError;
+
+  /// No description provided for @actionCopilotRetry.
+  ///
+  /// In fa, this message translates to:
+  /// **'تلاش مجدد'**
+  String get actionCopilotRetry;
+
+  /// No description provided for @actionCopilotEditHint.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیش از ذخیره، پیش‌نویس را ویرایش کنید.'**
+  String get actionCopilotEditHint;
+
+  /// No description provided for @actionCopilotConfirmLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'تأیید'**
+  String get actionCopilotConfirmLabel;
+
+  /// No description provided for @actionCopilotEditedLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'ویرایش‌شده'**
+  String get actionCopilotEditedLabel;
 }
 
 class _AppLocalizationsDelegate

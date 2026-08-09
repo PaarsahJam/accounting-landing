@@ -2869,4 +2869,70 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get workflowReviewReceivablesStep2Body =>
       'Դեբիտորական պարտքերի ցուցիչը վահանակում ամփոփում է ընդհանուր մնացորդն ու ժամկետանց գումարները, որպեսզի իմանաք, թե որտեղից սկսել։';
+
+  @override
+  String get actionCopilotTitle => 'Գործողությունների համօդաչու';
+
+  @override
+  String get actionCopilotSubtitle =>
+      'Նախագծում է հաշվապահական գործողություններ ձեր վերանայման համար։ Ոչինչ չի պահպանվում, քանի դեռ չեք հաստատել։';
+
+  @override
+  String get actionCopilotSuggestInvoice => 'Առաջարկել հաշիվ-ապրանքագիր';
+
+  @override
+  String get actionCopilotFinancialSummary => 'Ֆինանսական ամփոփում';
+
+  @override
+  String get actionCopilotNextBestAction => 'Հաջորդ լավագույն քայլը';
+
+  @override
+  String get actionCopilotDrafting => 'Նախագծվում է…';
+
+  @override
+  String get actionCopilotReviewDraft => 'Վերանայել նախագիծը';
+
+  @override
+  String get actionCopilotEditDraft => 'Խմբագրել նախագիծը';
+
+  @override
+  String get actionCopilotSaveDraft => 'Պահպանել նախագիծը';
+
+  @override
+  String get actionCopilotConfirmAndSave => 'Հաստատել և պահպանել';
+
+  @override
+  String get actionCopilotDiscard => 'Չեղարկել';
+
+  @override
+  String get actionCopilotConfirmTitle => 'Հաստատե՞լ AI նախագիծը';
+
+  @override
+  String actionCopilotConfirmBody(Object content) {
+    return 'Այս նախագիծը ստեղծվել է AI օգնականի կողմից։ Պահպանելու համար հաստատեք.\n\n$content';
+  }
+
+  @override
+  String actionCopilotFinancialConfirmBody(Object content) {
+    return 'Սա ֆինանսական գործողություն է և կգրանցվի վերահսկողության արձանագրությունում։ Շարունակելու համար հաստատեք.\n\n$content';
+  }
+
+  @override
+  String get actionCopilotSaved => 'Նախագիծը հաստատվել և պահպանվել է։';
+
+  @override
+  String get actionCopilotError =>
+      'AI օգնականը ներկայումս հասանելի չէ։ Ոչ մի նախագիծ չի ստեղծվել։';
+
+  @override
+  String get actionCopilotRetry => 'Կրկին փորձել';
+
+  @override
+  String get actionCopilotEditHint => 'Նախքան պահպանելը կարգավորեք նախագիծը։';
+
+  @override
+  String get actionCopilotConfirmLabel => 'Հաստատել';
+
+  @override
+  String get actionCopilotEditedLabel => 'Խմբագրված';
 }
