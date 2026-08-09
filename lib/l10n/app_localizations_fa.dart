@@ -2908,4 +2908,107 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get actionCopilotEditedLabel => 'ویرایش‌شده';
+
+  @override
+  String get copilotProfileSectionTitle => 'نمایه دستیار';
+
+  @override
+  String get copilotProfileSectionSubtitle =>
+      'لحن، پیشنهادهای گردش کار و نکته‌های دستیار را با کسب‌وکار خود هماهنگ کنید.';
+
+  @override
+  String get copilotProfileBusinessTypeLabel => 'نوع کسب‌وکار';
+
+  @override
+  String get copilotProfileSkillLevelLabel => 'سطح مهارت';
+
+  @override
+  String get copilotProfileLearningStepsLabel => 'مراحل یادگیری تکمیل‌شده';
+
+  @override
+  String get copilotProfileFrequentWorkflowsLabel => 'گردش کارهای پرکاربرد';
+
+  @override
+  String get copilotProfileReset => 'بازنشانی نمایه';
+
+  @override
+  String get copilotProfileResetConfirmTitle => 'نمایه دستیار بازنشانی شود؟';
+
+  @override
+  String get copilotProfileResetConfirmBody =>
+      'این کار نوع کسب‌وکار، سطح مهارت، مراحل یادگیری و تاریخچه گردش کار را پاک می‌کند. امکان بازگشت وجود ندارد.';
+
+  @override
+  String get copilotProfileResetDone => 'نمایه دستیار بازنشانی شد.';
+
+  @override
+  String get copilotProfileLearningStepsEmpty =>
+      'هنوز هیچ‌کدام — برای تکمیل نمایه، مفهوم‌ها را کاوش کنید.';
+
+  @override
+  String get copilotProfileFrequentWorkflowsEmpty =>
+      'هنوز هیچ‌کدام — گردش کارهایی که اغلب استفاده می‌کنید اینجا ظاهر می‌شوند.';
+
+  @override
+  String get copilotProfileBusinessGeneral => 'عمومی';
+
+  @override
+  String get copilotProfileBusinessRetail => 'خرده‌فروشی';
+
+  @override
+  String get copilotProfileBusinessWholesale => 'عمده‌فروشی';
+
+  @override
+  String get copilotProfileBusinessServices => 'خدمات';
+
+  @override
+  String get copilotProfileBusinessManufacturing => 'تولیدی';
+
+  @override
+  String get copilotProfileBusinessRestaurant => 'رستوران';
+
+  @override
+  String get copilotProfileSkillBeginner => 'مبتدی';
+
+  @override
+  String get copilotProfileSkillIntermediate => 'متوسط';
+
+  @override
+  String get copilotProfileSkillAdvanced => 'پیشرفته';
+
+  @override
+  String get guidanceToneSimple => 'ساده';
+
+  @override
+  String get guidanceToneStandard => 'استاندارد';
+
+  @override
+  String get guidanceToneExpert => 'حرفه‌ای';
+
+  @override
+  String get workflowCopilotSubtitleSimple =>
+      'گردش کارهای راهنما با زبان ساده و گام‌به‌گام.';
+
+  @override
+  String get workflowCopilotSubtitleStandard =>
+      'گردش کارهای راهنما که شما را گام‌به‌گام با گردش کارهای رایج حسابداری آشنا می‌کنند.';
+
+  @override
+  String get workflowCopilotSubtitleExpert =>
+      'گردش کارهای راهنمای خلاصه برای کاربران باتجربه.';
+
+  @override
+  String get workflowRecommendationReasonBusinessType =>
+      'پیشنهادشده برای نوع کسب‌وکار شما';
+
+  @override
+  String get workflowRecommendationReasonFrequentlyUsed =>
+      'اغلب از این استفاده می‌کنید';
+
+  @override
+  String get workflowRecommendationReasonSkillLevel =>
+      'پیشنهادشده برای سطح مهارت شما';
+
+  @override
+  String get workflowRecommendationReasonDefault => 'قدم بعدی پیشنهادی';
 }

@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../l10n/app_localizations_en.dart';
+import '../../copilot_profile/copilot_profile_provider.dart';
+import '../../copilot_profile/domain/copilot_profile.dart';
+import '../../copilot_profile/domain/copilot_profile_adaptation.dart';
 import '../domain/workflow_definitions.dart';
 import '../domain/workflow_progress.dart';
 import '../domain/workflow_task.dart';
@@ -24,6 +27,7 @@ class WorkflowCopilotPanel extends ConsumerWidget {
     required int fromIndex,
   }) async {
     await ref.read(workflowProgressProvider.notifier).start(task.id);
+    ref.read(copilotProfileProvider.notifier).recordWorkflowUse(task.id);
     if (!context.mounted) return;
     final step = task.stepAt(fromIndex);
     if (step == null) return;
@@ -42,12 +46,26 @@ class WorkflowCopilotPanel extends ConsumerWidget {
     final l10n = AppLocalizations.of(context) ?? AppLocalizationsEn('en');
     final progress = ref.watch(workflowProgressProvider);
     final tasks = buildWorkflowTasks(l10n);
+    final profile = ref.watch(copilotProfileProvider);
 
-    final suggested = tasks
+    final recommendations = recommendWorkflows(
+      profile: profile,
+      allTaskIds: WorkflowTaskIds.all,
+      finishedTaskIds: progress.finishedTaskIds,
+    );
+
+    final suggested = recommendations
         .where(
-          (task) =>
-              !progress.isFinished(task.id) &&
-              task.id != progress.activeTaskId,
+          (recommendation) =>
+              recommendation.taskId != progress.activeTaskId,
+        )
+        .map(
+          (recommendation) => (
+            task: tasks.firstWhere(
+              (task) => task.id == recommendation.taskId,
+            ),
+            reason: recommendation.reason,
+          ),
         )
         .toList();
     final active = progress.isActive
@@ -81,7 +99,7 @@ class WorkflowCopilotPanel extends ConsumerWidget {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        l10n.workflowCopilotSubtitle,
+                        _subtitleFor(profile.skillLevel, l10n),
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
@@ -107,11 +125,12 @@ class WorkflowCopilotPanel extends ConsumerWidget {
               ),
             ),
             ...suggested.map(
-              (task) => _TaskTile(
-                task: task,
+              (entry) => _TaskTile(
+                task: entry.task,
                 progress: progress,
                 active: false,
-                onAction: () => _launch(context, ref, task, fromIndex: 0),
+                reason: entry.reason,
+                onAction: () => _launch(context, ref, entry.task, fromIndex: 0),
               ),
             ),
             if (finished.isNotEmpty) ...[
@@ -135,6 +154,13 @@ class WorkflowCopilotPanel extends ConsumerWidget {
       ),
     );
   }
+
+  String _subtitleFor(UserSkillLevel skillLevel, AppLocalizations l10n) =>
+      switch (skillLevel) {
+        UserSkillLevel.beginner => l10n.workflowCopilotSubtitleSimple,
+        UserSkillLevel.intermediate => l10n.workflowCopilotSubtitleStandard,
+        UserSkillLevel.advanced => l10n.workflowCopilotSubtitleExpert,
+      };
 }
 
 class _TaskTile extends StatelessWidget {
@@ -143,6 +169,7 @@ class _TaskTile extends StatelessWidget {
     required this.progress,
     required this.active,
     this.finished = false,
+    this.reason,
     this.onAction,
   });
 
@@ -150,6 +177,7 @@ class _TaskTile extends StatelessWidget {
   final WorkflowProgress progress;
   final bool active;
   final bool finished;
+  final WorkflowRecommendationReason? reason;
   final VoidCallback? onAction;
 
   @override
@@ -170,6 +198,8 @@ class _TaskTile extends StatelessWidget {
         ? '${task.description}\n${l10n?.workflowStepsProgress(completedCount, task.totalSteps) ?? ''}'
         : task.description;
 
+    final reasonLabel = _reasonLabel(l10n);
+
     final trailing = finished
         ? null
         : active
@@ -186,13 +216,42 @@ class _TaskTile extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       leading: leading,
       title: Text(task.title),
-      subtitle: Text(
-        subtitle,
-        maxLines: 3,
-        overflow: TextOverflow.ellipsis,
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (reasonLabel != null) ...[
+            const SizedBox(height: 2),
+            Text(
+              reasonLabel,
+              style: Theme.of(context)
+                  .textTheme
+                  .labelSmall
+                  ?.copyWith(color: colorScheme.primary),
+            ),
+          ],
+          Text(
+            subtitle,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
       ),
       trailing: trailing,
       onTap: finished ? null : onAction,
     );
+  }
+
+  String? _reasonLabel(AppLocalizations? l10n) {
+    if (reason == null) return null;
+    return switch (reason!) {
+      WorkflowRecommendationReason.businessTypeMatch =>
+        l10n?.workflowRecommendationReasonBusinessType,
+      WorkflowRecommendationReason.frequentlyUsed =>
+        l10n?.workflowRecommendationReasonFrequentlyUsed,
+      WorkflowRecommendationReason.skillLevelMatch =>
+        l10n?.workflowRecommendationReasonSkillLevel,
+      WorkflowRecommendationReason.defaultOrder =>
+        l10n?.workflowRecommendationReasonDefault,
+    };
   }
 }

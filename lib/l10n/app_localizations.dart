@@ -5703,6 +5703,192 @@ abstract class AppLocalizations {
   /// In fa, this message translates to:
   /// **'ویرایش‌شده'**
   String get actionCopilotEditedLabel;
+
+  /// No description provided for @copilotProfileSectionTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'نمایه دستیار'**
+  String get copilotProfileSectionTitle;
+
+  /// No description provided for @copilotProfileSectionSubtitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'لحن، پیشنهادهای گردش کار و نکته‌های دستیار را با کسب‌وکار خود هماهنگ کنید.'**
+  String get copilotProfileSectionSubtitle;
+
+  /// No description provided for @copilotProfileBusinessTypeLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'نوع کسب‌وکار'**
+  String get copilotProfileBusinessTypeLabel;
+
+  /// No description provided for @copilotProfileSkillLevelLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'سطح مهارت'**
+  String get copilotProfileSkillLevelLabel;
+
+  /// No description provided for @copilotProfileLearningStepsLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'مراحل یادگیری تکمیل‌شده'**
+  String get copilotProfileLearningStepsLabel;
+
+  /// No description provided for @copilotProfileFrequentWorkflowsLabel.
+  ///
+  /// In fa, this message translates to:
+  /// **'گردش کارهای پرکاربرد'**
+  String get copilotProfileFrequentWorkflowsLabel;
+
+  /// No description provided for @copilotProfileReset.
+  ///
+  /// In fa, this message translates to:
+  /// **'بازنشانی نمایه'**
+  String get copilotProfileReset;
+
+  /// No description provided for @copilotProfileResetConfirmTitle.
+  ///
+  /// In fa, this message translates to:
+  /// **'نمایه دستیار بازنشانی شود؟'**
+  String get copilotProfileResetConfirmTitle;
+
+  /// No description provided for @copilotProfileResetConfirmBody.
+  ///
+  /// In fa, this message translates to:
+  /// **'این کار نوع کسب‌وکار، سطح مهارت، مراحل یادگیری و تاریخچه گردش کار را پاک می‌کند. امکان بازگشت وجود ندارد.'**
+  String get copilotProfileResetConfirmBody;
+
+  /// No description provided for @copilotProfileResetDone.
+  ///
+  /// In fa, this message translates to:
+  /// **'نمایه دستیار بازنشانی شد.'**
+  String get copilotProfileResetDone;
+
+  /// No description provided for @copilotProfileLearningStepsEmpty.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز هیچ‌کدام — برای تکمیل نمایه، مفهوم‌ها را کاوش کنید.'**
+  String get copilotProfileLearningStepsEmpty;
+
+  /// No description provided for @copilotProfileFrequentWorkflowsEmpty.
+  ///
+  /// In fa, this message translates to:
+  /// **'هنوز هیچ‌کدام — گردش کارهایی که اغلب استفاده می‌کنید اینجا ظاهر می‌شوند.'**
+  String get copilotProfileFrequentWorkflowsEmpty;
+
+  /// No description provided for @copilotProfileBusinessGeneral.
+  ///
+  /// In fa, this message translates to:
+  /// **'عمومی'**
+  String get copilotProfileBusinessGeneral;
+
+  /// No description provided for @copilotProfileBusinessRetail.
+  ///
+  /// In fa, this message translates to:
+  /// **'خرده‌فروشی'**
+  String get copilotProfileBusinessRetail;
+
+  /// No description provided for @copilotProfileBusinessWholesale.
+  ///
+  /// In fa, this message translates to:
+  /// **'عمده‌فروشی'**
+  String get copilotProfileBusinessWholesale;
+
+  /// No description provided for @copilotProfileBusinessServices.
+  ///
+  /// In fa, this message translates to:
+  /// **'خدمات'**
+  String get copilotProfileBusinessServices;
+
+  /// No description provided for @copilotProfileBusinessManufacturing.
+  ///
+  /// In fa, this message translates to:
+  /// **'تولیدی'**
+  String get copilotProfileBusinessManufacturing;
+
+  /// No description provided for @copilotProfileBusinessRestaurant.
+  ///
+  /// In fa, this message translates to:
+  /// **'رستوران'**
+  String get copilotProfileBusinessRestaurant;
+
+  /// No description provided for @copilotProfileSkillBeginner.
+  ///
+  /// In fa, this message translates to:
+  /// **'مبتدی'**
+  String get copilotProfileSkillBeginner;
+
+  /// No description provided for @copilotProfileSkillIntermediate.
+  ///
+  /// In fa, this message translates to:
+  /// **'متوسط'**
+  String get copilotProfileSkillIntermediate;
+
+  /// No description provided for @copilotProfileSkillAdvanced.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیشرفته'**
+  String get copilotProfileSkillAdvanced;
+
+  /// No description provided for @guidanceToneSimple.
+  ///
+  /// In fa, this message translates to:
+  /// **'ساده'**
+  String get guidanceToneSimple;
+
+  /// No description provided for @guidanceToneStandard.
+  ///
+  /// In fa, this message translates to:
+  /// **'استاندارد'**
+  String get guidanceToneStandard;
+
+  /// No description provided for @guidanceToneExpert.
+  ///
+  /// In fa, this message translates to:
+  /// **'حرفه‌ای'**
+  String get guidanceToneExpert;
+
+  /// No description provided for @workflowCopilotSubtitleSimple.
+  ///
+  /// In fa, this message translates to:
+  /// **'گردش کارهای راهنما با زبان ساده و گام‌به‌گام.'**
+  String get workflowCopilotSubtitleSimple;
+
+  /// No description provided for @workflowCopilotSubtitleStandard.
+  ///
+  /// In fa, this message translates to:
+  /// **'گردش کارهای راهنما که شما را گام‌به‌گام با گردش کارهای رایج حسابداری آشنا می‌کنند.'**
+  String get workflowCopilotSubtitleStandard;
+
+  /// No description provided for @workflowCopilotSubtitleExpert.
+  ///
+  /// In fa, this message translates to:
+  /// **'گردش کارهای راهنمای خلاصه برای کاربران باتجربه.'**
+  String get workflowCopilotSubtitleExpert;
+
+  /// No description provided for @workflowRecommendationReasonBusinessType.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیشنهادشده برای نوع کسب‌وکار شما'**
+  String get workflowRecommendationReasonBusinessType;
+
+  /// No description provided for @workflowRecommendationReasonFrequentlyUsed.
+  ///
+  /// In fa, this message translates to:
+  /// **'اغلب از این استفاده می‌کنید'**
+  String get workflowRecommendationReasonFrequentlyUsed;
+
+  /// No description provided for @workflowRecommendationReasonSkillLevel.
+  ///
+  /// In fa, this message translates to:
+  /// **'پیشنهادشده برای سطح مهارت شما'**
+  String get workflowRecommendationReasonSkillLevel;
+
+  /// No description provided for @workflowRecommendationReasonDefault.
+  ///
+  /// In fa, this message translates to:
+  /// **'قدم بعدی پیشنهادی'**
+  String get workflowRecommendationReasonDefault;
 }
 
 class _AppLocalizationsDelegate

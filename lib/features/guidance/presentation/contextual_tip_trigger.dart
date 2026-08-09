@@ -3,6 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../../copilot_profile/copilot_profile_provider.dart';
+import '../../copilot_profile/domain/copilot_profile.dart';
+import '../../copilot_profile/domain/copilot_profile_adaptation.dart';
 import '../domain/concept.dart';
 import '../domain/concept_definitions.dart';
 import '../domain/contextual_tip.dart';
@@ -13,12 +16,14 @@ import 'guidance_tour_keys.dart';
 /// Rule-based mapping of route -> concepts to teach on first visit.
 ///
 /// Tips already dismissed for a concept are filtered out, so each concept is
-/// only ever shown once per device.
+/// only ever shown once per device. The resulting tips are then adapted to the
+/// copilot [profile] (business type, skill level, completed learning steps).
 List<ContextualTip> buildContextualTipsForRoute(
   String location,
   Set<String> dismissed,
-  AppLocalizations l10n,
-) {
+  AppLocalizations l10n, {
+  CopilotProfile? profile,
+}) {
   final concepts = buildConceptHelp(l10n);
   ContextualTip tip(String id, GlobalKey? targetKey) {
     final concept = concepts.firstWhere(
@@ -50,7 +55,9 @@ List<ContextualTip> buildContextualTipsForRoute(
       candidates.add(tip(ConceptIds.bankReconciliation, GuidanceTourKeys.bankReconciliationHeader));
   }
 
-  return candidates.where((tip) => !dismissed.contains(tip.id)).toList();
+  final visible = candidates.where((tip) => !dismissed.contains(tip.id)).toList();
+  if (profile == null) return visible;
+  return adaptTipsForProfile(profile: profile, candidates: visible);
 }
 
 /// Starts the first-time contextual tips for the current route.
@@ -68,12 +75,13 @@ class ContextualTipTrigger extends ConsumerWidget {
     final controller = ref.watch(contextualTipControllerProvider);
     final tourVisible = ref.watch(guidanceTourControllerProvider).isVisible;
     final location = GoRouterState.of(context).matchedLocation;
+    final profile = ref.watch(copilotProfileProvider);
 
     if (!controller.isVisible && !tourVisible) {
       final l10n = AppLocalizations.of(context);
       final pending = l10n == null
           ? const <ContextualTip>[]
-          : buildContextualTipsForRoute(location, dismissed, l10n);
+          : buildContextualTipsForRoute(location, dismissed, l10n, profile: profile);
 
       if (pending.isNotEmpty) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -88,6 +96,7 @@ class ContextualTipTrigger extends ConsumerWidget {
             location,
             ref.read(dismissedTipsProvider),
             l10nNow,
+            profile: ref.read(copilotProfileProvider),
           );
           if (stillPending.isEmpty) return;
           current.start(stillPending);

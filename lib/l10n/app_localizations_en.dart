@@ -2916,4 +2916,107 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get actionCopilotEditedLabel => 'Edited';
+
+  @override
+  String get copilotProfileSectionTitle => 'Copilot profile';
+
+  @override
+  String get copilotProfileSectionSubtitle =>
+      'Tune the copilot\'s tone, workflow suggestions and tips to your business.';
+
+  @override
+  String get copilotProfileBusinessTypeLabel => 'Business type';
+
+  @override
+  String get copilotProfileSkillLevelLabel => 'Skill level';
+
+  @override
+  String get copilotProfileLearningStepsLabel => 'Completed learning steps';
+
+  @override
+  String get copilotProfileFrequentWorkflowsLabel =>
+      'Frequently used workflows';
+
+  @override
+  String get copilotProfileReset => 'Reset profile';
+
+  @override
+  String get copilotProfileResetConfirmTitle => 'Reset copilot profile?';
+
+  @override
+  String get copilotProfileResetConfirmBody =>
+      'This clears your business type, skill level, learning steps and workflow history. This cannot be undone.';
+
+  @override
+  String get copilotProfileResetDone => 'Copilot profile reset.';
+
+  @override
+  String get copilotProfileLearningStepsEmpty =>
+      'None yet — explore concepts to build your profile.';
+
+  @override
+  String get copilotProfileFrequentWorkflowsEmpty =>
+      'None yet — workflows you use often will appear here.';
+
+  @override
+  String get copilotProfileBusinessGeneral => 'General';
+
+  @override
+  String get copilotProfileBusinessRetail => 'Retail';
+
+  @override
+  String get copilotProfileBusinessWholesale => 'Wholesale';
+
+  @override
+  String get copilotProfileBusinessServices => 'Services';
+
+  @override
+  String get copilotProfileBusinessManufacturing => 'Manufacturing';
+
+  @override
+  String get copilotProfileBusinessRestaurant => 'Restaurant';
+
+  @override
+  String get copilotProfileSkillBeginner => 'Beginner';
+
+  @override
+  String get copilotProfileSkillIntermediate => 'Intermediate';
+
+  @override
+  String get copilotProfileSkillAdvanced => 'Advanced';
+
+  @override
+  String get guidanceToneSimple => 'Simple';
+
+  @override
+  String get guidanceToneStandard => 'Standard';
+
+  @override
+  String get guidanceToneExpert => 'Expert';
+
+  @override
+  String get workflowCopilotSubtitleSimple =>
+      'Guided tasks in plain language, step by step.';
+
+  @override
+  String get workflowCopilotSubtitleStandard =>
+      'Guided tasks that walk you through common accounting workflows, step by step.';
+
+  @override
+  String get workflowCopilotSubtitleExpert =>
+      'Concise guided tasks for experienced users.';
+
+  @override
+  String get workflowRecommendationReasonBusinessType =>
+      'Recommended for your business type';
+
+  @override
+  String get workflowRecommendationReasonFrequentlyUsed => 'You use this often';
+
+  @override
+  String get workflowRecommendationReasonSkillLevel =>
+      'Recommended for your skill level';
+
+  @override
+  String get workflowRecommendationReasonDefault => 'Suggested next step';
 }

@@ -8,6 +8,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/app_error_state.dart';
 import '../../../shared/widgets/app_loading_state.dart';
 import '../../../shared/widgets/responsive_page_scaffold.dart';
+import '../../copilot_profile/presentation/copilot_profile_section.dart';
 import '../domain/settings_controller.dart';
 
 class SettingsPage extends ConsumerWidget {
@@ -86,6 +87,9 @@ class SettingsPage extends ConsumerWidget {
                   },
                 ),
               ),
+              const Divider(),
+              const SizedBox(height: 8),
+              const CopilotProfileSection(),
               const Divider(),
               ...settings.entries.map((entry) {
                 return ListTile(

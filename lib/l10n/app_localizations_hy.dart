@@ -2935,4 +2935,109 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get actionCopilotEditedLabel => 'Խմբագրված';
+
+  @override
+  String get copilotProfileSectionTitle => 'Համօդաչուի պրոֆիլ';
+
+  @override
+  String get copilotProfileSectionSubtitle =>
+      'Կարգավորեք համօդաչուի տոնը, աշխատանքային հոսքերի առաջարկները և խորհուրդները ձեր բիզնեսին համապատասխան։';
+
+  @override
+  String get copilotProfileBusinessTypeLabel => 'Բիզնեսի տեսակ';
+
+  @override
+  String get copilotProfileSkillLevelLabel => 'Հմտության մակարդակ';
+
+  @override
+  String get copilotProfileLearningStepsLabel => 'Ավարտված ուսուցման քայլեր';
+
+  @override
+  String get copilotProfileFrequentWorkflowsLabel =>
+      'Հաճախ օգտագործվող աշխատանքային հոսքեր';
+
+  @override
+  String get copilotProfileReset => 'Վերականգնել պրոֆիլը';
+
+  @override
+  String get copilotProfileResetConfirmTitle =>
+      'Վերականգնե՞լ համօդաչուի պրոֆիլը';
+
+  @override
+  String get copilotProfileResetConfirmBody =>
+      'Սա կջնջի ձեր բիզնեսի տեսակը, հմտության մակարդակը, ուսուցման քայլերը և աշխատանքային հոսքերի պատմությունը։ Գործողությունը անշրջելի է։';
+
+  @override
+  String get copilotProfileResetDone => 'Համօդաչուի պրոֆիլը վերականգնված է։';
+
+  @override
+  String get copilotProfileLearningStepsEmpty =>
+      'Դեռ ոչ մեկը — ուսումնասիրեք հասկացությունները՝ պրոֆիլը լրացնելու համար։';
+
+  @override
+  String get copilotProfileFrequentWorkflowsEmpty =>
+      'Դեռ ոչ մեկը — հաճախ օգտագործվող աշխատանքային հոսքերը կհայտնվեն այստեղ։';
+
+  @override
+  String get copilotProfileBusinessGeneral => 'Ընդհանուր';
+
+  @override
+  String get copilotProfileBusinessRetail => 'Մանրածախ';
+
+  @override
+  String get copilotProfileBusinessWholesale => 'Մեծածախ';
+
+  @override
+  String get copilotProfileBusinessServices => 'Ծառայություններ';
+
+  @override
+  String get copilotProfileBusinessManufacturing => 'Արտադրություն';
+
+  @override
+  String get copilotProfileBusinessRestaurant => 'Ռեստորան';
+
+  @override
+  String get copilotProfileSkillBeginner => 'Սկսնակ';
+
+  @override
+  String get copilotProfileSkillIntermediate => 'Միջին';
+
+  @override
+  String get copilotProfileSkillAdvanced => 'Առաջադեմ';
+
+  @override
+  String get guidanceToneSimple => 'Պարզ';
+
+  @override
+  String get guidanceToneStandard => 'Ստանդարտ';
+
+  @override
+  String get guidanceToneExpert => 'Մասնագիտական';
+
+  @override
+  String get workflowCopilotSubtitleSimple =>
+      'Ուղեցույց աշխատանքային հոսքեր պարզ լեզվով, քայլ առ քայլ։';
+
+  @override
+  String get workflowCopilotSubtitleStandard =>
+      'Ուղեցույց աշխատանքային հոսքեր, որոնք քայլ առ քայլ ծանոթացնում են սովորական հաշվապահական գործընթացներին։';
+
+  @override
+  String get workflowCopilotSubtitleExpert =>
+      'Համառոտ ուղեցույց աշխատանքային հոսքեր փորձառու օգտատերերի համար։';
+
+  @override
+  String get workflowRecommendationReasonBusinessType =>
+      'Առաջարկված ձեր բիզնեսի տեսակի համար';
+
+  @override
+  String get workflowRecommendationReasonFrequentlyUsed =>
+      'Հաճախ եք օգտագործում';
+
+  @override
+  String get workflowRecommendationReasonSkillLevel =>
+      'Առաջարկված ձեր հմտության մակարդակի համար';
+
+  @override
+  String get workflowRecommendationReasonDefault => 'Առաջարկվող հաջորդ քայլ';
 }
